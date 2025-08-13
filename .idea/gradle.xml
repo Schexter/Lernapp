@@ -5,6 +5,15 @@
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="corretto-22" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/lernapp-core" />
+            <option value="$PROJECT_DIR$/lernapp-integration" />
+            <option value="$PROJECT_DIR$/lernapp-security" />
+            <option value="$PROJECT_DIR$/lernapp-web" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
