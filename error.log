@@ -1,0 +1,15 @@
+# Error Log - Fachinformatiker Lernapp Java
+
+## Format: [YYYY-MM-DD HH:MM:SS] ERROR: [Beschreibung]
+## Ursache: [Was war die Ursache]
+## Lösung: [Wie wurde es gelöst]
+## Verbesserung: [Was kann man beim nächsten Mal besser machen]
+---
+
+[2025-08-13 14:30:00] INFO: Projekt-Setup gestartet
+Ursache: Migration von TypeScript zu Java
+Lösung: Komplett neues Spring Boot Projekt mit Multi-Module Struktur
+Verbesserung: Struktur von Anfang an richtig planen
+---
+
+*Erstellt von Hans Hahn - Alle Rechte vorbehalten*
