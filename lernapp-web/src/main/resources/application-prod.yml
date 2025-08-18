@@ -56,7 +56,7 @@ logging:
     org.springframework.security: WARN
     org.hibernate.SQL: WARN
   file:
-    name: /var/log/lernapp/lernapp.log
+    name: logs/lernapp.log
     max-size: 50MB
     max-history: 90
 

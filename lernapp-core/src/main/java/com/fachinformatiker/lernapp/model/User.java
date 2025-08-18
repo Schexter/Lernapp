@@ -1,12 +1,11 @@
 package com.fachinformatiker.lernapp.model;
 
+import com.fachinformatiker.lernapp.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -42,6 +41,15 @@ public class User extends BaseEntity {
     @Column(name = "password_hash", nullable = false)
     private String password;
     
+    @Column(name = "active")
+    @Builder.Default
+    private Boolean active = true;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", length = 20)
+    @Builder.Default
+    private UserRole role = UserRole.STUDENT;
+    
     @Column(name = "first_name", length = 100)
     private String firstName;
     
@@ -71,15 +79,16 @@ public class User extends BaseEntity {
     @Builder.Default
     private Integer currentLevel = 1;
     
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "learning_progress", columnDefinition = "jsonb")
+    // H2-kompatibel: CLOB statt JSONB
+    @Lob
+    @Column(name = "learning_progress")
     @Builder.Default
-    private Map<String, Object> learningProgress = new HashMap<>();
+    private String learningProgress = "{}";
     
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "preferences", columnDefinition = "jsonb")
+    @Lob
+    @Column(name = "preferences")
     @Builder.Default
-    private Map<String, Object> preferences = new HashMap<>();
+    private String preferences = "{}";
     
     @Column(name = "last_login_at")
     private LocalDateTime lastLoginAt;
@@ -146,6 +155,14 @@ public class User extends BaseEntity {
         return username;
     }
     
+    public String getPasswordHash() {
+        return password;
+    }
+    
+    public boolean isActive() {
+        return active != null && active;
+    }
+    
     public void addRole(Role role) {
         roles.add(role);
         role.getUsers().add(this);
@@ -159,5 +176,26 @@ public class User extends BaseEntity {
     public boolean hasRole(String roleName) {
         return roles.stream()
             .anyMatch(role -> role.getName().equals(roleName));
+    }
+    
+    // Helper methods für JSON-Handling
+    public Map<String, Object> getLearningProgressAsMap() {
+        // TODO: JSON parsing implementieren
+        return new HashMap<>();
+    }
+    
+    public void setLearningProgressFromMap(Map<String, Object> progressMap) {
+        // TODO: JSON serialization implementieren
+        this.learningProgress = "{}";
+    }
+    
+    public Map<String, Object> getPreferencesAsMap() {
+        // TODO: JSON parsing implementieren
+        return new HashMap<>();
+    }
+    
+    public void setPreferencesFromMap(Map<String, Object> preferencesMap) {
+        // TODO: JSON serialization implementieren
+        this.preferences = "{}";
     }
 }

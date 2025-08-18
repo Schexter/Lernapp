@@ -1,15 +1,17 @@
-# Error Log - Fachinformatiker Lernapp Java
+[2025-08-14 08:43:00] ERROR: Application Startup Failed - JSONB/CTE Repository Problems
+Ursache: 
+1. H2 Database unterstützt PostgreSQL-spezifische JSONB-Typen nicht
+2. Hibernate HQL unterstützt WITH RECURSIVE Common Table Expressions nicht  
+3. Entity-Annotations verwenden @JdbcTypeCode(SqlTypes.JSON) mit "jsonb" columnDefinition
 
-## Format: [YYYY-MM-DD HH:MM:SS] ERROR: [Beschreibung]
-## Ursache: [Was war die Ursache]
-## Lösung: [Wie wurde es gelöst]
-## Verbesserung: [Was kann man beim nächsten Mal besser machen]
+Lösung: 
+1. User.java: JSONB → CLOB/String mit @Lob Annotation
+2. Question.java: JSONB → CLOB/String 
+3. TopicRepository.java: CTE-Queries temporär deaktiviert
+4. Database Migration: V1__Initial_Schema.sql bereits H2-kompatibel
+
+Verbesserung: 
+- Für Production: Profile-spezifische Entity-Konfiguration implementieren
+- JSON-Handler Service für String↔Map Konvertierung
+- Native SQL Queries für rekursive Abfragen in PostgreSQL-Umgebung
 ---
-
-[2025-08-13 14:30:00] INFO: Projekt-Setup gestartet
-Ursache: Migration von TypeScript zu Java
-Lösung: Komplett neues Spring Boot Projekt mit Multi-Module Struktur
-Verbesserung: Struktur von Anfang an richtig planen
----
-
-*Erstellt von Hans Hahn - Alle Rechte vorbehalten*

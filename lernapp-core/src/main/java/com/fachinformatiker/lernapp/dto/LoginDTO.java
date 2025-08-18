@@ -1,34 +1,20 @@
 package com.fachinformatiker.lernapp.dto;
 
-import lombok.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
 /**
- * Login DTO
- * Für Benutzeranmeldung
- * 
- * @author Hans Hahn
+ * DTO für Login-Anfragen
+ * Erstellt von Hans Hahn - Alle Rechte vorbehalten
  */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class LoginDTO {
     
-    @NotBlank(message = "Username or email is required")
-    private String username; // Can be username or email
+    @NotBlank(message = "Username ist erforderlich")
+    private String username;
     
-    @NotBlank(message = "Password is required")
+    @NotBlank(message = "Password ist erforderlich")
     private String password;
     
-    private Boolean rememberMe;
-    
-    // Optional: For two-factor authentication
-    private String totpCode;
-    
-    // Optional: Device information for security
-    private String deviceId;
-    private String deviceName;
-    private String ipAddress;
-    private String userAgent;
+    private boolean rememberMe = false;
 }

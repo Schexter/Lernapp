@@ -40,7 +40,7 @@ public class UserController {
         @ApiResponse(responseCode = "409", description = "Benutzer existiert bereits")
     })
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> registerUser(@Valid @RequestBody UserRegistrationDTO registrationDTO) {
+    public ResponseEntity<UserDTO> registerUser(@Valid @RequestBody RegistrationDTO registrationDTO) {
         log.info("Registering new user: {}", registrationDTO.getUsername());
         try {
             UserDTO createdUser = userService.registerUser(registrationDTO);
@@ -139,7 +139,7 @@ public class UserController {
     @PostMapping("/{id}/change-password")
     public ResponseEntity<Void> changePassword(
             @PathVariable Long id,
-            @Valid @RequestBody PasswordChangeDTO passwordChangeDTO) {
+            @Valid @RequestBody ChangePasswordDTO passwordChangeDTO) {
         log.info("Changing password for user: {}", id);
         try {
             userService.changePassword(id, passwordChangeDTO);

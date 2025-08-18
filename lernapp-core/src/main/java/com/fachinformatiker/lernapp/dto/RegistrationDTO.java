@@ -1,46 +1,34 @@
 package com.fachinformatiker.lernapp.dto;
 
-import lombok.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 /**
- * Registration DTO
- * Für neue Benutzerregistrierung
- * 
- * @author Hans Hahn
+ * DTO für Benutzer-Registrierung
+ * Erstellt von Hans Hahn - Alle Rechte vorbehalten
  */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class RegistrationDTO {
     
-    @NotBlank(message = "Username is required")
-    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
-    @Pattern(regexp = "^[a-zA-Z0-9_]+$", message = "Username can only contain letters, numbers and underscore")
+    @NotBlank(message = "Username ist erforderlich")
+    @Size(min = 3, max = 50, message = "Username muss zwischen 3 und 50 Zeichen lang sein")
     private String username;
     
-    @NotBlank(message = "Email is required")
-    @Email(message = "Email must be valid")
+    @NotBlank(message = "Email ist erforderlich")
+    @Email(message = "Gültige Email-Adresse erforderlich")
     private String email;
     
-    @NotBlank(message = "Password is required")
-    @Size(min = 8, max = 100, message = "Password must be between 8 and 100 characters")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", 
-             message = "Password must contain at least one uppercase letter, one lowercase letter and one number")
+    @NotBlank(message = "Password ist erforderlich")
+    @Size(min = 6, message = "Password muss mindestens 6 Zeichen lang sein")
     private String password;
     
-    @NotBlank(message = "Password confirmation is required")
-    private String passwordConfirmation;
-    
+    @NotBlank(message = "Vorname ist erforderlich")
     private String firstName;
+    
+    @NotBlank(message = "Nachname ist erforderlich")
     private String lastName;
     
-    @AssertTrue(message = "Terms must be accepted")
-    private Boolean acceptTerms;
-    
-    @AssertTrue(message = "Passwords must match")
-    public boolean isPasswordsMatch() {
-        return password != null && password.equals(passwordConfirmation);
-    }
+    private String role = "STUDENT"; // Default Role
 }

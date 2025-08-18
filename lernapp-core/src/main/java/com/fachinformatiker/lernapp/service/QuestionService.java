@@ -129,7 +129,8 @@ public class QuestionService {
         existingQuestion.setExplanation(question.getExplanation());
         existingQuestion.setHint(question.getHint());
         existingQuestion.setReferenceUrl(question.getReferenceUrl());
-        existingQuestion.setMetadata(question.getMetadata());
+        // TODO: Implement metadata handling for String field
+        // existingQuestion.setMetadata(question.getMetadata());
         existingQuestion.setUpdatedAt(LocalDateTime.now());
         
         // Update tags

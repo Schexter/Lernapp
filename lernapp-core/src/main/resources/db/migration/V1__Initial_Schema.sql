@@ -1,10 +1,7 @@
 -- Fachinformatiker Lernapp Database Schema
--- Version: 1.0
+-- Version: 1.0 (H2 Compatible)
 -- Author: Hans Hahn
 -- Date: 2025-08-13
-
--- Enable UUID extension for PostgreSQL (comment out for H2)
--- CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- ========================================
 -- Core User Management Tables
@@ -12,7 +9,7 @@
 
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
@@ -24,8 +21,8 @@ CREATE TABLE IF NOT EXISTS users (
     learning_streak INTEGER DEFAULT 0,
     total_points INTEGER DEFAULT 0,
     current_level INTEGER DEFAULT 1,
-    learning_progress JSONB DEFAULT '{}',
-    preferences JSONB DEFAULT '{}',
+    learning_progress CLOB DEFAULT '{}',
+    preferences CLOB DEFAULT '{}',
     last_login_at TIMESTAMP,
     email_verified BOOLEAN DEFAULT FALSE,
     email_verification_token VARCHAR(255),
@@ -43,7 +40,7 @@ CREATE INDEX IF NOT EXISTS idx_user_active ON users(active);
 
 -- Roles table
 CREATE TABLE IF NOT EXISTS roles (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL,
     description VARCHAR(255),
     active BOOLEAN DEFAULT TRUE,
@@ -56,7 +53,7 @@ CREATE INDEX IF NOT EXISTS idx_role_name ON roles(name);
 
 -- Permissions table
 CREATE TABLE IF NOT EXISTS permissions (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,
     description VARCHAR(255),
     resource VARCHAR(50),
@@ -93,7 +90,7 @@ CREATE TABLE IF NOT EXISTS role_permissions (
 
 -- Topics table (hierarchical)
 CREATE TABLE IF NOT EXISTS topics (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
     icon_url VARCHAR(500),
@@ -115,7 +112,7 @@ CREATE INDEX IF NOT EXISTS idx_topic_active ON topics(active);
 
 -- Questions table
 CREATE TABLE IF NOT EXISTS questions (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     question_text TEXT NOT NULL,
     question_code TEXT,
     image_url VARCHAR(500),
@@ -126,7 +123,7 @@ CREATE TABLE IF NOT EXISTS questions (
     explanation TEXT,
     hint TEXT,
     reference_url VARCHAR(500),
-    metadata JSONB,
+    metadata CLOB,
     topic_id BIGINT NOT NULL,
     created_by BIGINT,
     active BOOLEAN DEFAULT TRUE,
@@ -144,7 +141,7 @@ CREATE INDEX IF NOT EXISTS idx_question_active ON questions(active);
 
 -- Answers table
 CREATE TABLE IF NOT EXISTS answers (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     answer_text TEXT NOT NULL,
     answer_code TEXT,
     image_url VARCHAR(500),
@@ -164,7 +161,7 @@ CREATE INDEX IF NOT EXISTS idx_answer_correct ON answers(is_correct);
 
 -- Tags table
 CREATE TABLE IF NOT EXISTS tags (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL,
     description VARCHAR(255),
     color VARCHAR(7),
@@ -191,7 +188,7 @@ CREATE TABLE IF NOT EXISTS question_tags (
 
 -- User Progress table
 CREATE TABLE IF NOT EXISTS user_progress (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
     question_id BIGINT NOT NULL,
     attempts INTEGER DEFAULT 0,
@@ -220,7 +217,7 @@ CREATE INDEX IF NOT EXISTS idx_progress_confidence ON user_progress(confidence_l
 
 -- Learning Paths table
 CREATE TABLE IF NOT EXISTS learning_paths (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
     short_description VARCHAR(500),
@@ -280,7 +277,7 @@ CREATE TABLE IF NOT EXISTS user_topics (
 
 -- Examination Sessions table
 CREATE TABLE IF NOT EXISTS examination_sessions (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
     session_type VARCHAR(30) DEFAULT 'PRACTICE',
     topic_ids VARCHAR(500),
@@ -293,8 +290,8 @@ CREATE TABLE IF NOT EXISTS examination_sessions (
     started_at TIMESTAMP,
     completed_at TIMESTAMP,
     status VARCHAR(20) DEFAULT 'NOT_STARTED',
-    session_data JSONB,
-    results JSONB,
+    session_data CLOB,
+    results CLOB,
     active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -308,7 +305,7 @@ CREATE INDEX IF NOT EXISTS idx_exam_started ON examination_sessions(started_at);
 
 -- Session Answers table
 CREATE TABLE IF NOT EXISTS session_answers (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     session_id BIGINT NOT NULL,
     question_id BIGINT NOT NULL,
     selected_answer_id BIGINT,

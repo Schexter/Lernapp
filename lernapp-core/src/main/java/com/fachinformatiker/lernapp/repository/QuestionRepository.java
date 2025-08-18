@@ -1,6 +1,7 @@
 package com.fachinformatiker.lernapp.repository;
 
 import com.fachinformatiker.lernapp.model.Question;
+import com.fachinformatiker.lernapp.model.Topic;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -95,4 +96,15 @@ public interface QuestionRepository extends JpaRepository<Question, Long>, JpaSp
     
     @Query("SELECT q FROM Question q WHERE SIZE(q.answers) < 2")
     List<Question> findQuestionsWithInsufficientAnswers();
+    
+    // Method for import duplicate check
+    @Query("SELECT q FROM Question q WHERE q.questionText = :questionText AND q.topic = :topic")
+    Optional<Question> findByQuestionTextAndTopic(@Param("questionText") String questionText, @Param("topic") Topic topic);
+    
+    // Find questions never answered by a user
+    @Query("SELECT q FROM Question q WHERE q.id NOT IN (SELECT up.question.id FROM UserProgress up WHERE up.user.id = :userId)")
+    List<Question> findUnansweredQuestionsByUser(@Param("userId") Long userId);
+    
+    // Find active questions
+    List<Question> findByActive(Boolean active);
 }

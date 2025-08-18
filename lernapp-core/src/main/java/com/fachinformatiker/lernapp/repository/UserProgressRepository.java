@@ -120,4 +120,10 @@ public interface UserProgressRepository extends JpaRepository<UserProgress, Long
     );
     
     void deleteByUserIdAndQuestionId(Long userId, Long questionId);
+    
+    @Query("SELECT up FROM UserProgress up WHERE up.user.id = :userId AND up.nextReview <= :now ORDER BY up.nextReview ASC")
+    List<UserProgress> findOverdueReviews(@Param("userId") Long userId, @Param("now") LocalDateTime now);
+    
+    @Query("SELECT up FROM UserProgress up WHERE up.user.id = :userId AND up.repetitionBox <= :maxBox")
+    List<UserProgress> findByUserIdAndRepetitionBoxLessThanEqual(@Param("userId") Long userId, @Param("maxBox") Integer maxBox);
 }

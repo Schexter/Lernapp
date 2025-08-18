@@ -4,12 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 @Table(name = "questions",
@@ -65,9 +62,11 @@ public class Question extends BaseEntity {
     @Column(name = "reference_url")
     private String referenceUrl;
     
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "metadata", columnDefinition = "jsonb")
-    private Map<String, Object> metadata;
+    // H2-kompatibel: CLOB statt JSONB
+    @Lob
+    @Column(name = "metadata")
+    @Builder.Default
+    private String metadata = "{}";
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", nullable = false)
@@ -96,6 +95,25 @@ public class Question extends BaseEntity {
     @Builder.Default
     private List<Tag> tags = new ArrayList<>();
     
+    // Additional fields for simplified access
+    @Column(name = "answer_a")
+    private String answerA;
+    
+    @Column(name = "answer_b")
+    private String answerB;
+    
+    @Column(name = "answer_c")
+    private String answerC;
+    
+    @Column(name = "answer_d")
+    private String answerD;
+    
+    @Column(name = "correct_answer")
+    private String correctAnswer;
+    
+    @Column(name = "subtopic")
+    private String subtopic;
+    
     public enum QuestionType {
         MULTIPLE_CHOICE,
         SINGLE_CHOICE,
@@ -109,6 +127,30 @@ public class Question extends BaseEntity {
     public void addAnswer(Answer answer) {
         answers.add(answer);
         answer.setQuestion(this);
+    }
+    
+    // Helper method to get correct answer as string
+    public String getCorrectAnswerString() {
+        if (correctAnswer != null) {
+            return correctAnswer;
+        }
+        // Fallback to finding correct answer from Answer entities
+        for (Answer answer : answers) {
+            if (answer.getIsCorrect() != null && answer.getIsCorrect()) {
+                return answer.getAnswerText();
+            }
+        }
+        return null;
+    }
+    
+    // Helper method to get the correct Answer object
+    public Answer getCorrectAnswerObject() {
+        for (Answer answer : answers) {
+            if (answer.getIsCorrect() != null && answer.getIsCorrect()) {
+                return answer;
+            }
+        }
+        return null;
     }
     
     public void removeAnswer(Answer answer) {

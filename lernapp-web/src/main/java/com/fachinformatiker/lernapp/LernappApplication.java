@@ -73,8 +73,13 @@ public class LernappApplication {
                     context.getEnvironment().getProperty("server.port", "8080"));
             
         } catch (Exception e) {
-            log.error("❌ Fehler beim Starten der Anwendung: {}", e.getMessage(), e);
-            System.exit(1);
+            if (e.getClass().getName().contains("SilentExitException")) {
+                // DevTools restart - normal behavior
+                log.debug("DevTools restart triggered");
+            } else {
+                log.error("❌ Fehler beim Starten der Anwendung: {}", e.getMessage(), e);
+                System.exit(1);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface UserServiceFacade {
     
     // User Management
-    UserDTO registerUser(@Valid UserRegistrationDTO registration);
+    UserDTO registerUser(@Valid RegistrationDTO registration);
     Optional<UserDTO> getUserById(Long id);
     Optional<UserDTO> getUserByUsername(String username);
     UserDTO updateUser(Long id, @Valid UserUpdateDTO updateDTO);
@@ -29,7 +29,7 @@ public interface UserServiceFacade {
     // Profile
     UserProfileDTO getUserProfile(Long userId);
     UserProfileDTO updateProfile(Long userId, @Valid UserProfileDTO profile);
-    void changePassword(Long userId, @Valid PasswordChangeDTO passwordChange);
+    void changePassword(Long userId, @Valid ChangePasswordDTO passwordChange);
     
     // User Listing
     Page<UserDTO> getAllUsers(Pageable pageable);
@@ -50,9 +50,13 @@ public interface UserServiceFacade {
     void resendVerificationEmail(Long userId);
     
     // Password Reset
-    void requestPasswordReset(String email);
+    void initiatePasswordReset(String email);
     void resetPassword(@Valid PasswordResetDTO resetDTO);
     
     // Status Management
     UserDTO setUserStatus(Long userId, boolean active);
+    
+    // Validation Helpers
+    boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
 }

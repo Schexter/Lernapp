@@ -2,6 +2,8 @@ package com.fachinformatiker.lernapp.service;
 
 import com.fachinformatiker.lernapp.model.*;
 import com.fachinformatiker.lernapp.repository.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -28,6 +30,7 @@ public class ExaminationService {
     private final UserRepository userRepository;
     private final UserService userService;
     private final LearningService learningService;
+    private final ObjectMapper objectMapper = new ObjectMapper();
     
     public ExaminationSession createSession(
         Long userId,
@@ -70,13 +73,19 @@ public class ExaminationService {
         session.setStatus(ExaminationSession.SessionStatus.NOT_STARTED);
         session.setActive(true);
         
-        // Store question order in session data
+        // Store question order in session data as JSON string
         Map<String, Object> sessionData = new HashMap<>();
         sessionData.put("questionIds", questions.stream()
             .map(Question::getId)
             .collect(Collectors.toList()));
         sessionData.put("currentQuestionIndex", 0);
-        session.setSessionData(sessionData);
+        
+        try {
+            session.setSessionData(objectMapper.writeValueAsString(sessionData));
+        } catch (JsonProcessingException e) {
+            log.error("Error serializing session data", e);
+            session.setSessionData("{}");
+        }
         
         ExaminationSession savedSession = sessionRepository.save(session);
         
@@ -244,7 +253,12 @@ public class ExaminationService {
         
         // Calculate detailed results
         Map<String, Object> results = calculateResults(session);
-        session.setResults(results);
+        try {
+            session.setResults(objectMapper.writeValueAsString(results));
+        } catch (JsonProcessingException e) {
+            log.error("Error serializing results", e);
+            session.setResults("{}");
+        }
         
         // Award points based on performance
         int pointsEarned = calculatePoints(session);
@@ -389,6 +403,25 @@ public class ExaminationService {
         stats.put("highScoreSessions", highScores.size());
         
         return stats;
+    }
+    
+    // Helper methods for JSON parsing
+    public Map<String, Object> parseSessionData(String sessionData) {
+        try {
+            return objectMapper.readValue(sessionData, Map.class);
+        } catch (Exception e) {
+            log.error("Error parsing session data", e);
+            return new HashMap<>();
+        }
+    }
+    
+    public Map<String, Object> parseResults(String results) {
+        try {
+            return objectMapper.readValue(results, Map.class);
+        } catch (Exception e) {
+            log.error("Error parsing results", e);
+            return new HashMap<>();
+        }
     }
     
     // Helper methods

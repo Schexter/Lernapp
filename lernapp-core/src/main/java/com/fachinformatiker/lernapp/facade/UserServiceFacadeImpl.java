@@ -27,7 +27,7 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
     private final UserService userService;
     
     @Override
-    public UserDTO registerUser(@Valid UserRegistrationDTO registration) {
+    public UserDTO registerUser(@Valid RegistrationDTO registration) {
         log.info("STUB: Registering user");
         return UserDTO.builder()
             .id(1L)
@@ -80,8 +80,9 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
     public LoginResponseDTO login(@Valid LoginDTO loginDTO) {
         log.info("STUB: Login for user {}", loginDTO.getUsername());
         return LoginResponseDTO.builder()
-            .token("stub-jwt-token")
+            .accessToken("stub-jwt-token")
             .refreshToken("stub-refresh-token")
+            .tokenType("Bearer")
             .user(UserDTO.builder()
                 .username(loginDTO.getUsername())
                 .build())
@@ -98,8 +99,9 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
     public LoginResponseDTO refreshToken(String refreshToken) {
         log.info("STUB: Refreshing token");
         return LoginResponseDTO.builder()
-            .token("new-stub-token")
+            .accessToken("new-stub-token")
             .refreshToken("new-stub-refresh")
+            .tokenType("Bearer")
             .expiresIn(3600L)
             .build();
     }
@@ -122,7 +124,7 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
     }
     
     @Override
-    public void changePassword(Long userId, @Valid PasswordChangeDTO passwordChange) {
+    public void changePassword(Long userId, @Valid ChangePasswordDTO passwordChange) {
         log.info("STUB: Changing password for user {}", userId);
     }
     
@@ -186,8 +188,8 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
     }
     
     @Override
-    public void requestPasswordReset(String email) {
-        log.info("STUB: Requesting password reset for {}", email);
+    public void initiatePasswordReset(String email) {
+        log.info("STUB: Initiating password reset for {}", email);
     }
     
     @Override
@@ -202,5 +204,17 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
             .id(userId)
             .active(active)
             .build();
+    }
+    
+    @Override
+    public boolean existsByUsername(String username) {
+        log.info("STUB: Checking if username {} exists", username);
+        return false;
+    }
+    
+    @Override
+    public boolean existsByEmail(String email) {
+        log.info("STUB: Checking if email {} exists", email);
+        return false;
     }
 }

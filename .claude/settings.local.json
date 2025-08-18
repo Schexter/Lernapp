@@ -2,9 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(mkdir:*)",
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Bash(./gradlew:*)",
+      "Bash(export:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\lernapp-core\\src\\main\\resources\\db\\migration\\V2__Initial_Data.sql\")",
+      "Bash(rm:*)",
+      "Bash(ss:*)",
+      "Bash(curl:*)",
+      "Bash(taskkill:*)",
+      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\lernapp-web\\src\\main\\java\\com\\fachinformatiker\\lernapp\\config\\DataInitializer.java\")"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "/usr/lib"
+    ]
   }
 }

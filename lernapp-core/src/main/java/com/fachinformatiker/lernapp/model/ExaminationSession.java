@@ -3,14 +3,11 @@ package com.fachinformatiker.lernapp.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 @Table(name = "examination_sessions",
@@ -75,13 +72,16 @@ public class ExaminationSession extends BaseEntity {
     @Builder.Default
     private SessionStatus status = SessionStatus.NOT_STARTED;
     
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "session_data", columnDefinition = "jsonb")
-    private Map<String, Object> sessionData;
+    // H2-kompatibel: CLOB statt JSONB
+    @Lob
+    @Column(name = "session_data")
+    @Builder.Default
+    private String sessionData = "{}";
     
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "results", columnDefinition = "jsonb")
-    private Map<String, Object> results;
+    @Lob
+    @Column(name = "results")
+    @Builder.Default
+    private String results = "{}";
     
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("answeredAt ASC")

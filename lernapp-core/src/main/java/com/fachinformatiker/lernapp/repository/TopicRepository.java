@@ -43,22 +43,6 @@ public interface TopicRepository extends JpaRepository<Topic, Long> {
     @Query("SELECT t FROM Topic t WHERE t.difficultyLevel BETWEEN :minLevel AND :maxLevel")
     List<Topic> findByDifficultyRange(@Param("minLevel") Integer minLevel, @Param("maxLevel") Integer maxLevel);
     
-    @Query("WITH RECURSIVE topic_tree AS (" +
-           "  SELECT * FROM topics WHERE id = :topicId " +
-           "  UNION ALL " +
-           "  SELECT t.* FROM topics t " +
-           "  INNER JOIN topic_tree tt ON t.parent_id = tt.id" +
-           ") SELECT * FROM topic_tree")
-    List<Topic> findAllChildrenRecursive(@Param("topicId") Long topicId);
-    
-    @Query("WITH RECURSIVE topic_tree AS (" +
-           "  SELECT * FROM topics WHERE id = :topicId " +
-           "  UNION ALL " +
-           "  SELECT t.* FROM topics t " +
-           "  INNER JOIN topic_tree tt ON t.id = tt.parent_id" +
-           ") SELECT * FROM topic_tree WHERE id != :topicId")
-    List<Topic> findAllParentsRecursive(@Param("topicId") Long topicId);
-    
     @Query("SELECT t FROM Topic t JOIN t.learningPaths lp WHERE lp.id = :pathId ORDER BY t.sortOrder")
     List<Topic> findByLearningPathId(@Param("pathId") Long pathId);
     

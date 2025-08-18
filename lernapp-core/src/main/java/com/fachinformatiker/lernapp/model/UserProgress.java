@@ -48,6 +48,10 @@ public class UserProgress extends BaseEntity {
     @Column(name = "next_review")
     private LocalDateTime nextReview;
     
+    @Column(name = "repetition_box")
+    @Builder.Default
+    private Integer repetitionBox = 1;
+    
     @Column(name = "confidence_level", precision = 5, scale = 2)
     @Builder.Default
     private BigDecimal confidenceLevel = BigDecimal.ZERO;
