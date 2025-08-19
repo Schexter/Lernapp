@@ -1,0 +1,45 @@
+===============================================
+ANLEITUNG: Git Push zu GitHub
+===============================================
+
+Sie haben 3 Optionen, um Ihr Projekt zu GitHub zu pushen:
+
+OPTION 1: Personal Access Token (Empfohlen)
+--------------------------------------------
+1. Führen Sie aus: setup_github_auth.bat
+2. Erstellen Sie einen Token auf GitHub: https://github.com/settings/tokens
+3. Fügen Sie den Token ein, wenn danach gefragt wird
+4. Der Push erfolgt automatisch
+
+OPTION 2: Git Credential Manager (Windows)
+--------------------------------------------
+1. Führen Sie aus: git_push_secure.bat
+2. Geben Sie Ihren GitHub-Benutzernamen ein
+3. Als Passwort verwenden Sie einen Personal Access Token (NICHT Ihr Passwort!)
+4. Die Credentials werden für zukünftige Pushes gespeichert
+
+OPTION 3: SSH-Key
+--------------------------------------------
+1. Führen Sie aus: setup_ssh_github.bat
+2. Kopieren Sie den angezeigten SSH-Key
+3. Fügen Sie ihn auf GitHub hinzu: https://github.com/settings/keys
+4. Der Push erfolgt dann automatisch via SSH
+
+MANUELLE METHODE (Schnelllösung):
+--------------------------------------------
+Öffnen Sie Git Bash und führen Sie aus:
+
+git push https://IHR_GITHUB_USERNAME:IHR_PERSONAL_ACCESS_TOKEN@github.com/Schexter/Lernapp.git main
+
+Ersetzen Sie:
+- IHR_GITHUB_USERNAME mit Ihrem GitHub-Benutzernamen
+- IHR_PERSONAL_ACCESS_TOKEN mit einem Token von https://github.com/settings/tokens
+
+STATUS:
+-------
+✅ Alle Änderungen sind committed
+✅ Branch: main
+✅ 1 Commit bereit zum Push
+✅ Commit-Message: "Phase 2: Authentication System implementiert + 171 AP1 Fragen + JPG Analyse"
+
+Die Arbeit ist lokal gesichert. Der Push zu GitHub steht noch aus.
