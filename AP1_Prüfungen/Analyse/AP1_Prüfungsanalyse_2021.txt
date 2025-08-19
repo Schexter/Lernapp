@@ -1,0 +1,994 @@
+# FACHINFORMATIKER AP1 PRÜFUNG 2021 - THEMATISCHE ANALYSE
+# Erstellt am: 19.08.2025
+# Quelle: ZPA IT FI - Zwischenprüfungsaufgaben für Fachinformatiker
+
+================================================================================
+GESAMTÜBERSICHT DER PRÜFUNG
+================================================================================
+
+Prüfungstyp: Zwischenprüfung Fachinformatiker (AP1)
+Jahr: 2021
+Gesamtseitenanzahl: 18 Seiten
+Aufgabenbereiche: 4 Hauptbereiche
+Total Fragen: 45+ Einzelfragen
+
+================================================================================
+AUFGABE 4: PFLICHTUNTERWEISUNG & SICHERHEIT (Seite 19)
+================================================================================
+
+Themenbereich: Arbeitsschutz und Sicherheitsunterweisung
+
+AUFGABE 4.7 - Elektrische Sicherheit
+Fragestellung: "Welche der folgenden Aussagen über die Wirkung von elektrischem Strom auf den menschlichen Körper ist richtig?"
+Themen:
+- Wirkung elektrischen Stroms auf den menschlichen Körper
+- Gesundheitsgefahren durch Elektrizität
+- Schutzmaßnahmen bei elektrischen Anlagen
+- Erste Hilfe bei Elektrounfällen
+
+Antwortoptionen:
+1. Erhöhung des Augeninnendrucks zur Erblindung
+2. Herz-Kreislauf-kritisches Vorhofflimmern
+3. Störung innerer Organe
+4. Muskelverkrampfung ab 1 Ampere
+5. Gesundheitsbeeinträchtigung von Erwachsenen vs. Kindern
+
+AUFGABE 4.8 - Brandschutz und Sicherheitszeichen
+Fragestellung: "Ordnen Sie den nachstehenden Zeichen die folgenden Bedeutungen zu"
+Themen:
+- Brandschutzzeichen und ihre Bedeutungen
+- Sicherheitssymbole im Arbeitsumfeld
+- Notfallverhalten bei Bränden
+- Präventionsmaßnahmen
+
+Brandschutzzeichen:
+1. Öffnung durch Linksdrehung
+2. Aufzug im Brandfall nicht benutzen
+3. Lautstärkeregler für Sirene
+4. Rauchverbot
+5. Scheibe einschlagen für Notausgangsvorrichtung
+6. Brandmelder
+7. Auslöser für Sprinkleranlage
+
+AUFGABE 4.9 - Nachhaltigkeitszertifizierung
+Fragestellung: "Welches der folgenden Prüfsiegel zertifiziert Nachhaltigkeit über den gesamten Produktlebenszyklus?"
+Themen:
+- Umweltschutz und Nachhaltigkeit in der IT
+- Zertifizierungsstandards
+- Produktlebenszyklus-Management
+- Umweltbewusstes Wirtschaften
+
+Prüfsiegel:
+1. TCO Certified
+2. BIO (EG-Öko-Verordnung)
+3. TÜV NORD (DIN ISO 29991)
+4. Durchgestrichene Mülltonne
+5. CO2-Symbol
+
+================================================================================
+AUFGABE 1: GESCHÄFTSPROZESSE & ORGANISATION (Seiten 2-5)
+================================================================================
+
+Unternehmensszenario: AllRound GmbH (Systemhaus für Hardware, Software und Dienstleistungen)
+
+AUFGABE 1.1 - Materialwirtschaft und Werkstoffe
+Fragestellung: "Ordnen Sie die folgenden Werkstoffarten den nachstehenden Beispielen zu"
+Themen:
+- Computerbau und Materialien
+- Werkstoffkunde in der IT
+- Herstellungsprozesse von IT-Hardware
+
+Werkstoffarten:
+1. Halbleiter (Silizium für CPU)
+2. Metalle (Aluminium für Prozessorkühler)
+3. Polymere (Kunststoff für Leitungsisolierung)
+4. Naturstoffe (Edelstahlschrauben, Grafit für Wärmeleitung)
+
+AUFGABE 1.2 - Marktformen und Wettbewerb
+Fragestellung: "Welche der folgenden Marktformen trifft auf den beschriebenen Energiemarkt zu?"
+Themen:
+- Marktstrukturen und Wettbewerbsformen
+- Energiemarkt in Deutschland
+- Wirtschaftliche Marktmechanismen
+
+Marktformen:
+1. Angebotsoligopol
+2. Monopol
+3. Nachfrageoligopol
+4. Polypol
+5. Monopson
+
+AUFGABE 1.3 - Kundenverhalten und Zahlungskonditionen
+Fragestellung: "Welche der folgenden Verhaltensweisen ihrer Kunden wirkt sich positiv auf den Zufluss von Geldmitteln bei der AllRound GmbH aus?"
+Themen:
+- Cash-Flow-Management
+- Kundenzahlungsverhalten
+- Liquiditätsplanung
+- Forderungsmanagement
+
+Verhaltensweisen:
+1. Reaktionszeit unter 12 Stunden ohne Aufpreis
+2. Ersatzteile mit unkalkulierbaren Beschaffungskosten
+3. Insourcing und eigene IT-Wartung
+4. Einkaufsgemeinschaften
+5. Pünktliche Rechnungsbegleichung
+
+AUFGABE 1.4 - Aufbauorganisation
+Fragestellung: "Welche der folgenden Aussagen trifft auf eine Aufbauorganisation zu?"
+Themen:
+- Organisationsstrukturen
+- Unternehmenshierarchien
+- Stellengestaltung
+- Betriebliche Organisation
+
+Organisationsformen:
+1. Stellenbildung durch Aufgabenzuordnung
+2. Matrixorganisation von Kapitalgesellschaften
+3. Linienstellen ohne Querschnittsfunktionen
+4. Stabsstellen-Ableitung
+5. Betriebsrat als Abteilungsführung
+
+AUFGABE 1.5 - Stellenbesetzung und Personalmanagement
+Fragestellung: "Welche der folgenden Aussagen trifft auf Stellen im Allgemeinen zu?"
+Themen:
+- Personalwesen und Stellenplanung
+- Berufsbildungsrecht
+- Organisationsentwicklung
+- Kompetenzmanagement
+
+Stellenmerkmale:
+1. Berufsbildungsgesetz-konforme Besetzung
+2. Personenabhängige vs. stellenbezogene Bildung
+3. Leitungsfunktionen und Kompetenzen
+4. Querverbindungen in Organigrammen
+5. Mehrfachtätigkeiten in Stellenbeschreibungen
+
+AUFGABE 1.6 - Konsumentenverhalten und Einflussfaktoren
+Fragestellung: "Welcher der folgenden Einflussfaktoren gehört zur Gruppe der 'sozialen Faktoren' bei den Konsumenten?"
+Themen:
+- Marketing und Konsumentenpsychologie
+- Soziale Einflüsse auf Kaufentscheidungen
+- Zielgruppenanalyse
+
+Einflussfaktoren:
+1. Alter
+2. Einkommen
+3. Beruf
+4. Überzeugungen/Ideale
+5. Familie
+
+AUFGABE 1.7 - Preisstrategien
+Fragestellung: "Welche der folgenden Aussagen trifft auf die 'Abschöpfungsstrategie' zu?"
+Themen:
+- Pricing-Strategien
+- Markteinführungsstrategien
+- Preispolitik
+- Wettbewerbsstrategien
+
+Strategieoptionen:
+1. Hoher Einstiegspreis mit schrittweiser Senkung
+2. Preisabsprachen zur Gewinnmaximierung
+3. Marktführer-Preisunterbietung
+4. Niedrigpreispolitik gegen Konkurrenz
+5. Dauerhaft hohes Preisniveau
+
+================================================================================
+AUFGABE 1: PROJEKTMANAGEMENT & NETZPLANTECHNIK (Seiten 4-5)
+================================================================================
+
+AUFGABE 1.8 - Netzplantechnik
+Fragestellung: "Ordnen Sie die folgenden Fachbegriffe der jeweiligen Beschreibung zu"
+Themen:
+- Projektplanung und -überwachung
+- Zeitmanagement in Projekten
+- Kritischer Pfad
+- Projektorganisation
+
+Fachbegriffe:
+a) Freier Puffer
+b) Unabhängiger Puffer  
+c) Kritischer Pfad
+d) Gesamtpuffer
+
+Beschreibungen:
+1. Maximale Verschiebung ohne Gefährdung nachfolgender Vorgänge
+2. Zeitraum ohne Projektende-Gefährdung
+3. Vorgänge mit Gesamtpuffer Null
+4. Zeitraum ohne Gefährdung nachfolgender Vorgänge
+
+AUFGABE 1.9 - Unterstützungsprozesse
+Fragestellung: "Welcher der folgenden Begriffe beschreibt keinen Unterstützungsprozess?"
+Themen:
+- Geschäftsprozessmanagement
+- Prozessklassifizierung
+- Wertschöpfungsketten
+- Betriebliche Funktionen
+
+Prozessarten:
+1. Personalwesen
+2. Buchhaltung
+3. Vertrieb (= Hauptprozess)
+4. Instandhaltung
+5. Gebäudereinigung
+
+AUFGABE 1.10 - Gantt-Diagramme
+Fragestellung: "Welche der folgenden Aussagen treffen auf ein Gantt-Diagramm zu?"
+Themen:
+- Projektvisualisierung
+- Zeitplandarstellung
+- Projektcontrolling
+- Planungstools
+
+Gantt-Merkmale:
+1. Teilprojekt-Formulierung und Handlungskreislauf
+2. Zentrales Projektziel im Mittelpunkt
+3. Arbeitspakete mit Namen, Start, Dauer, Ende
+4. Anordnungsbeziehungen zwischen Arbeitspaketen
+5. Rot markierte Anmerkungen
+6. Alphabetische Teilaufgaben-Anzeige
+
+AUFGABE 1.11 - Ergonomie am Arbeitsplatz
+Fragestellung: "Bei welcher der folgenden Aussagen sind ergonomische Grundsätze verletzt?"
+Themen:
+- Arbeitsplatzgestaltung
+- Gesundheitsschutz
+- Ergonomische Standards
+- Präventionsmaßnahmen
+
+Ergonomie-Grundsätze:
+1. 90-Grad-Beinhaltung bei Sitzposition
+2. Schreibtisch- und Bürostuhl-Höhenverstellbarkeit
+3. 80cm Tiefe für Ablageflächen
+4. Ausreichende Bildschirmbeleuchtung
+5. Lichteinfall von hinten auf Arbeitsplatz
+
+AUFGABE 1.12 - Teambildung und Teamentwicklung
+Fragestellung: "Ordnen Sie den folgenden Phasen der Teambildung die nachstehenden Phasenbeschreibungen zu"
+Themen:
+- Teamdynamik
+- Organisationsentwicklung
+- Gruppenpsychologie
+- Projektteam-Management
+
+Teambildungsphasen:
+1. Forming
+2. Norming
+3. Storming
+4. Performing
+
+Phasenbeschreibungen:
+a) Gegenseitiges Abtasten und Verhaltensmuster-Austesten
+b) Konflikte und emotionale Ablehnung
+c) Kennenlernphase, Rollenakzeptanz, konstruktive Konfliktaustragung
+d) Energiefokussierung auf Projektziele
+
+AUFGABE 1.13 - Kick-off-Meetings
+Fragestellung: "Welcher der folgenden Tagesordnungspunkte passt zu einem Kick-off-Meeting?"
+Themen:
+- Projektinitiierung
+- Meeting-Management
+- Projektorganisation
+- Stakeholder-Management
+
+Tagesordnungspunkte:
+1. Nachkalkulation des Auftrags
+2. Suche nach Folgeaufträgen
+3. Festlegung von Umsetzungsdetails
+4. Verteilung von Aufgaben
+5. Schwachstellen im Kundenvertrag
+
+================================================================================
+AUFGABE 2: IT-SYSTEMTECHNIK & HARDWARE (Seiten 5-8)
+================================================================================
+
+Unternehmensszenario: Fröhlich KG - IT-Schulungsraum-Ausstattung
+
+AUFGABE 2.1 - Software-Beschaffung (Buy vs. Make)
+Fragestellung: "Prüfen Sie, welches der folgenden Argumente falsch ist"
+Themen:
+- Software-Beschaffungsstrategien
+- Eigenentwicklung vs. Standardsoftware
+- Make-or-Buy-Entscheidungen
+- IT-Projektmanagement
+
+Argumente für/gegen Standardsoftware:
+1. Sofortige Verfügbarkeit vs. Eigenentwicklungszeit
+2. Programmierer-Erfahrung als Qualitätsfaktor
+3. Schnittstellen-Kompatibilität mit DV-Systemen
+4. Anpassung bestimmter Anwendungen bei unzureichendem Personal
+5. Kostengünstigkeit vs. Eigenentwicklung
+
+AUFGABE 2.2 - Energiekostenberechnung
+Fragestellung: "Ermitteln Sie die jährlichen Energiekosteneinsparungen für den Raum in EUR"
+Themen:
+- Energieeffizienz in der IT
+- Kostenberechnung und TCO
+- Stromverbrauchsanalyse
+- Wirtschaftlichkeitsrechnung
+
+Berechnungsparameter:
+- 20 neue Schulungs-PCs
+- Stromaufnahme: 325 mA bei 230V (neue) vs. 30% höher (alte)
+- Betriebszeit: 200 Tage/Jahr, 8h/Tag
+- Strompreis: 27 ct/kWh
+- Ergebnis: Kosteneinsparung berechnen
+
+AUFGABE 2.3 - Druckerkosten-Vergleich
+Fragestellung: "Ermitteln Sie nach der Berechnung der Gesamtkosten anschließend die Differenz zwischen den beiden Varianten"
+Themen:
+- Total Cost of Ownership (TCO)
+- Investitionsrechnung
+- Betriebskostenanalyse
+- Beschaffungsentscheidungen
+
+Kostenvergleich zweier Druckervarianten:
+Variante A vs. Variante B:
+- Anschaffungspreise: 790€ vs. 750€
+- Druckkosten S/W: 5ct vs. 6ct
+- Druckkosten Farbe: 20ct vs. 22ct
+- Wartungskosten: 70€ vs. 50€
+- Energieverbrauch: 20kWh vs. 10kWh
+- Druckvolumen: 10.000 S/W + 2.000 Farb-Seiten/Jahr
+
+AUFGABE 2.4 - Cache-Funktionen
+Fragestellung: "Welche der folgenden Argumente beschreiben die richtige Funktion des Cache in einem PC-System?"
+Themen:
+- Computertechnik und Speicherhierarchie
+- Prozessor-Cache-Systeme
+- Leistungsoptimierung
+- Hardware-Architektur
+
+Cache-Funktionen:
+1. Zwischenspeicher für häufig benötigte Befehle/Daten
+2. Richtigkeit der Ergebnisse nach Rechenoperationen
+3. Dekodierung und direkte CPU-Bereitstellung
+4. Zwischenspeicher für selten genutzte Instruktionen
+5. CPU-Instruktionen vs. RAM-Speicher
+6. Verzögerungen in Datenübertragung und CPU-Auslastung
+
+AUFGABE 2.5 - Übertragungsstandards
+Fragestellung: "Welcher der folgenden Übertragungsstandards ist dazu geeignet?"
+Themen:
+- Audio-/Video-Übertragungstechnik
+- Digitale Schnittstellen
+- Multimedia-Standards
+- Hardware-Konnektivität
+
+Beamer-Installation mit Standards:
+1. RGB
+2. DVI
+3. HDMI
+4. S-Video
+5. Video-BNC
+
+AUFGABE 2.6 - Speicherberechnung für Überwachungskameras
+Fragestellung: "Ermitteln Sie den Speicherplatz in GiB, den die Überwachungsbilder eines Tages auf dem NAS belegen"
+Themen:
+- Speichertechnik und Kapazitätsplanung
+- Netzwerkspeicher (NAS)
+- Überwachungssysteme
+- Datenmengen-Berechnung
+
+Berechnungsparameter:
+- 2 Überwachungskameras
+- 1 Bild pro Sekunde pro Kamera
+- 48 kiB pro Bild
+- 8 Stunden Betrieb pro Tag
+- Speicherbedarf pro Tag berechnen
+
+AUFGABE 2.7 - Partitionierung von Festplatten
+Fragestellung: "Welcher der folgenden Vorteile ergibt sich dadurch im Vergleich zu einer einzelnen Partition auf dem Datenträger?"
+Themen:
+- Festplatten-Management
+- Partitionierungsstrategien
+- Systemadministration
+- Datensicherheit
+
+Partitionierungs-Vorteile:
+1. Schnellerer Datenzugriff auf kleinere Partitionen
+2. Schadprogramm-Schutz durch Partitionierung
+3. Erhöhung verfügbarer Speicherkapazität
+4. Schutz bei Partition-Fehlern (Datenerhaltung)
+5. Multi-Boot-System-Erweiterung
+
+AUFGABE 2.8 - Betriebssystem-Funktionen
+Fragestellung: "Welche der folgenden Aufgaben erfüllt das Betriebssystem in einem IT-System?"
+Themen:
+- Betriebssysteme und ihre Funktionen
+- Systemsoftware
+- Hardware-Software-Schnittstelle
+- Systemadministration
+
+Betriebssystem-Aufgaben:
+1. Geschäftsprozess-Information
+2. Notwendige Programme für IT-System-Nutzer
+3. Schnittstelle zwischen Systemkomponenten und Anwendungen
+4. Systemressourcen-Verwaltung (Arbeitsspeicher, Ein-/Ausgabegeräte)
+5. Selbstständige Programme für Arbeitsaufwand-Minimierung
+6. Produktivitäts-Optimierung für Anwender
+
+AUFGABE 2.9 - Software-Lizenzarten
+Fragestellung: "Ordnen Sie die folgenden Fachbegriffe den nachstehenden Beschreibungen zu"
+Themen:
+- Software-Lizenzierung
+- Urheberrecht und Nutzungsrechte
+- Open Source vs. proprietäre Software
+- IT-Compliance
+
+Fachbegriffe:
+1. Shareware
+2. Freeware
+3. Open Source Software
+4. Lizenzsoftware
+
+Beschreibungen:
+a) Quelltext zugänglich
+b) Testweise vor Kauf verfügbar
+c) Kostenlose Nutzung vom Urheber
+d) Dauerhafte Verwendung nur nach Nutzungsrechts-Erwerb
+
+================================================================================
+AUFGABE 2: SYSTEMADMINISTRATION & PROGRAMMIERUNG (Seiten 8-12)
+================================================================================
+
+AUFGABE 2.10 - Software-Kategorisierung
+Fragestellung: "Um welche der folgenden Softwarearten handelt es sich?"
+Themen:
+- Software-Klassifizierung
+- Planungssoftware
+- Stundenplan-Management
+- Anwendungssoftware-Kategorien
+
+Softwarearten:
+1. Systemsoftware
+2. Datenbankverwaltungssoftware
+3. ERP-Software
+4. Branchensoftware
+5. Expertensystem
+
+AUFGABE 2.11 - Schnittstellen-Standards
+Fragestellung: "Welche der folgenden Schnittstellen kommt dafür in Betracht?"
+Themen:
+- Hardware-Schnittstellen
+- Datenübertragungsstandards
+- Systemintegration
+- Kompatibilität
+
+Schnittstellen:
+1. RS-232
+2. ODBC
+3. IEEE-1394
+4. USB 3.0
+5. PCIe
+
+AUFGABE 2.12 - Software-Ergonomie
+Fragestellung: "Welche der folgenden Eigenschaften haben keinen Einfluss auf die Softwareergonomie?"
+Themen:
+- Benutzerfreundlichkeit
+- User Interface Design
+- Software-Qualität
+- Ergonomische Software-Gestaltung
+
+Eigenschaften ohne Ergonomie-Einfluss:
+1. Wartbarkeit
+2. Zuverlässigkeit
+3. Aufgabenangemessenheit
+4. Korrektheit
+5. Geringe Kosten
+6. Robustheit
+
+AUFGABE 2.13 - Datentypen und Variablen
+Fragestellung: "Ordnen Sie die folgenden Datentypen den geeigneten Variablen zu"
+Themen:
+- Programmierung und Datenstrukturen
+- Variablen-Definition
+- Datentyp-Zuordnung
+- Software-Entwicklung
+
+Datentypen:
+1. Char
+2. String
+3. Boolean
+4. Struct
+5. Integer
+6. Float
+
+Variablen:
+a) Dateiname im Format 8.3
+b) Einzelnes Dateirecht im Format r,w,x
+c) Dateigröße in Byte
+d) Name des Dateieigentümers
+
+AUFGABE 2.14 - Programmablaufplan-Elemente
+Fragestellung: "Ordnen Sie die folgenden Elemente eines Programmablaufplans den nachstehenden Beschreibungen zu"
+Themen:
+- Programmierung und Algorithmen
+- Grafische Darstellungstechniken
+- Strukturierte Programmierung
+- Flussdiagramm-Elemente
+
+Elemente:
+a) Raute (Entscheidung)
+b) Rechteck (Operation)
+c) Geteiltes Rechteck (Verzweigung)
+d) Parallelogramm (Ein-/Ausgabe)
+
+Beschreibungen:
+1. Operation
+2. Unterprogramm
+3. Verzweigung
+4. Ein-/Ausgabe
+
+AUFGABE 2.15 - Programmlogik und Nassi-Shneiderman-Diagramm
+Fragestellung: "Entscheiden Sie, welche der folgenden Bedingungen eine korrekte Lösung des Problems darstellt"
+Themen:
+- Programmlogik und Algorithmus-Design
+- Strukturgramme
+- Logfile-Verwaltung
+- Bedingte Anweisungen
+
+Programm: logfile_delete() für Log-Dateien älter als 2 Monate
+Variablen:
+- F_Monat, F_Jahr (Datei-Zeitstempel)
+- A_Monat, A_Jahr (aktueller Zeitstempel)
+
+Bedingungen:
+1. ((F_Jahr <= A_Jahr) AND (F_Monat <= (A_Monat + 10)))
+2. ((F_Jahr < A_Jahr) AND (F_Monat < (A_Monat + 10)))
+3. ((F_Jahr < A_Jahr) OR (F_Monat < (A_Monat + 10)))
+4. ((F_Jahr > A_Jahr) AND (F_Monat > (A_Monat + 10)))
+5. ((F_Jahr > A_Jahr) OR (F_Monat > (A_Monat + 10)))
+
+AUFGABE 2.16 - Programmierfehler-Kategorien
+Fragestellung: "Welchen der folgenden Fehler müssen Sie selbst finden, weil er logischer Art ist?"
+Themen:
+- Software-Testing und Debugging
+- Fehlerarten in der Programmierung
+- Code-Qualität
+- Fehlerbehebung
+
+Fehlerarten:
+1. Variable wurde nicht vereinbart
+2. Nicht erfüllbare Abbruchbedingung (Endlosschleife)
+3. Verwendeter Datentyp nicht definiert
+4. Arithmetischer Ausdruck ohne schließende Klammer
+5. Unzulässiges Zeichen in Variablennamen
+
+AUFGABE 2.17 - Integrierte Entwicklungsumgebung (IDE)
+Fragestellung: "Welche der folgenden Begriffe stellen üblicherweise Bestandteile einer Softwareentwicklungsumgebung dar?"
+Themen:
+- Software-Entwicklungstools
+- IDE-Komponenten
+- Programmier-Workflow
+- Entwicklungsumgebung
+
+IDE-Bestandteile:
+1. Syntax-Highlighting
+2. Grafik-Renderer
+3. Optische Zeichenerkennung
+4. Treiber
+5. Compiler
+6. Hypervisor
+
+AUFGABE 2.18 - RAID-Systeme und Paritätsberechnung
+Fragestellung: "Ermitteln Sie das Ergebnis, das auf die Paritätsplatte geschrieben wird"
+Themen:
+- Datenspeicherung und RAID-Technologie
+- XOR-Verknüpfung (Exklusiv-ODER)
+- Datenredundanz und Fehlerkorrektur
+- Paritätsbit-Berechnung
+
+RAID-System mit XOR-Verknüpfung:
+- HDD1: 01101001
+- HDD2: 11010110
+- HDD3: 10011010
+- HDD4: Paritätsbyte (zu berechnen)
+
+AUFGABE 2.19 - Analog-Digital-Wandlung
+Fragestellung: "Welche der folgenden Aussagen trifft auf die Grafik zu?"
+Themen:
+- Signalverarbeitung
+- Digitalisierung analoger Signale
+- Abtastung und Quantisierung
+- A/D-Wandlung
+
+Grafik-Analyse: Umwandlung analoger (blauer) zu digitaler (roter) Signale
+Quantisierungsstufen: 0001 bis 1111 (4-Bit-System)
+
+Aussagen:
+1. Hohe Rechenleistung für beliebige Quantisierungsstufen
+2. Digitales Signal genauer als analoges
+3. Quantisierungsstufen aus verfügbaren Bits
+4. Direkte Wiedergabe digitalisierter Sprache/Musik
+5. Hexadezimale Codierung quantisierter Signale
+
+AUFGABE 2.20 - Systemdokumentation
+Fragestellung: "Welche der folgenden Aussagen trifft auf die Systemdokumentation eines Anwendungssystems zu?"
+Themen:
+- Software-Dokumentation
+- Systemdokumentation-Standards
+- IT-Projektdokumentation
+- Wartung und Support
+
+Systemdokumentation dient:
+1. Anwender-Verwendung des Systems
+2. Projekttagebuch mit Projektphasen-Ergebnissen
+3. Wartung und Weiterentwicklung der Anwendung
+4. Genaue Beschreibung geplanter Kundenanforderungen-Umsetzung
+5. Steuerung und Kontrolle des Softwareprojekts
+
+================================================================================
+AUFGABE 3: WEBENTWICKLUNG & OBJEKTORIENTIERTE PROGRAMMIERUNG (Seiten 13-16)
+================================================================================
+
+Unternehmensszenario: IT-SoftServ GmbH - Fuhrparkverwaltungssystem
+
+AUFGABE 3.1 - Programmiersprachen-Kombinationen
+Fragestellung: "Welche der folgenden Kombinationen von Programmiersprachen ist für diese Anwendung geeignet?"
+Themen:
+- Webentwicklung und Client-Server-Architektur
+- Programmiersprachen für Webanwendungen
+- Frontend- und Backend-Entwicklung
+- Browser-basierte Anwendungen
+
+Programmiersprachen-Kombinationen:
+1. Arbeitsplatz C++, Server C#
+2. Arbeitsplatz C++, Server JavaScript
+3. Arbeitsplatz Java, Server JavaScript
+4. Arbeitsplatz JavaScript, Server PHP
+5. Arbeitsplatz und Server Assembler
+
+AUFGABE 3.2 - Objektorientierte Programmierung
+Fragestellung: "Welche der folgenden Vorgehensweisen ist dazu geeignet?"
+Themen:
+- OOP-Konzepte und -Prinzipien
+- Klassenhierarchien
+- Vererbung und Polymorphismus
+- Objektdesign
+
+Fuhrpark mit Personengruppen: "Kundenbetreuer", "Techniker", "Projektleiter"
+
+Vorgehensweisen:
+1. Methoden der Klasse "Mitarbeiter"
+2. Prozeduren im Modul "Techniker"
+3. Abgeleitete Klassen der Klasse "Mitarbeiter"
+4. Übergeordnete Klassen der Klasse "Mitarbeiter"
+5. Funktionen der Klasse "Mitarbeiter"
+
+AUFGABE 3.3 - Programmlogik und Strukturogramm-Korrektur
+Fragestellung: "Welcher der folgenden Korrekturvorschläge behebt den Fehler im Struktogramm?"
+Themen:
+- Algorithmus-Korrektur
+- Strukturierte Programmierung
+- Programmlogik-Analyse
+- Debugging von Strukturgrammen
+
+Fuhrpark-Geschäftsleitung: Tagesumsatz-Berechnung mit Rabatten
+- Neukundenberechtigung: 25% Rabatt
+- Fehlerhafte Logik im Strukturogramm
+
+Korrekturvorschläge:
+1. Variablen mit 1 statt 0 initialisieren
+2. Kopfgesteuerte durch fußgesteuerte Schleife ersetzen
+3. IF-THEN-ELSE durch "Nein"-Zweig mit ELSE tauschen
+4. "Anzahl_Rabatte"-Variable zu "ja"-Zweig der Verzweigung
+5. Letzte Ausgabe-Berechnung korrigieren
+
+AUFGABE 3.4 - Versionsverwaltungssysteme
+Fragestellung: "Welche der folgenden Aufgaben erfüllt ein solches System nicht?"
+Themen:
+- Software-Versionskontrolle
+- Source Code Management
+- Entwicklungsworkflow
+- Kollaborative Programmierung
+
+Versionsverwaltung erfüllt NICHT:
+1. Wiederherstellung früherer Versionen gesamter Projekte
+2. Wiederherstellung früherer Versionen einzelner Dateien
+3. Überwachung von Lizenzverletzungen im Quellcode
+4. Koordinierung gemeinsamer Arbeit mehrerer Entwickler
+5. Dokumentation der Änderungen an Dateien
+
+AUFGABE 3.5 - Programmbibliotheken
+Fragestellung: "Welche der folgenden Aussagen zu Programmbibliotheken sind richtig?"
+Themen:
+- Software-Bibliotheken und Frameworks
+- Code-Wiederverwendung
+- Programmierung und Modularität
+- Linking und Kompilierung
+
+Programmbibliotheken:
+1. Eigenständige Ausführung möglich
+2. Gleiche Programmiersprache wie Anwendung erforderlich
+3. Assemblersprache-Erstellung notwendig
+4. Statische Verlinkung beim Kompilieren
+5. Dynamische Verlinkung zur Laufzeit
+6. Quelltext-Vorlage zum Kompilieren erforderlich
+
+AUFGABE 3.6 - Funktions-Parameter und Rundung
+Fragestellung: "Welche der folgenden Aussagen zu dieser Funktion ist richtig?"
+Themen:
+- Funktions-Definition und Parameter
+- Mathematische Funktionen
+- Programmier-Syntax
+- Rundungsalgorithmen
+
+Funktion: float round(float $val [, int $precision = 0])
+- Rundet Wert auf angegebene Präzision
+- Präzision: Nachkommastellen (auch negativ/null möglich)
+
+Aussagen:
+1. Variable "Sval" als Name erforderlich
+2. Parameter "$precision" = 0: Ganze Zahl auf-/abgerundet
+3. Parameter "$precision" weggelassen: nicht gerundet
+4. Parameter "$val" wird durch Funktion verändert
+5. Negative Zahlen können nicht gerundet werden
+
+AUFGABE 3.7 - Debugger und Programmanalyse
+Fragestellung: "Welche der folgenden Aussagen trifft auf einen Debugger zu?"
+Themen:
+- Software-Debugging und Fehlerbehebung
+- Entwicklungstools
+- Programmanalyse
+- Fehlersuche-Techniken
+
+Debugger-Funktionen:
+1. Quellcode der Software und aller Bibliotheken benötigt
+2. Sogenannte "Haltepunkte" für Programmierung eingebaut
+3. System mit mindestens zwei Prozessoren benötigt
+4. Programmabsturz-Analyse für Speicherdumps
+5. Speicherinhalte-Analyse, aber nicht Prozessorregister
+
+================================================================================
+AUFGABE 3: SOFTWARETESTING & DATENSTRUKTUREN (Seiten 16-17)
+================================================================================
+
+AUFGABE 3.8 - Klassendiagramm-Analyse
+Fragestellung: "Welche der folgenden Aussagen trifft auf den im Klassendiagramm dargestellten Sachverhalt zu?"
+Themen:
+- UML-Klassendiagramme
+- Objektorientierte Analyse
+- Klassenbezichungen
+- Software-Design
+
+Klassendiagramm: Fahrzeugpool, Monitoranzeige, Buchungsmenü
+- Fahrzeugpool: +Limousine, +Kombi, +Kleintransporter, +anzeigen()
+- Monitoranzeige und Buchungsmenü: +buchen()
+
+Aussagen:
+1. "buchen()"-Methode in beiden abgeleiteten Klassen überschrieben
+2. "buchen()"-Methode an beide abgeleiteten Klassen vererbt
+3. "buchen()"-Methode der Klasse "Buchungsmenü" aufrufbar von "Fahrzeugpool"-Objekten
+4. "Limousine"-Attribut der Klasse "Buchungsmenü" auslesbar von "Monitoranzeige"-Objekten
+5. Klasse "Buchungsmenü": Attribute Limousine, Kombi, Kleintransporter nicht verfügbar
+
+AUFGABE 3.9 - Strukturierte Datentypen
+Fragestellung: "Welche der folgenden strukturierten Datentypen ist dafür geeignet?"
+Themen:
+- Datenstrukturen und Programmierung
+- Arrays und Records
+- Datenorganisation
+- Strukturierte Programmierung
+
+Fahrzeugtyp-Attribute: "Limousine", "Kombi", "Kleintransporter"
+- Gesamtanzahl der Fahrzeuge im Pool
+- Anzahl noch verfügbarer Fahrzeuge als Wert
+
+Datentypen:
+1. Eindimensionales Array mit Record (beide Werte für jeden Fahrzeugtyp)
+2. Liste von Objekten eines eigenen Typs Fahrzeugtyp (Bezeichnung + beide Werte)
+3. String mit kommagetrennten neun Einträgen
+4. Stapel für Fahrzeugtypen mit neun Zeiger-Elementen
+5. Zweidimensionales Array aus Strings (jeden Fahrzeugtyp + Fahrzeuganzahl)
+
+AUFGABE 3.10 - Black-Box-Testing
+Fragestellung: "Welche der folgenden Vorgaben muss bei der Festlegung der Testdaten beachtet werden?"
+Themen:
+- Software-Testing-Methoden
+- Testdaten-Generierung
+- Qualitätssicherung
+- Testverfahren
+
+Black-Box-Test für Buchungsmodul:
+
+Testdaten-Vorgaben:
+1. Testdaten möglichst weit in Zukunft für späteren Betrieb
+2. Test-Ergebnisse nicht vorab ermittelt für zufällige Testfall-Auswahl
+3. Grenzfälle wie "0 verfügbare Fahrzeuge" nicht getestet (Division durch 0)
+4. Testdaten für alle Anwendungsfälle sowie auch mögliche Eingabefehler
+5. Testdaten nicht Teil der Dokumentation, falls willkürlich gewählt
+
+AUFGABE 3.11 - Testarten in der Softwareentwicklung
+Fragestellung: "Um welche der folgenden Testarten handelt es sich dabei?"
+Themen:
+- Softwaretest-Klassifizierung
+- Testpyramide
+- Komponentenintegration
+- Qualitätssicherung
+
+Test: Zusammenarbeit voneinander abhängiger Komponenten
+
+Testarten:
+1. Modultest
+2. Integrationstest
+3. Akzeptanztest
+4. Systemtest
+5. Komponententest
+
+================================================================================
+AUFGABE 4: WIRTSCHAFT & ARBEITSRECHT (Seiten 17-18)
+================================================================================
+
+Unternehmensszenario: Müller&Schulz GmbH, Astadt (Systemhaus)
+
+AUFGABE 4.1 - Wirtschaftssektoren
+Fragestellung: "Ordnen Sie die folgenden Sektoren den daneben stehenden Beispielen zu"
+Themen:
+- Volkswirtschaftliche Sektoren
+- Wirtschaftsstruktur
+- Brancheneinteilung
+- Arbeitsteilung
+
+Sektoren:
+1. Primärer Sektor
+2. Sekundärer Sektor
+3. Tertiärer Sektor
+
+Beispiele:
+a) Forstbetrieb Tannenzäpfle GmbH
+b) Bauunternehmung Radebecker Bau OHG
+c) Fischereibetrieb Störtebeker GbR
+d) Nahverkehrsbetriebe A-Stadt
+e) Rechtsanwaltskanzlei Dr. Who und Partner
+f) Braunkohlekraftwerk Grün AG
+
+AUFGABE 4.2 - Industrie- und Handelskammer (IHK)
+Fragestellung: "Welche der folgenden Aussagen treffen auf die Mitgliedschaft in der Industrie- und Handelskammer zu?"
+Themen:
+- Wirtschaftsorganisationen
+- Kammer-Mitgliedschaft
+- Selbstverwaltung der Wirtschaft
+- Unternehmensbetreuung
+
+IHK-Mitgliedschaft:
+1. Gesetz-Erlass im Wirtschaftsrecht
+2. Arbeitnehmer-Vertretung bei Tarifverhandlungen
+3. Träger der betrieblichen Rentenversicherung
+4. Verantwortung für Zwischenprüfungen-Durchführung
+5. Einhaltung des Arbeitsschutzes-Kontrolle
+6. Unternehmens-Interessen gegenüber Politik und Verwaltung
+
+AUFGABE 4.3 - Ausbildungspflichten des Betriebs
+Fragestellung: "Welche der folgenden Pflichten muss der Ausbildungsbetrieb erfüllen?"
+Themen:
+- Berufsbildungsrecht
+- Ausbildungsverantwortung
+- Jugendarbeitsschutz
+- Ausbildungsqualität
+
+Betriebspflichten:
+1. Führung eines Berichtshefts
+2. Übernahme nach bestandener Abschlussprüfung
+3. Gesundheitskurse (z.B. Yoga) durchführen
+4. IHK-Ausbildungsverhältnis-Anmeldung
+5. Fahrtkosten zur Berufsschule übernehmen
+
+AUFGABE 4.4 - Urlaubsanspruch nach JArbSchG
+Fragestellung: "Berechnen Sie mithilfe des Auszugs aus dem JArbSchG Ihren Urlaubsanspruch für das Kalenderjahr 2021"
+Themen:
+- Jugendarbeitsschutzgesetz
+- Urlaubsberechnung
+- Arbeitsrecht
+- Auszubildenden-Rechte
+
+Berechnungsgrundlage:
+- Ausbildungsbeginn: 1.9.2019
+- Geburtsdatum: 1.7.2003
+- Kalenderjahr: 2021
+
+JArbSchG §19 Urlaub:
+- Jährlicher bezahlter Erholungsurlaub
+- Mindestens 30 Werktage (unter 16 Jahre)
+- Mindestens 27 Werktage (unter 17 Jahre)
+- Mindestens 25 Werktage (unter 18 Jahre)
+
+AUFGABE 4.5 - Jugend- und Auszubildendenvertretung (JAV)
+Fragestellung: "Welche der folgenden Aussagen zu Jugend- und Auszubildendenvertretungen (JAV) ist richtig?"
+Themen:
+- Betriebsverfassungsrecht
+- Jugend- und Auszubildendenvertretung
+- Mitbestimmung
+- Interessenvertretung
+
+JAV-Aussagen:
+1. Amtsdauer: üblicherweise vier Jahre
+2. JAV führt Tarifverhandlungen mit Unternehmen
+3. JAV unabhängig von Anzahl minderjähriger Arbeitnehmer/Auszubildender gründbar
+4. Wahlberechtigung: alle Auszubildenden und Arbeitnehmer bis 21. Lebensjahr
+5. JAV-Überwachung der Jugendlichen-/Auszubildenden-Gesetze und -Vorschriften
+
+AUFGABE 4.6 - Bruttogehalt und Sozialabgaben
+Fragestellung: "Welche der folgenden Aussagen in Bezug auf das Bruttogehalt ist richtig?"
+Themen:
+- Entgeltabrechnung
+- Sozialversicherung
+- Arbeitskosten
+- Brutto-Netto-Rechnung
+
+Bruttogehalt 1.900 EUR:
+
+Aussagen:
+1. Bruttogehalt immer niedriger als Nettogehalt
+2. Komplette Arbeitgeber-Kosten einschließlich Sozialabgaben
+3. Arbeitnehmer-Anteile für Sozialabgaben enthalten
+4. Auszubildenden-Gehalt immer steuerfrei
+5. Nach Sozialabgaben-Abzug, zuzüglich vermögenswirksamer Leistungen
+
+================================================================================
+ZUSAMMENFASSUNG DER HAUPTTHEMEN
+================================================================================
+
+1. GESCHÄFTSPROZESSE & ORGANISATION (28% der Aufgaben)
+   - Materialwirtschaft und Beschaffung
+   - Marktformen und Wettbewerb
+   - Kundenbeziehungsmanagement
+   - Organisationsstrukturen
+   - Personalmanagement
+   - Marketing und Preisstrategien
+   - Projektmanagement und Netzplantechnik
+   - Teambildung und Ergonomie
+
+2. IT-SYSTEMTECHNIK & HARDWARE (31% der Aufgaben)
+   - Hardware-Komponenten und Architektur
+   - Energieeffizienz und Kostenrechnung
+   - Speichertechnologien
+   - Netzwerktechnik und Schnittstellen
+   - Betriebssysteme und Systemsoftware
+   - Software-Lizenzierung
+   - RAID-Systeme und Datensicherung
+
+3. SOFTWAREENTWICKLUNG & PROGRAMMIERUNG (24% der Aufgaben)
+   - Programmiersprachen und Webentwicklung
+   - Objektorientierte Programmierung
+   - Algorithmen und Datenstrukturen
+   - Software-Testing und Qualitätssicherung
+   - Debugging und Entwicklungstools
+   - Versionsverwaltung
+   - Systemdokumentation
+
+4. ARBEITSRECHT & WIRTSCHAFT (17% der Aufgaben)
+   - Wirtschaftssektoren und -strukturen
+   - Kammer-Organisationen
+   - Berufsbildungsrecht
+   - Jugendarbeitsschutz
+   - Entgeltabrechnung
+   - Betriebsverfassung
+
+================================================================================
+SCHWERPUNKTE FÜR PRÜFUNGSVORBEREITUNG
+================================================================================
+
+KRITISCHE WISSENSGEBIETE:
+1. Projektmanagement (Netzplantechnik, Gantt-Diagramme)
+2. IT-Hardware und Systemtechnik
+3. Programmierung und Algorithmen
+4. Arbeitsrecht für Auszubildende
+5. Betriebswirtschaftliche Grundlagen
+
+RECHENAUFGABEN:
+- Energiekostenberechnung
+- Druckerkosten-Vergleich (TCO)
+- Speicherbedarfs-Berechnung
+- Urlaubstage-Berechnung
+- RAID-Paritätsberechnung
+
+PRAKTISCHE ANWENDUNGEN:
+- Software-Beschaffungsentscheidungen
+- Systemkonfiguration und -administration
+- Programmlogik und Debugging
+- Testverfahren und Qualitätssicherung
+- Projektorganisation und Teamarbeit
+
+================================================================================
+Ende der Analyse - Gesamtumfang: 45+ Einzelfragen in 4 Themenbereichen
+================================================================================

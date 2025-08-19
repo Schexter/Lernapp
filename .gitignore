@@ -114,3 +114,4 @@ yarn-error.log*
 *~
 
 # Erstellt von Hans Hahn - Alle Rechte vorbehalten
+.gradle/

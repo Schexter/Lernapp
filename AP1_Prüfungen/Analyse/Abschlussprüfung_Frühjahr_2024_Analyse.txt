@@ -1,0 +1,849 @@
+# FACHINFORMATIKER ABSCHLUSSPRÜFUNG FRÜHJAHR 2024 - THEMATISCHE ANALYSE
+# WICHTIGE ERKENNTNIS: RÜCKKEHR ZU FACHINFORMATIKER ANWENDUNGSENTWICKLUNG!
+# Erstellt am: 19.08.2025
+# Quelle: IHK Abschlussprüfung - Fachinformatiker/in Anwendungsentwicklung (AO 2020)
+
+================================================================================
+🎯 STRUKTURELLE RÜCKKEHR: FACHINFORMATIKER ANWENDUNGSENTWICKLUNG 🎯
+================================================================================
+
+**WICHTIGE ERKENNTNIS:**
+Nach dem IT-System-Elektroniker Herbst 2023 ist diese Prüfung wieder für:
+**Fachinformatiker/Fachinformatikerin Anwendungsentwicklung**
+
+**Prüfungsdetails Frühjahr 2024:**
+- Prüfungstyp: Abschlussprüfung Fachinformatiker/in Anwendungsentwicklung
+- Datum: Mittwoch, 28. Februar 2024
+- Prüfungscode: 1201 (Rückkehr zu Fachinformatiker!)
+- Bearbeitungszeit: 90 Minuten
+- Maximalpunktzahl: 100 Punkte
+- Aufgabenanzahl: 4 Hauptaufgaben
+
+================================================================================
+STRUKTURELLER VERGLEICH: FRÜHJAHR 2024 vs. HERBST 2023
+================================================================================
+
+**FRÜHJAHR 2024 (FACHINFORMATIKER AE):**
+- Prüfungscode: 1201
+- Schwerpunkt: CAD-Arbeitsplätze, Netzwerkkonfiguration, PLY-Dateiformate
+- Unternehmensszenario: KustoFlex GmbH (Kunststoffteile)
+
+**HERBST 2023 (IT-SYSTEM-ELEKTRONIKER):**
+- Prüfungscode: 1205
+- Schwerpunkt: UML-Diagramme, SQL-Abfragen, Datenschutz
+- Unternehmensszenario: OptiSoft-XXL GmbH
+
+================================================================================
+DETAILLIERTE PUNKTEVERTEILUNG FRÜHJAHR 2024
+================================================================================
+
+**AUFGABE 1: CAD-ARBEITSPLÄTZE & BESCHAFFUNG**
+Gesamtpunkte: 26 Punkte (26% der Gesamtpunktzahl)
+
+1aa) Firmenvergleich vervollständigen                   4 Punkte
+1ab) Unternehmen für On-Premise-Lösung wählen          2 Punkte
+1b) Kostenberechnung CAD-Arbeitsplätze                 7 Punkte
+1c) Monitor-Anschlüsse zuordnen                        4 Punkte
+1d) Kaufvertrag-Zustandekommen                         2 Punkte
+1e) Kaufvertrag-Inhalte                                3 Punkte
+1fa) Kaufvertragsstörungen                             2 Punkte
+1fb) Maßnahmen gegen Störungen                         2 Punkte
+
+**AUFGABE 2: NETZWERKKONFIGURATION & PROTOKOLLE**
+Gesamtpunkte: 24 Punkte (24% der Gesamtpunktzahl)
+
+2a) LED-Status Netzwerkkarte interpretieren             4 Punkte
+2b) OSI-Schichten zuordnen                             4 Punkte
+2c) IPv6-Adresse analysieren                           5 Punkte
+2d) DHCP-Server Informationen                          2 Punkte
+2e) ARP-Protokoll erklären                             3 Punkte
+2f) Internetadresse prüfen (Ping-Befehl)               2 Punkte
+2g) IP-Adressen zuordnen                               4 Punkte
+
+**AUFGABE 3: DATENFORMATE & CAD-INTEGRATION**
+Gesamtpunkte: 24 Punkte (24% der Gesamtpunktzahl)
+
+3a) Unbekanntes Dateiformat recherchieren              3 Punkte
+3b) PLY-Format in CAD-System verwenden                 2 Punkte
+3c) ASCII vs. Binärformat unterscheiden                4 Punkte
+3da) PLY-Dateigröße berechnen                          3 Punkte
+3db) RGB-Farbdarstellung berechnen                     2 Punkte
+3dc) Speicherplatz für Farbwerte berechnen             3 Punkte
+3e) Netzteil-Auswahl mit Leistungsberechnung          4 Punkte
+3f) Stromkosten-Berechnung                             3 Punkte
+
+**AUFGABE 4: MOBILE ARBEIT & DATENSICHERHEIT**
+Gesamtpunkte: 26 Punkte (26% der Gesamtpunktzahl)
+
+4a) Geheimhaltung/Mobile Arbeit (Tabelle)              6 Punkte
+4b) VPN-Funktionalität erklären                        2 Punkte
+4c) Externe Festplatten-Sicherung                      3 Punkte
+
+ZUSÄTZLICHE AUFGABEN (aus den Bildern ersichtlich):
+- Malware-Arten                                        3 Punkte
+- Malware-Merkmale                                      3 Punkte
+- Malware-Schutzmaßnahmen                              3 Punkte
+- Speedtest-Auswertung                                  6 Punkte
+
+GESAMTPUNKTZAHL: 100 Punkte
+
+================================================================================
+AUFGABE 1: CAD-ARBEITSPLÄTZE & BESCHAFFUNG (26 Punkte)
+================================================================================
+
+**Unternehmensszenario:** KustoFlex GmbH (Kunststoffteile-Fertigung)
+**Projektkontext:** 5 CAD-Arbeitsplätze einrichten, geeignete Systeme auswählen
+
+**AUFGABE 1aa - Firmenvergleich vervollständigen (4 Punkte)**
+Fragestellung: "Ermitteln Sie die fehlenden Werte und eine Reihenfolge der vier Unternehmen beginnend mit der höchsten Punktzahl."
+
+Themen:
+- Gewichtete Bewertungsverfahren
+- Lieferantenauswahl und Scoring-Modelle
+- Betriebswirtschaftliche Entscheidungstheorie
+- Multi-Criteria Decision Analysis (MCDA)
+
+Bewertungskriterien:
+- **Grafikkarte:** Gewichtung 20, Punktwerte zwischen 2-4
+- **Arbeitsspeicher (RAM):** Gewichtung 25, Punktwerte zwischen 3-4
+- **Monitor:** Gewichtung 40, Punktwerte zwischen 2-4
+- **Preis:** Gewichtung wird errechnet (100 - 20 - 25 - 40 = 15)
+
+Berechnungsformel: Gesamtpunktzahl = Σ(Gewichtung × Punkte) ÷ 100
+
+**AUFGABE 1ab - On-Premise-Lösung (2 Punkte)**
+Fragestellung: "In einem Meeting wurde neu festgelegt, dass nur eine on-premise Lösung in Frage kommt. Wählen Sie unter Berücksichtigung des Meetings das Unternehmen aus, das den Auftrag bekommen sollte."
+
+Themen:
+- Cloud Computing vs. On-Premise-Lösungen
+- IT-Architekturentscheidungen
+- Compliance und Datenschutz
+- Software as a Service (SaaS) vs. lokale Installation
+
+Entscheidungskriterien:
+- Lokale Datenhaltung und -verarbeitung
+- Keine Abhängigkeit von Internet-Konnektivität
+- Volle Kontrolle über Daten und Systeme
+- Compliance-Anforderungen erfüllen
+
+**AUFGABE 1b - Kostenberechnung CAD-Arbeitsplätze (7 Punkte)**
+Fragestellung: "Berechnen Sie die laufenden Kosten pro Monat für die gesamten CAD-Arbeitsplätze unter der Voraussetzung, dass die Nutzungsdauer der Monitore vier Jahre und der PCs drei Jahre beträgt. Geben Sie den Rechenweg an."
+
+Themen:
+- Total Cost of Ownership (TCO) Berechnung
+- Abschreibung und Nutzungsdauer
+- Leasing vs. Kauf-Entscheidungen
+- Betriebskostenkalkulation
+
+Berechnungsparameter:
+- **Monitor:** 450 EUR, Nutzungsdauer 4 Jahre
+- **PC:** 720 EUR, Nutzungsdauer 3 Jahre
+- **Softwareleasing:** 50 EUR pro Monat und Arbeitsplatz
+- **Wartungspauschale:** 1200 EUR pro Jahr für alle Geräte
+- **Rabatt:** 5% auf PC und Monitor
+- **Anzahl:** 5 CAD-Arbeitsplätze
+
+Berechnungsschritte:
+1. Anschaffungskosten mit Rabatt ermitteln
+2. Monatliche Abschreibung berechnen
+3. Laufende Kosten (Software, Wartung) addieren
+4. Gesamtkosten pro Monat für alle Arbeitsplätze
+
+**AUFGABE 1c - Monitor-Anschlüsse zuordnen (4 Punkte)**
+Fragestellung: "Ordnen Sie die Anschlüsse den Abbildungen zu."
+
+Themen:
+- Hardware-Schnittstellen und Konnektoren
+- Display-Technologien und Standards
+- Peripherie-Anschlüsse
+- A/V-Übertragungsstandards
+
+Anschlusstypen:
+- **HDMI:** High-Definition Multimedia Interface (digital)
+- **USB-C:** Universal Serial Bus Type-C (multifunktional)
+- **DVI:** Digital Visual Interface (digital)
+- **DisplayPort (DP):** Moderne digitale Schnittstelle
+
+Zuordnung zu Abbildungen:
+- Anschluss 1: (entsprechend Abbildung)
+- Anschluss 2: (entsprechend Abbildung)
+- Anschluss 3: (entsprechend Abbildung)
+- Anschluss 4: (entsprechend Abbildung)
+
+**AUFGABE 1d - Kaufvertrag-Zustandekommen (2 Punkte)**
+Fragestellung: "Erläutern Sie, zu welchem Zeitpunkt der Kaufvertrag zustande gekommen ist und begründen Sie Ihre Entscheidung."
+
+Themen:
+- Vertragsrecht und BGB-Grundlagen
+- Angebot und Annahme (§§ 145ff BGB)
+- Kaufvertragsrecht (§§ 433ff BGB)
+- Geschäftsfähigkeit und Willenserklärungen
+
+Sachverhalt:
+- Monitore bestellt am: 1. September 2023
+- Keine Auftragsbestätigung erhalten
+- Rechnung erhalten am: 9. Oktober 2023
+- Monitore geliefert am: 7. Oktober 2023
+
+Rechtliche Analyse:
+- **Angebot:** Bestellung vom 1. September 2023
+- **Annahme:** Lieferung am 7. Oktober 2023 (konkludente Annahme)
+- **Vertragsschluss:** Spätestens bei Lieferung (§ 151 BGB)
+
+**AUFGABE 1e - Kaufvertrag-Inhalte (3 Punkte)**
+Fragestellung: "Nennen Sie drei mögliche Inhalte, die durch einen Kaufvertrag geregelt sind (Abgrenzung von den juristischen Bestandteilen eines Kaufvertrags, z.B. Willenserklärungen)."
+
+Themen:
+- Kaufvertragsinhalt nach BGB
+- Vertragliche Pflichten und Rechte
+- Leistungsstörungen im Kaufrecht
+- Gewährleistung und Garantie
+
+Typische Kaufvertragsinhalte:
+- **Kaufgegenstand:** Genaue Beschreibung der Ware
+- **Kaufpreis:** Höhe und Fälligkeit der Vergütung
+- **Lieferung:** Zeit, Ort und Art der Erfüllung
+- **Gewährleistung:** Mängelhaftung und Garantien
+- **Eigentumsvorbehalt:** Sicherungsrechte des Verkäufers
+- **Zahlungsbedingungen:** Skonto, Zahlungsfristen
+
+**AUFGABE 1f - Kaufvertragsstörungen und Maßnahmen**
+
+**AUFGABE 1fa - Kaufvertragsstörungen (2 Punkte)**
+Fragestellung: "Nennen Sie zwei Kaufvertragsstörungen."
+
+Themen:
+- Leistungsstörungen im Schuldrecht
+- Unmöglichkeit, Verzug und Schlechterfüllung
+- Pflichtverletzungen nach § 280 BGB
+- Rechtsdurchsetzung bei Vertragsstörungen
+
+Kaufvertragsstörungen:
+- **Lieferverzug:** Nicht-rechtzeitige Lieferung (§ 286 BGB)
+- **Schlechterfüllung:** Mängel an der gelieferten Ware (§ 434 BGB)
+- **Annahmeverzug:** Käufer nimmt Leistung nicht ab (§ 293 BGB)
+- **Unmöglichkeit:** Leistung kann nicht erbracht werden (§ 275 BGB)
+- **Zahlungsverzug:** Käufer zahlt nicht fristgerecht (§ 286 BGB)
+
+**AUFGABE 1fb - Maßnahmen gegen Störungen (2 Punkte)**
+Fragestellung: "Geben Sie bei Ihren genannten Kaufvertragsstörungen je eine Maßnahme an, die der Kunde ergreifen kann, um diesen Störungen zu vermeiden."
+
+Themen:
+- Vertragsmanagement und Risikominimierung
+- Präventive Maßnahmen
+- Verhandlungstaktik und Vertragsgestaltung
+- Qualitätssicherung und Kontrolle
+
+Präventive Maßnahmen:
+- **Gegen Lieferverzug:** Klare Liefertermine vereinbaren, Vertragsstrafen
+- **Gegen Schlechterfüllung:** Qualitätsspezifikationen definieren, Abnahmeprüfung
+- **Gegen Unmöglichkeit:** Alternativen vereinbaren, Ausfallversicherung
+- **Gegen Zahlungsverzug:** Zahlungsgarantien, Factoring
+
+================================================================================
+AUFGABE 2: NETZWERKKONFIGURATION & PROTOKOLLE (24 Punkte)
+================================================================================
+
+**Kontext:** CAD-Arbeitsplätze Netzwerkeinstellungen prüfen und konfigurieren
+
+**AUFGABE 2a - LED-Status Netzwerkkarte (4 Punkte)**
+Fragestellung: "Interpretieren Sie die hier zur Verfügung gestellten Informationen bzgl. der Netzwerkfunktionalität Ihres PCs."
+
+Themen:
+- Netzwerk-Hardware-Diagnose
+- LED-Status-Interpretation
+- Link Layer Troubleshooting
+- Ethernet-Verbindungsdiagnose
+
+LED-Status-Bedeutungen:
+- **LED leuchtet durchgehend:** Physische Verbindung hergestellt, Link aktiv
+- **LED blinkt unregelmäßig:** Datenübertragung aktiv, Netzwerkaktivität
+- **LED aus:** Keine physische Verbindung, Kabel defekt oder nicht angeschlossen
+- **LED blinkt rhythmisch:** Autonegotiation aktiv, Geschwindigkeit wird ausgehandelt
+
+**AUFGABE 2b - OSI-Schichten zuordnen (4 Punkte)**
+Fragestellung: "Benennen Sie die in der folgenden Tabelle aufgeführten OSI-Schichten und ordnen Sie zur Strukturierung die vorliegenden Begriffe den richtigen Schichten zu."
+
+Themen:
+- OSI-Referenzmodell (7 Schichten)
+- Netzwerkprotokolle und Schichtenarchitektur
+- TCP/IP-Stack Zuordnung
+- Netzwerk-Troubleshooting
+
+OSI-Schichten (von oben nach unten):
+- **Schicht 7:** Application (Anwendung) - HTTP, FTP, SMTP
+- **Schicht 6:** Presentation (Darstellung) - Verschlüsselung, Kompression
+- **Schicht 5:** Session (Sitzung) - Sitzungsmanagement
+- **Schicht 4:** Transport - TCP, UDP
+- **Schicht 3:** Network (Vermittlung) - IP, ICMP, ARP
+- **Schicht 2:** Data Link (Sicherung) - Ethernet, PPP
+- **Schicht 1:** Physical (Bitübertragung) - Kabel, Hubs
+
+Zuordnung aus Aufgabe:
+- **Physische Adresse:** Schicht 2 (MAC-Adresse)
+- **DHCP:** Schicht 7 (Application Layer)
+- **Verbindungslokale IPv6-Adresse:** Schicht 3 (Network Layer)
+- **Buchse mit LED:** Schicht 1 (Physical Layer)
+
+**AUFGABE 2c - IPv6-Adresse analysieren (5 Punkte)**
+Fragestellung: "Analysieren Sie nun die in Abb. 1 angezeigte IPv6 Adresse 'fe80::521a:c5ff:fef2:38b7'. Nennen Sie die folgenden zugehörigen Werte:"
+
+Themen:
+- IPv6-Adressierung und -struktur
+- Link-Local-Adressen (fe80::/10)
+- IPv6-Präfixe und Interface-Identifier
+- Hexadezimaldarstellung und Bitlängen
+
+IPv6-Adresse: fe80::521a:c5ff:fef2:38b7
+
+Zu analysierende Werte:
+- **Länge der IPv6-Adresse in Bits:** 128 Bit
+- **Ungekürzte Darstellung in Hexadezimalschreibweise:** fe80:0000:0000:0000:521a:c5ff:fef2:38b7
+- **Präfixlänge:** /64 (Standard für Link-Local-Adressen)
+- **Interface-Identifier:** 521a:c5ff:fef2:38b7 (untere 64 Bit)
+
+IPv6-Eigenschaften:
+- **fe80::/10:** Link-Local-Adress-Präfix
+- **Automatische Konfiguration:** SLAAC (Stateless Address Autoconfiguration)
+- **Scope:** Link-Local (nur im lokalen Netzwerksegment gültig)
+
+**AUFGABE 2d - DHCP-Server Informationen (2 Punkte)**
+Fragestellung: "Nennen Sie unter Bezugnahme auf Abb. 1 die Informationen, die der DHCP-Server Ihrem Client zur Verfügung stellt."
+
+Themen:
+- DHCP (Dynamic Host Configuration Protocol)
+- Automatische IP-Konfiguration
+- DHCP-Lease und Optionen
+- Netzwerk-Autoconfiguration
+
+DHCP-Konfiguration aus Abbildung:
+- **IPv4-Adresse:** 192.168.0.52 (dynamisch zugewiesen)
+- **Subnetzmaske:** 255.255.255.0 (/24 Netzwerk)
+- **Default Gateway:** (implizit im DHCP-Angebot enthalten)
+- **DNS-Server:** (automatisch konfiguriert)
+- **Lease-Zeit:** Gültigkeitsdauer der IP-Adresse
+
+DHCP-Optionen:
+- Option 1: Subnetzmaske
+- Option 3: Router/Gateway
+- Option 6: DNS-Server
+- Option 15: Domain Name
+- Option 51: IP Address Lease Time
+
+**AUFGABE 2e - ARP-Protokoll erklären (3 Punkte)**
+Fragestellung: "Erläutern Sie anhand des Beispiels in Abb. 2 die grundlegende Aufgabe des Address Resolution Protocol (ARP) bei der Netzwerkkommunikation in einem LAN."
+
+Themen:
+- Address Resolution Protocol (ARP)
+- MAC-Adress-Auflösung
+- Layer 2/3 Mapping
+- Ethernet-Frame-Übertragung
+
+ARP-Funktionsweise:
+- **Problem:** IP-Adresse bekannt, MAC-Adresse unbekannt
+- **ARP-Request:** Broadcast an alle Geräte im LAN
+- **ARP-Reply:** Zielgerät antwortet mit seiner MAC-Adresse
+- **ARP-Cache:** Speicherung der Zuordnung für zukünftige Nutzung
+
+Beispiel aus Abbildung:
+- **Schnittsstelle:** 192.168.0.52 sucht MAC zu IP
+- **Internetadresse:** 192.168.0.1 (vermutlich Gateway)
+- **Physische Adresse:** d4-3f-cb-8c-37-8b
+- **Typ:** dynamisch (automatisch erlernt)
+
+**AUFGABE 2f - Internetadresse prüfen (2 Punkte)**
+Fragestellung: "Geben Sie einen geeigneten Befehl an, um von Ihrem PC aus die Erreichbarkeit der Internetadresse (siehe Abb. 2) zu prüfen."
+
+Themen:
+- Netzwerk-Diagnose-Tools
+- ICMP Echo Request/Reply
+- Konnektivitätstests
+- Command Line Interface (CLI)
+
+Geeigneter Befehl:
+```cmd
+ping 192.168.0.1
+```
+
+Weitere Diagnose-Befehle:
+- **ping -t:** Kontinuierlicher Ping
+- **ping -n 4:** Anzahl der Pakete begrenzen
+- **tracert:** Route zum Ziel verfolgen
+- **pathping:** Kombination aus ping und tracert
+
+**AUFGABE 2g - IP-Adressen zuordnen (4 Punkte)**
+Fragestellung: "Ordnen Sie in der folgenden Skizze die IP-Adressen und die Physischen Adressen richtig zu."
+
+Themen:
+- Netzwerk-Topologie und Adressierung
+- ARP-Tabellen-Interpretation
+- MAC/IP-Zuordnung
+- Netzwerk-Mapping
+
+Zuordnungslogik:
+- **Eigener PC:** Bekannte IP und MAC aus vorherigen Aufgaben
+- **Weiterer PC im Netzwerk:** Aus ARP-Tabelle ableitbar
+- **Physische Adressen:** MAC-Adressen der Netzwerkschnittstellen
+- **IP-Adressen:** IPv4-Adressen im gleichen Subnetz
+
+================================================================================
+AUFGABE 3: DATENFORMATE & CAD-INTEGRATION (24 Punkte)
+================================================================================
+
+**Kontext:** Kunde sendet Daten im PLY-Format, unbekanntes Format für CAD-System
+
+**AUFGABE 3a - Dateiformat recherchieren (3 Punkte)**
+Fragestellung: "Nennen Sie drei Möglichkeiten, um Informationen über das unbekannte Dateiformat erhalten zu können."
+
+Themen:
+- Informationsrecherche und -beschaffung
+- Dateiformate und Standards
+- Technische Dokumentation
+- Reverse Engineering
+
+Recherche-Möglichkeiten:
+- **Online-Datenbanken:** Fileformat.info, Wikipedia, Herstellerseiten
+- **Dateianalyse:** Hex-Editor, File-Signature-Analyse
+- **Community-Foren:** Stack Overflow, CAD-Foren, Fachcommunitys
+- **Dokumentation:** RFC-Standards, Industriestandards
+- **Software-Tools:** File Analyzer, TrID, ExifTool
+
+**AUFGABE 3b - PLY-Format in CAD verwenden (2 Punkte)**
+Fragestellung: "Nennen Sie eine Möglichkeit, wie Sie die Kundendaten in Ihrem CAD-System dennoch verwenden können."
+
+Themen:
+- Datenkonvertierung und -migration
+- CAD-Software-Interoperabilität
+- Import/Export-Filter
+- Dateiformate in der 3D-Modellierung
+
+Lösungsansätze:
+- **Konverter-Software:** PLY zu OBJ/STL/STEP Konvertierung
+- **CAD-Plugins:** Zusätzliche Import-Filter installieren
+- **Zwischensoftware:** Blender, MeshLab als Konvertierungsbrücke
+- **Drittanbieter-Tools:** Spezialisierte Mesh-Konverter
+
+PLY-Format (Polygon File Format):
+- Entwickelt von Stanford University
+- Speichert 3D-Scandaten und Polygonnetze
+- ASCII oder Binärformat verfügbar
+- Häufig in 3D-Scanning und Computer Vision
+
+**AUFGABE 3c - ASCII vs. Binärformat (4 Punkte)**
+Fragestellung: "Erläutern Sie den Unterschied zwischen einer Datei im ASCII Format und einer Datei im Binär Format."
+
+Themen:
+- Datenrepräsentation und Encodierung
+- ASCII vs. Binärdateien
+- Dateigröße und Performance
+- Lesbarkeit und Portabilität
+
+**ASCII-Format:**
+- **Lesbarkeit:** Mit Texteditor lesbar und editierbar
+- **Portabilität:** Zwischen verschiedenen Systemen austauschbar
+- **Debugging:** Einfache Fehleranalyse und Inspektion
+- **Größe:** Größerer Speicherbedarf durch Textrepräsentation
+- **Performance:** Langsamere Verarbeitung durch Parsing
+
+**Binärformat:**
+- **Kompaktheit:** Kleinere Dateigröße durch effiziente Kodierung
+- **Performance:** Schnellere Lese-/Schreibvorgänge
+- **Präzision:** Exakte numerische Werte ohne Rundungsfehler
+- **Lesbarkeit:** Nicht human-readable, spezielle Tools erforderlich
+- **Plattformabhängigkeit:** Endianness und Datentyp-Probleme möglich
+
+**AUFGABE 3d - PLY-Dateiberechnungen**
+
+**AUFGABE 3da - PLY-Dateigröße berechnen (3 Punkte)**
+Fragestellung: "Berechnen Sie, wie viele Kibibyte Sie benötigen, um die 3.840 Punkte zu speichern. Der Speicherbedarf des Datei-Headers und Farbcodierungen sollen nicht berücksichtigt werden."
+
+Themen:
+- Speicherbedarfsberechnung
+- 3D-Geometriedaten
+- Binäre Datenstrukturen
+- Kibibyte vs. Kilobyte
+
+Berechnungsparameter:
+- **Punktanzahl:** 3.840 Punkte
+- **Koordinaten pro Punkt:** x, y, z (3 Werte)
+- **Datentyp:** 32-Bit Float (4 Bytes pro Wert)
+- **Speicherbedarf pro Punkt:** 3 × 4 Bytes = 12 Bytes
+
+Berechnung:
+- Gesamtspeicher = 3.840 × 12 Bytes = 46.080 Bytes
+- In Kibibyte = 46.080 ÷ 1.024 = 45 KiB
+
+**AUFGABE 3db - RGB-Farbdarstellung (2 Punkte)**
+Fragestellung: "Berechnen Sie, wie viele verschiedene Farben sich damit darstellen lassen."
+
+Themen:
+- RGB-Farbmodell
+- Digitale Farbrepräsentation
+- Bit-Tiefe und Farbräume
+- Binäre Kombinatorik
+
+RGB-Parameter:
+- **Farbkanäle:** 3 (Rot, Grün, Blau)
+- **Bit pro Kanal:** 8 Bit
+- **Werte pro Kanal:** 2^8 = 256 (0-255)
+
+Berechnung:
+- Gesamtfarben = 256 × 256 × 256 = 2^24 = 16.777.216 Farben
+
+**AUFGABE 3dc - Speicherplatz Farbwerte (3 Punkte)**
+Fragestellung: "Berechnen Sie, wie viel Prozent Speicher Sie pro Bildpunkt zusätzlich benötigen, um die Farbwerte zu speichern."
+
+Themen:
+- Speicher-Overhead-Berechnung
+- Geometrie- vs. Attributdaten
+- Datenstrukturopti­mierung
+- Speichereffizienz
+
+Berechnungsparameter:
+- **Geometriedaten:** 12 Bytes pro Punkt (x, y, z)
+- **Farbdaten:** 3 Bytes pro Punkt (R, G, B je 8 Bit)
+- **Zusatzspeicher:** 3 Bytes
+
+Berechnung:
+- Prozentualer Zusatz = (3 ÷ 12) × 100% = 25%
+
+**AUFGABE 3e - Netzteil-Auswahl (4 Punkte)**
+Fragestellung: "Berechnen Sie die ermittelte Leistungsaufnahme mit Puffer und benennen Sie das ausgewählte Netzteil."
+
+Themen:
+- Leistungsbedarfsberechnung
+- Netzteil-Dimensionierung
+- Hardware-Kompatibilität
+- Energieeffizienz und Pufferreserven
+
+Komponenten-Leistungsaufnahme:
+- **Mainboard:** 20W × 1 = 20W
+- **Prozessor:** 172W × 1 = 172W
+- **Prozessor-Lüfter:** 12W × 1 = 12W
+- **Arbeitsspeicher:** 5W × 4 = 20W
+- **Grafikkarte:** 310W × 1 = 310W
+- **M.2 SSD:** 5W × 2 = 10W
+- **Gehäuselüfter:** 8W × 2 = 16W
+
+Berechnungsschritte:
+1. Gesamtleistung ohne Puffer ermitteln
+2. 10% Puffer hinzurechnen
+3. Nächsthöheres verfügbares Netzteil wählen
+
+Gesamtleistung = 20 + 172 + 12 + 20 + 310 + 10 + 16 = 560W
+Mit 10% Puffer = 560W × 1,1 = 616W
+Gewähltes Netzteil = 650W (nächsthöheres verfügbares)
+
+**AUFGABE 3f - Stromkosten-Berechnung (3 Punkte)**
+Fragestellung: "Berechnen Sie die Stromkosten bei einem Preis von 0,40 EUR pro kWh."
+
+Themen:
+- Energiekostenberechnung
+- Wirkungsgrad und Verluste
+- Betriebskostenkalkulation
+- Green IT und Nachhaltigkeit
+
+Berechnungsparameter:
+- **Laufzeit:** 200 Arbeitstage × 9 Stunden = 1.800 Stunden/Jahr
+- **Netzteil-Wirkungsgrad:** 90%
+- **Ausgelastet auf:** 50% der Maximalleistung
+- **Strompreis:** 0,40 EUR/kWh
+- **Hinweis:** Falls Netzteil in e) nicht ermittelt, mit 750W rechnen
+
+Berechnungsschritte:
+1. Tatsächliche Leistungsaufnahme bei 50% Last
+2. Verluste durch Wirkungsgrad berücksichtigen
+3. Jährlicher Energieverbrauch in kWh
+4. Stromkosten = Verbrauch × Preis
+
+Beispielrechnung (mit 750W Fallback):
+- Leistung bei 50% = 750W × 0,5 = 375W
+- Aufnahme mit Verlusten = 375W ÷ 0,9 = 417W
+- Jahresverbrauch = 417W × 1.800h = 750.600Wh = 750,6 kWh
+- Stromkosten = 750,6 kWh × 0,40 EUR = 300,24 EUR
+
+================================================================================
+AUFGABE 4: MOBILE ARBEIT & DATENSICHERHEIT (26 Punkte)
+================================================================================
+
+**Kontext:** Herr Müller als neuer Mitarbeiter, mobiler CAD-Arbeitsplatz
+
+**AUFGABE 4a - Geheimhaltung/Mobile Arbeit (6 Punkte)**
+Fragestellung: "Nennen Sie Herrn Müller drei geeignete Maßnahmen oder Verhaltensweisen zur Gewährleistung der Geheimhaltung. Weisen Sie dabei auf eine mögliche Folge einer Nichtbeachtung hin."
+
+Themen:
+- Mobile Device Management (MDM)
+- Informationssicherheit unterwegs
+- Geheimhaltung und Vertraulichkeit
+- Security Awareness Training
+
+**Tabelle: Maßnahmen vs. Folgen der Nichtbeachtung**
+
+| Maßnahmen oder Verhaltensweisen | Folge der Nichtbeachtung |
+|--------------------------------|---------------------------|
+| Beispiel: Nutzung einer Blickschutzfolie | Bildschirminhalt kann von Unbefugten gelesen werden |
+| Bildschirmsperre bei Verlassen des Arbeitsplatzes | Unbefugter Zugriff auf sensible Unternehmensdaten |
+| Sichere Aufbewahrung von Geräten | Diebstahl und Datenverlust, Compliance-Verstöße |
+| VPN-Verbindung in öffentlichen Netzwerken | Man-in-the-Middle-Angriffe, Datendiebstahl |
+| Clean-Desk-Policy einhalten | Industriespionage, Verlust von Geschäftsgeheimnissen |
+| Keine Diskussion sensibler Themen in der Öffentlichkeit | Preisgabe von Betriebsgeheimnissen, Wettbewerbsnachteile |
+
+Weitere Maßnahmen:
+- **Verschlüsselung:** Festplatten und Kommunikation verschlüsseln
+- **Starke Authentifizierung:** Zwei-Faktor-Authentifizierung nutzen
+- **Software-Updates:** Regelmäßige Sicherheitsupdates installieren
+- **Backup-Strategie:** Regelmäßige Datensicherung implementieren
+
+**AUFGABE 4b - VPN-Funktionalität (2 Punkte)**
+Fragestellung: "Erklären Sie die Funktionalität des Begriffs VPN."
+
+Themen:
+- Virtual Private Network (VPN)
+- Tunneling und Verschlüsselung
+- Remote Access Security
+- Netzwerk-Sicherheitsarchitektur
+
+VPN-Funktionalität:
+- **Verschlüsselter Tunnel:** Sichere Verbindung über unsichere Netzwerke
+- **Tunneling-Protokolle:** IPSec, OpenVPN, WireGuard
+- **Authentifizierung:** Nutzer- und Geräte-Verifizierung
+- **Zugriffskontrolle:** Granulare Berechtigung auf Unternehmensressourcen
+
+VPN-Vorteile:
+- **Vertraulichkeit:** Verschlüsselung verhindert Abhören
+- **Integrität:** Schutz vor Datenmanipulation
+- **Authentizität:** Verifizierung der Kommunikationspartner
+- **Anonymität:** IP-Adress-Maskierung
+
+**AUFGABE 4c - Externe Festplatten-Sicherung (3 Punkte)**
+Fragestellung: "Nennen Sie Herrn Müller drei Punkte, die zu beachten sind, wenn die lokal gespeicherten Daten mithilfe von externen Festplatten möglichst zuverlässig gesichert werden sollen. Berücksichtigen Sie dabei die Datensicherheitsaspekte."
+
+Themen:
+- Backup-Strategien und Best Practices
+- Externe Speichermedien-Sicherheit
+- Datenschutz und Compliance
+- Disaster Recovery Planning
+
+Sicherungsaspekte:
+- **Verschlüsselung der externen Festplatte:** Schutz bei Verlust oder Diebstahl
+- **Regelmäßige Backup-Zyklen:** Automatisierte, zeitgesteuerte Sicherungen
+- **Mehrere Backup-Generationen:** Rotierendes Schema zur Risikominimierung
+- **Sichere Aufbewahrung:** Physische Sicherheit der Backup-Medien
+- **Backup-Verifizierung:** Regelmäßige Überprüfung der Datenintegrität
+- **Offsite-Storage:** Geografische Trennung von Produktiv- und Backup-Daten
+
+**3-2-1-Backup-Regel:**
+- **3 Kopien:** Original + 2 Backups
+- **2 verschiedene Medien:** Unterschiedliche Speichertechnologien
+- **1 Offsite:** Eine Kopie an anderem Standort
+
+================================================================================
+ZUSÄTZLICHE AUFGABEN AUS DEN BILDERN
+================================================================================
+
+**MALWARE-AUFGABEN (9 Punkte total)**
+
+**Malware-Arten (3 Punkte)**
+Fragestellung: "Sie informieren Herrn Müller über 'Malware' als Oberbegriff für Schadsoftware. Nennen Sie drei Arten von Malware."
+
+Themen:
+- Malware-Klassifizierung
+- Cyber-Security-Grundlagen
+- Schadsoftware-Kategorien
+- IT-Sicherheits-Awareness
+
+Malware-Arten:
+- **Virus:** Selbstreplizierender Code, benötigt Wirtsdatei
+- **Trojanisches Pferd:** Schadsoftware getarnt als nützliche Anwendung
+- **Wurm:** Selbstständig verbreitende Malware über Netzwerke
+- **Ransomware:** Verschlüsselt Daten und fordert Lösegeld
+- **Spyware:** Sammelt heimlich Informationen
+- **Adware:** Zeigt unerwünschte Werbung an
+- **Rootkit:** Versteckt andere Malware vor Erkennung
+
+**Malware-Merkmale (3 Punkte)**
+Fragestellung: "Weisen Sie den in Aufgabe da) genannten Arten jeweils ein spezifisches Merkmal zu."
+
+Themen:
+- Malware-Charakteristika
+- Angriffsvektoren und Verbreitung
+- Schadensmechanismen
+- Erkennungsmerkmale
+
+Merkmals-Zuordnung:
+- **Virus:** Anhängen an ausführbare Dateien, Aktivierung durch Wirt
+- **Trojanisches Pferd:** Vortäuschung nützlicher Funktionalität
+- **Wurm:** Automatische Verbreitung ohne Benutzerinteraktion
+- **Ransomware:** Dateiverschlüsselung und Lösegeld-Forderung
+- **Spyware:** Heimliche Datensammlung und -übertragung
+- **Adware:** Einblendung unerwünschter Werbeinhalte
+
+**Malware-Schutzmaßnahmen (3 Punkte)**
+Fragestellung: "Eine Antivirensoftware ist bereits auf dem Laptop installiert. Erläutern Sie Herrn Müller drei weitere organisatorische oder technische Empfehlungen, wie man sich vor Malware schützen kann."
+
+Themen:
+- Malware-Prävention und -abwehr
+- Defense-in-Depth-Strategie
+- Security Awareness und Verhalten
+- Technische Schutzmaßnahmen
+
+Schutzmaßnahmen:
+- **Regelmäßige Software-Updates:** Schließung von Sicherheitslücken
+- **Sichere E-Mail-Nutzung:** Keine verdächtigen Anhänge öffnen
+- **Web-Browsing-Sicherheit:** Keine Downloads von unsicheren Seiten
+- **Firewall:** Kontrolle ein- und ausgehender Netzwerkverbindungen
+- **Backup-Strategie:** Regelmäßige Datensicherung für Notfälle
+- **Benutzerrechte-Management:** Least-Privilege-Prinzip anwenden
+- **Security Awareness Training:** Mitarbeiterschulung und Sensibilisierung
+
+**SPEEDTEST-AUSWERTUNG (6 Punkte)**
+Fragestellung: "Berechnen Sie zur Verdeutlichung des Zeitaufwands für Herrn Müller die Übertragungsdauer, wenn er Daten mit einem Umfang von 1 GiB aufgrund des Ergebnisses des Speedtests abspeichern möchte. Der Rechenweg ist mit anzugeben."
+
+Themen:
+- Datenübertragungsraten und -zeiten
+- Bit vs. Byte Unterscheidung
+- Speedtest-Interpretation
+- Upload/Download-Performance
+
+Speedtest-Ergebnisse:
+- **Download:** 75,78 Mbps
+- **Upload:** 50,02 Mbps
+
+Berechnungsparameter:
+- **Datenmenge:** 1 GiB = 1.024 MiB = 1.048.576 KiB = 8.589.934.592 Bit
+- **Übertragungsrichtung:** Upload (50,02 Mbps)
+- **Einheitenkonvertierung:** Mbps = Megabit pro Sekunde
+
+Berechnungsschritte:
+1. GiB in Bit konvertieren: 1 GiB = 2^30 Bytes × 8 = 8.589.934.592 Bit
+2. Upload-Rate: 50,02 Mbps = 50.020.000 Bit/s
+3. Übertragungszeit = Datenmenge ÷ Übertragungsrate
+4. Zeit = 8.589.934.592 Bit ÷ 50.020.000 Bit/s = 171,7 Sekunden
+5. In Minuten: 171,7 s ÷ 60 = 2,86 Minuten ≈ 2 Minuten 52 Sekunden
+
+================================================================================
+PUNKTEVERTEILUNG NACH SCHWIERIGKEITSGRAD - FRÜHJAHR 2024
+================================================================================
+
+**EINFACHE AUFGABEN (1-4 Punkte): 63 Punkte (63%)**
+- Monitor-Anschlüsse (4), LED-Status (4), OSI-Schichten (4)
+- Kaufvertrag-Details (2+3+2+2), IPv6-Grundlagen (4)
+- PLY-Format (3+2), RGB-Berechnung (2), VPN (2)
+- Malware-Aufgaben (3+3+3), Backup-Sicherheit (3)
+
+**MITTLERE AUFGABEN (5-7 Punkte): 20 Punkte (20%)**
+- Kostenberechnung CAD (7), IPv6-Analyse (5), Speedtest (6)
+
+**SCHWERE AUFGABEN (8+ Punkte): 17 Punkte (17%)**
+- Keine Aufgaben über 8 Punkte (breitere Verteilung als frühere FI-Prüfungen)
+
+================================================================================
+VERGLEICH: FRÜHJAHR 2024 vs. KLASSISCHE FACHINFORMATIKER-PRÜFUNGEN
+================================================================================
+
+**STRUKTURELLE VERÄNDERUNGEN:**
+
+┌─────────────────────────┬──────────────────────┬────────────────────────┐
+│ Aspekt                  │ Klassisch (2021-2023)│ Frühjahr 2024         │
+├─────────────────────────┼──────────────────────┼────────────────────────┤
+│ Prüfungscode           │ 1201                 │ 1201                   │
+│ Schwierigkeitsgrad     │ 62% einfach          │ 63% einfach            │
+│ Höchste Einzelaufgabe  │ 14 Punkte (Netzplan) │ 7 Punkte (Kostenbere.) │
+│ Kernthemen             │ Netzplan, PowerShell │ CAD, Netzwerk, PLY     │
+│ Mathematik-Anteil      │ Hoch                 │ Mittel                 │
+│ Praxisbezug           │ IT-Dienstleister     │ Kunststoff-Fertigung   │
+└─────────────────────────┴──────────────────────┴────────────────────────┘
+
+**INHALTLICHE EVOLUTION:**
+
+**Frühjahr 2024 (Neue Ausrichtung):**
+- CAD-Arbeitsplätze und Spezialhardware
+- Netzwerkkonfiguration und Protokollanalyse
+- 3D-Datenformate und Industrieanwendungen
+- Mobile Arbeit und moderne Sicherheitskonzepte
+- Praktische Kostenberechtungen
+
+**Klassische FI-Prüfungen (2021-2023):**
+- Projektmanagement mit Netzplantechnik
+- PowerShell-Scripting und Systemadministration
+- RAID-Systeme und Serverinfrastruktur
+- Energieeffizienz und Green IT
+
+================================================================================
+ERFOLGSSTRATEGIEN FÜR FRÜHJAHR 2024
+================================================================================
+
+**PRIORITÄTEN-MATRIX FÜR FRÜHJAHR 2024:**
+
+**Höchste Priorität (sichere Punkte sammeln):**
+1. **Kostenberechnung CAD-Arbeitsplätze (7 Punkte)** - Mathematisch lösbar
+2. **Speedtest-Auswertung (6 Punkte)** - Umrechnungsaufgabe
+3. **IPv6-Analyse (5 Punkte)** - Standardwissen Netzwerktechnik
+4. **Geheimhaltungs-Tabelle (6 Punkte)** - Praxiswissen
+
+**Mittlere Priorität (Grundlagenwissen):**
+- Netzwerk-Grundlagen (4+4+2+3 Punkte) - OSI, LED, DHCP, ARP
+- Malware-Sicherheit (3+3+3 Punkte) - Security Awareness
+- Hardware-Kenntnisse (4+4 Punkte) - Anschlüsse, Netzteil
+- Rechtliche Grundlagen (2+3+2+2 Punkte) - Kaufvertragsrecht
+
+**Basis-Punkte (verlässlich erreichbar):**
+- Alle 1-3 Punkte Aufgaben (28 Punkte verfügbar)
+- Einfache Berechnungen und Umrechnungen
+- Definitionen und Erklärungen
+- Vor-/Nachteile-Aufgaben
+
+**ZEITMANAGEMENT-STRATEGIE (90 Minuten):**
+- **0-20 Min:** Alle einfachen Aufgaben (1-3 Punkte) sammeln (28 Punkte)
+- **20-40 Min:** Kostenberechnung und Speedtest (13 Punkte)
+- **40-60 Min:** Netzwerk-Aufgaben bearbeiten (17 Punkte)
+- **60-80 Min:** Sicherheits- und Rechtsaufgaben (15 Punkte)
+- **80-90 Min:** Kontrolle und Ergänzungen
+
+**MINDESTANFORDERUNG:** 50 Punkte zum Bestehen
+**REALISTISCHE ZIELSETZUNG:** 70+ Punkte für Note 3
+
+================================================================================
+FAZIT: EVOLUTION DER FACHINFORMATIKER-PRÜFUNGEN
+================================================================================
+
+**WICHTIGE ERKENNTNISSE FRÜHJAHR 2024:**
+
+1. **THEMATISCHE NEUAUSRICHTUNG:**
+   - Weg von generischer IT-Dienstleistung
+   - Hin zu spezialisierten Industrieanwendungen (CAD/Kunststoff)
+   - Stärkerer Hardware- und Netzwerkfokus
+
+2. **SCHWIERIGKEITSGRAD-ANPASSUNG:**
+   - Keine extrem schweren Einzelaufgaben (max. 7 statt 14 Punkte)
+   - Breitere Verteilung der Punktzahlen
+   - Mehr praktische, weniger theoretische Aufgaben
+
+3. **KOMPETENZBEREICH-VERSCHIEBUNG:**
+   - Verstärkter Fokus auf Netzwerktechnik
+   - 3D-Datenformate und CAD-Integration
+   - Mobile Arbeit und moderne Sicherheitskonzepte
+   - Kaufvertragsrecht und Beschaffung
+
+4. **ZUKUNFTSORIENTIERUNG:**
+   - Anpassung an moderne Arbeitsformen
+   - Berücksichtigung von Industrie 4.0-Aspekten
+   - Stärkung der Cyber-Security-Kompetenzen
+
+**EMPFEHLUNG FÜR PRÜFUNGSVORBEREITUNG:**
+
+**Fachinformatiker AE (ab 2024) sollten fokussieren auf:**
+- Netzwerktechnik und Protokolle (17 Punkte)
+- Hardware-Konfiguration und Berechnungen (13 Punkte)
+- IT-Sicherheit und Mobile Work (12 Punkte)
+- Kaufrecht und Beschaffung (9 Punkte)
+- Dateiformate und 3D-Technologien (9 Punkte)
+
+**Die Prüfung bleibt mit systematischer Vorbereitung gut machbar, zeigt aber eine deutliche Modernisierung der Anforderungen!**
+
+================================================================================
+ENDE DER ANALYSE - ABSCHLUSSPRÜFUNG FRÜHJAHR 2024 (FACHINFORMATIKER AE)
+Gesamtumfang: 4 Hauptaufgaben, 100 Punkte, 90 Minuten Bearbeitungszeit
+Besonderheit: Thematische Neuausrichtung auf CAD/Industrie-Anwendungen
+Schwierigkeitsgrad: Ähnlich zu Vorgängern, aber breitere Punkteverteilung
+================================================================================

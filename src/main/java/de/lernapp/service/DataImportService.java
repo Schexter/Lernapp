@@ -45,13 +45,20 @@ public class DataImportService {
     }
     
     private void importAP1Questions() {
-        // VERSUCHE ZUERST DIE GROSSE CSV MIT 600 FRAGEN!
-        String csvFile = "C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\data\\complete_questions\\MASTER_600_QUESTIONS_SAMPLE.csv";
+        // VERSUCHE ZUERST DIE NEUE ALL_AP1_QUESTIONS.CSV!
+        String csvFile = "C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\data\\ap1_questions\\ALL_AP1_QUESTIONS.csv";
         boolean isMasterFormat = true;
         
-        // Falls diese nicht existiert, versuche die kleine CSV
+        // Falls diese nicht existiert, versuche die alternative CSV
         if (!Files.exists(Paths.get(csvFile))) {
-            log.info("Master CSV nicht gefunden, versuche alternative CSV...");
+            log.info("ALL_AP1_QUESTIONS.csv nicht gefunden, versuche alternative CSV...");
+            csvFile = "C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\data\\complete_questions\\MASTER_600_QUESTIONS_SAMPLE.csv";
+            isMasterFormat = true;
+        }
+        
+        // Falls auch diese nicht existiert, versuche die kleine CSV
+        if (!Files.exists(Paths.get(csvFile))) {
+            log.info("Master CSV nicht gefunden, versuche ALLE_AP1_FRAGEN_IMPORT.csv...");
             csvFile = "C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\data\\ALLE_AP1_FRAGEN_IMPORT.csv";
             isMasterFormat = false;
         }

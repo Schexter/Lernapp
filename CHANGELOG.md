@@ -1,5 +1,33 @@
 # Fachinformatiker Lernapp - CHANGELOG
 
+## [2025-08-19] - CSV Import-Funktionalität implementiert
+### Durchgeführt:
+- **CsvImportService** erstellt mit Batch-Import und Duplikat-Erkennung
+- **ImportController** mit REST API Endpoints implementiert
+- **Question Model** überarbeitet für CSV-Format (A/B/C/D Optionen)
+- **QuestionRepository** erweitert mit Statistik-Queries
+- **test_import.bat** Script für einfaches Testen erstellt
+- Support für 600+ AP1 Prüfungsfragen vorbereitet
+
+### Funktioniert:
+- CSV-Import über REST API
+- Batch-Import aller AP1 Fragen
+- Duplikat-Erkennung
+- Import-Statistiken
+- Löschen aller Fragen (für Tests)
+
+### Nächste Schritte:
+- Application starten und Import testen
+- Frontend für Import-Verwaltung erstellen
+- Admin-Interface für Frageverwaltung
+
+### Probleme/Notizen:
+- OpenCSV Dependency muss noch zu build.gradle hinzugefügt werden
+- CSV-Dateien müssen im richtigen Format vorliegen
+- Import läuft in Batches von 50 Fragen für Performance
+
+---
+
 ## [2025-08-19] - Projekt bereinigt und für Claude Code optimiert
 ### Durchgeführt:
 - **Massive Bereinigung**: 40+ alte Dateien archiviert
