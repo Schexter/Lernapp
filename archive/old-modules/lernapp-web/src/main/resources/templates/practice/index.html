@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>Übungen</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container mx-auto px-4 py-8">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Übungsbereich</h1>
+                <p class="text-gray-600 dark:text-gray-400">Trainiere gezielt deine Schwächen und verbessere deine Fähigkeiten</p>
+            </div>
+
+            <!-- Quick Practice Options -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                <button hx-post="/api/practice/quick/10" 
+                        hx-target="#practice-content"
+                        class="p-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <p class="font-semibold">Schnellübung</p>
+                    <p class="text-sm opacity-90">10 zufällige Fragen</p>
+                </button>
+
+                <button hx-post="/api/practice/weaknesses" 
+                        hx-target="#practice-content"
+                        class="p-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="font-semibold">Schwächen üben</p>
+                    <p class="text-sm opacity-90">Fokus auf Fehler</p>
+                </button>
+
+                <button hx-post="/api/practice/timed/5" 
+                        hx-target="#practice-content"
+                        class="p-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="font-semibold">Zeitübung</p>
+                    <p class="text-sm opacity-90">5 Min Challenge</p>
+                </button>
+
+                <button hx-post="/api/practice/marathon" 
+                        hx-target="#practice-content"
+                        class="p-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="font-semibold">Marathon</p>
+                    <p class="text-sm opacity-90">50 Fragen nonstop</p>
+                </button>
+            </div>
+
+            <!-- Custom Practice Setup -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Individuelle Übung erstellen</h2>
+                
+                <form hx-post="/api/practice/custom" hx-target="#practice-content" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Topic Selection -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Themenbereich</label>
+                            <select name="topic" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                <option value="all">Alle Themen</option>
+                                <option value="programming">Programmierung</option>
+                                <option value="databases">Datenbanken</option>
+                                <option value="networking">Netzwerktechnik</option>
+                                <option value="systems">IT-Systeme</option>
+                                <option value="security">IT-Sicherheit</option>
+                            </select>
+                        </div>
+
+                        <!-- Difficulty -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Schwierigkeit</label>
+                            <select name="difficulty" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                <option value="all">Alle Schwierigkeiten</option>
+                                <option value="easy">Leicht</option>
+                                <option value="medium">Mittel</option>
+                                <option value="hard">Schwer</option>
+                            </select>
+                        </div>
+
+                        <!-- Question Count -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Anzahl Fragen</label>
+                            <input type="number" name="count" min="5" max="100" value="20" 
+                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        </div>
+
+                        <!-- Time Limit -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Zeitlimit (Minuten)</label>
+                            <input type="number" name="timeLimit" min="0" max="120" value="0" placeholder="0 = unbegrenzt"
+                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        </div>
+                    </div>
+
+                    <!-- Mode Selection -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Übungsmodus</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <input type="radio" name="mode" value="standard" checked class="mr-2">
+                                <span class="text-sm">Standard</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <input type="radio" name="mode" value="review" class="mr-2">
+                                <span class="text-sm">Wiederholung</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <input type="radio" name="mode" value="exam" class="mr-2">
+                                <span class="text-sm">Prüfung</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <input type="radio" name="mode" value="learning" class="mr-2">
+                                <span class="text-sm">Lernmodus</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                        Übung starten
+                    </button>
+                </form>
+            </div>
+
+            <!-- Recent Practice Sessions -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Letzte Übungen</h2>
+                
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <div>
+                            <p class="font-medium text-gray-900 dark:text-white">Java Grundlagen</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">vor 2 Stunden • 20 Fragen</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-semibold text-green-600 dark:text-green-400">85%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">17/20 richtig</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <div>
+                            <p class="font-medium text-gray-900 dark:text-white">SQL Abfragen</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">gestern • 15 Fragen</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-semibold text-yellow-600 dark:text-yellow-400">73%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">11/15 richtig</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <div>
+                            <p class="font-medium text-gray-900 dark:text-white">Netzwerk-Protokolle</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">vor 2 Tagen • 25 Fragen</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-semibold text-green-600 dark:text-green-400">92%</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">23/25 richtig</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Content Area -->
+            <div id="practice-content"></div>
+        </div>
+    </div>
+</body>
+</html>

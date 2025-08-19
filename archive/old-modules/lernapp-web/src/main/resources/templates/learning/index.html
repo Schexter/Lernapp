@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>Lernen</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container mx-auto px-4 py-8">
+            <!-- Learning Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Lernbereich</h1>
+                <p class="text-gray-600 dark:text-gray-400">Wähle ein Thema und beginne zu lernen</p>
+            </div>
+
+            <!-- Progress Overview -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Dein Gesamtfortschritt</h2>
+                    <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">68%</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-500" style="width: 68%"></div>
+                </div>
+                <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div>
+                        <p class="text-2xl font-bold text-gray-900 dark:text-white">342</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Fragen beantwortet</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-green-600 dark:text-green-400">85%</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Erfolgsquote</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-purple-600 dark:text-purple-400">12</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Abgeschlossene Themen</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-orange-600 dark:text-orange-400">5h 23m</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Gesamte Lernzeit</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Programmierung -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition-shadow cursor-pointer"
+                     onclick="loadTopic('programming')">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-blue-600 dark:text-blue-400">75% abgeschlossen</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Programmierung</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Java, Python, Algorithmen & Datenstrukturen</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600 dark:text-gray-400">15 Kapitel</span>
+                                <span class="text-gray-600 dark:text-gray-400">250 Fragen</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                        <button class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300">
+                            Weiterlernen →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Datenbanken -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition-shadow cursor-pointer"
+                     onclick="loadTopic('databases')">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-green-600 dark:text-green-400">60% abgeschlossen</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Datenbanken</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">SQL, NoSQL, Datenbankdesign & Optimierung</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600 dark:text-gray-400">10 Kapitel</span>
+                                <span class="text-gray-600 dark:text-gray-400">180 Fragen</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                        <button class="text-green-600 dark:text-green-400 font-medium hover:text-green-700 dark:hover:text-green-300">
+                            Weiterlernen →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Netzwerktechnik -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition-shadow cursor-pointer"
+                     onclick="loadTopic('networking')">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-purple-600 dark:text-purple-400">45% abgeschlossen</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Netzwerktechnik</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">TCP/IP, Routing, Sicherheit & Protokolle</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600 dark:text-gray-400">12 Kapitel</span>
+                                <span class="text-gray-600 dark:text-gray-400">200 Fragen</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                        <button class="text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300">
+                            Weiterlernen →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- IT-Systeme -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition-shadow cursor-pointer"
+                     onclick="loadTopic('systems')">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-yellow-600 dark:text-yellow-400">90% abgeschlossen</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">IT-Systeme</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Hardware, Betriebssysteme & Virtualisierung</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600 dark:text-gray-400">8 Kapitel</span>
+                                <span class="text-gray-600 dark:text-gray-400">150 Fragen</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-yellow-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                        <button class="text-yellow-600 dark:text-yellow-400 font-medium hover:text-yellow-700 dark:hover:text-yellow-300">
+                            Weiterlernen →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Projektmanagement -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition-shadow cursor-pointer"
+                     onclick="loadTopic('projectmanagement')">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-red-600 dark:text-red-400">30% abgeschlossen</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Projektmanagement</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Agile, Scrum, Wasserfallmodell & Tools</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600 dark:text-gray-400">6 Kapitel</span>
+                                <span class="text-gray-600 dark:text-gray-400">100 Fragen</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-red-600 h-2 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                        <button class="text-red-600 dark:text-red-400 font-medium hover:text-red-700 dark:hover:text-red-300">
+                            Weiterlernen →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- IT-Sicherheit -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition-shadow cursor-pointer"
+                     onclick="loadTopic('security')">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-indigo-600 dark:text-indigo-400">55% abgeschlossen</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">IT-Sicherheit</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Kryptographie, Angriffe & Schutzmaßnahmen</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600 dark:text-gray-400">9 Kapitel</span>
+                                <span class="text-gray-600 dark:text-gray-400">170 Fragen</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 55%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                        <button class="text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300">
+                            Weiterlernen →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Next Steps -->
+            <div class="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Empfohlene nächste Schritte</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900 dark:text-white">SQL Joins wiederholen</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Letzte Fehlerquote: 40%</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900 dark:text-white">OOP Konzepte vertiefen</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Neue Inhalte verfügbar</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900 dark:text-white">Netzwerk-Protokolle üben</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Zeit für Wiederholung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block layout:fragment="scripts">
+        <script>
+            function loadTopic(topicId) {
+                window.location.href = '/learn/topic/' + topicId;
+            }
+        </script>
+    </th:block>
+</body>
+</html>

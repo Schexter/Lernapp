@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortschritt - Fachinformatiker Lernapp</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            stroke-dasharray: 339.292;
+            stroke-dashoffset: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <span>📚</span>
+                Fachinformatiker Lernapp
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="/" th:href="@{/}">Dashboard</a></li>
+                <li><a href="/lernen" th:href="@{/lernen}">Lernen</a></li>
+                <li><a href="/uebungen" th:href="@{/uebungen}">Übungen</a></li>
+                <li><a href="/pruefungen" th:href="@{/pruefungen}">Prüfungen</a></li>
+                <li><a href="/fortschritt" th:href="@{/fortschritt}" class="active">Fortschritt</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post" style="display: inline;">
+                        <button type="submit" style="background: none; border: none; color: #666; cursor: pointer; font-weight: 500;">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Progress Container -->
+    <div class="dashboard-container">
+        <!-- Page Header -->
+        <div class="dashboard-header">
+            <h1>📊 Dein Lernfortschritt</h1>
+            <p style="color: #64748b; margin-top: 0.5rem;">
+                Verfolge deine Erfolge und identifiziere Bereiche zur Verbesserung.
+            </p>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="dashboard-card" style="margin-bottom: 2rem;">
+            <h3 class="card-title">Gesamtfortschritt</h3>
+            <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: center;">
+                <!-- Progress Circle -->
+                <div style="position: relative; width: 180px; height: 180px;">
+                    <svg class="progress-ring" width="180" height="180">
+                        <circle stroke="#e2e8f0" stroke-width="12" fill="transparent" r="54" cx="90" cy="90"/>
+                        <circle class="progress-ring-circle" stroke="url(#gradient)" stroke-width="12" fill="transparent" r="54" cx="90" cy="90"
+                                style="stroke-dashoffset: 101.788;"/>
+                        <defs>
+                            <linearGradient id="gradient">
+                                <stop offset="0%" stop-color="#667eea"/>
+                                <stop offset="100%" stop-color="#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: bold; color: #333;">70%</div>
+                        <div style="color: #64748b; font-size: 0.875rem;">Abgeschlossen</div>
+                    </div>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                    <div style="background: #f8fafc; padding: 1rem; border-radius: 12px;">
+                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">Lernzeit diese Woche</div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #3b82f6;">12h 45min</div>
+                    </div>
+                    <div style="background: #f8fafc; padding: 1rem; border-radius: 12px;">
+                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">Streak</div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #f59e0b;">🔥 7 Tage</div>
+                    </div>
+                    <div style="background: #f8fafc; padding: 1rem; border-radius: 12px;">
+                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">Punkte gesamt</div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #10b981;">2,450 XP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress by Category -->
+        <div class="dashboard-card" style="margin-bottom: 2rem;">
+            <h3 class="card-title">Fortschritt nach Kategorien</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
+                <!-- Java Progress -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span>☕</span>
+                            <span style="font-weight: 600;">Java Programmierung</span>
+                        </div>
+                        <span style="color: #64748b; font-size: 0.875rem;">85% abgeschlossen</span>
+                    </div>
+                    <div style="background: #e2e8f0; border-radius: 8px; height: 12px;">
+                        <div style="background: linear-gradient(135deg, #f97316, #ea580c); width: 85%; height: 100%; border-radius: 8px;"></div>
+                    </div>
+                </div>
+
+                <!-- SQL Progress -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🗄️</span>
+                            <span style="font-weight: 600;">SQL & Datenbanken</span>
+                        </div>
+                        <span style="color: #64748b; font-size: 0.875rem;">72% abgeschlossen</span>
+                    </div>
+                    <div style="background: #e2e8f0; border-radius: 8px; height: 12px;">
+                        <div style="background: linear-gradient(135deg, #0ea5e9, #0284c7); width: 72%; height: 100%; border-radius: 8px;"></div>
+                    </div>
+                </div>
+
+                <!-- Network Progress -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🌐</span>
+                            <span style="font-weight: 600;">Netzwerktechnik</span>
+                        </div>
+                        <span style="color: #64748b; font-size: 0.875rem;">45% abgeschlossen</span>
+                    </div>
+                    <div style="background: #e2e8f0; border-radius: 8px; height: 12px;">
+                        <div style="background: linear-gradient(135deg, #10b981, #059669); width: 45%; height: 100%; border-radius: 8px;"></div>
+                    </div>
+                </div>
+
+                <!-- Web Dev Progress -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🌍</span>
+                            <span style="font-weight: 600;">Web Development</span>
+                        </div>
+                        <span style="color: #64748b; font-size: 0.875rem;">60% abgeschlossen</span>
+                    </div>
+                    <div style="background: #e2e8f0; border-radius: 8px; height: 12px;">
+                        <div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); width: 60%; height: 100%; border-radius: 8px;"></div>
+                    </div>
+                </div>
+
+                <!-- Security Progress -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🔒</span>
+                            <span style="font-weight: 600;">IT-Sicherheit</span>
+                        </div>
+                        <span style="color: #64748b; font-size: 0.875rem;">30% abgeschlossen</span>
+                    </div>
+                    <div style="background: #e2e8f0; border-radius: 8px; height: 12px;">
+                        <div style="background: linear-gradient(135deg, #ef4444, #dc2626); width: 30%; height: 100%; border-radius: 8px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="dashboard-card">
+            <h3 class="card-title">🏆 Errungenschaften</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: linear-gradient(135deg, #fbbf24, #f59e0b); padding: 1rem; border-radius: 12px; text-align: center; color: white;">
+                    <div style="font-size: 2rem;">🌟</div>
+                    <div style="font-weight: 600; margin-top: 0.5rem;">Erstling</div>
+                    <div style="font-size: 0.75rem; opacity: 0.9;">Erste Übung abgeschlossen</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #60a5fa, #3b82f6); padding: 1rem; border-radius: 12px; text-align: center; color: white;">
+                    <div style="font-size: 2rem;">🔥</div>
+                    <div style="font-weight: 600; margin-top: 0.5rem;">Heißer Streak</div>
+                    <div style="font-size: 0.75rem; opacity: 0.9;">7 Tage in Folge gelernt</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #34d399, #10b981); padding: 1rem; border-radius: 12px; text-align: center; color: white;">
+                    <div style="font-size: 2rem;">💯</div>
+                    <div style="font-weight: 600; margin-top: 0.5rem;">Perfektionist</div>
+                    <div style="font-size: 0.75rem; opacity: 0.9;">100% in einer Prüfung</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #a78bfa, #8b5cf6); padding: 1rem; border-radius: 12px; text-align: center; color: white;">
+                    <div style="font-size: 2rem;">🚀</div>
+                    <div style="font-weight: 600; margin-top: 0.5rem;">Schnellstarter</div>
+                    <div style="font-size: 0.75rem; opacity: 0.9;">10 Übungen an einem Tag</div>
+                </div>
+                <div style="background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 1rem; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 2rem; opacity: 0.3;">🔒</div>
+                    <div style="font-weight: 600; margin-top: 0.5rem; color: #94a3b8;">???</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8;">Noch nicht freigeschaltet</div>
+                </div>
+                <div style="background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 1rem; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 2rem; opacity: 0.3;">🔒</div>
+                    <div style="font-weight: 600; margin-top: 0.5rem; color: #94a3b8;">???</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8;">Noch nicht freigeschaltet</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

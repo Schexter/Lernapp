@@ -11,7 +11,9 @@
       "Bash(ss:*)",
       "Bash(curl:*)",
       "Bash(taskkill:*)",
-      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\lernapp-web\\src\\main\\java\\com\\fachinformatiker\\lernapp\\config\\DataInitializer.java\")"
+      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\lernapp-web\\src\\main\\java\\com\\fachinformatiker\\lernapp\\config\\DataInitializer.java\")",
+      "Bash(java:*)",
+      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\src\\main\\java\\de\\lernapp\\service\\CsvImportService.java\")"
     ],
     "deny": [],
     "ask": [],

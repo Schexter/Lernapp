@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>Fragen Import - Admin</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+                    Fragen Import
+                </h1>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">
+                    Importieren Sie Prüfungsfragen aus CSV-Dateien
+                </p>
+            </div>
+
+            <!-- Import Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <div class="flex items-center">
+                        <div class="p-3 rounded-full bg-blue-100 dark:bg-blue-900">
+                            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h10m-7 5h4"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Gesamt Fragen</p>
+                            <p class="text-2xl font-semibold text-gray-900 dark:text-white" id="total-questions">0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <div class="flex items-center">
+                        <div class="p-3 rounded-full bg-green-100 dark:bg-green-900">
+                            <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Letzter Import</p>
+                            <p class="text-lg font-semibold text-gray-900 dark:text-white" id="last-import">-</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <div class="flex items-center">
+                        <div class="p-3 rounded-full bg-purple-100 dark:bg-purple-900">
+                            <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Themen</p>
+                            <p class="text-2xl font-semibold text-gray-900 dark:text-white" id="topics-count">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">CSV Upload</h2>
+                
+                <!-- Drag & Drop Area -->
+                <div id="drop-zone" 
+                     class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center hover:border-blue-500 transition-colors">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        <label for="file-upload" class="relative cursor-pointer rounded-md font-medium text-blue-600 hover:text-blue-500">
+                            <span>Datei auswählen</span>
+                            <input id="file-upload" name="file" type="file" accept=".csv" class="sr-only">
+                        </label>
+                        oder per Drag & Drop hier ablegen
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">CSV-Dateien bis zu 10MB</p>
+                </div>
+                
+                <!-- File Info -->
+                <div id="file-info" class="hidden mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <svg class="h-8 w-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white" id="file-name">-</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400" id="file-size">-</p>
+                            </div>
+                        </div>
+                        <button id="remove-file" class="text-red-500 hover:text-red-700">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="mt-6 flex justify-between">
+                    <div>
+                        <button onclick="downloadTemplate()" 
+                                class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                            Template herunterladen
+                        </button>
+                    </div>
+                    <div class="space-x-3">
+                        <button id="validate-btn" 
+                                onclick="validateFile()"
+                                disabled
+                                class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Validieren
+                        </button>
+                        <button id="import-btn"
+                                onclick="importFile()"
+                                disabled
+                                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg id="import-spinner" class="hidden animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Importieren
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results" class="hidden bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Import Ergebnis</h2>
+                
+                <!-- Progress Bar -->
+                <div id="progress-bar" class="hidden mb-4">
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div id="progress" class="bg-blue-600 h-2.5 rounded-full transition-all" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <!-- Result Stats -->
+                <div id="result-stats" class="grid grid-cols-4 gap-4 mb-4">
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-green-600" id="imported-count">0</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Importiert</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-yellow-600" id="skipped-count">0</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Übersprungen</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-red-600" id="failed-count">0</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Fehlgeschlagen</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-gray-600" id="total-count">0</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Gesamt</p>
+                    </div>
+                </div>
+                
+                <!-- Messages -->
+                <div id="result-messages" class="space-y-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <th:block layout:fragment="scripts">
+        <script>
+            let selectedFile = null;
+
+            // Drag & Drop
+            const dropZone = document.getElementById('drop-zone');
+            const fileInput = document.getElementById('file-upload');
+            
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            });
+            
+            dropZone.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            });
+            
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFileSelect(files[0]);
+                }
+            });
+            
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+            
+            document.getElementById('remove-file').addEventListener('click', () => {
+                clearFile();
+            });
+            
+            function handleFileSelect(file) {
+                if (!file.name.toLowerCase().endsWith('.csv')) {
+                    alert('Bitte wählen Sie eine CSV-Datei');
+                    return;
+                }
+                
+                selectedFile = file;
+                
+                // Show file info
+                document.getElementById('file-info').classList.remove('hidden');
+                document.getElementById('file-name').textContent = file.name;
+                document.getElementById('file-size').textContent = formatFileSize(file.size);
+                
+                // Enable buttons
+                document.getElementById('validate-btn').disabled = false;
+                document.getElementById('import-btn').disabled = false;
+                
+                // Hide results
+                document.getElementById('results').classList.add('hidden');
+            }
+            
+            function clearFile() {
+                selectedFile = null;
+                fileInput.value = '';
+                document.getElementById('file-info').classList.add('hidden');
+                document.getElementById('validate-btn').disabled = true;
+                document.getElementById('import-btn').disabled = true;
+            }
+            
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+            }
+            
+            async function validateFile() {
+                if (!selectedFile) return;
+                
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+                
+                try {
+                    const response = await fetch('/api/admin/import/validate', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('jwt_token')
+                        },
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.valid) {
+                        alert(`Validierung erfolgreich! ${result.totalRows} Zeilen gefunden.`);
+                    } else {
+                        alert(`Validierung fehlgeschlagen:\n${result.errors.join('\n')}`);
+                    }
+                } catch (error) {
+                    alert('Fehler bei der Validierung: ' + error.message);
+                }
+            }
+            
+            async function importFile() {
+                if (!selectedFile) return;
+                
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+                
+                // Show progress
+                document.getElementById('results').classList.remove('hidden');
+                document.getElementById('progress-bar').classList.remove('hidden');
+                document.getElementById('import-btn').disabled = true;
+                document.getElementById('import-spinner').classList.remove('hidden');
+                
+                try {
+                    const response = await fetch('/api/admin/import/csv', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('jwt_token')
+                        },
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    // Update progress
+                    document.getElementById('progress').style.width = '100%';
+                    
+                    // Show results
+                    document.getElementById('imported-count').textContent = result.imported || 0;
+                    document.getElementById('skipped-count').textContent = result.skipped || 0;
+                    document.getElementById('failed-count').textContent = result.failed || 0;
+                    document.getElementById('total-count').textContent = result.total || 0;
+                    
+                    // Show messages
+                    const messagesDiv = document.getElementById('result-messages');
+                    messagesDiv.innerHTML = '';
+                    
+                    if (result.success) {
+                        messagesDiv.innerHTML = `
+                            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4">
+                                <p class="font-bold">Erfolg!</p>
+                                <p>${result.message}</p>
+                            </div>
+                        `;
+                    } else {
+                        messagesDiv.innerHTML = `
+                            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
+                                <p class="font-bold">Fehler!</p>
+                                <p>${result.message}</p>
+                            </div>
+                        `;
+                    }
+                    
+                    // Show warnings
+                    if (result.warnings && result.warnings.length > 0) {
+                        result.warnings.forEach(warning => {
+                            messagesDiv.innerHTML += `
+                                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4">
+                                    <p>${warning}</p>
+                                </div>
+                            `;
+                        });
+                    }
+                    
+                    // Clear file after successful import
+                    if (result.success) {
+                        clearFile();
+                        loadStats(); // Reload statistics
+                    }
+                    
+                } catch (error) {
+                    alert('Fehler beim Import: ' + error.message);
+                } finally {
+                    document.getElementById('import-btn').disabled = false;
+                    document.getElementById('import-spinner').classList.add('hidden');
+                }
+            }
+            
+            async function downloadTemplate() {
+                window.location.href = '/api/admin/import/template';
+            }
+            
+            async function loadStats() {
+                try {
+                    const response = await fetch('/api/admin/import/stats', {
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('jwt_token')
+                        }
+                    });
+                    
+                    const stats = await response.json();
+                    
+                    document.getElementById('total-questions').textContent = stats.totalQuestions || 0;
+                    document.getElementById('topics-count').textContent = stats.topicsCount || 0;
+                    document.getElementById('last-import').textContent = stats.lastImport || '-';
+                    
+                } catch (error) {
+                    console.error('Error loading stats:', error);
+                }
+            }
+            
+            // Load stats on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                loadStats();
+            });
+        </script>
+    </th:block>
+</body>
+</html>

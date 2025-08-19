@@ -1,0 +1,217 @@
+package de.lernapp.controller.api;
+
+import de.lernapp.model.Question;
+import de.lernapp.service.QuestionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
+
+/**
+ * REST API Controller für Übungen
+ * Bietet API-Endpoints für Practice-Funktionen
+ */
+@RestController
+@RequestMapping("/api/practice")
+@CrossOrigin(origins = "*")
+public class PracticeApiController {
+    
+    @Autowired
+    private QuestionService questionService;
+    
+    /**
+     * DTO für Practice Request
+     */
+    public static class PracticeRequest {
+        private String topic;
+        private String difficulty;
+        private Integer questionCount;
+        private Integer timeLimit;
+        private String mode;
+        
+        // Getters and Setters
+        public String getTopic() { return topic; }
+        public void setTopic(String topic) { this.topic = topic; }
+        
+        public String getDifficulty() { return difficulty; }
+        public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
+        
+        public Integer getQuestionCount() { return questionCount != null ? questionCount : 20; }
+        public void setQuestionCount(Integer questionCount) { this.questionCount = questionCount; }
+        
+        public Integer getTimeLimit() { return timeLimit != null ? timeLimit : 0; }
+        public void setTimeLimit(Integer timeLimit) { this.timeLimit = timeLimit; }
+        
+        public String getMode() { return mode != null ? mode : "standard"; }
+        public void setMode(String mode) { this.mode = mode; }
+    }
+    
+    /**
+     * DTO für Practice Response
+     */
+    public static class PracticeResponse {
+        private String sessionId;
+        private List<QuestionDTO> questions;
+        private Integer timeLimit;
+        private String mode;
+        
+        public PracticeResponse(String sessionId, List<QuestionDTO> questions, Integer timeLimit, String mode) {
+            this.sessionId = sessionId;
+            this.questions = questions;
+            this.timeLimit = timeLimit;
+            this.mode = mode;
+        }
+        
+        // Getters and Setters
+        public String getSessionId() { return sessionId; }
+        public void setSessionId(String sessionId) { this.sessionId = sessionId; }
+        
+        public List<QuestionDTO> getQuestions() { return questions; }
+        public void setQuestions(List<QuestionDTO> questions) { this.questions = questions; }
+        
+        public Integer getTimeLimit() { return timeLimit; }
+        public void setTimeLimit(Integer timeLimit) { this.timeLimit = timeLimit; }
+        
+        public String getMode() { return mode; }
+        public void setMode(String mode) { this.mode = mode; }
+    }
+    
+    /**
+     * DTO für Question
+     */
+    public static class QuestionDTO {
+        private Long id;
+        private String questionText;
+        private List<String> options;
+        private String category;
+        private String difficulty;
+        private Integer points;
+        
+        public QuestionDTO(Question question) {
+            this.id = question.getId();
+            this.questionText = question.getQuestionText();
+            this.options = question.getOptions();
+            this.category = question.getCategory();
+            this.difficulty = question.getDifficulty().toString();
+            this.points = question.getPoints();
+        }
+        
+        // Getters and Setters
+        public Long getId() { return id; }
+        public void setId(Long id) { this.id = id; }
+        
+        public String getQuestionText() { return questionText; }
+        public void setQuestionText(String questionText) { this.questionText = questionText; }
+        
+        public List<String> getOptions() { return options; }
+        public void setOptions(List<String> options) { this.options = options; }
+        
+        public String getCategory() { return category; }
+        public void setCategory(String category) { this.category = category; }
+        
+        public String getDifficulty() { return difficulty; }
+        public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
+        
+        public Integer getPoints() { return points; }
+        public void setPoints(Integer points) { this.points = points; }
+    }
+    
+    /**
+     * Erstelle eine neue Übungssession
+     */
+    @PostMapping("/custom")
+    public ResponseEntity<?> createCustomPractice(@RequestBody PracticeRequest request) {
+        try {
+            // Hole zufällige Fragen basierend auf den Kriterien
+            List<Question> questions = questionService.getRandomQuestions(
+                request.getTopic(),
+                request.getDifficulty(),
+                request.getQuestionCount()
+            );
+            
+            // Konvertiere zu DTOs
+            List<QuestionDTO> questionDTOs = questions.stream()
+                .map(QuestionDTO::new)
+                .toList();
+            
+            // Erstelle Session ID
+            String sessionId = UUID.randomUUID().toString();
+            
+            // Erstelle Response
+            PracticeResponse response = new PracticeResponse(
+                sessionId,
+                questionDTOs,
+                request.getTimeLimit(),
+                request.getMode()
+            );
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            Map<String, String> error = new HashMap<>();
+            error.put("error", "Fehler beim Erstellen der Übung: " + e.getMessage());
+            return ResponseEntity.badRequest().body(error);
+        }
+    }
+    
+    /**
+     * Prüfe eine Antwort
+     */
+    @PostMapping("/check-answer")
+    public ResponseEntity<?> checkAnswer(@RequestBody Map<String, Object> request) {
+        try {
+            Long questionId = Long.parseLong(request.get("questionId").toString());
+            String userAnswer = request.get("answer").toString();
+            
+            boolean correct = questionService.checkAnswer(questionId, userAnswer);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("correct", correct);
+            
+            // Hole die richtige Antwort und Erklärung
+            Optional<Question> question = questionService.getQuestionById(questionId);
+            if (question.isPresent()) {
+                response.put("correctAnswer", question.get().getCorrectAnswer());
+                response.put("explanation", question.get().getExplanation());
+            }
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            Map<String, String> error = new HashMap<>();
+            error.put("error", "Fehler beim Prüfen der Antwort: " + e.getMessage());
+            return ResponseEntity.badRequest().body(error);
+        }
+    }
+    
+    /**
+     * Hole verfügbare Kategorien
+     */
+    @GetMapping("/categories")
+    public ResponseEntity<?> getCategories() {
+        try {
+            List<String> categories = questionService.getAllCategories();
+            return ResponseEntity.ok(categories);
+        } catch (Exception e) {
+            Map<String, String> error = new HashMap<>();
+            error.put("error", "Fehler beim Laden der Kategorien: " + e.getMessage());
+            return ResponseEntity.badRequest().body(error);
+        }
+    }
+    
+    /**
+     * Hole Statistiken
+     */
+    @GetMapping("/statistics")
+    public ResponseEntity<?> getStatistics() {
+        try {
+            Map<String, Long> stats = questionService.getQuestionStatistics();
+            return ResponseEntity.ok(stats);
+        } catch (Exception e) {
+            Map<String, String> error = new HashMap<>();
+            error.put("error", "Fehler beim Laden der Statistiken: " + e.getMessage());
+            return ResponseEntity.badRequest().body(error);
+        }
+    }
+}

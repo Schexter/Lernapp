@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Fachinformatiker Lernapp</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <span>📚</span>
+                Fachinformatiker Lernapp
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="/" th:href="@{/}" class="active">Dashboard</a></li>
+                <li><a href="/lernen" th:href="@{/lernen}">Lernen</a></li>
+                <li><a href="/uebungen" th:href="@{/uebungen}">Übungen</a></li>
+                <li><a href="/pruefungen" th:href="@{/pruefungen}">Prüfungen</a></li>
+                <li><a href="/fortschritt" th:href="@{/fortschritt}">Fortschritt</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post" style="display: inline;">
+                        <button type="submit" style="background: none; border: none; color: #666; cursor: pointer; font-weight: 500;">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Welcome Header -->
+        <div class="dashboard-header">
+            <h1>Willkommen zurück, <span sec:authentication="name">Benutzer</span>! 👋</h1>
+            <p style="color: #64748b; margin-top: 0.5rem;">
+                Bereit für deine nächste Lerneinheit? Wähle einen Bereich aus, um fortzufahren.
+            </p>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Lernen Card -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #3b82f6, #1e40af);">
+                    <span style="color: white; font-size: 24px;">📖</span>
+                </div>
+                <h3 class="card-title">Lernen</h3>
+                <p class="card-description">
+                    Entdecke neue Themen und erweitere dein Wissen in verschiedenen IT-Bereichen.
+                </p>
+                <div style="margin-top: 1.5rem;">
+                    <a th:href="@{/lernen}" class="btn btn-primary" style="width: 100%;">
+                        Jetzt lernen →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Übungen Card -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <span style="color: white; font-size: 24px;">💪</span>
+                </div>
+                <h3 class="card-title">Übungen</h3>
+                <p class="card-description">
+                    Teste dein Wissen mit praktischen Übungen und Aufgaben.
+                </p>
+                <div style="margin-top: 1.5rem;">
+                    <a th:href="@{/uebungen}" class="btn btn-primary" style="width: 100%;">
+                        Übungen starten →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Prüfungen Card -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                    <span style="color: white; font-size: 24px;">🎯</span>
+                </div>
+                <h3 class="card-title">Prüfungen</h3>
+                <p class="card-description">
+                    Bereite dich optimal auf deine Prüfungen vor mit realistischen Tests.
+                </p>
+                <div style="margin-top: 1.5rem;">
+                    <a th:href="@{/pruefungen}" class="btn btn-primary" style="width: 100%;">
+                        Prüfung simulieren →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Fortschritt Card -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                    <span style="color: white; font-size: 24px;">📊</span>
+                </div>
+                <h3 class="card-title">Fortschritt</h3>
+                <p class="card-description">
+                    Verfolge deinen Lernfortschritt und sieh deine Erfolge.
+                </p>
+                <div style="margin-top: 1.5rem;">
+                    <a th:href="@{/fortschritt}" class="btn btn-primary" style="width: 100%;">
+                        Fortschritt ansehen →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="dashboard-card" style="grid-column: span 2;">
+                <h3 class="card-title">📈 Deine Statistiken</h3>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #3b82f6;">12</div>
+                        <div style="color: #64748b; font-size: 0.875rem;">Lernmodule abgeschlossen</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">48</div>
+                        <div style="color: #64748b; font-size: 0.875rem;">Übungen gelöst</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #f59e0b;">3</div>
+                        <div style="color: #64748b; font-size: 0.875rem;">Prüfungen bestanden</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #8b5cf6;">85%</div>
+                        <div style="color: #64748b; font-size: 0.875rem;">Erfolgsquote</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

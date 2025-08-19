@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>Lernfrage</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-400">Frage <span id="current-question">1</span> von <span id="total-questions">20</span></span>
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-400">Programmierung - Java Grundlagen</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 5%"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div id="question-container" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+                <!-- Question Header -->
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 text-sm font-medium rounded-full">
+                                Multiple Choice
+                            </span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 text-sm font-medium rounded-full">
+                                Leicht
+                            </span>
+                        </div>
+                        <button onclick="toggleBookmark()" class="text-gray-400 hover:text-yellow-500 transition">
+                            <svg id="bookmark-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Question Text -->
+                    <h2 id="question-text" class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Was ist der Unterschied zwischen einer abstrakten Klasse und einem Interface in Java?
+                    </h2>
+                </div>
+
+                <!-- Answer Options -->
+                <div class="p-6">
+                    <div id="answer-options" class="space-y-3">
+                        <label class="answer-option block p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer transition-all">
+                            <input type="radio" name="answer" value="A" class="hidden" 
+                                   hx-post="/api/questions/check-answer" 
+                                   hx-trigger="change"
+                                   hx-target="#feedback"
+                                   hx-vals='{"questionId": "1", "answer": "A"}'>
+                            <div class="flex items-start">
+                                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-500 mr-3">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">A</span>
+                                </div>
+                                <p class="text-gray-900 dark:text-white">
+                                    Eine abstrakte Klasse kann Implementierungen enthalten, ein Interface nur Methodensignaturen
+                                </p>
+                            </div>
+                        </label>
+
+                        <label class="answer-option block p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer transition-all">
+                            <input type="radio" name="answer" value="B" class="hidden"
+                                   hx-post="/api/questions/check-answer" 
+                                   hx-trigger="change"
+                                   hx-target="#feedback"
+                                   hx-vals='{"questionId": "1", "answer": "B"}'>
+                            <div class="flex items-start">
+                                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-500 mr-3">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">B</span>
+                                </div>
+                                <p class="text-gray-900 dark:text-white">
+                                    Es gibt keinen Unterschied, beide sind identisch
+                                </p>
+                            </div>
+                        </label>
+
+                        <label class="answer-option block p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer transition-all">
+                            <input type="radio" name="answer" value="C" class="hidden"
+                                   hx-post="/api/questions/check-answer" 
+                                   hx-trigger="change"
+                                   hx-target="#feedback"
+                                   hx-vals='{"questionId": "1", "answer": "C"}'>
+                            <div class="flex items-start">
+                                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-500 mr-3">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">C</span>
+                                </div>
+                                <p class="text-gray-900 dark:text-white">
+                                    Eine Klasse kann mehrere Interfaces implementieren, aber nur von einer abstrakten Klasse erben
+                                </p>
+                            </div>
+                        </label>
+
+                        <label class="answer-option block p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer transition-all">
+                            <input type="radio" name="answer" value="D" class="hidden"
+                                   hx-post="/api/questions/check-answer" 
+                                   hx-trigger="change"
+                                   hx-target="#feedback"
+                                   hx-vals='{"questionId": "1", "answer": "D"}'>
+                            <div class="flex items-start">
+                                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-500 mr-3">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">D</span>
+                                </div>
+                                <p class="text-gray-900 dark:text-white">
+                                    Beide A und C sind korrekt
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Feedback Area -->
+                    <div id="feedback" class="mt-6"></div>
+
+                    <!-- Action Buttons -->
+                    <div class="mt-6 flex justify-between items-center">
+                        <button onclick="skipQuestion()" 
+                                class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
+                            Überspringen
+                        </button>
+                        
+                        <div class="flex space-x-3">
+                            <button onclick="showHint()" 
+                                    class="px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 rounded-lg hover:bg-yellow-200 dark:hover:bg-yellow-900/50 transition">
+                                💡 Hinweis
+                            </button>
+                            <button id="submit-btn" 
+                                    onclick="submitAnswer()"
+                                    disabled
+                                    class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition">
+                                Antwort prüfen
+                            </button>
+                            <button id="next-btn" 
+                                    onclick="nextQuestion()"
+                                    class="hidden px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                                Nächste Frage →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hint Modal -->
+            <div id="hint-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+                <div class="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">💡 Hinweis</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Denke darüber nach: Wie viele Klassen kann eine Java-Klasse erweitern? 
+                        Und wie viele Interfaces kann sie implementieren?
+                    </p>
+                    <button onclick="closeHint()" 
+                            class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                        Verstanden
+                    </button>
+                </div>
+            </div>
+
+            <!-- Statistics Sidebar -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center">
+                    <p class="text-2xl font-bold text-green-600 dark:text-green-400">85%</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Erfolgsquote heute</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center">
+                    <p class="text-2xl font-bold text-blue-600 dark:text-blue-400">17</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Richtige Antworten</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center">
+                    <p class="text-2xl font-bold text-orange-600 dark:text-orange-400">12:45</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Lernzeit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block layout:fragment="scripts">
+        <script>
+            // Handle answer selection
+            document.querySelectorAll('input[name="answer"]').forEach(input => {
+                input.addEventListener('change', function() {
+                    // Enable submit button
+                    document.getElementById('submit-btn').disabled = false;
+                    
+                    // Update visual selection
+                    document.querySelectorAll('.answer-option').forEach(option => {
+                        option.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                    });
+                    this.closest('.answer-option').classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                });
+            });
+
+            function submitAnswer() {
+                const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+                if (selectedAnswer) {
+                    // Simulate answer check
+                    const isCorrect = selectedAnswer.value === 'D';
+                    showFeedback(isCorrect);
+                }
+            }
+
+            function showFeedback(isCorrect) {
+                const feedbackDiv = document.getElementById('feedback');
+                
+                if (isCorrect) {
+                    feedbackDiv.innerHTML = `
+                        <div class="p-4 bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-600 rounded-lg">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-green-600 dark:text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <h4 class="font-semibold text-green-800 dark:text-green-400">Richtig!</h4>
+                                    <p class="text-green-700 dark:text-green-300 mt-1">
+                                        Genau! Eine Klasse kann mehrere Interfaces implementieren, aber nur von einer Klasse erben, 
+                                        und abstrakte Klassen können sowohl abstrakte Methoden als auch konkrete Implementierungen haben.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    feedbackDiv.innerHTML = `
+                        <div class="p-4 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-600 rounded-lg">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-600 dark:text-red-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <h4 class="font-semibold text-red-800 dark:text-red-400">Nicht ganz richtig</h4>
+                                    <p class="text-red-700 dark:text-red-300 mt-1">
+                                        Die richtige Antwort ist D. Sowohl A als auch C sind korrekt: Abstrakte Klassen können 
+                                        Implementierungen haben, und eine Klasse kann mehrere Interfaces implementieren.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Show next button
+                document.getElementById('submit-btn').classList.add('hidden');
+                document.getElementById('next-btn').classList.remove('hidden');
+                
+                // Disable answer selection
+                document.querySelectorAll('input[name="answer"]').forEach(input => {
+                    input.disabled = true;
+                });
+            }
+
+            function nextQuestion() {
+                // Load next question via HTMX
+                window.location.href = '/learn/question/next';
+            }
+
+            function skipQuestion() {
+                if (confirm('Möchtest du diese Frage wirklich überspringen?')) {
+                    nextQuestion();
+                }
+            }
+
+            function showHint() {
+                document.getElementById('hint-modal').classList.remove('hidden');
+            }
+
+            function closeHint() {
+                document.getElementById('hint-modal').classList.add('hidden');
+            }
+
+            function toggleBookmark() {
+                const icon = document.getElementById('bookmark-icon');
+                icon.classList.toggle('fill-current');
+                icon.classList.toggle('text-yellow-500');
+            }
+
+            // Update progress bar
+            function updateProgress(current, total) {
+                const percentage = (current / total) * 100;
+                document.getElementById('progress-bar').style.width = percentage + '%';
+            }
+        </script>
+    </th:block>
+</body>
+</html>

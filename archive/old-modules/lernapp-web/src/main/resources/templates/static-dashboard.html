@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Fachinformatiker Lernapp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background: #5a67d8;
+        }
+        h1 { color: #333; }
+        h3 { color: #667eea; margin-top: 0; }
+        p { color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Willkommen im Dashboard!</h1>
+            <p>Hallo <strong id="username">Demo User</strong>! Wähle einen Bereich aus:</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>📚 Lernen</h3>
+                <p>Entdecke neue Themen und erweitere dein Wissen in verschiedenen IT-Bereichen.</p>
+                <a href="/learn" class="btn">Lernen starten →</a>
+            </div>
+
+            <div class="card">
+                <h3>💪 Übungen</h3>
+                <p>Teste dein Wissen mit praktischen Übungen und Aufgaben.</p>
+                <a href="/practice" class="btn">Zu den Übungen →</a>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Prüfungen</h3>
+                <p>Bereite dich mit realistischen Tests auf deine Prüfungen vor.</p>
+                <a href="/exams" class="btn">Prüfung starten →</a>
+            </div>
+
+            <div class="card">
+                <h3>📊 Fortschritt</h3>
+                <p>Verfolge deinen Lernfortschritt und sieh deine Erfolge.</p>
+                <a href="/progress" class="btn">Fortschritt ansehen →</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center;">
+            <button onclick="logout()" style="background: #ef4444; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">
+                Ausloggen
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set user name
+        const user = localStorage.getItem('user');
+        if (user) {
+            try {
+                const userData = JSON.parse(user);
+                document.getElementById('username').textContent = userData.firstName || userData.username || 'Demo User';
+            } catch(e) {}
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = '/login';
+        }
+
+        // NO AUTH CHECKS - Just display the dashboard
+        console.log('Static Dashboard loaded - No auth checks');
+    </script>
+</body>
+</html>
