@@ -1,5 +1,66 @@
 # Fachinformatiker Lernapp - CHANGELOG
 
+## [2025-08-19] - Projekt bereinigt und für Claude Code optimiert
+### Durchgeführt:
+- **Massive Bereinigung**: 40+ alte Dateien archiviert
+- **27 BAT-Scripts** in `/archive/bat-scripts` verschoben
+- **Alte Module** (lernapp-core, lernapp-web, etc.) archiviert
+- **Veraltete Dokumentationen** (PHASE_*.md) archiviert
+- **TODO konsolidiert**: Nur noch eine einheitliche TODO.md
+- **Claude Code Instructions** vereinfacht in `.claude/instructions.md`
+- **Neues start.bat** erstellt (einziges verbleibendes Script)
+
+### Funktioniert:
+- Saubere, übersichtliche Projektstruktur
+- Klare TODO-Liste mit Phasen
+- Optimierte Claude Code Instructions
+- Einfacher Start mit `start.bat`
+
+### Nächste Schritte:
+- User Entity implementieren
+- JWT Authentication einrichten
+- Login/Register funktionsfähig machen
+
+### Probleme/Notizen:
+- Projekt war völlig überladen mit redundanten Dateien
+- Jetzt deutlich übersichtlicher und wartbarer
+- Fokus liegt klar auf Authentication als nächstem Schritt
+
+---
+
+## [2024-12-19] - Neustart mit minimaler Basis
+### Durchgeführt:
+- Alte Module-Struktur entfernt (lernapp-core, lernapp-web, etc.)
+- Package-Struktur vereinheitlicht auf `de.lernapp`
+- Minimale funktionierende Basis erstellt:
+  - Question Entity mit JPA Annotations
+  - QuestionRepository mit Spring Data JPA
+  - QuestionService mit Business Logic
+  - QuestionController mit REST API
+  - Test-Daten in data.sql
+  - Vereinfachte Security Config
+  - HTML Startseite mit API-Übersicht
+
+### Funktioniert:
+- App startet erfolgreich auf Port 8080
+- REST API unter `/api/questions` verfügbar
+- H2 In-Memory Database mit Test-Daten
+- H2 Console unter `/h2-console` erreichbar
+- 10 Test-Fragen in verschiedenen Kategorien
+
+### Nächste Schritte:
+- Frontend entwickeln (React oder Vue.js)
+- User-Management implementieren
+- Lernfortschritt-Tracking hinzufügen
+- Prüfungsmodus entwickeln
+
+### Probleme/Notizen:
+- Security ist für Entwicklung deaktiviert
+- Nur In-Memory Database (Daten gehen beim Neustart verloren)
+- Noch kein richtiges Frontend (nur Info-Seite)
+
+---
+
 ## [2025-08-14] 🔧 LOGIN-SYSTEM ÜBERPRÜFUNG & FRONTEND-INTEGRATION
 
 ### 🎯 AKTUELLE ÜBERPRÜFUNG:
@@ -131,3 +192,5 @@ Started LernappApplication in 11.458 seconds
 **Nächste Phase**: Feature-Entwicklung und Testing
 
 ### 🏆 **MISSION ACCOMPLISHED!**
+
+Erstellt von Hans Hahn - Alle Rechte vorbehalten

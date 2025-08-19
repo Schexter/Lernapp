@@ -1,6 +1,1 @@
 rootProject.name = 'fachinformatiker-lernapp'
-
-include 'lernapp-core'
-include 'lernapp-security'
-include 'lernapp-web'
-include 'lernapp-integration'

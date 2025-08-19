@@ -9,10 +9,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/lernapp-core" />
-            <option value="$PROJECT_DIR$/lernapp-integration" />
-            <option value="$PROJECT_DIR$/lernapp-security" />
-            <option value="$PROJECT_DIR$/lernapp-web" />
           </set>
         </option>
       </GradleProjectSettings>
