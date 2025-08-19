@@ -16,12 +16,18 @@
 - Basic Security Config
 
 ## 🎯 Aktueller Fokus
-**PHASE 1: Authentication System**
+**PHASE 1: React Frontend Setup (PRIORITÄT)**
+1. React + TypeScript + TailwindCSS Setup in /frontend
+2. Design System implementieren (siehe /frontend/DESIGN_SYSTEM.md)
+3. Login/Register Komponenten erstellen
+4. API Integration mit Spring Boot Backend
+5. Dashboard und Lernmodus UI
+
+**PARALLEL: Authentication System (Backend)**
 1. User Entity mit JPA erstellen
 2. UserRepository implementieren
 3. AuthService mit JWT
 4. Login/Register Endpoints
-5. Frontend Forms verbinden
 
 ## 💻 Arbeitsweise
 1. **Immer zuerst** `TODO.md` und `CHANGELOG.md` lesen
@@ -57,10 +63,20 @@ src/main/java/de/lernapp/
 └── LernappApplication.java
 
 src/main/resources/
-├── templates/       # HTML Templates
+├── templates/       # HTML Templates (Legacy)
 ├── static/          # CSS, JS, Images
 ├── data.sql         # Test-Daten
 └── application.yml  # Konfiguration
+
+frontend/            # NEUES REACT FRONTEND
+├── src/
+│   ├── components/  # UI-Komponenten
+│   ├── pages/       # Seiten
+│   ├── services/    # API Services
+│   └── types/       # TypeScript Types
+├── DESIGN_SYSTEM.md # Design-Regeln (ChatGPT basiert)
+├── CLAUDE_CODE_INSTRUCTIONS.md
+└── package.json
 ```
 
 ## 📝 Code-Standards
@@ -80,10 +96,18 @@ src/main/resources/
 ## 🚀 Session-Ablauf
 1. TODO.md checken - Was ist zu tun?
 2. CHANGELOG.md lesen - Was war zuletzt?
-3. Code schreiben (max. 100 Zeilen)
-4. Mit start.bat testen
-5. Bei Erfolg: CHANGELOG updaten
-6. Bei Fehler: error.log updaten
+3. **Frontend:** DESIGN_SYSTEM.md und CLAUDE_CODE_INSTRUCTIONS.md beachten
+4. Code schreiben (max. 100 Zeilen)
+5. Mit start.bat (Backend) + npm run dev (Frontend) testen
+6. Bei Erfolg: CHANGELOG updaten
+7. Bei Fehler: error.log updaten
+
+## 🎨 Frontend Development
+- **Design System**: Basiert auf ChatGPT Blueprint - siehe /frontend/DESIGN_SYSTEM.md
+- **Tech Stack**: React 18 + TypeScript + TailwindCSS + shadcn/ui
+- **API Integration**: REST Calls zu Spring Boot Backend (:8080)
+- **Responsive**: Mobile First, TailwindCSS Breakpoints
+- **Colors**: Primär #2F6FED, Accent #10B981, strikt aus Design System
 
 ---
 *Erstellt von Hans Hahn - Alle Rechte vorbehalten*

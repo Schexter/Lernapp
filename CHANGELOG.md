@@ -1,5 +1,20 @@
 # Fachinformatiker Lernapp - CHANGELOG
 
+## [2025-08-19 16:15] - React Frontend mit TypeScript Setup
+### Durchgeführt:
+- **Vite + React + TypeScript** Setup in /frontend-app
+- **TailwindCSS** konfiguriert mit Design System Farben
+- **Login-Komponente** erstellt mit modernem Design
+- **React Router** für Navigation eingerichtet
+- **Axios** für API-Calls integriert
+- Frontend läuft auf **Port 3000** mit Proxy zu Backend
+
+### Funktioniert:
+- Frontend Development Server auf http://localhost:3000
+- Backend läuft parallel auf Port 8080
+- Login-UI mit TailwindCSS Design
+- CORS Proxy konfiguriert
+
 ## [2025-08-19] - CSV Import-Funktionalität implementiert
 ### Durchgeführt:
 - **CsvImportService** erstellt mit Batch-Import und Duplikat-Erkennung

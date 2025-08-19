@@ -18,7 +18,9 @@
       "Bash(gradlew:*)",
       "Bash(grep:*)",
       "Bash(git rm:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(dir)",
+      "Bash(npx create-react-app:*)"
     ],
     "deny": [],
     "ask": [],
