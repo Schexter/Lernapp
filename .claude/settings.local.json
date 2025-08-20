@@ -27,7 +27,8 @@
       "Bash(npx tailwindcss init:*)",
       "Bash(npm run dev:*)",
       "Bash(npm run build:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": [],

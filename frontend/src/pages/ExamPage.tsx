@@ -1,0 +1,175 @@
+import { Layout } from '../components/layout/Layout';
+import { Clock, FileQuestion, Trophy, AlertCircle } from 'lucide-react';
+import { useState } from 'react';
+
+export const ExamPage = () => {
+  const [selectedExam, setSelectedExam] = useState<string | null>(null);
+
+  const exams = [
+    {
+      id: 'ap1-mock',
+      title: 'AP1 Probeklausur',
+      description: 'Vollständige Simulation der Abschlussprüfung Teil 1',
+      duration: 90,
+      questions: 40,
+      difficulty: 'Schwer',
+      color: 'text-danger'
+    },
+    {
+      id: 'netzwerk-exam',
+      title: 'Netzwerktechnik Prüfung',
+      description: 'Spezialisierte Prüfung zu Netzwerktechnologien',
+      duration: 45,
+      questions: 25,
+      difficulty: 'Mittel',
+      color: 'text-primary'
+    },
+    {
+      id: 'database-exam',
+      title: 'Datenbank Prüfung',
+      description: 'SQL und Datenbankdesign im Fokus',
+      duration: 60,
+      questions: 30,
+      difficulty: 'Mittel',
+      color: 'text-accent'
+    },
+    {
+      id: 'programming-exam',
+      title: 'Programmierung Prüfung',
+      description: 'Java-Grundlagen und Algorithmen',
+      duration: 75,
+      questions: 35,
+      difficulty: 'Schwer',
+      color: 'text-warning'
+    }
+  ];
+
+  if (selectedExam) {
+    const exam = exams.find(e => e.id === selectedExam);
+    return (
+      <Layout>
+        <div className="p-6 max-w-4xl mx-auto">
+          <div className="card text-center">
+            <AlertCircle className="w-16 h-16 text-warning mx-auto mb-4" />
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              Prüfung: {exam?.title}
+            </h1>
+            <p className="text-gray-600 mb-6">
+              Du startest gleich eine {exam?.duration}-minütige Prüfung mit {exam?.questions} Fragen.
+            </p>
+            
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+              <h3 className="font-semibold text-yellow-800 mb-2">Wichtige Hinweise:</h3>
+              <ul className="text-sm text-yellow-700 text-left space-y-1">
+                <li>• Die Prüfung kann nicht pausiert werden</li>
+                <li>• Alle Fragen müssen beantwortet werden</li>
+                <li>• Das Zeitlimit ist strikt einzuhalten</li>
+                <li>• Das Ergebnis wird sofort angezeigt</li>
+              </ul>
+            </div>
+
+            <div className="flex justify-center space-x-4">
+              <button 
+                onClick={() => setSelectedExam(null)}
+                className="btn-secondary"
+              >
+                Zurück
+              </button>
+              <button className="btn-primary">
+                <FileQuestion className="w-5 h-5 mr-2" />
+                Prüfung starten
+              </button>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  return (
+    <Layout>
+      <div className="p-6 max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Prüfungsmodus
+          </h1>
+          <p className="text-gray-600">
+            Teste dein Wissen unter Prüfungsbedingungen mit Timer und vollständiger Bewertung.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {exams.map((exam) => (
+            <div key={exam.id} className="card-interactive">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {exam.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {exam.description}
+                  </p>
+                </div>
+                <FileQuestion className={`w-8 h-8 ${exam.color}`} />
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="text-center">
+                  <Clock className="w-5 h-5 text-gray-400 mx-auto mb-1" />
+                  <div className="text-sm font-medium text-gray-900">{exam.duration} Min</div>
+                  <div className="text-xs text-gray-500">Dauer</div>
+                </div>
+                <div className="text-center">
+                  <FileQuestion className="w-5 h-5 text-gray-400 mx-auto mb-1" />
+                  <div className="text-sm font-medium text-gray-900">{exam.questions}</div>
+                  <div className="text-xs text-gray-500">Fragen</div>
+                </div>
+                <div className="text-center">
+                  <Trophy className="w-5 h-5 text-gray-400 mx-auto mb-1" />
+                  <div className="text-sm font-medium text-gray-900">{exam.difficulty}</div>
+                  <div className="text-xs text-gray-500">Level</div>
+                </div>
+              </div>
+
+              <button 
+                onClick={() => setSelectedExam(exam.id)}
+                className="btn-primary w-full"
+              >
+                Prüfung auswählen
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="card text-center">
+            <Trophy className="w-12 h-12 text-accent mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Beste Leistung
+            </h3>
+            <div className="text-3xl font-bold text-accent mb-1">92%</div>
+            <div className="text-sm text-gray-600">AP1 Probeklausur</div>
+          </div>
+
+          <div className="card text-center">
+            <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Durchschnittliche Zeit
+            </h3>
+            <div className="text-3xl font-bold text-primary mb-1">68</div>
+            <div className="text-sm text-gray-600">Minuten pro Prüfung</div>
+          </div>
+
+          <div className="card text-center">
+            <FileQuestion className="w-12 h-12 text-warning mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Absolvierte Prüfungen
+            </h3>
+            <div className="text-3xl font-bold text-warning mb-1">12</div>
+            <div className="text-sm text-gray-600">Diesen Monat</div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};

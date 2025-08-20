@@ -1,60 +1,61 @@
 interface ProgressRingProps {
   progress: number; // 0-100
   size?: 'sm' | 'md' | 'lg';
-  showText?: boolean;
-  children?: React.ReactNode;
+  className?: string;
 }
 
 export const ProgressRing: React.FC<ProgressRingProps> = ({ 
   progress, 
   size = 'md', 
-  showText = true,
-  children 
+  className = '' 
 }) => {
-  const sizes = {
-    sm: { width: 80, strokeWidth: 6 },
-    md: { width: 120, strokeWidth: 8 },
-    lg: { width: 160, strokeWidth: 10 }
+  const sizeClasses = {
+    sm: 'w-16 h-16',
+    md: 'w-24 h-24', 
+    lg: 'w-32 h-32'
   };
   
-  const { width, strokeWidth } = sizes[size];
-  const radius = (width - strokeWidth) / 2;
-  const circumference = radius * 2 * Math.PI;
-  const strokeDasharray = `${circumference} ${circumference}`;
+  const radius = size === 'sm' ? 28 : size === 'lg' ? 58 : 44;
+  const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
   
   return (
-    <div className="relative inline-flex items-center justify-center">
-      <svg width={width} height={width} className="transform -rotate-90">
+    <div className={`relative ${sizeClasses[size]} ${className}`}>
+      <svg 
+        className="w-full h-full transform -rotate-90" 
+        viewBox="0 0 120 120"
+      >
+        {/* Background circle */}
         <circle
-          cx={width / 2}
-          cy={width / 2}
+          cx="60"
+          cy="60" 
           r={radius}
-          stroke="currentColor"
-          strokeWidth={strokeWidth}
-          fill="transparent"
-          className="text-gray-200"
+          fill="none"
+          stroke="#E5E7EB"
+          strokeWidth="8"
         />
+        {/* Progress circle */}
         <circle
-          cx={width / 2}
-          cy={width / 2}
+          cx="60"
+          cy="60"
           r={radius}
-          stroke="currentColor"
-          strokeWidth={strokeWidth}
-          fill="transparent"
-          strokeDasharray={strokeDasharray}
-          strokeDashoffset={strokeDashoffset}
+          fill="none"
+          stroke="#2F6FED"
+          strokeWidth="8"
           strokeLinecap="round"
-          className="text-accent transition-all duration-300"
+          strokeDasharray={circumference}
+          strokeDashoffset={strokeDashoffset}
+          className="transition-all duration-300 ease-in-out"
         />
       </svg>
       
+      {/* Progress text */}
       <div className="absolute inset-0 flex items-center justify-center">
-        {children || (showText && (
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-900">{progress}%</div>
-          </div>
-        ))}
+        <span className={`font-bold text-gray-900 ${
+          size === 'sm' ? 'text-sm' : size === 'lg' ? 'text-2xl' : 'text-lg'
+        }`}>
+          {progress}%
+        </span>
       </div>
     </div>
   );
