@@ -28,7 +28,9 @@
       "Bash(npm run dev:*)",
       "Bash(npm run build:*)",
       "Bash(timeout:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(start /B gradlew.bat:*)",
+      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\src\\main\\java\\de\\lernapp\\controller\\MinimalTestController.java\")"
     ],
     "deny": [],
     "ask": [],

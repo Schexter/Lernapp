@@ -14,7 +14,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>()((
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       token: null,
       isAuthenticated: false,
@@ -33,7 +33,21 @@ export const useAuthStore = create<AuthState>()((
       
       initializeAuth: () => {
         const token = localStorage.getItem('authToken');
-        if (token) {
+        const storedState = localStorage.getItem('auth-storage');
+        if (storedState) {
+          try {
+            const parsed = JSON.parse(storedState);
+            if (parsed.state && parsed.state.token && parsed.state.user) {
+              set({ 
+                token: parsed.state.token, 
+                user: parsed.state.user, 
+                isAuthenticated: true 
+              });
+            }
+          } catch (e) {
+            console.error('Failed to parse stored auth state:', e);
+          }
+        } else if (token) {
           set({ token, isAuthenticated: true });
         }
       },
@@ -42,6 +56,7 @@ export const useAuthStore = create<AuthState>()((
       name: 'auth-storage',
       partialize: (state) => ({ 
         token: state.token,
+        user: state.user,
         isAuthenticated: state.isAuthenticated 
       }),
     }
