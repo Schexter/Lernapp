@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Learning Controller - DEVELOPMENT VERSION (CORS deaktiviert)
@@ -127,6 +128,37 @@ public class LearningController {
                     .orElseThrow(() -> new RuntimeException("Question not found"));
             
             boolean isCorrect = question.getCorrectAnswer().equals(request.getAnswer());
+            
+            // Update user statistics if authenticated
+            if (auth != null && auth.isAuthenticated()) {
+                String username = auth.getName();
+                Optional<User> userOpt = userService.findByUsername(username);
+                
+                if (userOpt.isPresent()) {
+                    User user = userOpt.get();
+                    
+                    // Update statistics
+                    user.setTotalQuestionsAnswered(user.getTotalQuestionsAnswered() + 1);
+                    if (isCorrect) {
+                        user.setCorrectAnswers(user.getCorrectAnswers() + 1);
+                        user.setCurrentStreak(user.getCurrentStreak() + 1);
+                        if (user.getCurrentStreak() > user.getBestStreak()) {
+                            user.setBestStreak(user.getCurrentStreak());
+                        }
+                        // Add XP for correct answer
+                        int xpGained = question.getPoints() != null ? question.getPoints() : 10;
+                        user.setExperiencePoints(user.getExperiencePoints() + xpGained);
+                        // Update level (every 100 XP = 1 level)
+                        user.setLevel(1 + (user.getExperiencePoints() / 100));
+                    } else {
+                        user.setCurrentStreak(0); // Reset streak on wrong answer
+                    }
+                    
+                    // Save updated user
+                    userService.updateUser(user);
+                    log.info("✅ Updated statistics for user: {}", username);
+                }
+            }
             
             AnswerResponse answerResponse = AnswerResponse.builder()
                     .correct(isCorrect)

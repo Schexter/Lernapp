@@ -1,5 +1,30 @@
 # Fachinformatiker Lernapp - CHANGELOG
 
+## [2025-08-20 17:00] - PERSISTENTE DATENBANK AKTIVIERT ✅
+### Durchgeführt:
+- **H2-Datenbank von In-Memory auf Datei-basiert umgestellt**
+- **Datenbankpfad**: `jdbc:h2:file:./data/lernappdb`
+- **DDL-Auto von create-drop auf update geändert**
+- **./data Verzeichnis erstellt** für Datenbankdateien
+- **start-persistent.bat Script** für einfachen Start mit persistenter DB
+
+### Funktioniert:
+- ✅ Registrierte Benutzer bleiben nach App-Neustart erhalten
+- ✅ Lernfortschritt wird dauerhaft gespeichert
+- ✅ Datenbankdatei: `./data/lernappdb.mv.db`
+- ✅ H2-Console weiterhin verfügbar für Debugging
+
+### Problem behoben:
+- ❌ **VORHER**: Alle Accounts gingen bei Neustart verloren (In-Memory)
+- ✅ **JETZT**: Accounts bleiben permanent gespeichert (Datei-basiert)
+
+### Nächste Schritte:
+- App mit `start-persistent.bat` neu starten
+- Benutzer erneut registrieren
+- Neustart testen → Account sollte erhalten bleiben
+
+---
+
 ## [2025-08-20 16:45] - BENUTZER-ANLEGEN TEMPLATE AKTIVIERT ✅
 ### Durchgeführt:
 - **register.html Template** erstellt mit vollständigem Registrierungsformular

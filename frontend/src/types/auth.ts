@@ -39,6 +39,11 @@ export interface AuthResponse {
   roles: string[];
   experiencePoints?: number;
   level?: number;
+  totalQuestionsAnswered?: number;
+  correctAnswers?: number;
+  currentStreak?: number;
+  bestStreak?: number;
+  lastLogin?: string;
   message?: string;
 }
 

@@ -1,9 +1,22 @@
 import { Layout } from '../components/layout/Layout';
 import { Clock, FileQuestion, Trophy, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
+import { ExamRunner } from '../components/exam/ExamRunner';
+import { ExamResult } from '../components/exam/ExamResult';
+
+interface ExamResultData {
+  totalQuestions: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+  score: number;
+  timeSpent: number;
+  answers: any[];
+}
 
 export const ExamPage = () => {
   const [selectedExam, setSelectedExam] = useState<string | null>(null);
+  const [examStarted, setExamStarted] = useState(false);
+  const [examResult, setExamResult] = useState<ExamResultData | null>(null);
 
   const exams = [
     {
@@ -44,6 +57,63 @@ export const ExamPage = () => {
     }
   ];
 
+  const handleExamComplete = (result: ExamResultData) => {
+    setExamResult(result);
+    setExamStarted(false);
+  };
+
+  const handleExamCancel = () => {
+    setExamStarted(false);
+    setSelectedExam(null);
+  };
+
+  const handleRetryExam = () => {
+    setExamResult(null);
+    setExamStarted(true);
+  };
+
+  const handleGoHome = () => {
+    setExamResult(null);
+    setExamStarted(false);
+    setSelectedExam(null);
+  };
+
+  // Zeige Prüfungsergebnis
+  if (examResult && selectedExam) {
+    const exam = exams.find(e => e.id === selectedExam);
+    return (
+      <Layout>
+        <div className="p-6">
+          <ExamResult
+            result={examResult}
+            examTitle={exam?.title || 'Prüfung'}
+            onRetry={handleRetryExam}
+            onGoHome={handleGoHome}
+          />
+        </div>
+      </Layout>
+    );
+  }
+
+  // Zeige laufende Prüfung
+  if (examStarted && selectedExam) {
+    const exam = exams.find(e => e.id === selectedExam);
+    if (!exam) return null;
+    
+    return (
+      <Layout>
+        <div className="p-6">
+          <ExamRunner
+            exam={exam}
+            onComplete={handleExamComplete}
+            onCancel={handleExamCancel}
+          />
+        </div>
+      </Layout>
+    );
+  }
+
+  // Zeige Prüfungsvorschau
   if (selectedExam) {
     const exam = exams.find(e => e.id === selectedExam);
     return (
@@ -75,7 +145,10 @@ export const ExamPage = () => {
               >
                 Zurück
               </button>
-              <button className="btn-primary">
+              <button 
+                onClick={() => setExamStarted(true)}
+                className="btn-primary"
+              >
                 <FileQuestion className="w-5 h-5 mr-2" />
                 Prüfung starten
               </button>

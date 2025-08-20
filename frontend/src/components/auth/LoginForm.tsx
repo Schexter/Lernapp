@@ -37,10 +37,11 @@ export const LoginForm: React.FC = () => {
         roles: response.roles,
         experiencePoints: response.experiencePoints || 0,
         level: response.level || 1,
-        totalQuestionsAnswered: 0,
-        correctAnswers: 0,
-        currentStreak: 0,
-        bestStreak: 0
+        totalQuestionsAnswered: response.totalQuestionsAnswered || 0,
+        correctAnswers: response.correctAnswers || 0,
+        currentStreak: response.currentStreak || 0,
+        bestStreak: response.bestStreak || 0,
+        lastLogin: response.lastLogin
       };
       login(response.token, user);
       navigate('/dashboard');

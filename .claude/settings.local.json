@@ -32,7 +32,10 @@
       "Bash(start /B gradlew.bat:*)",
       "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\src\\main\\java\\de\\lernapp\\controller\\MinimalTestController.java\")",
       "Bash(find:*)",
-      "Bash(ipconfig)"
+      "Bash(ipconfig)",
+      "Bash(true)",
+      "Bash(kill:*)",
+      "Bash(lsof:*)"
     ],
     "deny": [],
     "ask": [],

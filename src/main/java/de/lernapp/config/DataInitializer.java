@@ -94,6 +94,29 @@ public class DataInitializer {
                 log.info("Created admin user: admin / Admin123!");
             }
 
+            // Create hanshahn user if not exist
+            if (!userRepository.existsByUsername("hanshahn")) {
+                User hansUser = User.builder()
+                        .username("hanshahn")
+                        .email("hans@example.com")
+                        .password(passwordEncoder.encode("Hans_#1_lernapp!"))
+                        .firstName("Hans")
+                        .lastName("Hahn")
+                        .enabled(true)
+                        .roles(new HashSet<>(Set.of(userRole)))
+                        .totalQuestionsAnswered(0)
+                        .correctAnswers(0)
+                        .currentStreak(0)
+                        .bestStreak(0)
+                        .experiencePoints(0)
+                        .level(1)
+                        .build();
+                hansUser.setCreatedAt(LocalDateTime.now());
+                hansUser.setUpdatedAt(LocalDateTime.now());
+                userRepository.save(hansUser);
+                log.info("Created user: hanshahn / Hans_#1_lernapp!");
+            }
+
             // Import CSV questions if database is empty
             long questionCount = questionRepository.count();
             if (questionCount == 0) {

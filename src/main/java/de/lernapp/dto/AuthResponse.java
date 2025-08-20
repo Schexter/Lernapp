@@ -20,5 +20,10 @@ public class AuthResponse {
     private Long userId;
     private Integer experiencePoints;
     private Integer level;
+    private Integer totalQuestionsAnswered;
+    private Integer correctAnswers;
+    private Integer currentStreak;
+    private Integer bestStreak;
+    private String lastLogin;
     private String message;
 }
