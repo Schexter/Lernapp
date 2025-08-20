@@ -4,8 +4,10 @@ import { QuestionDisplay } from '../components/learning/QuestionDisplay';
 import { learningService } from '../services/learningService';
 import { BookOpen, Target, TrendingUp, Award, CheckCircle, XCircle } from 'lucide-react';
 import type { Question, AnswerResponse } from '../types/learning';
+import { useAuthStore } from '../stores/authStore';
 
 export const LearningPage = () => {
+  const { user, updateUser } = useAuthStore();
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<number | null>(null);
@@ -69,6 +71,22 @@ export const LearningPage = () => {
         currentStreak: response.correct ? prev.currentStreak + 1 : 0,
         pointsEarned: prev.pointsEarned + response.pointsEarned
       }));
+      
+      // Update user stats in store
+      if (user) {
+        const updatedUser = {
+          ...user,
+          totalQuestionsAnswered: (user.totalQuestionsAnswered || 0) + 1,
+          correctAnswers: (user.correctAnswers || 0) + (response.correct ? 1 : 0),
+          currentStreak: response.correct ? (user.currentStreak || 0) + 1 : 0,
+          bestStreak: response.correct && ((user.currentStreak || 0) + 1 > (user.bestStreak || 0)) 
+            ? (user.currentStreak || 0) + 1 
+            : (user.bestStreak || 0),
+          experiencePoints: (user.experiencePoints || 0) + response.pointsEarned,
+          level: 1 + Math.floor(((user.experiencePoints || 0) + response.pointsEarned) / 100)
+        };
+        updateUser(updatedUser);
+      }
     } catch (error) {
       console.error('Error submitting answer:', error);
     }

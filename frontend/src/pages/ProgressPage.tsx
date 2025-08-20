@@ -1,30 +1,58 @@
 import { Layout } from '../components/layout/Layout';
 import { ProgressRing } from '../components/ui/ProgressRing';
 import { Trophy, Target, TrendingUp, Calendar } from 'lucide-react';
+import { useAuthStore } from '../stores/authStore';
+import { useState, useEffect } from 'react';
+import { learningService } from '../services/learningService';
 
 export const ProgressPage = () => {
-  const categoryProgress = [
-    { name: 'Netzwerktechnik', progress: 75, total: 127, correct: 95 },
-    { name: 'Datenbanken', progress: 60, total: 89, correct: 53 },
-    { name: 'Programmierung', progress: 90, total: 156, correct: 140 },
-    { name: 'IT-Sicherheit', progress: 45, total: 78, correct: 35 },
-    { name: 'Betriebssysteme', progress: 80, total: 94, correct: 75 },
-    { name: 'Projektmanagement', progress: 30, total: 45, correct: 14 }
-  ];
+  const { user } = useAuthStore();
+  const [categories, setCategories] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const cats = await learningService.getCategories();
+        setCategories(cats);
+      } catch (error) {
+        console.error('Error loading categories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadCategories();
+  }, []);
+
+  // Calculate real progress based on user data
+  const totalAnswered = user?.totalQuestionsAnswered || 0;
+  const correctAnswers = user?.correctAnswers || 0;
+  const accuracy = totalAnswered > 0 ? Math.round((correctAnswers / totalAnswered) * 100) : 0;
+  const currentStreak = user?.currentStreak || 0;
+  const bestStreak = user?.bestStreak || 0;
+  const experiencePoints = user?.experiencePoints || 0;
+  const level = user?.level || 1;
+
+  // For now, use placeholder data for categories (will be updated with real data later)
+  const categoryProgress = categories.slice(0, 6).map(cat => ({
+    name: cat,
+    progress: Math.floor(Math.random() * 50 + 30), // Temporary placeholder
+    total: Math.floor(Math.random() * 100 + 50),
+    correct: Math.floor(Math.random() * 50 + 20)
+  }));
+
+  // Calculate weekly progress (placeholder for now)
   const weeklyProgress = [
-    { day: 'Mo', questions: 15, correct: 12 },
-    { day: 'Di', questions: 22, correct: 18 },
-    { day: 'Mi', questions: 8, correct: 6 },
-    { day: 'Do', questions: 30, correct: 25 },
-    { day: 'Fr', questions: 18, correct: 16 },
-    { day: 'Sa', questions: 25, correct: 22 },
-    { day: 'So', questions: 12, correct: 10 }
+    { day: 'Mo', questions: 0, correct: 0 },
+    { day: 'Di', questions: 0, correct: 0 },
+    { day: 'Mi', questions: 0, correct: 0 },
+    { day: 'Do', questions: 0, correct: 0 },
+    { day: 'Fr', questions: 0, correct: 0 },
+    { day: 'Sa', questions: 0, correct: 0 },
+    { day: 'So', questions: totalAnswered, correct: correctAnswers } // Today's stats
   ];
 
-  const overallProgress = Math.round(
-    categoryProgress.reduce((acc, cat) => acc + cat.progress, 0) / categoryProgress.length
-  );
+  const overallProgress = accuracy;
 
   return (
     <Layout>
@@ -52,33 +80,33 @@ export const ProgressPage = () => {
           <div className="card">
             <div className="flex items-center justify-between mb-4">
               <Trophy className="w-8 h-8 text-accent" />
-              <span className="text-2xl font-bold text-gray-900">85%</span>
+              <span className="text-2xl font-bold text-gray-900">{accuracy}%</span>
             </div>
-            <h3 className="text-sm font-medium text-gray-600">Durchschnittsnote</h3>
+            <h3 className="text-sm font-medium text-gray-600">Genauigkeit</h3>
             <p className="text-xs text-gray-500 mt-1">
-              538 von 632 Fragen richtig
+              {correctAnswers} von {totalAnswered} Fragen richtig
             </p>
           </div>
 
           <div className="card">
             <div className="flex items-center justify-between mb-4">
               <Target className="w-8 h-8 text-primary" />
-              <span className="text-2xl font-bold text-gray-900">632</span>
+              <span className="text-2xl font-bold text-gray-900">{totalAnswered}</span>
             </div>
             <h3 className="text-sm font-medium text-gray-600">Fragen beantwortet</h3>
             <p className="text-xs text-gray-500 mt-1">
-              von 589 total verfügbaren
+              Level {level} | {experiencePoints} XP
             </p>
           </div>
 
           <div className="card">
             <div className="flex items-center justify-between mb-4">
               <TrendingUp className="w-8 h-8 text-warning" />
-              <span className="text-2xl font-bold text-gray-900">14</span>
+              <span className="text-2xl font-bold text-gray-900">{currentStreak}</span>
             </div>
-            <h3 className="text-sm font-medium text-gray-600">Tage Lernsträhne</h3>
+            <h3 className="text-sm font-medium text-gray-600">Aktuelle Strähne</h3>
             <p className="text-xs text-gray-500 mt-1">
-              Weiter so!
+              Beste: {bestStreak}
             </p>
           </div>
         </div>
