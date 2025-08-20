@@ -1,0 +1,151 @@
+category,difficulty,questionText,optionA,optionB,optionC,optionD,correctAnswer,explanation,points
+"Projektmanagement",1,"Was ist das Hauptziel eines Projekts?","Routine etablieren","Ein einmaliges Ziel erreichen","Dauerhaft arbeiten","Kosten sparen","B","Projekte sind einmalig und zielorientiert, im Gegensatz zu Routineaufgaben.",2
+"Projektmanagement",2,"Welche Formel berechnet den Gesamtpuffer (GP)?","GP = FEZ - FAZ","GP = SEZ - SAZ","GP = SAZ - FAZ","GP = SEZ - FEZ","C","Gesamtpuffer = Spätester Anfang minus Frühester Anfang (SAZ - FAZ).",3
+"Projektmanagement",2,"Was bedeutet es, wenn der Freie Puffer (FP) = 0 ist?","Vorgang ist nicht kritisch","Verzögerung beeinflusst sofort Nachfolger","Projekt hat keinen Puffer","Vorgang kann entfallen","B","FP=0 bedeutet, jede Verzögerung beeinflusst direkt die Nachfolger.",3
+"Netzwerktechnik",1,"Wie viele Oktette hat eine IPv4-Adresse?","2","3","4","8","C","IPv4-Adressen bestehen aus 4 Oktetten (z.B. 192.168.1.1).",2
+"Netzwerktechnik",2,"Was ist die Loopback-Adresse in IPv6?","::1","fe80::1","ff02::1","2001::1","A","::1 ist die IPv6 Loopback-Adresse (entspricht 127.0.0.1 in IPv4).",3
+"Netzwerktechnik",3,"Welche IPv6-Adresse ist global eindeutig?","fe80::","ff02::","2001:db8::","::1","C","2001:db8:: ist ein Beispiel für eine global eindeutige IPv6-Adresse.",4
+"OSI-Modell",1,"Wie viele Schichten hat das OSI-Modell?","5","6","7","8","C","Das OSI-Modell besteht aus 7 Schichten.",2
+"OSI-Modell",2,"Welche Schicht ist für die Ende-zu-Ende-Kommunikation zuständig?","Network","Transport","Session","Application","B","Die Transport-Schicht (4) gewährleistet die Ende-zu-Ende-Kommunikation.",3
+"OSI-Modell",2,"Was arbeitet auf der Physical Layer?","Router","Switch","Hub","Firewall","C","Hubs arbeiten auf Schicht 1 (Physical Layer) des OSI-Modells.",3
+"PowerShell",1,"Wie beginnt eine Variable in PowerShell?","@","$","#","%","B","PowerShell-Variablen beginnen immer mit dem Dollar-Zeichen ($).",2
+"PowerShell",2,"Was gibt 'Get-Process | Where-Object {$_.CPU -gt 100}' zurück?","Alle Prozesse","Prozesse mit mehr als 100% CPU","Prozesse mit mehr als 100 Sekunden CPU-Zeit","Fehler","C","Filtert Prozesse mit mehr als 100 Sekunden kumulierter CPU-Zeit.",3
+"PowerShell",3,"Was ist der Output von: [Math]::Round(3.7)","3","4","3.7","Fehler","B","Math::Round rundet mathematisch, 3.7 wird zu 4.",3
+"IT-Sicherheit",1,"Was ist Phishing?","Virenschutz","Betrugsversuch per E-Mail","Firewall-Typ","Backup-Methode","B","Phishing ist ein Betrugsversuch, meist per gefälschter E-Mail.",2
+"IT-Sicherheit",2,"Welche Verschlüsselung ist symmetrisch?","RSA","AES","ECC","DSA","B","AES ist ein symmetrisches Verschlüsselungsverfahren.",3
+"IT-Sicherheit",3,"Was ist der Unterschied zwischen IDS und IPS?","Kein Unterschied","IDS erkennt nur, IPS blockiert auch","IPS erkennt nur, IDS blockiert auch","Verschiedene Hersteller","B","IDS (Detection) erkennt Angriffe, IPS (Prevention) blockiert sie aktiv.",4
+"Datenschutz",1,"Wie lange ist die Aufbewahrungsfrist für Geschäftsbriefe?","2 Jahre","6 Jahre","10 Jahre","Unbegrenzt","B","Geschäftsbriefe müssen 6 Jahre aufbewahrt werden.",2
+"Datenschutz",2,"Was ist ein Auftragsverarbeiter nach DSGVO?","Datenschutzbeauftragter","Externer Dienstleister der Daten verarbeitet","Behörde","Geschäftsführer","B","Auftragsverarbeiter verarbeitet personenbezogene Daten im Auftrag.",3
+"Datenschutz",3,"Wann ist eine Datenschutz-Folgenabschätzung erforderlich?","Immer","Bei hohem Risiko für Betroffene","Nie","Nur bei Behörden","B","DSFA ist bei hohem Risiko für Rechte und Freiheiten erforderlich.",4
+"Wirtschaftlichkeit",1,"Was bedeutet ROI?","Return on Investment","Rate of Interest","Risk of Investment","Revenue on Income","A","ROI = Return on Investment, misst die Rentabilität einer Investition.",2
+"Wirtschaftlichkeit",2,"Fixkosten 5000€, variable Kosten 10€/Stück, Verkaufspreis 25€/Stück. Break-Even?","200","333","500","1000","B","Break-Even = Fixkosten/(Preis-variable Kosten) = 5000/15 = 333,33",4
+"Wirtschaftlichkeit",3,"Was ist die Nutzwertanalyse?","Kostenrechnung","Bewertungsverfahren mit gewichteten Kriterien","Zeitplanung","Personaleinsatz","B","Nutzwertanalyse bewertet Alternativen anhand gewichteter Kriterien.",4
+"Hardware",1,"Was ist RAM?","Festplattenspeicher","Flüchtiger Arbeitsspeicher","Prozessor","Grafikkarte","B","RAM ist flüchtiger Arbeitsspeicher (Random Access Memory).",2
+"Hardware",2,"Welche RAID-Level bietet Spiegelung?","RAID 0","RAID 1","RAID 5","RAID 6","B","RAID 1 spiegelt Daten auf mehrere Festplatten.",3
+"Hardware",3,"Was ist der Unterschied zwischen SATA und NVMe?","Kein Unterschied","NVMe ist schneller über PCIe","SATA ist schneller","Nur der Anschluss","B","NVMe nutzt PCIe und ist deutlich schneller als SATA.",4
+"Datenbanken",1,"Was bedeutet SQL?","Structured Query Language","System Query Logic","Server Question Language","Simple Query List","A","SQL = Structured Query Language für Datenbankabfragen.",2
+"Datenbanken",2,"Was macht PRIMARY KEY?","Verschlüsselt Daten","Eindeutige Identifikation","Sortierung","Backup","B","PRIMARY KEY identifiziert jeden Datensatz eindeutig.",3
+"Datenbanken",3,"Was ist der Unterschied zwischen INNER und LEFT JOIN?","Kein Unterschied","INNER nur Übereinstimmungen, LEFT alle aus linker Tabelle","LEFT nur Übereinstimmungen, INNER alle","Geschwindigkeit","B","INNER JOIN zeigt nur Matches, LEFT JOIN alle aus linker Tabelle.",4
+"Programmierung",1,"Was ist eine Variable?","Konstante","Speicherplatz für Werte","Funktion","Schleife","B","Variablen sind benannte Speicherplätze für veränderbare Werte.",2
+"Programmierung",2,"Was macht eine FOR-Schleife?","Endlosschleife","Wiederholt Code bestimmte Anzahl","Einmalige Ausführung","Verzweigung","B","FOR-Schleifen wiederholen Code eine bestimmte Anzahl mal.",3
+"Programmierung",3,"Was ist Rekursion?","Schleife","Funktion ruft sich selbst auf","Fehlerbehandlung","Datentyp","B","Rekursion: Eine Funktion ruft sich selbst auf.",4
+"Virtualisierung",1,"Was ist ein Hypervisor?","Antivirus","Software für virtuelle Maschinen","Hardware-Komponente","Netzwerkprotokoll","B","Hypervisor verwaltet virtuelle Maschinen.",2
+"Virtualisierung",2,"Was ist der Unterschied zwischen Typ-1 und Typ-2 Hypervisor?","Kein Unterschied","Typ-1 auf Hardware, Typ-2 auf OS","Typ-2 auf Hardware, Typ-1 auf OS","Nur Geschwindigkeit","B","Typ-1 läuft direkt auf Hardware, Typ-2 auf einem Host-OS.",3
+"Virtualisierung",3,"Was ist Container-Virtualisierung?","Volle VM","OS-Level Virtualisierung","Hardware-Emulation","Netzwerk-Virtualisierung","B","Container teilen sich den Kernel des Host-OS.",4
+"Cloud Computing",1,"Was bedeutet SaaS?","Software as a Service","System as a Service","Storage as a Service","Security as a Service","A","SaaS = Software as a Service, Software aus der Cloud.",2
+"Cloud Computing",2,"Was ist der Unterschied zwischen Public und Private Cloud?","Kein Unterschied","Public für alle, Private exklusiv","Private für alle, Public exklusiv","Nur Kosten","B","Public Cloud ist öffentlich, Private Cloud exklusiv für eine Organisation.",3
+"Cloud Computing",3,"Was ist Hybrid Cloud?","Nur lokal","Kombination aus Public und Private Cloud","Nur Public Cloud","Mehrere Public Clouds","B","Hybrid Cloud kombiniert Private und Public Cloud.",4
+"Betriebssysteme",1,"Was ist ein Prozess?","Hardware","Programm in Ausführung","Datei","Netzwerkverbindung","B","Ein Prozess ist ein Programm in Ausführung mit eigenem Speicherbereich.",2
+"Betriebssysteme",2,"Was macht der Scheduler?","Dateiverwaltung","Prozessverwaltung und CPU-Zuteilung","Netzwerkverwaltung","Benutzerverwaltung","B","Der Scheduler teilt CPU-Zeit an Prozesse zu.",3
+"Betriebssysteme",3,"Was ist ein Deadlock?","Systemabsturz","Prozesse blockieren sich gegenseitig","Virus","Speicherfehler","B","Deadlock: Prozesse warten gegenseitig auf Ressourcen.",4
+"Qualitätsmanagement",1,"Was bedeutet QM?","Query Management","Qualitätsmanagement","Quick Method","Quota Management","B","QM = Qualitätsmanagement zur Sicherung der Qualität.",2
+"Qualitätsmanagement",2,"Was ist ISO 9001?","Sicherheitsnorm","Qualitätsmanagement-Norm","Umweltnorm","Datenschutznorm","B","ISO 9001 ist die internationale Norm für Qualitätsmanagementsysteme.",3
+"Qualitätsmanagement",3,"Was ist der PDCA-Zyklus?","Plan-Do-Check-Act","Process-Data-Control-Analyze","Program-Debug-Compile-Apply","Print-Delete-Copy-Archive","A","PDCA = Plan-Do-Check-Act, kontinuierlicher Verbesserungsprozess.",4
+"Webentwicklung",1,"Was bedeutet HTML?","HyperText Markup Language","High Tech Modern Language","Home Tool Markup Language","Hyper Transfer Markup Logic","A","HTML = HyperText Markup Language für Webseitenstruktur.",2
+"Webentwicklung",2,"Was ist der Unterschied zwischen GET und POST?","Kein Unterschied","GET in URL, POST im Body","POST in URL, GET im Body","Nur Sicherheit","B","GET-Parameter in URL sichtbar, POST im Request-Body.",3
+"Webentwicklung",3,"Was ist CORS?","Verschlüsselung","Cross-Origin Resource Sharing","Cookie-Verwaltung","Caching","B","CORS regelt Zugriff auf Ressourcen von anderen Domains.",4
+"Mobile Development",1,"Was ist eine App?","Nur Spiele","Anwendungssoftware für mobile Geräte","Betriebssystem","Hardware","B","App = Application, Anwendungssoftware meist für mobile Geräte.",2
+"Mobile Development",2,"Was ist der Unterschied zwischen nativer und Web-App?","Kein Unterschied","Native installiert, Web im Browser","Web installiert, Native im Browser","Nur Geschwindigkeit","B","Native Apps werden installiert, Web-Apps laufen im Browser.",3
+"Mobile Development",3,"Was ist eine Progressive Web App (PWA)?","Native App","Web-App mit nativen Features","Nur für iOS","Desktop-Anwendung","B","PWAs sind Web-Apps mit nativen Funktionen wie Offline-Modus.",4
+"DevOps",1,"Was bedeutet CI/CD?","Computer Integration/Computer Development","Continuous Integration/Continuous Deployment","Code Import/Code Deploy","Compile Instantly/Compile Daily","B","CI/CD = Continuous Integration/Continuous Deployment.",2
+"DevOps",2,"Was ist Docker?","Virtualisierung","Container-Plattform","Programmiersprache","Datenbank","B","Docker ist eine Plattform für Container-Virtualisierung.",3
+"DevOps",3,"Was ist Kubernetes?","Datenbank","Container-Orchestrierung","Programmiersprache","Monitoring-Tool","B","Kubernetes orchestriert und verwaltet Container-Cluster.",4
+"Monitoring",1,"Was ist ein Log?","Passwort","Aufzeichnung von Ereignissen","Datenbank","Backup","B","Logs zeichnen Ereignisse und Aktivitäten auf.",2
+"Monitoring",2,"Was misst die Latenz?","Bandbreite","Verzögerungszeit","Durchsatz","Fehlerrate","B","Latenz misst die Verzögerungszeit bei der Datenübertragung.",3
+"Monitoring",3,"Was ist APM?","Application Performance Monitoring","Automatic Process Management","Advanced Protocol Manager","Active Power Management","A","APM = Application Performance Monitoring überwacht Anwendungsleistung.",4
+"Blockchain",1,"Was ist eine Blockchain?","Datenbank","Verkettete Datenblöcke","Verschlüsselung","Cloud-Speicher","B","Blockchain ist eine Kette von kryptografisch verbundenen Datenblöcken.",2
+"Blockchain",2,"Was ist Mining?","Datensuche","Neue Blöcke validieren und erstellen","Löschen","Backup","B","Mining validiert Transaktionen und erstellt neue Blöcke.",3
+"Blockchain",3,"Was ist ein Smart Contract?","Vertrag auf Papier","Selbstausführender Code in Blockchain","E-Mail-Vertrag","PDF-Dokument","B","Smart Contracts sind selbstausführende Verträge in der Blockchain.",4
+"KI/ML",1,"Was bedeutet KI?","Kleine Integration","Künstliche Intelligenz","Kabel Interface","Kern Installation","B","KI = Künstliche Intelligenz.",2
+"KI/ML",2,"Was ist Machine Learning?","Hardwarereparatur","System lernt aus Daten","Programmierung","Datenbank","B","Machine Learning: Systeme lernen aus Daten ohne explizite Programmierung.",3
+"KI/ML",3,"Was ist ein neuronales Netz?","Netzwerkkabel","KI-Modell inspiriert vom Gehirn","Internet","Router","B","Neuronale Netze sind KI-Modelle inspiriert von biologischen Neuronen.",4
+"IoT",1,"Was bedeutet IoT?","Internet of Things","Internal Operating Technology","Input Output Transfer","Integrated Office Tools","A","IoT = Internet of Things, vernetzte Geräte.",2
+"IoT",2,"Was ist MQTT?","Datenbank","Leichtgewichtiges Messaging-Protokoll","Verschlüsselung","Betriebssystem","B","MQTT ist ein Protokoll für IoT-Kommunikation.",3
+"IoT",3,"Was ist Edge Computing?","Cloud Computing","Datenverarbeitung am Netzwerkrand","Zentrale Verarbeitung","Backup-Strategie","B","Edge Computing verarbeitet Daten nahe der Quelle.",4
+"Agile",1,"Was ist Scrum?","Programmiersprache","Agiles Framework","Datenbank","Hardware","B","Scrum ist ein agiles Framework für Projektmanagement.",2
+"Agile",2,"Wie lange dauert ein Sprint typischerweise?","1 Tag","2-4 Wochen","6 Monate","1 Jahr","B","Sprints dauern üblicherweise 2-4 Wochen.",3
+"Agile",3,"Was macht der Product Owner?","Programmiert","Definiert und priorisiert Anforderungen","Testet nur","Dokumentiert nur","B","Product Owner definiert und priorisiert das Product Backlog.",4
+"Testing",1,"Was ist ein Unit Test?","Systemtest","Test einzelner Komponenten","Benutzertest","Lasttest","B","Unit Tests testen einzelne, isolierte Komponenten.",2
+"Testing",2,"Was ist der Unterschied zwischen Black-Box und White-Box Testing?","Kein Unterschied","Black-Box ohne Kenntnis der Implementierung","White-Box ohne Kenntnis der Implementierung","Nur Geschwindigkeit","B","Black-Box testet ohne, White-Box mit Kenntnis des Codes.",3
+"Testing",3,"Was ist Regression Testing?","Neue Features testen","Prüfung ob Änderungen alte Funktionen brechen","Performance Test","Security Test","B","Regression Testing prüft, ob Änderungen bestehende Funktionen beeinträchtigen.",4
+"Version Control",1,"Was ist Git?","Datenbank","Versionskontrollsystem","Programmiersprache","Betriebssystem","B","Git ist ein verteiltes Versionskontrollsystem.",2
+"Version Control",2,"Was macht 'git commit'?","Löscht Änderungen","Speichert Änderungen im Repository","Lädt herunter","Uploaded","B","git commit speichert Änderungen im lokalen Repository.",3
+"Version Control",3,"Was ist der Unterschied zwischen merge und rebase?","Kein Unterschied","Merge vereint, Rebase schreibt History um","Rebase vereint, Merge schreibt um","Nur Performance","B","Merge behält History, Rebase schreibt sie linear um.",4
+"Netzwerksicherheit",1,"Was ist eine Firewall?","Virenschutz","Netzwerk-Zugangskontrolle","Backup-System","Verschlüsselung","B","Firewall kontrolliert und filtert Netzwerkverkehr.",2
+"Netzwerksicherheit",2,"Was ist ein VPN?","Virus Protection Network","Virtual Private Network","Very Public Network","Visual Programming Network","B","VPN = Virtual Private Network für sichere Verbindungen.",3
+"Netzwerksicherheit",3,"Was ist ein Man-in-the-Middle Angriff?","Virus","Angreifer zwischen Kommunikationspartnern","DDoS","Phishing","B","MITM: Angreifer positioniert sich zwischen Kommunikationspartnern.",4
+"Projektmanagement",3,"Ein Projekt hat 4 parallele kritische Pfade. Was bedeutet das?","Fehler in Berechnung","Sehr riskantes Projekt","Sehr sicheres Projekt","Unmögliches Projekt","B","Mehrere kritische Pfade erhöhen das Risiko von Verzögerungen.",5
+"Projektmanagement",4,"Projekt mit 10 Vorgängen, 3 kritische Pfade. Ein nicht-kritischer Vorgang mit GP=5 verzögert sich um 8 Tage. Auswirkung?","Keine","3 Tage Verzögerung","5 Tage Verzögerung","8 Tage Verzögerung","B","8 Tage Verzögerung - 5 Tage Puffer = 3 Tage Projektverzögerung.",5
+"Netzwerktechnik",3,"Subnetting: /28 Netzwerk. Wie viele nutzbare Hosts?","14","16","30","32","A","/28 = 4 Bit für Hosts = 16 Adressen - 2 (Netz+Broadcast) = 14 nutzbare.",4
+"Netzwerktechnik",4,"VLSM: Benötigt werden 3 Subnetze mit 50, 20 und 10 Hosts. Minimale Gesamtgröße?","/25","/26","/27","/24","A","50 Hosts = /26, 20 Hosts = /27, 10 Hosts = /28. Zusammen passen in /25.",5
+"OSI-Modell",3,"Welche Schicht ist für Flow Control zuständig?","Physical","Data Link","Network","Transport","D","Transport Layer (4) implementiert Flow Control Mechanismen.",4
+"OSI-Modell",4,"Router arbeitet primär auf Schicht 3, kann aber bis zu welcher Schicht analysieren?","4","5","6","7","D","Moderne Router können bis Layer 7 (Deep Packet Inspection) analysieren.",5
+"PowerShell",3,"Was gibt '[System.Math]::Pow(2,10)' zurück?","20","100","1024","Fehler","C","Pow(2,10) berechnet 2^10 = 1024.",4
+"PowerShell",4,"Pipeline: Get-Service | Where Status -eq 'Running' | Measure-Object. Was wird gezählt?","Alle Services","Laufende Services","Gestoppte Services","CPU-Auslastung","B","Zählt nur Services mit Status 'Running'.",5
+"IT-Sicherheit",3,"Was ist Perfect Forward Secrecy?","Perfekte Verschlüsselung","Neue Schlüssel für jede Session","Vorwärts-Firewall","Backup-Strategie","B","PFS generiert neue Schlüssel für jede Session.",4
+"IT-Sicherheit",4,"Diffie-Hellman Schlüsselaustausch basiert auf?","Symmetrischer Verschlüsselung","Diskretem Logarithmus Problem","Faktorisierung","Hashing","B","DH basiert auf der Schwierigkeit des diskreten Logarithmus.",5
+"Datenschutz",3,"Was ist ein Joint Controller nach DSGVO?","Einzelner Verantwortlicher","Gemeinsam Verantwortliche","Auftragsverarbeiter","Datenschutzbeauftragter","B","Joint Controllers sind gemeinsam für Datenverarbeitung verantwortlich.",4
+"Datenschutz",4,"Bußgeld nach DSGVO maximal?","100.000€","1 Million €","4% Jahresumsatz oder 20 Mio €","Unbegrenzt","C","Maximum: 4% des weltweiten Jahresumsatzes oder 20 Mio € (höherer Wert).",5
+"Wirtschaftlichkeit",3,"Kapitalwertmethode: Investition 100k€, jährlich 30k€ Rückfluss für 5 Jahre, Zins 5%. Kapitalwert?","29.8k€","50k€","-100k€","150k€","A","Barwert der Rückflüsse - Investition = positiver Kapitalwert.",5
+"Wirtschaftlichkeit",4,"Annuitätenmethode: Aus Kapitalwert 50k€ bei 5% Zins über 10 Jahre. Jährliche Annuität?","5k€","6.5k€","7.5k€","10k€","B","Annuität = Kapitalwert × Annuitätenfaktor ≈ 6.5k€.",5
+"Hardware",3,"DDR4-3200 bedeutet?","3200 MB/s","3200 MHz effektiv","3200 GT/s","32 GB","B","DDR4-3200 läuft mit 3200 MHz effektiver Taktrate.",4
+"Hardware",4,"PCIe 5.0 x1 Bandbreite?","1 GB/s","2 GB/s","4 GB/s","8 GB/s","C","PCIe 5.0 x1 = 4 GB/s (32 GT/s).",5
+"Datenbanken",3,"Was ist ACID?","Atomicity, Consistency, Isolation, Durability","Access, Control, Identity, Data","Automatic, Controlled, Integrated, Database","Analysis, Computation, Integration, Development","A","ACID sind Eigenschaften für Datenbanktransaktionen.",4
+"Datenbanken",4,"CAP-Theorem besagt?","Alle drei Eigenschaften gleichzeitig möglich","Nur zwei von drei gleichzeitig","Nur eine Eigenschaft","Keine Einschränkung","B","CAP: Consistency, Availability, Partition Tolerance - nur 2 von 3.",5
+"Programmierung",3,"Was ist Big O Notation?","Große Null","Komplexitätsanalyse von Algorithmen","Programmiersprache","Datentyp","B","Big O beschreibt die Komplexität von Algorithmen.",4
+"Programmierung",4,"Quicksort Average Case Komplexität?","O(n)","O(n log n)","O(n²)","O(2^n)","B","Quicksort hat durchschnittlich O(n log n) Komplexität.",5
+"Virtualisierung",3,"Was ist Memory Ballooning?","Speicherfehler","Dynamische Speicherverwaltung in VMs","RAM-Erweiterung","Cache-Optimierung","B","Ballooning gibt ungenutzten VM-Speicher an Host zurück.",4
+"Virtualisierung",4,"SR-IOV ermöglicht?","Single Root I/O Virtualization","Software RAID","System Recovery","Storage Replication","A","SR-IOV erlaubt Hardware-Direktzugriff für VMs.",5
+"Cloud Computing",3,"Was ist Cloud Bursting?","Cloud-Ausfall","Temporäre Nutzung von Public Cloud","Datenverlust","Backup-Methode","B","Cloud Bursting nutzt Public Cloud bei Lastspitzen.",4
+"Cloud Computing",4,"Multi-Tenancy bedeutet?","Mehrere Clouds","Gemeinsame Ressourcennutzung","Mehrere Backups","Redundanz","B","Multi-Tenancy: Mehrere Kunden teilen sich Ressourcen.",5
+"Betriebssysteme",3,"Was ist ein Semaphore?","Signallampe","Synchronisationsmechanismus","Fehlercode","Speichertyp","B","Semaphore synchronisieren Zugriff auf gemeinsame Ressourcen.",4
+"Betriebssysteme",4,"Unterschied zwischen Präemptiv und Kooperativ Multitasking?","Kein Unterschied","Präemptiv unterbricht, Kooperativ wartet","Kooperativ unterbricht, Präemptiv wartet","Nur Performance","B","Präemptiv: OS unterbricht, Kooperativ: Prozess gibt Kontrolle ab.",5
+"3D-Daten",3,"Voxel vs. Polygon Darstellung?","Gleich","Voxel = 3D-Pixel, Polygon = Flächen","Polygon = 3D-Pixel, Voxel = Flächen","Nur Größe unterschiedlich","B","Voxel sind 3D-Pixel, Polygone beschreiben Oberflächen.",4
+"3D-Daten",4,"100k Vertices, je 3 float (Position) + 3 float (Normal) + 2 float (UV). Speicher?","2.4 MB","3.2 MB","4.8 MB","8 MB","B","100k × 8 × 4 Byte = 3.2 MB.",5
+"IPv6",3,"Wie viele Bits für Interface Identifier in /64 Netz?","32","48","64","128","C","Bei /64 bleiben 64 Bit für den Interface Identifier.",4
+"IPv6",4,"Wie viele /64 Subnetze in einem /48?","256","4096","65536","16777216","C","48 zu 64 = 16 Bit Differenz = 2^16 = 65536 Subnetze.",5
+"Kryptografie",3,"Was ist ein Hash?","Verschlüsselung","Einweg-Funktion","Zwei-Wege-Funktion","Kompression","B","Hash-Funktionen sind Einweg-Funktionen (nicht umkehrbar).",4
+"Kryptografie",4,"SHA-256 erzeugt wie viele Bit Output?","128","256","512","1024","B","SHA-256 erzeugt 256 Bit (32 Byte) Hashes.",5
+"Netzwerkprotokolle",3,"TCP Handshake besteht aus?","2 Schritten","3 Schritten","4 Schritten","5 Schritten","B","TCP Three-Way-Handshake: SYN, SYN-ACK, ACK.",4
+"Netzwerkprotokolle",4,"QUIC Protokoll arbeitet über?","TCP","UDP","IP direkt","Ethernet","B","QUIC basiert auf UDP für schnellere Verbindungen.",5
+"Compiler",3,"Was ist JIT Compilation?","Just In Time","Java Internal Tools","Jump If True","Joint Interface Technology","A","JIT = Just In Time Compilation zur Laufzeit.",4
+"Compiler",4,"Unterschied zwischen Compiler und Interpreter?","Keiner","Compiler übersetzt alles vorher, Interpreter zur Laufzeit","Interpreter übersetzt vorher, Compiler zur Laufzeit","Nur Geschwindigkeit","B","Compiler erzeugt Maschinencode vorab, Interpreter zur Laufzeit.",5
+"Algorithmen",3,"Dijkstra Algorithmus findet?","Alle Pfade","Kürzesten Pfad","Längsten Pfad","Zufälligen Pfad","B","Dijkstra findet kürzeste Pfade in gewichteten Graphen.",4
+"Algorithmen",4,"Zeitkomplexität von Heapsort?","O(n)","O(n log n)","O(n²)","O(2^n)","B","Heapsort hat O(n log n) in allen Fällen.",5
+"Embedded Systems",3,"Was ist ein RTOS?","Regular Time Operating System","Real-Time Operating System","Remote Terminal OS","Redundant Timing OS","B","RTOS = Real-Time Operating System für zeitkritische Anwendungen.",4
+"Embedded Systems",4,"Interrupt vs. Polling?","Gleich","Interrupt unterbricht, Polling fragt ab","Polling unterbricht, Interrupt fragt ab","Nur Timing","B","Interrupts unterbrechen CPU, Polling fragt regelmäßig ab.",5
+"Big Data",3,"Was sind die 3 V's von Big Data?","Version, Variety, Vendor","Volume, Velocity, Variety","Virtual, Visual, Vertical","Value, Version, Variety","B","Volume (Menge), Velocity (Geschwindigkeit), Variety (Vielfalt).",4
+"Big Data",4,"MapReduce besteht aus welchen Phasen?","Map, Reduce","Map, Shuffle, Reduce","Map, Sort, Shuffle, Reduce","Map, Combine, Shuffle, Sort, Reduce","B","Hauptphasen: Map, Shuffle (implizit), Reduce.",5
+"Projektmanagement",2,"Was ist der Unterschied zwischen Projekt und Prozess?","Keiner","Projekt einmalig, Prozess wiederkehrend","Prozess einmalig, Projekt wiederkehrend","Nur Dauer","B","Projekte sind einmalig und zeitlich begrenzt, Prozesse wiederkehrend.",3
+"Projektmanagement",3,"Earned Value: PV=100k, EV=80k, AC=90k. CPI?","0.89","0.9","1.11","1.25","A","CPI = EV/AC = 80k/90k = 0.89 (unter Budget).",4
+"Netzwerktechnik",2,"Was ist NAT?","Network Access Technology","Network Address Translation","New Authentication Type","Node Allocation Table","B","NAT übersetzt private in öffentliche IP-Adressen.",3
+"Netzwerktechnik",3,"CIDR /23 entspricht welcher Subnetzmaske?","255.255.254.0","255.255.255.0","255.255.252.0","255.255.248.0","A","/23 = 255.255.254.0 (23 Bit Netzwerk, 9 Bit Host).",4
+"OSI-Modell",2,"Switches arbeiten primär auf welcher Schicht?","1","2","3","4","B","Switches arbeiten auf Layer 2 (Data Link) mit MAC-Adressen.",3
+"PowerShell",2,"Was macht Get-ChildItem?","Zeigt Prozesse","Listet Dateien und Ordner","Zeigt Services","Zeigt Netzwerk","B","Get-ChildItem listet Inhalte von Verzeichnissen (wie ls oder dir).",3
+"IT-Sicherheit",2,"Was ist 2FA?","Zwei Firewalls","Zwei-Faktor-Authentifizierung","Zwei Files Authentication","Second Firewall Access","B","2FA = Zwei-Faktor-Authentifizierung für erhöhte Sicherheit.",3
+"Datenschutz",2,"Wie lange für DSGVO-Löschanfrage?","Sofort","1 Monat","3 Monate","6 Monate","B","Löschung unverzüglich, spätestens binnen eines Monats.",3
+"Wirtschaftlichkeit",2,"Was ist Leasing?","Kauf","Miete mit Kaufoption","Geschenk","Verkauf","B","Leasing ist eine Form der Finanzierung/Miete.",3
+"Hardware",2,"Was ist ECC RAM?","Extra Cool Computing","Error Correcting Code","Enhanced Cache Control","Extended CPU Cache","B","ECC RAM kann Speicherfehler erkennen und korrigieren.",3
+"Datenbanken",2,"Was ist Normalisierung?","Daten löschen","Redundanzen reduzieren","Daten verschlüsseln","Backup erstellen","B","Normalisierung reduziert Redundanzen und Anomalien.",3
+"Programmierung",2,"Was ist ein Array?","Einzelner Wert","Sammlung gleichartiger Elemente","Funktion","Schleife","B","Arrays speichern mehrere Elemente gleichen Typs.",3
+"Testing",2,"Was ist ein Smoke Test?","Vollständiger Test","Grundlegender Funktionstest","Lasttest","Sicherheitstest","B","Smoke Tests prüfen grundlegende Funktionalität.",3
+"Agile",2,"Was ist ein Sprint Review?","Planung","Präsentation der Ergebnisse","Retrospektive","Daily Meeting","B","Sprint Review zeigt fertige Arbeit den Stakeholdern.",3
+"DevOps",2,"Was ist Infrastructure as Code?","Hardware","Infrastruktur durch Code definiert","Nur Dokumentation","Manuelles Setup","B","IaC verwaltet Infrastruktur durch Code/Skripte.",3
+"Cloud Computing",2,"Was ist Elastizität in der Cloud?","Festigkeit","Automatische Ressourcenanpassung","Backup","Verschlüsselung","B","Elastizität = automatisches Skalieren nach Bedarf.",3
+"Monitoring",2,"Was ist ein SLA?","Service Level Agreement","System Load Average","Security Level Authentication","Software License Agreement","A","SLA definiert vereinbarte Service-Qualität.",3
+"Backup",2,"Was ist die 3-2-1 Regel?","3 Backups, 2 Medien, 1 extern","3 Tage, 2 Wochen, 1 Monat","3 Server, 2 Standorte, 1 Cloud","3 Tests, 2 Checks, 1 Verify","A","3 Kopien, 2 verschiedene Medien, 1 externe Kopie.",3
+"Netzwerktechnik",2,"Was ist VLAN?","Virtual Local Area Network","Very Large Area Network","Voice LAN","Video LAN","A","VLAN segmentiert Netzwerke logisch.",3
+"Linux",2,"Was macht chmod 755?","Löscht Datei","Setzt Berechtigungen","Kopiert Datei","Verschiebt Datei","B","chmod 755: rwx für Owner, r-x für Group und Others.",3
+"Windows",2,"Was ist die Registry?","Dateimanager","Zentrale Konfigurationsdatenbank","Antivirus","Backup-Tool","B","Registry speichert Windows-Konfigurationen zentral.",3
+"Mobile",2,"Was ist APK?","Apple Package","Android Package","Application Pack","App Kernel","B","APK = Android Package, Installationsdatei für Android.",3
+"IoT",2,"Was ist Zigbee?","Programmiersprache","Drahtloses Kommunikationsprotokoll","Datenbank","Betriebssystem","B","Zigbee ist ein stromsparendes Funkprotokoll für IoT.",3
+"Projektmanagement",1,"Was bedeutet das A in SMART?","Achievable","Automatic","Advanced","Approved","A","A steht für Achievable (erreichbar) in SMART-Zielen.",2
+"Netzwerktechnik",1,"Was ist ein Gateway?","Tor","Übergang zwischen Netzwerken","Firewall","Switch","B","Gateway verbindet unterschiedliche Netzwerke.",2
+"OSI-Modell",1,"HTTP arbeitet auf welcher Schicht?","4","5","6","7","D","HTTP arbeitet auf Layer 7 (Application).",2
+"PowerShell",1,"Kommentare in PowerShell beginnen mit?","//","#","/*","--","B","Einzeilige Kommentare beginnen mit #.",2
+"IT-Sicherheit",1,"Was ist Malware?","Gute Software","Schadsoftware","Hardware","Update","B","Malware = Malicious Software (Schadsoftware).",2
+"Datenschutz",1,"DSGVO gilt seit?","2016","2018","2020","2022","B","DSGVO gilt seit 25. Mai 2018.",2
+"Wirtschaftlichkeit",1,"Was sind Fixkosten?","Variable Kosten","Konstante Kosten","Einmalige Kosten","Keine Kosten","B","Fixkosten fallen unabhängig von der Produktionsmenge an.",2
+"Hardware",1,"CPU steht für?","Computer Processing Unit","Central Processing Unit","Core Processing Unit","Central Power Unit","B","CPU = Central Processing Unit (Prozessor).",2
+"Datenbanken",1,"Was ist eine Tabelle?","Dokument","Strukturierte Datensammlung","Bild","Video","B","Tabellen speichern strukturierte Daten in Zeilen und Spalten.",2
+"Programmierung",1,"Was ist ein Algorithmus?","Fehler","Lösungsverfahren","Datentyp","Variable","B","Algorithmus ist eine Handlungsvorschrift zur Problemlösung.",2

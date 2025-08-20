@@ -5,6 +5,13 @@ export interface User {
   firstName?: string;
   lastName?: string;
   roles: string[];
+  experiencePoints?: number;
+  level?: number;
+  totalQuestionsAnswered?: number;
+  correctAnswers?: number;
+  currentStreak?: number;
+  bestStreak?: number;
+  lastLogin?: string;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -24,7 +31,15 @@ export interface RegisterRequest {
 
 export interface AuthResponse {
   token: string;
-  user: User;
+  userId: number;
+  username: string;
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  roles: string[];
+  experiencePoints?: number;
+  level?: number;
+  message?: string;
 }
 
 export interface JwtPayload {

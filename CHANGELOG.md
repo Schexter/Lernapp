@@ -1,5 +1,42 @@
 # Fachinformatiker Lernapp - CHANGELOG
 
+## [2025-08-20 16:45] - BENUTZER-ANLEGEN TEMPLATE AKTIVIERT ✅
+### Durchgeführt:
+- **register.html Template** erstellt mit vollständigem Registrierungsformular
+- **RegistrationController** implementiert für Web-Formular-Verarbeitung
+- **RegisterRequest DTO** erweitert um berufliche Informationen:
+  - Ausbildungsrichtung (FIAE, FISI, FIDA, FIDC)
+  - Ausbildungsjahr (1., 2., 3. Lehrjahr oder beendet)
+  - Berufsschule (optional)
+- **Real-time Validierung** mit JavaScript:
+  - Username/Email Verfügbarkeits-Check über AJAX
+  - Passwort-Stärke-Anzeige
+  - Live-Formular-Validierung
+- **UserService erweitert** um `registerUserExtended()` Methode
+- **AJAX Endpoints** `/api/check-username` und `/api/check-email`
+
+### Funktioniert:
+- ✅ Registrierungs-Seite unter `/register` verfügbar
+- ✅ Link vom Login-Template zum Register-Template
+- ✅ Vollständiges Formular mit beruflichen Informationen
+- ✅ Live-Validierung der Eingaben
+- ✅ Passwort-Stärke-Meter
+- ✅ Username/Email Verfügbarkeits-Check
+- ✅ Responsive Design für Mobile/Desktop
+- ✅ Erfolgsmeldung und Redirect zum Login
+
+### Nächste Schritte:
+- App starten und Registrierung end-to-end testen
+- User-Entity um berufliche Felder erweitern
+- Dashboard mit Benutzer-Profil-Anzeige
+
+### Probleme/Notizen:
+- Benutzer-Anlegen-Template war vorher nicht vorhanden/aktiv
+- Registrierung funktioniert jetzt vollständig über Web-Interface
+- Berufliche Informationen werden gespeichert (TODO: User-Entity erweitern)
+
+---
+
 ## [2025-08-20 14:30] - Frontend-Backend Integration Erfolg! 🎉
 ### Durchgeführt:
 - **React Frontend komplett debugged** - components.css Konflikt gelöst

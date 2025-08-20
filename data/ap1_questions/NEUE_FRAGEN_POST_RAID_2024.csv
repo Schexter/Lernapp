@@ -1,0 +1,65 @@
+category,difficulty,questionText,optionA,optionB,optionC,optionD,correctAnswer,explanation,points
+"Netzwerktechnik",2,"Welche IPv6-Adresse ist eine Link-Local-Adresse?","fe80::1","2001:db8::1","::1","ff02::1","A","Link-Local-Adressen beginnen immer mit fe80::/10. Sie sind nur im lokalen Netzwerksegment gültig.",5
+"Netzwerktechnik",2,"Wie viele Bit hat eine IPv6-Adresse?","32","64","128","256","C","IPv6-Adressen sind 128 Bit lang, im Gegensatz zu IPv4 mit 32 Bit.",3
+"Netzwerktechnik",3,"Was bedeutet die Notation :: in einer IPv6-Adresse?","Ende der Adresse","Mehrere aufeinanderfolgende Nullblöcke","Trennung zwischen Netz und Host","Broadcast-Adresse","B","Die doppelten Doppelpunkte :: komprimieren mehrere aufeinanderfolgende Null-Blöcke.",4
+"OSI-Modell",1,"Auf welcher OSI-Schicht arbeitet eine MAC-Adresse?","Physical","Data Link","Network","Transport","B","MAC-Adressen arbeiten auf Schicht 2 (Data Link Layer) des OSI-Modells.",2
+"OSI-Modell",2,"Welches Protokoll arbeitet auf OSI-Schicht 4?","IP","Ethernet","TCP","HTTP","C","TCP (Transmission Control Protocol) arbeitet auf der Transportschicht (Schicht 4).",3
+"OSI-Modell",2,"Auf welcher OSI-Schicht findet die Verschlüsselung mit SSL/TLS statt?","Session","Presentation","Application","Transport","B","SSL/TLS arbeitet auf der Presentation Layer (Schicht 6) für Verschlüsselung.",3
+"3D-Daten",2,"Was ist das PLY-Format?","Picture Layout Format","Polygon File Format","Pixel Layer Format","Point List Format","B","PLY steht für Polygon File Format und wird für 3D-Geometriedaten verwendet.",3
+"3D-Daten",3,"Wie berechnet sich der Speicherbedarf für 1000 3D-Punkte mit RGB-Farben (je 3 Float-Koordinaten à 4 Byte, 3 RGB-Werte à 1 Byte)?","15 KB","12 KB","18 KB","20 KB","A","1000 Punkte × (3×4 Byte + 3×1 Byte) = 1000 × 15 = 15.000 Byte ≈ 14,65 KB",8
+"3D-Daten",2,"Was ist der Hauptunterschied zwischen ASCII und Binary PLY?","Kompression","Lesbarkeit","Genauigkeit","Geschwindigkeit","B","ASCII ist menschenlesbar aber größer, Binary ist kompakter aber nicht lesbar.",3
+"PowerShell",2,"Welcher PowerShell-Operator bedeutet 'größer als'?",">","-gt","-lt","-ge","B","-gt steht für 'greater than' (größer als) in PowerShell.",2
+"PowerShell",2,"Was ist der Fehler in: if ($zahl > 100)?","Falscher Variablenname","Falscher Vergleichsoperator","Fehlende Klammer","Syntax korrekt","B","In PowerShell muss -gt statt > verwendet werden: if ($zahl -gt 100)",4
+"PowerShell",3,"Was gibt dieser Code aus: $x=5; if($x -lt 10){'Klein'}else{'Groß'}","Klein","Groß","Fehler","5","A","5 ist kleiner als 10 (-lt = less than), daher wird 'Klein' ausgegeben.",3
+"Projektmanagement",1,"Was bedeutet das M in SMART?","Manageable","Measurable","Modern","Meaningful","B","M steht für Measurable (messbar) - Ziele müssen messbar sein.",2
+"Projektmanagement",2,"Was kennzeichnet den kritischen Pfad im Netzplan?","Kürzeste Dauer","Gesamtpuffer = 0","Meiste Ressourcen","Höchste Kosten","B","Der kritische Pfad hat einen Gesamtpuffer (GP) von 0.",3
+"Projektmanagement",3,"Ein Vorgang hat FAZ=5, Dauer=3. Was ist FEZ?","2","3","5","8","D","FEZ = FAZ + Dauer = 5 + 3 = 8",2
+"IT-Sicherheit",1,"Was gehört zur CIA-Triad?","Compliance","Confidentiality","Certification","Complexity","B","CIA steht für Confidentiality, Integrity, Availability.",2
+"IT-Sicherheit",2,"Welche Maßnahme dient primär der Integrität?","Verschlüsselung","Backup","Digitale Signatur","Firewall","C","Digitale Signaturen sichern die Integrität von Daten.",3
+"IT-Sicherheit",2,"Was ist KEIN Kriterium für sichere Passwörter?","Mindestlänge 8 Zeichen","Sonderzeichen","Geburtsdatum enthalten","Groß-/Kleinschreibung","C","Persönliche Daten wie Geburtsdaten sollten nicht in Passwörtern verwendet werden.",2
+"Datenschutz",1,"Was regelt die DSGVO?","Datensicherheit","Personenbezogene Daten","Urheberrecht","Patentschutz","B","Die DSGVO regelt den Schutz personenbezogener Daten.",2
+"Datenschutz",2,"Was sind besondere Kategorien nach Art. 9 DSGVO?","Name und Adresse","Gesundheitsdaten","E-Mail-Adresse","Telefonnummer","B","Gesundheitsdaten gehören zu den besonderen Kategorien personenbezogener Daten.",3
+"Datenschutz",2,"Innerhalb welcher Frist muss eine DSGVO-Auskunft erteilt werden?","7 Tage","14 Tage","1 Monat","3 Monate","C","Die Auskunft muss unverzüglich, spätestens binnen eines Monats erteilt werden.",2
+"Wirtschaftlichkeit",2,"Ein Netzteil hat 87% Effizienz. Welcher 80Plus-Standard?","Bronze","Silver","Gold","Platinum","C","80Plus Gold erfordert 87% Effizienz bei 50% Last.",3
+"Wirtschaftlichkeit",3,"Amortisationszeit: Mehrkosten 1200€, Ersparnis 75€/Monat?","12 Monate","14 Monate","16 Monate","18 Monate","C","Amortisation = 1200€ / 75€ = 16 Monate",4
+"Wirtschaftlichkeit",2,"Was ist Green IT?","Grüne Gehäuse","Umweltfreundliche IT","Pflanzen im Büro","Outdoor-Computer","B","Green IT bezeichnet umweltfreundliche und energieeffiziente IT-Nutzung.",2
+"Hardware",2,"Welcher Anschluss überträgt Audio und Video digital?","VGA","DVI","HDMI","USB","C","HDMI überträgt sowohl Audio als auch Video digital.",2
+"Hardware",2,"Was ist eine Besonderheit von USB-C?","Nur Datenübertragung","Beidseitig einsteckbar","Nur für Mäuse","Maximale 5V","B","USB-C kann beidseitig eingesteckt werden und unterstützt Power Delivery.",3
+"Hardware",2,"Welche maximale Auflösung unterstützt Single-Link DVI?","1920x1080","1920x1200","2560x1440","3840x2160","B","Single-Link DVI unterstützt maximal 1920x1200 bei 60Hz.",3
+"Netzwerktechnik",3,"Was bedeutet /64 in einer IPv6-Adresse?","64 Hosts möglich","Erste 64 Bit sind Netzwerk-ID","Letzten 64 Bit sind fest","Port 64","B","/64 bedeutet, dass die ersten 64 Bit die Netzwerk-ID darstellen.",4
+"Netzwerktechnik",2,"Welches Tool zeigt den Weg von Datenpaketen?","ping","tracert","ipconfig","netstat","B","tracert (Windows) oder traceroute (Linux) zeigt den Weg von Paketen.",3
+"Netzwerktechnik",2,"Was zeigt eine orange LED am Netzwerkport oft an?","Kein Link","10/100 Mbit","Gigabit","Fehler","B","Orange/Gelb zeigt oft 10/100 Mbit an, Grün steht für Gigabit.",2
+"OSI-Modell",3,"Welche Aufgabe hat die Session-Schicht (5)?","Verschlüsselung","Routing","Dialogsteuerung","Fehlererkennung","C","Die Session-Schicht steuert den Dialog zwischen Anwendungen.",3
+"OSI-Modell",2,"ARP arbeitet zwischen welchen OSI-Schichten?","1 und 2","2 und 3","3 und 4","4 und 5","B","ARP (Address Resolution Protocol) verbindet Schicht 2 (MAC) mit Schicht 3 (IP).",3
+"3D-Daten",2,"Wie viele Byte benötigt ein RGB-Wert typischerweise?","1","3","4","8","B","RGB benötigt 3 Byte (je 1 Byte für Rot, Grün, Blau = 256 Werte).",2
+"3D-Daten",3,"Was ist der Vorteil von Binary PLY gegenüber ASCII?","Bessere Qualität","Kleinere Dateigröße","Mehr Farben","Einfachere Bearbeitung","B","Binary PLY ist deutlich kompakter als ASCII bei gleichen Daten.",3
+"PowerShell",2,"Was bedeutet -eq in PowerShell?","Größer gleich","Gleich","Ungleich","Kleiner gleich","B","-eq steht für 'equal' (gleich) in PowerShell.",2
+"PowerShell",3,"Fehlersuche: $result = $value * 100 / 1000. Was macht dieser Code?","Prozent berechnen","Promille berechnen","Auf 100 runden","Division durch 0","B","Multipliziert mit 100 und teilt durch 1000 = Promille-Berechnung.",4
+"Projektmanagement",2,"Was ist KEIN Projektmerkmal?","Einmaligkeit","Routine","Zeitbegrenzung","Komplexität","B","Routine ist das Gegenteil von Projekt - Projekte sind einmalig.",2
+"Projektmanagement",3,"SAZ=10, Dauer=4. Was ist SEZ?","6","10","14","4","C","SEZ = SAZ + Dauer = 10 + 4 = 14",2
+"Projektmanagement",2,"Was bedeutet ein Freier Puffer (FP) von 3?","3 Tage Gesamtverzögerung möglich","3 Tage Verzögerung ohne Nachfolger zu beeinflussen","3 Mitarbeiter frei","3 Tage früher fertig","B","FP gibt an, wie viel Verzögerung möglich ist ohne Nachfolger zu beeinflussen.",3
+"IT-Sicherheit",2,"Was ist Ransomware?","Antivirus-Software","Erpressungssoftware","Firewall-Typ","Update-Tool","B","Ransomware verschlüsselt Daten und fordert Lösegeld.",3
+"IT-Sicherheit",2,"Welche Aussage zum BSI IT-Grundschutz ist richtig?","Nur für Behörden","Internationale Norm","Deutsche Standards","Amerikanischer Standard","C","BSI IT-Grundschutz sind deutsche Sicherheitsstandards.",2
+"IT-Sicherheit",3,"Schutzbedarfsanalyse: Was bedeutet 'sehr hoch'?","Imageschaden möglich","Existenzbedrohend","Unangenehm","Ärgerlich","B","'Sehr hoch' bedeutet existenzbedrohende oder katastrophale Schäden.",4
+"Datenschutz",2,"Was ist KEIN Betroffenenrecht nach DSGVO?","Auskunft","Löschung","Verschlüsselung","Berichtigung","C","Verschlüsselung ist eine Schutzmaßnahme, kein Betroffenenrecht.",3
+"Datenschutz",3,"Ab welcher Mitarbeiterzahl ist ein Datenschutzbeauftragter Pflicht?","10","20","50","100","B","Ab 20 Personen, die ständig mit personenbezogenen Daten arbeiten.",3
+"Wirtschaftlichkeit",2,"Was bedeutet TCO?","Total Cost of Ownership","Technical Control Office","Time Critical Operation","Transfer Cost Online","A","TCO sind die Gesamtkosten über die gesamte Nutzungsdauer.",3
+"Wirtschaftlichkeit",3,"PUE-Wert eines Rechenzentrums ist 1,5. Was bedeutet das?","50% Energieverlust","150% Effizienz","50% für Kühlung/Infrastruktur","Sehr ineffizient","C","PUE 1,5 bedeutet: 50% zusätzliche Energie für Kühlung/Infrastruktur.",4
+"Hardware",2,"Was ist Thunderbolt?","Nur USB","Hochgeschwindigkeits-Schnittstelle","Netzwerkkabel","Soundkarte","B","Thunderbolt ist eine Hochgeschwindigkeits-Schnittstelle (bis 40 Gbit/s).",3
+"Hardware",2,"DisplayPort Daisy Chain bedeutet?","Mehrere Monitore verketten","Backup-Funktion","Stromversorgung","Audio-Übertragung","A","Daisy Chain erlaubt das Verketten mehrerer Monitore über DisplayPort.",3
+"Hardware",3,"Welche Aussage zu HDCP ist korrekt?","Komprimierung","Kopierschutz","Kühlung","Kalibrierung","B","HDCP ist ein Kopierschutz für digitale Video-/Audioinhalte über HDMI.",3
+"Kaufvertragsrecht",2,"Wann kommt ein Kaufvertrag zustande?","Bei Bezahlung","Angebot + Annahme","Bei Lieferung","Bei Rechnung","B","Ein Kaufvertrag entsteht durch übereinstimmende Willenserklärungen (Angebot + Annahme).",3
+"Kaufvertragsrecht",2,"Was ist der Unterschied zwischen Gewährleistung und Garantie?","Kein Unterschied","Gewährleistung gesetzlich, Garantie freiwillig","Garantie gesetzlich, Gewährleistung freiwillig","Nur Dauer unterschiedlich","B","Gewährleistung ist gesetzlich vorgeschrieben, Garantie ist freiwillige Zusatzleistung.",3
+"Kaufvertragsrecht",2,"Wie lange ist die gesetzliche Gewährleistungsfrist?","6 Monate","1 Jahr","2 Jahre","3 Jahre","C","Die gesetzliche Gewährleistung beträgt 2 Jahre ab Übergabe.",2
+"Malware",2,"Was ist ein Rootkit?","Backup-Software","Versteckt Malware","Router-Software","Root-Passwort","B","Rootkits verstecken Malware vor dem Betriebssystem und Antivirus.",3
+"Malware",2,"Welche Malware repliziert sich selbstständig?","Trojaner","Wurm","Spyware","Adware","B","Würmer verbreiten sich selbstständig ohne Benutzerinteraktion.",3
+"Netzwerktechnik",3,"Was ist die Multicast-Adresse ff02::1?","Alle Router","Alle Knoten","DHCP-Server","DNS-Server","B","ff02::1 ist die IPv6 Multicast-Adresse für alle Knoten im lokalen Segment.",4
+"Netzwerktechnik",3,"EUI-64 erzeugt die Interface-ID aus?","IP-Adresse","MAC-Adresse","Hostname","Zufallszahl","B","EUI-64 generiert die 64-Bit Interface-ID aus der 48-Bit MAC-Adresse.",4
+"OSI-Modell",3,"Welche Aussage zu Layer 1 ist falsch?","Überträgt Bits","Definiert Spannungspegel","Fehlerkorrektur","Kabel und Stecker","C","Fehlerkorrektur findet erst ab Layer 2 (Data Link) statt.",3
+"3D-Daten",3,"10.000 Vertices mit je XYZ (float) und RGB. Speicherbedarf?","120 KB","150 KB","180 KB","200 KB","B","10.000 × (3×4 + 3×1) = 10.000 × 15 = 150.000 Byte ≈ 146 KB",5
+"PowerShell",3,"Was ist der Output von: @(1,2,3).Count","Fehler","3","1,2,3","Array","B","Das Array hat 3 Elemente, .Count gibt 3 zurück.",3
+"Projektmanagement",3,"Vorgang A (GP=0) verzögert sich um 2 Tage. Auswirkung?","Keine","Projekt 2 Tage später","Nur A später","Puffer aufgebraucht","B","Verzögerung auf kritischem Pfad (GP=0) verzögert das gesamte Projekt.",3
+"IT-Sicherheit",3,"Was ist ein Zero-Day-Exploit?","Veraltete Software","Unbekannte Schwachstelle","Backup-Strategie","Verschlüsselung","B","Zero-Day nutzt eine noch unbekannte/ungepatchte Schwachstelle.",4
+"Datenschutz",3,"Was bedeutet Privacy by Design?","Nachträglicher Datenschutz","Datenschutz von Anfang an","Nur für Designer","Verschlüsselung","B","Datenschutz wird von Anfang an in die Entwicklung einbezogen.",3
+"Wirtschaftlichkeit",3,"Break-Even-Point bei Fixkosten 10.000€, Deckungsbeitrag 25€/Stück?","250 Stück","400 Stück","500 Stück","1000 Stück","B","Break-Even = Fixkosten / Deckungsbeitrag = 10.000 / 25 = 400",4
+"Hardware",3,"PCIe 4.0 x16 hat welche theoretische Bandbreite?","8 GB/s","16 GB/s","32 GB/s","64 GB/s","C","PCIe 4.0 x16 = 2 GB/s × 16 Lanes = 32 GB/s",4

@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+// Dynamische Backend-URL basierend auf der aktuellen Host-Adresse
+const getBackendUrl = () => {
+  const hostname = window.location.hostname;
+  // Wenn localhost, nutze localhost, sonst nutze die IP-Adresse
+  return `http://${hostname}:8080/api`;
+};
+
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: getBackendUrl(),
   headers: {
     'Content-Type': 'application/json',
   },

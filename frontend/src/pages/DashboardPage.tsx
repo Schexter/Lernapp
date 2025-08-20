@@ -3,18 +3,23 @@ import { ProgressRing } from '../components/ui/ProgressRing';
 import { BookOpen, Trophy, Clock, Target, FileQuestion } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
+import StrategyPanel from '../components/StrategyPanel';
 
 export const DashboardPage = () => {
   const { user } = useAuthStore();
 
-  // Mock data - später durch echte API-Daten ersetzen
+  // Echte Benutzerdaten verwenden - für neue Nutzer sind diese 0
   const stats = {
-    questionsAnswered: 245,
-    correctAnswers: 198,
-    totalQuestions: 1000,
-    studyStreak: 7,
-    averageScore: 81,
-    lastActivity: 'vor 2 Stunden'
+    questionsAnswered: user?.totalQuestionsAnswered || 0,
+    correctAnswers: user?.correctAnswers || 0,
+    totalQuestions: 1000, // Gesamtzahl der verfügbaren Fragen
+    studyStreak: user?.currentStreak || 0,
+    averageScore: user?.totalQuestionsAnswered > 0 
+      ? Math.round((user.correctAnswers / user.totalQuestionsAnswered) * 100) 
+      : 0,
+    lastActivity: user?.lastLogin ? 'Heute' : 'Noch keine Aktivität',
+    experiencePoints: user?.experiencePoints || 0,
+    level: user?.level || 1
   };
 
   const progress = Math.round((stats.questionsAnswered / stats.totalQuestions) * 100);
@@ -75,14 +80,19 @@ export const DashboardPage = () => {
             <div className="flex items-center justify-between mb-4">
               <Target className="w-8 h-8 text-danger" />
               <span className="text-2xl font-bold text-gray-900">
-                AP1
+                Level {stats.level}
               </span>
             </div>
-            <h3 className="text-sm font-medium text-gray-600">Nächste Prüfung</h3>
+            <h3 className="text-sm font-medium text-gray-600">Erfahrungspunkte</h3>
             <p className="text-xs text-gray-500 mt-1">
-              in 42 Tagen
+              {stats.experiencePoints} XP gesammelt
             </p>
           </div>
+        </div>
+
+        {/* 60%-Erfolgsstrategie Panel */}
+        <div className="mb-8">
+          <StrategyPanel />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -103,29 +113,25 @@ export const DashboardPage = () => {
 
             <div className="card">
               <h2 className="text-xl font-semibold mb-4">Letzte Aktivitäten</h2>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div>
-                    <p className="font-medium text-gray-900">Netzwerktechnik</p>
-                    <p className="text-sm text-gray-600">25 Fragen beantwortet</p>
-                  </div>
-                  <span className="text-sm text-gray-500">vor 2 Stunden</span>
+              {stats.questionsAnswered === 0 ? (
+                <div className="text-center py-8">
+                  <BookOpen className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <p className="text-gray-500">Noch keine Aktivitäten</p>
+                  <p className="text-sm text-gray-400 mt-2">
+                    Starte jetzt mit dem Lernen und sammle deine ersten Punkte!
+                  </p>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div>
-                    <p className="font-medium text-gray-900">Datenbanken</p>
-                    <p className="text-sm text-gray-600">15 Fragen beantwortet</p>
+              ) : (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div>
+                      <p className="font-medium text-gray-900">Lernfortschritt</p>
+                      <p className="text-sm text-gray-600">{stats.questionsAnswered} Fragen beantwortet</p>
+                    </div>
+                    <span className="text-sm text-gray-500">Heute</span>
                   </div>
-                  <span className="text-sm text-gray-500">gestern</span>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div>
-                    <p className="font-medium text-gray-900">Programmierung</p>
-                    <p className="text-sm text-gray-600">30 Fragen beantwortet</p>
-                  </div>
-                  <span className="text-sm text-gray-500">vor 2 Tagen</span>
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -140,35 +146,29 @@ export const DashboardPage = () => {
 
             <div className="card">
               <h2 className="text-xl font-semibold mb-4">Kategorien</h2>
-              <div className="space-y-3">
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-700">Netzwerktechnik</span>
-                    <span className="text-gray-600">75%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full" style={{ width: '75%' }}></div>
-                  </div>
+              {stats.questionsAnswered === 0 ? (
+                <div className="text-center py-4">
+                  <Target className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+                  <p className="text-sm text-gray-500">
+                    Beginne mit dem Lernen, um deinen Fortschritt zu sehen
+                  </p>
                 </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-700">Datenbanken</span>
-                    <span className="text-gray-600">60%</span>
+              ) : (
+                <div className="space-y-3">
+                  <div>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="text-gray-700">Gesamtfortschritt</span>
+                      <span className="text-gray-600">{progress}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-primary h-2 rounded-full" style={{ width: `${progress}%` }}></div>
+                    </div>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-accent h-2 rounded-full" style={{ width: '60%' }}></div>
-                  </div>
+                  <p className="text-xs text-gray-500 text-center mt-2">
+                    Kategorie-Details werden nach mehr Aktivität angezeigt
+                  </p>
                 </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-700">Programmierung</span>
-                    <span className="text-gray-600">90%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-warning h-2 rounded-full" style={{ width: '90%' }}></div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

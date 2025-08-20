@@ -27,7 +27,22 @@ export const LoginForm: React.FC = () => {
     try {
       setError(null);
       const response = await authService.login(data);
-      login(response.token, response.user);
+      // Create user object from response
+      const user = {
+        id: response.userId,
+        username: response.username,
+        email: response.email,
+        firstName: response.firstName,
+        lastName: response.lastName,
+        roles: response.roles,
+        experiencePoints: response.experiencePoints || 0,
+        level: response.level || 1,
+        totalQuestionsAnswered: 0,
+        correctAnswers: 0,
+        currentStreak: 0,
+        bestStreak: 0
+      };
+      login(response.token, user);
       navigate('/dashboard');
     } catch (error: any) {
       setError(error.response?.data?.message || 'Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.');

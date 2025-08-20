@@ -24,14 +24,14 @@ export const LandingPage = () => {
       <main className="container mx-auto px-4 py-16">
         <section className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Meistere deine Fachinformatiker Prüfung
+            Dein Weg zur erfolgreichen AP1 & AP2
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Über 1000+ Prüfungsfragen aus allen Bereichen der Fachinformatiker-Ausbildung. 
-            Lerne interaktiv und bereite dich optimal auf deine Abschlussprüfung vor.
+            Brandneue Lernplattform mit über 1000 aktuellen Prüfungsfragen. 
+            Mit der bewährten 60%-Erfolgsstrategie effizient zum Ziel!
           </p>
           <Link to="/register" className="btn-primary text-lg px-8 py-4">
-            Jetzt kostenlos starten
+            Jetzt kostenlos durchstarten
             <ChevronRight className="ml-2 w-5 h-5 inline" />
           </Link>
         </section>
@@ -67,16 +67,17 @@ export const LandingPage = () => {
         </section>
 
         <section className="bg-white rounded-2xl shadow-xl p-12 text-center">
-          <h2 className="text-3xl font-bold mb-6">Bereit für den Erfolg?</h2>
+          <h2 className="text-3xl font-bold mb-6">Starte jetzt deine Lernreise!</h2>
           <p className="text-lg text-gray-600 mb-8">
-            Schließe dich hunderten erfolgreichen Azubis an und bestehe deine Prüfung mit Bestnote!
+            Eine neue Lernplattform mit über 1000 Fragen wartet auf dich. 
+            Sei einer der Ersten und bereite dich optimal auf deine Prüfung vor!
           </p>
           <div className="flex justify-center space-x-4">
-            <Link to="/register" className="btn-primary">
-              Kostenlos registrieren
+            <Link to="/register" className="btn-primary text-lg px-6 py-3">
+              Jetzt kostenlos starten
             </Link>
             <Link to="/login" className="btn-secondary">
-              Bereits Mitglied? Anmelden
+              Bereits registriert? Anmelden
             </Link>
           </div>
         </section>

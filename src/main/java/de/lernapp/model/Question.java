@@ -50,11 +50,26 @@ public class Question {
     @Column(nullable = false, length = 100)
     private String category; // z.B. "Geschäftsprozesse", "IT-Systeme", "Vernetzte Systeme"
     
+    @Column(length = 100)
+    private String topic; // Hauptthema
+    
+    @Column(length = 100)
+    private String subtopic; // Unterthema
+    
     @Column(nullable = false)
     private Integer difficulty; // 1 = Leicht, 2 = Mittel, 3 = Schwer
     
     @Column(length = 2000)
     private String explanation; // Erklärung zur richtigen Antwort
+    
+    @Column(length = 500)
+    private String tags; // Komma-getrennte Tags
+    
+    @Column(length = 1000)
+    private String tips; // Tipps zur Lösung
+    
+    @Column(length = 1000)
+    private String correction; // Korrekturhinweise bei falscher Antwort
     
     @Column(length = 200)
     private String source; // Quelle der Frage (z.B. "AP1 Prüfungsvorbereitung")

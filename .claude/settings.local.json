@@ -30,7 +30,9 @@
       "Bash(timeout:*)",
       "Bash(git push:*)",
       "Bash(start /B gradlew.bat:*)",
-      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\src\\main\\java\\de\\lernapp\\controller\\MinimalTestController.java\")"
+      "Bash(del \"C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\src\\main\\java\\de\\lernapp\\controller\\MinimalTestController.java\")",
+      "Bash(find:*)",
+      "Bash(ipconfig)"
     ],
     "deny": [],
     "ask": [],

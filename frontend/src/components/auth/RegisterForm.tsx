@@ -19,6 +19,9 @@ const registerSchema = z.object({
   confirmPassword: z.string(),
   firstName: z.string().optional(),
   lastName: z.string().optional(),
+  agbAccepted: z.boolean().refine(val => val === true, {
+    message: 'Sie müssen den AGBs zustimmen'
+  })
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwörter stimmen nicht überein",
   path: ["confirmPassword"],
@@ -38,9 +41,24 @@ export const RegisterForm: React.FC = () => {
   const onSubmit = async (data: RegisterFormData) => {
     try {
       setError(null);
-      const { confirmPassword, ...registerData } = data;
-      const response = await authService.register(registerData);
-      login(response.token, response.user);
+      // Send all data including confirmPassword and agbAccepted to backend
+      const response = await authService.register(data);
+      // Create user object from response
+      const user = {
+        id: response.userId,
+        username: response.username,
+        email: response.email,
+        firstName: response.firstName,
+        lastName: response.lastName,
+        roles: response.roles,
+        experiencePoints: response.experiencePoints || 0,
+        level: response.level || 1,
+        totalQuestionsAnswered: 0,
+        correctAnswers: 0,
+        currentStreak: 0,
+        bestStreak: 0
+      };
+      login(response.token, user);
       navigate('/dashboard');
     } catch (error: any) {
       setError(error.response?.data?.message || 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.');
@@ -151,6 +169,28 @@ export const RegisterForm: React.FC = () => {
           <p className="text-red-600 text-sm mt-1">{errors.confirmPassword.message}</p>
         )}
       </div>
+      
+      <div className="flex items-start">
+        <input
+          {...register('agbAccepted')}
+          type="checkbox"
+          id="agbAccepted"
+          className="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+        />
+        <label htmlFor="agbAccepted" className="ml-2 block text-sm text-gray-700">
+          Ich akzeptiere die{' '}
+          <a href="#" className="text-primary-600 hover:text-primary-700 underline">
+            Allgemeinen Geschäftsbedingungen
+          </a>{' '}
+          und die{' '}
+          <a href="#" className="text-primary-600 hover:text-primary-700 underline">
+            Datenschutzerklärung
+          </a>
+        </label>
+      </div>
+      {errors.agbAccepted && (
+        <p className="text-red-600 text-sm mt-1">{errors.agbAccepted.message}</p>
+      )}
       
       <button
         type="submit"

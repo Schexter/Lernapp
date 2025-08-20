@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import de.lernapp.dto.RegisterRequest;
 
 /**
  * Service für User-Verwaltung und Authentifizierung
@@ -53,6 +54,15 @@ public class UserService implements UserDetailsService {
     }
     
     public User registerUser(String username, String email, String password, String firstName, String lastName) {
+        return registerUserExtended(username, email, password, firstName, lastName, null, null, null);
+    }
+    
+    /**
+     * Erweiterte Registrierung mit beruflichen Informationen
+     */
+    public User registerUserExtended(String username, String email, String password, 
+                                   String firstName, String lastName,
+                                   String ausbildungsrichtung, String ausbildungsjahr, String berufsschule) {
         // Check if user already exists
         if (userRepository.existsByUsername(username)) {
             throw new RuntimeException("Username already exists");
@@ -69,7 +79,13 @@ public class UserService implements UserDetailsService {
                 .firstName(firstName)
                 .lastName(lastName)
                 .enabled(true)
+                .createdAt(LocalDateTime.now())
                 .build();
+        
+        // TODO: Erweitere User-Entity um berufliche Felder
+        // user.setAusbildungsrichtung(ausbildungsrichtung);
+        // user.setAusbildungsjahr(ausbildungsjahr);
+        // user.setBerufsschule(berufsschule);
         
         // Add default role
         Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
