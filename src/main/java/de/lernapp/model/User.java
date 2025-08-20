@@ -20,7 +20,7 @@ import java.util.HashSet;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class User {
     
     @Id
@@ -44,6 +44,7 @@ public class User {
     private String lastName;
     
     @Column(nullable = false)
+    @Builder.Default
     private boolean enabled = true;
     
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -56,31 +57,38 @@ public class User {
     private LocalDateTime lastLogin;
     
     // Beziehungen
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @Builder.Default
     private Set<Role> roles = new HashSet<>();
     
     // Lernfortschritt
     @Column(name = "total_questions_answered")
+    @Builder.Default
     private int totalQuestionsAnswered = 0;
     
     @Column(name = "correct_answers")
+    @Builder.Default
     private int correctAnswers = 0;
     
     @Column(name = "current_streak")
+    @Builder.Default
     private int currentStreak = 0;
     
     @Column(name = "best_streak")
+    @Builder.Default
     private int bestStreak = 0;
     
     @Column(name = "experience_points")
+    @Builder.Default
     private int experiencePoints = 0;
     
     @Column(name = "level")
+    @Builder.Default
     private int level = 1;
     
     // Lifecycle Callbacks
