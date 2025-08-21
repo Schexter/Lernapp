@@ -110,10 +110,10 @@ const StrategyPanel: React.FC = () => {
           <Target className="w-8 h-8 text-indigo-600" />
           <div>
             <h2 className="text-2xl font-bold text-gray-900">
-              60%-Erfolgsstrategie
+              Nur Prüfungsorientiert lernen
             </h2>
             <p className="text-sm text-gray-600">
-              Post-RAID Prüfungsstrategie für sicheres Bestehen
+              {isActive ? 'Fokussiert auf die wichtigsten Prüfungsthemen' : 'Alle Fragen zum Lernen verfügbar'}
             </p>
           </div>
         </div>
@@ -141,12 +141,12 @@ const StrategyPanel: React.FC = () => {
             {isActive ? (
               <>
                 <Pause className="w-5 h-5" />
-                Strategie deaktivieren
+                Prüfungsmodus ausschalten
               </>
             ) : (
               <>
                 <Play className="w-5 h-5" />
-                Strategie aktivieren
+                Prüfungsmodus einschalten
               </>
             )}
           </button>
@@ -156,13 +156,13 @@ const StrategyPanel: React.FC = () => {
       {/* Info Box */}
       {showInfo && (
         <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
-          <h3 className="font-semibold text-blue-900 mb-2">Was ist neu?</h3>
+          <h3 className="font-semibold text-blue-900 mb-2">Wie funktioniert's?</h3>
           <ul className="space-y-1 text-sm text-blue-800">
-            <li>❌ RAID-Systeme sind NICHT mehr prüfungsrelevant</li>
-            <li>✅ IPv6 und PLY-Dateiformate sind NEU</li>
-            <li>✅ Fokus auf Netzplantechnik (25 Punkte)</li>
-            <li>✅ PowerShell-Debugging (8 Punkte)</li>
-            <li>✅ OSI-Modell praktisch anwenden</li>
+            <li>🎯 <strong>Aktiviert:</strong> Nur prüfungsrelevante Fragen werden angezeigt</li>
+            <li>📚 <strong>Deaktiviert:</strong> Alle verfügbaren Fragen zum freien Lernen</li>
+            <li>✅ Fokus auf wichtige Prüfungsthemen wie Netzplantechnik</li>
+            <li>✅ PowerShell und Datenschutz-Schwerpunkte</li>
+            <li>✅ Optimale Vorbereitung auf die IHK-Prüfung</li>
           </ul>
         </div>
       )}
@@ -197,9 +197,9 @@ const StrategyPanel: React.FC = () => {
           <div className="p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-purple-600 font-medium">Zielpunkte</p>
+                <p className="text-sm text-purple-600 font-medium">Lernmodus</p>
                 <p className="text-2xl font-bold text-purple-900">
-                  60-65 Punkte
+                  {isActive ? 'Prüfungsorientiert' : 'Alle Themen'}
                 </p>
               </div>
               <Award className="w-8 h-8 text-purple-500" />
@@ -301,17 +301,27 @@ const StrategyPanel: React.FC = () => {
       )}
 
       {/* Success Alert */}
-      {isActive && (
-        <div className="mt-6 p-4 bg-green-50 border-l-4 border-green-500 rounded">
+      {status && (
+        <div className={`mt-6 p-4 border-l-4 rounded ${
+          isActive 
+            ? 'bg-green-50 border-green-500' 
+            : 'bg-blue-50 border-blue-500'
+        }`}>
           <div className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+            {isActive ? (
+              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+            ) : (
+              <BookOpen className="w-5 h-5 text-blue-600 mt-0.5" />
+            )}
             <div>
-              <p className="font-semibold text-green-900">
-                Strategie aktiv!
+              <p className={`font-semibold ${isActive ? 'text-green-900' : 'text-blue-900'}`}>
+                {isActive ? 'Prüfungsmodus aktiv!' : 'Freies Lernen aktiv!'}
               </p>
-              <p className="text-sm text-green-700 mt-1">
-                Ihre Fragen werden jetzt nach der 60%-Erfolgsstrategie priorisiert. 
-                Fokus liegt auf Netzplantechnik, PowerShell, IPv6 und OSI-Modell.
+              <p className={`text-sm mt-1 ${isActive ? 'text-green-700' : 'text-blue-700'}`}>
+                {isActive 
+                  ? 'Ihre Fragen werden jetzt prüfungsorientiert gefiltert. Fokus liegt auf den wichtigsten Prüfungsthemen.'
+                  : 'Alle verfügbaren Fragen werden angezeigt. Sie können aus dem gesamten Fragenpool lernen.'
+                }
               </p>
             </div>
           </div>
