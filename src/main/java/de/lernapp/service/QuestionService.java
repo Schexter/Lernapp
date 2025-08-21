@@ -6,8 +6,6 @@ import de.lernapp.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -123,7 +121,7 @@ public class QuestionService {
         List<Question> allQuestions = questionRepository.findAll();
         return allQuestions.stream()
             .collect(Collectors.groupingBy(
-                Question::getCategory,
+                q -> q.getCategory() != null ? q.getCategory() : "Unbekannt",
                 Collectors.counting()
             ));
     }
@@ -167,7 +165,6 @@ public class QuestionService {
      * Get questions with filters
      */
     public List<Question> getQuestions(String category, Integer difficulty, int limit) {
-        Pageable pageable = PageRequest.of(0, limit);
         List<Question> questions;
         
         if (category != null && difficulty != null) {
@@ -186,51 +183,10 @@ public class QuestionService {
     }
     
     /**
-     * Find by ID
-     */
-    public Optional<Question> findById(Long id) {
-        return questionRepository.findById(id);
-    }
-    
-    /**
-     * Save question
+     * Save question alias for consistency
      */
     public Question save(Question question) {
         return questionRepository.save(question);
-    }
-    
-    /**
-     * Get random question for development
-     */
-    public Question getRandomQuestion() {
-        List<Question> allQuestions = questionRepository.findAll();
-        
-        if (allQuestions.isEmpty()) {
-            // Create a demo question if no questions exist
-            return createDemoQuestion();
-        }
-        
-        Random random = new Random();
-        return allQuestions.get(random.nextInt(allQuestions.size()));
-    }
-    
-    /**
-     * Create demo question for development
-     */
-    private Question createDemoQuestion() {
-        Question demo = new Question();
-        demo.setQuestionText("Was ist die Hauptfunktion eines Netzplans?");
-        demo.setCategory("Projektmanagement");
-        demo.setDifficulty(2);
-        demo.setOptionA("Kosten berechnen");
-        demo.setOptionB("Zeitplanung visualisieren");
-        demo.setOptionC("Personal verwalten");
-        demo.setOptionD("Qualität sichern");
-        demo.setCorrectAnswer("B");
-        demo.setExplanation("Ein Netzplan dient hauptsächlich der Zeitplanung und zeigt Abhängigkeiten zwischen Vorgängen auf.");
-        demo.setPoints(5);
-        demo.setActive(true);
-        return demo;
     }
     
     /**
