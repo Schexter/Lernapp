@@ -4,6 +4,7 @@ import { BookOpen, Trophy, Clock, Target, FileQuestion } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
 import StrategyPanel from '../components/StrategyPanel';
+import { ChangelogWidget } from '../components/changelog/ChangelogWidget';
 
 export const DashboardPage = () => {
   const { user } = useAuthStore();
@@ -93,6 +94,11 @@ export const DashboardPage = () => {
         {/* 60%-Erfolgsstrategie Panel */}
         <div className="mb-8">
           <StrategyPanel />
+        </div>
+
+        {/* Changelog Widget */}
+        <div className="mb-8">
+          <ChangelogWidget compact={true} maxEntries={3} />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

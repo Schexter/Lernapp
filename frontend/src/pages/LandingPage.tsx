@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, Trophy, Users, ChevronRight } from 'lucide-react';
+import { ChangelogWidget } from '../components/changelog/ChangelogWidget';
 
 export const LandingPage = () => {
   return (
@@ -64,6 +65,11 @@ export const LandingPage = () => {
               Behalte deinen Lernfortschritt immer im Blick
             </p>
           </div>
+        </section>
+
+        {/* Changelog Widget */}
+        <section className="mb-16">
+          <ChangelogWidget />
         </section>
 
         <section className="bg-white rounded-2xl shadow-xl p-12 text-center">
