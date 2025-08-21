@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { authService } from '../../services/authService';
 import { useAuthStore } from '../../stores/authStore';
 import { useState } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, CheckCircle } from 'lucide-react';
 
 const loginSchema = z.object({
   username: z.string().min(1, 'Benutzername ist erforderlich'),
@@ -18,6 +18,7 @@ export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuthStore();
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema)
@@ -26,6 +27,7 @@ export const LoginForm: React.FC = () => {
   const onSubmit = async (data: LoginFormData) => {
     try {
       setError(null);
+      setSuccess(null);
       const response = await authService.login(data);
       // Create user object from response
       const user = {
@@ -44,9 +46,21 @@ export const LoginForm: React.FC = () => {
         lastLogin: response.lastLogin
       };
       login(response.token, user);
-      navigate('/dashboard');
+      setSuccess('Login erfolgreich! Sie werden weitergeleitet...');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1500);
     } catch (error: any) {
-      setError(error.response?.data?.message || 'Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.');
+      const status = error.response?.status;
+      if (status === 401) {
+        setError('Ungültiger Benutzername oder Passwort. Bitte überprüfen Sie Ihre Eingaben.');
+      } else if (status === 404) {
+        setError('Benutzername nicht gefunden. Haben Sie sich bereits registriert?');
+      } else if (!error.response) {
+        setError('Keine Verbindung zum Server. Bitte prüfen Sie Ihre Internetverbindung.');
+      } else {
+        setError(error.response?.data || 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+      }
     }
   };
 
@@ -56,6 +70,13 @@ export const LoginForm: React.FC = () => {
         <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start space-x-2">
           <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
           <p className="text-red-800 text-sm">{error}</p>
+        </div>
+      )}
+      
+      {success && (
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-start space-x-2">
+          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+          <p className="text-green-800 text-sm">{success}</p>
         </div>
       )}
       

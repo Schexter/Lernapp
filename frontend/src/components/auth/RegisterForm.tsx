@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { authService } from '../../services/authService';
 import { useAuthStore } from '../../stores/authStore';
 import { useState } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, CheckCircle, Info } from 'lucide-react';
 
 const registerSchema = z.object({
   username: z.string()
@@ -33,6 +33,8 @@ export const RegisterForm: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuthStore();
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [showLoginRedirect, setShowLoginRedirect] = useState(false);
   
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema)
@@ -41,6 +43,7 @@ export const RegisterForm: React.FC = () => {
   const onSubmit = async (data: RegisterFormData) => {
     try {
       setError(null);
+      setSuccess(null);
       // Send all data including confirmPassword and agbAccepted to backend
       const response = await authService.register(data);
       // Create user object from response
@@ -59,20 +62,75 @@ export const RegisterForm: React.FC = () => {
         bestStreak: 0
       };
       login(response.token, user);
-      navigate('/dashboard');
+      setSuccess('Registrierung erfolgreich! Willkommen bei der Lernapp! Sie werden zum Dashboard weitergeleitet...');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 2000);
     } catch (error: any) {
-      setError(error.response?.data?.message || 'Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.');
+      const status = error.response?.status;
+      const errorData = error.response?.data;
+      
+      if (status === 400) {
+        if (typeof errorData === 'string') {
+          if (errorData.includes('Benutzername ist bereits vergeben')) {
+            setError('Dieser Benutzername ist bereits vergeben. Bitte wählen Sie einen anderen.');
+          } else if (errorData.includes('Email-Adresse ist bereits registriert')) {
+            setError('Diese E-Mail-Adresse ist bereits registriert. Möchten Sie sich einloggen?');
+            setShowLoginRedirect(true);
+          } else {
+            setError(errorData);
+          }
+        } else {
+          setError('Ungültige Eingaben. Bitte überprüfen Sie Ihre Daten.');
+        }
+      } else if (!error.response) {
+        setError('Keine Verbindung zum Server. Bitte prüfen Sie Ihre Internetverbindung.');
+      } else {
+        setError('Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+      }
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {error && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start space-x-2">
-          <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-          <p className="text-red-800 text-sm">{error}</p>
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <div className="flex items-start space-x-2">
+            <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+            <div className="flex-1">
+              <p className="text-red-800 text-sm">{error}</p>
+              {showLoginRedirect && (
+                <button
+                  type="button"
+                  onClick={() => navigate('/login')}
+                  className="text-sm text-red-700 underline hover:text-red-900 mt-2"
+                >
+                  Zum Login wechseln
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       )}
+      
+      {success && (
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-start space-x-2">
+          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+          <p className="text-green-800 text-sm">{success}</p>
+        </div>
+      )}
+      
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-start space-x-2">
+        <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+        <div className="text-blue-800 text-sm">
+          <p className="font-semibold mb-1">Passwort-Anforderungen:</p>
+          <ul className="list-disc list-inside space-y-1 text-xs">
+            <li>Mindestens 6 Zeichen</li>
+            <li>Mindestens 1 Großbuchstabe</li>
+            <li>Mindestens 1 Zahl</li>
+          </ul>
+        </div>
+      </div>
       
       <div className="grid grid-cols-2 gap-4">
         <div>
