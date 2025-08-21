@@ -95,10 +95,37 @@ public class QuestionService {
     }
     
     /**
+     * Hole eine einzelne zufällige Frage
+     */
+    public Question getRandomQuestion() {
+        List<Question> questions = questionRepository.findRandomQuestions(1);
+        return questions.isEmpty() ? null : questions.get(0);
+    }
+    
+    /**
+     * Finde Frage nach ID
+     */
+    public Optional<Question> findById(Long id) {
+        return questionRepository.findById(id);
+    }
+    
+    /**
      * Hole alle verfügbaren Kategorien
      */
     public List<String> getAllCategories() {
         return questionRepository.findAllCategories();
+    }
+    
+    /**
+     * Hole alle Kategorien mit der Anzahl der Fragen
+     */
+    public Map<String, Long> getCategoriesWithCount() {
+        List<Question> allQuestions = questionRepository.findAll();
+        return allQuestions.stream()
+            .collect(Collectors.groupingBy(
+                Question::getCategory,
+                Collectors.counting()
+            ));
     }
     
     /**

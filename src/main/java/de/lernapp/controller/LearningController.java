@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Learning Controller - DEVELOPMENT VERSION (CORS deaktiviert)
@@ -66,15 +67,45 @@ public class LearningController {
         log.info("🎯 Getting next question - category: {}, difficulty: {}", category, difficulty);
         
         try {
-            // Für Development: Demo-Daten verwenden
-            Question question = questionService.getRandomQuestion();
+            // Hole Frage basierend auf Kategorie und Schwierigkeit
+            Question question = null;
+            
+            if (category != null && !category.isEmpty() && !category.equals("all")) {
+                // Wenn Kategorie angegeben, hole aus dieser Kategorie
+                List<Question> categoryQuestions = questionService.getQuestionsByCategory(category);
+                
+                if (!categoryQuestions.isEmpty()) {
+                    // Filter nach Schwierigkeit wenn angegeben
+                    if (difficulty != null) {
+                        categoryQuestions = categoryQuestions.stream()
+                            .filter(q -> q.getDifficulty().equals(difficulty))
+                            .toList();
+                    }
+                    
+                    if (!categoryQuestions.isEmpty()) {
+                        // Wähle zufällige Frage aus der gefilterten Liste
+                        int randomIndex = (int) (Math.random() * categoryQuestions.size());
+                        question = categoryQuestions.get(randomIndex);
+                    }
+                }
+            } else if (difficulty != null) {
+                // Nur Schwierigkeit angegeben
+                List<Question> difficultyQuestions = questionService.getQuestionsByDifficulty(difficulty);
+                if (!difficultyQuestions.isEmpty()) {
+                    int randomIndex = (int) (Math.random() * difficultyQuestions.size());
+                    question = difficultyQuestions.get(randomIndex);
+                }
+            } else {
+                // Keine Filter - hole zufällige Frage
+                question = questionService.getRandomQuestion();
+            }
             
             if (question == null) {
-                log.warn("❌ No question found");
+                log.warn("❌ No question found for category: {}, difficulty: {}", category, difficulty);
                 return ResponseEntity.noContent().build();
             }
             
-            log.info("✅ Found question: {}", question.getQuestionText());
+            log.info("✅ Found question from category: {}, actual category: {}", category, question.getCategory());
             return ResponseEntity.ok(QuestionDTO.fromQuestion(question));
             
         } catch (Exception e) {

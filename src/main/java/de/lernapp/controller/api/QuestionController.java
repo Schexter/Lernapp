@@ -110,6 +110,15 @@ public class QuestionController {
     }
     
     /**
+     * GET /api/questions/categories-with-count - Hole alle Kategorien mit Anzahl der Fragen
+     */
+    @GetMapping("/categories-with-count")
+    public ResponseEntity<Map<String, Long>> getCategoriesWithCount() {
+        Map<String, Long> categoriesWithCount = questionService.getCategoriesWithCount();
+        return ResponseEntity.ok(categoriesWithCount);
+    }
+    
+    /**
      * POST /api/questions/{id}/check - Prüfe eine Antwort
      */
     @PostMapping("/{id}/check")

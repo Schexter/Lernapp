@@ -34,6 +34,11 @@ export const learningService = {
     return response.data;
   },
 
+  async getCategoriesWithCount(): Promise<Record<string, number>> {
+    const response = await api.get<Record<string, number>>('/questions/categories-with-count');
+    return response.data;
+  },
+
   async getStats(): Promise<LearningStats> {
     const response = await api.get<LearningStats>('/learning/stats');
     return response.data;

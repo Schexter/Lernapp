@@ -1,5 +1,32 @@
 # Fachinformatiker Lernapp - CHANGELOG
 
+## [2025-08-21 13:45] - LOGIN-PROBLEM ENDGÜLTIG GELÖST! 🎉
+### Durchgeführt:
+- **Server-Backend**: H2-Datenbank RegisterRequest DTO korrigiert
+- **Frontend-Backend Integration**: Mock-Daten durch echte API-Calls ersetzt
+- **AuthService**: Vollständig auf Backend-API umgestellt
+- **Minimal Frontend**: JavaScript-Fehler behoben
+- **Login-Flow**: testuser/Test123! und hanshahn-Account funktionieren
+
+### Funktioniert:
+- ✅ Backend H2-Datenbank speichert User persistent
+- ✅ Login funktioniert mit echter API
+- ✅ Authentication funktioniert
+- ✅ Navigation Dashboard funktioniert
+- ✅ Logout funktioniert
+- ✅ Keine JavaScript-Fehler
+
+### Problem behoben:
+- ❌ **VORHER**: Frontend nutzte localStorage Mock-Daten
+- ✅ **JETZT**: Frontend nutzt echte H2-Datenbank über API
+
+### Nächste Schritte:
+- Schöne App-UI zurückholen (schrittweise)
+- Erweiterte Features wieder aktivieren
+- Questions-API ins Frontend integrieren
+
+---
+
 ## [2025-08-20 17:00] - PERSISTENTE DATENBANK AKTIVIERT ✅
 ### Durchgeführt:
 - **H2-Datenbank von In-Memory auf Datei-basiert umgestellt**

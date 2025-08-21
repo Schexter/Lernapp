@@ -49,73 +49,8 @@ public class DataInitializer {
                         return roleRepository.save(role);
                     });
 
-            // Create test users if not exist
-            if (!userRepository.existsByUsername("testuser")) {
-                User testUser = User.builder()
-                        .username("testuser")
-                        .email("test@example.com")
-                        .password(passwordEncoder.encode("Test123!"))
-                        .firstName("Test")
-                        .lastName("User")
-                        .enabled(true)
-                        .roles(new HashSet<>(Set.of(userRole)))
-                        .totalQuestionsAnswered(0)
-                        .correctAnswers(0)
-                        .currentStreak(0)
-                        .bestStreak(0)
-                        .experiencePoints(0)
-                        .level(1)
-                        .build();
-                testUser.setCreatedAt(LocalDateTime.now());
-                testUser.setUpdatedAt(LocalDateTime.now());
-                userRepository.save(testUser);
-                log.info("Created test user: testuser / Test123!");
-            }
-
-            if (!userRepository.existsByUsername("admin")) {
-                User adminUser = User.builder()
-                        .username("admin")
-                        .email("admin@example.com")
-                        .password(passwordEncoder.encode("Admin123!"))
-                        .firstName("Admin")
-                        .lastName("User")
-                        .enabled(true)
-                        .roles(new HashSet<>(Set.of(adminRole)))
-                        .totalQuestionsAnswered(0)
-                        .correctAnswers(0)
-                        .currentStreak(0)
-                        .bestStreak(0)
-                        .experiencePoints(0)
-                        .level(1)
-                        .build();
-                adminUser.setCreatedAt(LocalDateTime.now());
-                adminUser.setUpdatedAt(LocalDateTime.now());
-                userRepository.save(adminUser);
-                log.info("Created admin user: admin / Admin123!");
-            }
-
-            // Create hanshahn user if not exist
-            if (!userRepository.existsByUsername("hanshahn")) {
-                User hansUser = User.builder()
-                        .username("hanshahn")
-                        .email("hans@example.com")
-                        .password(passwordEncoder.encode("Hans_#1_lernapp!"))
-                        .firstName("Hans")
-                        .lastName("Hahn")
-                        .enabled(true)
-                        .roles(new HashSet<>(Set.of(userRole)))
-                        .totalQuestionsAnswered(0)
-                        .correctAnswers(0)
-                        .currentStreak(0)
-                        .bestStreak(0)
-                        .experiencePoints(0)
-                        .level(1)
-                        .build();
-                hansUser.setCreatedAt(LocalDateTime.now());
-                hansUser.setUpdatedAt(LocalDateTime.now());
-                userRepository.save(hansUser);
-                log.info("Created user: hanshahn / Hans_#1_lernapp!");
-            }
+            // Keine Test-User mehr erstellen - nur echte Registrierung verwenden
+            log.info("Mock-Daten entfernt - nur echte Registrierung wird verwendet");
 
             // Import CSV questions if database is empty
             long questionCount = questionRepository.count();

@@ -14,6 +14,7 @@ export const LearningPage = () => {
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState<AnswerResponse | null>(null);
   const [categories, setCategories] = useState<string[]>([]);
+  const [categoriesWithCount, setCategoriesWithCount] = useState<Record<string, number>>({});
   const [sessionStats, setSessionStats] = useState({
     questionsAnswered: 0,
     correctAnswers: 0,
@@ -34,8 +35,12 @@ export const LearningPage = () => {
 
   const loadCategories = async () => {
     try {
-      const cats = await learningService.getCategories();
+      const [cats, catsWithCount] = await Promise.all([
+        learningService.getCategories(),
+        learningService.getCategoriesWithCount()
+      ]);
       setCategories(cats);
+      setCategoriesWithCount(catsWithCount);
     } catch (error) {
       console.error('Error loading categories:', error);
     }
@@ -147,9 +152,13 @@ export const LearningPage = () => {
                     onChange={(e) => setSelectedCategory(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
-                    <option value="all">Alle Kategorien</option>
+                    <option value="all">
+                      Alle Kategorien ({Object.values(categoriesWithCount).reduce((a, b) => a + b, 0)} Fragen)
+                    </option>
                     {categories.map(cat => (
-                      <option key={cat} value={cat}>{cat}</option>
+                      <option key={cat} value={cat}>
+                        {cat} ({categoriesWithCount[cat] || 0} Fragen)
+                      </option>
                     ))}
                   </select>
                 </div>
