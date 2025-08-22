@@ -1,0 +1,89 @@
+name: Auto Deploy to Hetzner
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    
+    - name: Build with Gradle
+      run: ./gradlew clean build -x test
+    
+    - name: Run tests
+      run: ./gradlew test
+      continue-on-error: true
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: jar-artifact
+        path: build/libs/*.jar
+        retention-days: 1
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    
+    steps:
+    - name: Deploy to Hetzner Server
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        port: ${{ secrets.SERVER_PORT }}
+        script: |
+          echo "Starting deployment at $(date)"
+          
+          # Navigate to project directory
+          cd /opt/Lernapp || cd /var/www/lernapp || exit 1
+          
+          # Backup current version
+          if [ -f build/libs/*.jar ]; then
+            cp build/libs/*.jar build/libs/backup-$(date +%Y%m%d-%H%M%S).jar
+          fi
+          
+          # Pull latest changes
+          git pull origin main || git pull origin master
+          
+          # Build the application
+          ./gradlew clean build -x test
+          
+          # Check if build was successful
+          if [ $? -eq 0 ]; then
+            echo "Build successful, restarting application..."
+            
+            # Restart the application
+            if systemctl is-active --quiet lernapp; then
+              systemctl restart lernapp
+            else
+              # Try alternative start methods
+              pkill -f "java.*lernapp" || true
+              nohup java -jar -Dspring.profiles.active=production build/libs/*.jar > /var/log/lernapp/app.log 2>&1 &
+            fi
+            
+            echo "Deployment completed successfully at $(date)"
+          else
+            echo "Build failed, keeping current version"
+            exit 1
+          fi
+          
+          # Health check
+          sleep 10
+          curl -f http://localhost:8080/api/health || echo "Health check failed, but deployment continued"

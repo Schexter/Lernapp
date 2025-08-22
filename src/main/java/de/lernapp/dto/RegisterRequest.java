@@ -62,6 +62,7 @@ public class RegisterRequest {
     private boolean newsletter; // Optional
     
     // Custom Validation für Passwort-Übereinstimmung
+    @AssertTrue(message = "Die Passwörter stimmen nicht überein")
     public boolean isPasswordMatching() {
         return password != null && password.equals(confirmPassword);
     }

@@ -4,6 +4,8 @@ import de.lernapp.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
 import java.util.List;
@@ -31,6 +33,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u ORDER BY u.experiencePoints DESC")
     List<User> findTopUsersByExperience();
     
-    @Query("SELECT u FROM User u ORDER BY u.correctAnswers DESC LIMIT 10")
-    List<User> findTop10ByCorrectAnswers();
+    @Query("SELECT u FROM User u ORDER BY u.correctAnswers DESC")
+    List<User> findTopByCorrectAnswers(Pageable pageable);
+    
+    default List<User> findTop10ByCorrectAnswers() {
+        return findTopByCorrectAnswers(PageRequest.of(0, 10));
+    }
 }

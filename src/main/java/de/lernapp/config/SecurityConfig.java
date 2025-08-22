@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -40,6 +42,9 @@ public class SecurityConfig {
     @Lazy
     private UserDetailsService userDetailsService;
     
+    @Autowired
+    private Environment environment;
+    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -65,6 +70,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/health/**").permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/api/test/**").permitAll()
                 .anyRequest().authenticated()
@@ -80,8 +86,19 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // Erlaube alle Origins für Entwicklung
-        configuration.setAllowedOriginPatterns(List.of("*"));
+        
+        // Umgebungsspezifische CORS-Konfiguration
+        if (environment.acceptsProfiles(Profiles.of("production", "prod"))) {
+            // Produktion: Nur spezifische Domain erlauben
+            configuration.setAllowedOriginPatterns(List.of(
+                "https://itlernapp.hahn-it-wuppertal.de",
+                "https://*.hahn-it-wuppertal.de"
+            ));
+        } else {
+            // Entwicklung: Alle Origins erlauben
+            configuration.setAllowedOriginPatterns(List.of("*"));
+        }
+        
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
