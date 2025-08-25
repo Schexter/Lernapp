@@ -1,0 +1,77 @@
+package com.fachinformatiker.lernapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+public class LernappApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(LernappApplication.class, args);
+        System.out.println("✅ Fachinformatiker Lernapp gestartet!");
+        System.out.println("🔗 URL: http://localhost:8080");
+    }
+
+    @GetMapping("/")
+    public String home() {
+        return """
+            <html>
+            <head>
+                <title>Fachinformatiker Lernapp</title>
+                <style>
+                    body { font-family: Arial, sans-serif; padding: 40px; background: #f0f0f0; }
+                    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+                    h1 { color: #333; }
+                    .status { background: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; display: inline-block; }
+                    ul { line-height: 2; }
+                    a { color: #2196F3; text-decoration: none; }
+                    a:hover { text-decoration: underline; }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>🎓 Fachinformatiker Lernapp</h1>
+                    <p class="status">✅ App läuft erfolgreich!</p>
+                    
+                    <h2>Verfügbare Endpoints:</h2>
+                    <ul>
+                        <li><a href="/api/status">/api/status</a> - Status Check</li>
+                        <li><a href="/api/info">/api/info</a> - App Information</li>
+                        <li><a href="/h2-console">/h2-console</a> - H2 Database Console</li>
+                    </ul>
+                    
+                    <h2>Nächste Schritte:</h2>
+                    <ol>
+                        <li>✅ Basis-App läuft</li>
+                        <li>⏳ Entities hinzufügen</li>
+                        <li>⏳ Services implementieren</li>
+                        <li>⏳ REST APIs erstellen</li>
+                    </ol>
+                    
+                    <p><em>Entwickelt von Hans Hahn - Alle Rechte vorbehalten</em></p>
+                </div>
+            </body>
+            </html>
+            """;
+    }
+    
+    @GetMapping("/api/status")
+    public String status() {
+        return "{ \"status\": \"OK\", \"message\": \"App läuft erfolgreich\" }";
+    }
+    
+    @GetMapping("/api/info")
+    public String info() {
+        return """
+            {
+                "name": "Fachinformatiker Lernapp",
+                "version": "0.0.1-SNAPSHOT",
+                "description": "Lernplattform für Fachinformatiker-Ausbildung",
+                "developer": "Hans Hahn"
+            }
+            """;
+    }
+}

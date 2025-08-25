@@ -1,0 +1,91 @@
+# VERGLEICHSANALYSE: ZWISCHENPRÜFUNG vs. ABSCHLUSSPRÜFUNG
+# Fachinformatiker Anwendungsentwicklung - 2021
+# Erstellt am: 19.08.2025
+
+================================================================================
+STRUKTURELLER VERGLEICH
+================================================================================
+
+ZWISCHENPRÜFUNG (AP1) 2021:
+- Aufgaben: 45+ Einzelfragen in 4 Themenbereichen
+- Format: Multiple-Choice und Zuordnungsaufgaben
+- Schwerpunkt: Grundlagenwissen und Faktenabruf
+- Komplexität: Einfach bis mittel
+
+ABSCHLUSSPRÜFUNG HERBST 2021:
+- Aufgaben: 4 Hauptaufgaben mit Teilaufgaben
+- Format: Offene Fragen, Berechnungen, Analysen
+- Schwerpunkt: Anwendung und Problemlösung
+- Komplexität: Mittel bis hoch
+
+================================================================================
+THEMATISCHE ENTWICKLUNG
+================================================================================
+
+GEMEINSAME KERNTHEMEN:
+1. Projektmanagement
+   - AP1: Grundbegriffe, einfache Zuordnungen
+   - Abschluss: Vollständige Netzplan-Berechnung
+
+2. IT-Systemtechnik
+   - AP1: Hardware-Komponenten, Grundfunktionen
+   - Abschluss: Energieeffizienz, Systemadministration
+
+3. Wirtschaft & Recht
+   - AP1: BWL-Grundlagen, Arbeitsrecht
+   - Abschluss: Datenschutz, Compliance, TCO
+
+4. Software & Programmierung
+   - AP1: Programmiergrundlagen, Datentypen
+   - Abschluss: Scripting, Debugging, praktische Anwendung
+
+NEUE SCHWERPUNKTE IN DER ABSCHLUSSPRÜFUNG:
+- Green IT und Nachhaltigkeit
+- Remote Work und moderne Arbeitsformen
+- DSGVO-konforme Datenschutzkonzepte
+- BSI IT-Grundschutz
+- Kundenberatung und Change Management
+
+================================================================================
+ANFORDERUNGSVERGLEICH
+================================================================================
+
+WISSENSTIEFE:
+- AP1: Überblickswissen, Definitionen
+- Abschluss: Tiefes Verständnis, praktische Anwendung
+
+PROBLEMLÖSUNGSKOMPETENZ:
+- AP1: Erkennungsaufgaben
+- Abschluss: Analyse, Bewertung, Lösungsentwicklung
+
+PRAXISBEZUG:
+- AP1: Theoretische Szenarien
+- Abschluss: Realistische Geschäftsfälle
+
+INTERDISZIPLINARITÄT:
+- AP1: Isolierte Themenbereiche
+- Abschluss: Verknüpfte Kompetenzbereiche
+
+================================================================================
+EMPFEHLUNGEN FÜR DEN LERNFORTSCHRITT
+================================================================================
+
+AUFBAU AUF AP1-GRUNDLAGEN:
+1. Vertiefen Sie die in der Zwischenprüfung erlernten Grundlagen
+2. Fokussieren Sie praktische Anwendungsszenarien
+3. Entwickeln Sie Problemlösungsstrategien
+4. Üben Sie komplexe Berechnungen unter Zeitdruck
+
+NEUE KOMPETENZBEREICHE:
+1. Moderne IT-Trends (Green IT, Remote Work)
+2. Aktuelle Rechtsgrundlagen (DSGVO, BSI)
+3. Kundenberatung und Kommunikation
+4. Projektmanagement-Tools und -methoden
+
+METHODISCHE VORBEREITUNG:
+1. Fallstudien-basiertes Lernen
+2. Praktische Übungen mit realen Tools
+3. Zeitmanagement für komplexe Aufgaben
+4. Interdisziplinäre Problemlösung
+
+================================================================================

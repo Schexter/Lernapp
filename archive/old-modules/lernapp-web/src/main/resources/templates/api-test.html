@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test - Fachinformatiker Lernapp</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #0f0;
+        }
+        button {
+            background: #333;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #444;
+        }
+        #output {
+            background: #000;
+            border: 1px solid #0f0;
+            padding: 10px;
+            margin-top: 20px;
+            min-height: 200px;
+            white-space: pre-wrap;
+            overflow: auto;
+        }
+        h1 { color: #0f0; }
+    </style>
+</head>
+<body>
+    <h1>🔧 API Test Console</h1>
+    
+    <div>
+        <button onclick="testAuth()">Test Auth Endpoint</button>
+        <button onclick="testLogin()">Test Login (demo/demo123)</button>
+        <button onclick="clearOutput()">Clear Output</button>
+        <button onclick="goToDashboard()">Go to Dashboard</button>
+    </div>
+    
+    <div id="output"></div>
+    
+    <script>
+        function log(message, data) {
+            const output = document.getElementById('output');
+            const timestamp = new Date().toLocaleTimeString();
+            output.innerHTML += `[${timestamp}] ${message}\n`;
+            if (data) {
+                output.innerHTML += JSON.stringify(data, null, 2) + '\n';
+            }
+            output.innerHTML += '---\n';
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        async function testAuth() {
+            log('Testing /api/auth/test...');
+            try {
+                const response = await fetch('/api/auth/test');
+                const data = await response.json();
+                log('Auth test response:', data);
+            } catch (error) {
+                log('Auth test error: ' + error.message);
+            }
+        }
+        
+        async function testLogin() {
+            log('Testing login with demo/demo123...');
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: 'demo',
+                        password: 'demo123'
+                    })
+                });
+                
+                log('Response status: ' + response.status);
+                const data = await response.json();
+                log('Login response:', data);
+                
+                if (data.token) {
+                    log('✅ Login successful! Token received.');
+                    localStorage.setItem('jwt_token', data.token);
+                    localStorage.setItem('is_authenticated', 'true');
+                    if (data.user) {
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                    }
+                    log('Auth data saved to localStorage');
+                }
+            } catch (error) {
+                log('❌ Login error: ' + error.message);
+            }
+        }
+        
+        function clearOutput() {
+            document.getElementById('output').innerHTML = '';
+            log('Output cleared');
+        }
+        
+        function goToDashboard() {
+            log('Navigating to dashboard...');
+            setTimeout(() => {
+                window.location.href = '/dashboard';
+            }, 500);
+        }
+        
+        // Test on load
+        window.onload = () => {
+            log('API Test Console ready');
+            log('Current auth status:', {
+                token: localStorage.getItem('jwt_token') ? 'exists' : 'none',
+                authenticated: localStorage.getItem('is_authenticated'),
+                user: localStorage.getItem('user') ? 'exists' : 'none'
+            });
+        };
+    </script>
+</body>
+</html>

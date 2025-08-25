@@ -1,0 +1,180 @@
+package de.lernapp.controller;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+/**
+ * Controller für die Web-Ansichten der Lernapp.
+ * Verwaltet die Navigation und Darstellung der verschiedenen Seiten.
+ */
+@Controller
+public class WebController {
+
+    /**
+     * Zeigt die Login-Seite an.
+     * Wird automatisch von Spring Security bei nicht-authentifizierten Zugriffen aufgerufen.
+     */
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    /**
+     * Zeigt die Startseite/Dashboard an.
+     * Nur für authentifizierte Benutzer zugänglich.
+     */
+    @GetMapping("/")
+    public String home(Authentication authentication, Model model) {
+        if (authentication != null) {
+            model.addAttribute("username", authentication.getName());
+        }
+        return "home";
+    }
+
+    /**
+     * Zeigt die Lernbereich-Seite an.
+     * Hier können Benutzer verschiedene Lernmodule auswählen.
+     */
+    @GetMapping("/lernen")
+    public String lernen(Authentication authentication, Model model) {
+        if (authentication != null) {
+            model.addAttribute("username", authentication.getName());
+        }
+        return "lernen";
+    }
+
+    /**
+     * Zeigt die Übungen-Seite an.
+     * Hier können Benutzer praktische Übungen durchführen.
+     */
+    @GetMapping("/uebungen")
+    public String uebungen(Authentication authentication, Model model) {
+        if (authentication != null) {
+            model.addAttribute("username", authentication.getName());
+        }
+        return "uebungen";
+    }
+
+    /**
+     * Zeigt die Prüfungen-Seite an.
+     * Hier können Benutzer Prüfungssimulationen durchführen.
+     */
+    @GetMapping("/pruefungen")
+    public String pruefungen(Authentication authentication, Model model) {
+        if (authentication != null) {
+            model.addAttribute("username", authentication.getName());
+        }
+        return "pruefungen";
+    }
+
+    /**
+     * Zeigt die Fortschritt-Seite an.
+     * Hier können Benutzer ihren Lernfortschritt verfolgen.
+     */
+    @GetMapping("/fortschritt")
+    public String fortschritt(Authentication authentication, Model model) {
+        if (authentication != null) {
+            model.addAttribute("username", authentication.getName());
+            // Hier könnten später echte Fortschrittsdaten aus der DB geladen werden
+            model.addAttribute("gesamtfortschritt", 70);
+            model.addAttribute("javaFortschritt", 85);
+            model.addAttribute("sqlFortschritt", 72);
+            model.addAttribute("netzwerkFortschritt", 45);
+            model.addAttribute("webdevFortschritt", 60);
+            model.addAttribute("securityFortschritt", 30);
+        }
+        return "fortschritt";
+    }
+
+    /**
+     * Zeigt die Registrierungsseite an.
+     * Hier können sich neue Benutzer registrieren.
+     */
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    /**
+     * Zeigt die Passwort-Vergessen-Seite an.
+     */
+    @GetMapping("/passwort-vergessen")
+    public String passwortVergessen() {
+        return "passwort-vergessen";
+    }
+
+    // Spezifische Lernmodule
+    @GetMapping("/lernen/java-grundlagen")
+    public String lernenJavaGrundlagen(Model model) {
+        model.addAttribute("modulTitle", "Java Grundlagen");
+        model.addAttribute("modulDescription", "Lerne die Grundlagen der Java-Programmierung");
+        return "lernen-detail";
+    }
+
+    @GetMapping("/lernen/sql-datenbanken")
+    public String lernenSqlDatenbanken(Model model) {
+        model.addAttribute("modulTitle", "SQL & Datenbanken");
+        model.addAttribute("modulDescription", "Meistere SQL-Abfragen und Datenbankdesign");
+        return "lernen-detail";
+    }
+
+    @GetMapping("/lernen/netzwerktechnik")
+    public String lernenNetzwerktechnik(Model model) {
+        model.addAttribute("modulTitle", "Netzwerktechnik");
+        model.addAttribute("modulDescription", "TCP/IP, OSI-Modell und Netzwerksicherheit");
+        return "lernen-detail";
+    }
+
+    @GetMapping("/lernen/web-development")
+    public String lernenWebDevelopment(Model model) {
+        model.addAttribute("modulTitle", "Web Development");
+        model.addAttribute("modulDescription", "HTML, CSS, JavaScript und moderne Frameworks");
+        return "lernen-detail";
+    }
+
+    @GetMapping("/lernen/it-sicherheit")
+    public String lernenItSicherheit(Model model) {
+        model.addAttribute("modulTitle", "IT-Sicherheit");
+        model.addAttribute("modulDescription", "Kryptographie und Security Best Practices");
+        return "lernen-detail";
+    }
+
+    @GetMapping("/lernen/linux-unix")
+    public String lernenLinuxUnix(Model model) {
+        model.addAttribute("modulTitle", "Linux/Unix");
+        model.addAttribute("modulDescription", "Shell-Scripting und Systemadministration");
+        return "lernen-detail";
+    }
+
+    // Prüfungssimulationen
+    @GetMapping("/pruefungen/zwischenpruefung")
+    public String zwischenpruefung(Model model) {
+        model.addAttribute("pruefungType", "Zwischenprüfung");
+        model.addAttribute("duration", 60);
+        model.addAttribute("questionCount", 40);
+        return "pruefung-detail";
+    }
+
+    @GetMapping("/pruefungen/abschlusspruefung-1")
+    public String abschlusspruefung1(Model model) {
+        model.addAttribute("pruefungType", "Abschlussprüfung Teil 1");
+        model.addAttribute("duration", 90);
+        model.addAttribute("questionCount", 50);
+        return "pruefung-detail";
+    }
+
+    @GetMapping("/pruefungen/abschlusspruefung-2")
+    public String abschlusspruefung2(Model model) {
+        model.addAttribute("pruefungType", "Abschlussprüfung Teil 2");
+        model.addAttribute("duration", 120);
+        model.addAttribute("questionCount", 60);
+        return "pruefung-detail";
+    }
+
+    @GetMapping("/pruefungen/thementests")
+    public String thementests(Model model) {
+        return "thementests";
+    }
+}

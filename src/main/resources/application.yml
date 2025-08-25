@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Fachinformatiker-Lernapp-Minimal
+
+logging:
+  level:
+    root: INFO
+    de.lernapp: DEBUG

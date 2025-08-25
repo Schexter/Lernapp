@@ -1,0 +1,267 @@
+====================================================================
+ABSCHLUSSPRÜFUNG FRÜHJAHR 2024 - DETAILANALYSE
+====================================================================
+Erstellt von Hans Hahn - Alle Rechte vorbehalten
+Analysedatum: 19.08.2025
+
+GRUNDINFORMATIONEN:
+- Prüfungstyp: Abschlussprüfung Frühjahr 2024 (IHK)
+- Prüfungscode: 1201
+- Beruf: Fachinformatiker/Fachinformatikerin Anwendungsentwicklung
+- Prüfungszeit: 90 Minuten
+- Gesamtpunkte: 100 Punkte
+- Anzahl Aufgaben: 4 Hauptaufgaben
+- Datum: Mittwoch, 28. Februar 2024
+
+====================================================================
+THEMENÜBERSICHT UND SCHWERPUNKTE:
+====================================================================
+
+1. HARDWARE UND SYSTEMBESCHAFFUNG (Aufgabe 1 - 26 Punkte)
+   - IT-Arbeitsplatz einrichten
+   - Hardwarebeschaffung und -bewertung
+   - Wirtschaftlichkeitsrechnung
+   - Kostenberechnung und Vergleich
+   - Anschlusstechnik und Verkabelung
+   - Kaufvertragsrecht
+
+2. NETZWERKTECHNIK UND SYSTEMADMINISTRATION (Aufgabe 2 - 24 Punkte)
+   - Netzwerkdiagnose und Troubleshooting
+   - OSI-Schichtenmodell
+   - IPv6-Adressierung und Analyse
+   - DHCP-Konfiguration
+   - ARP-Protokoll
+   - Kommandozeilen-Tools (ipconfig, arp)
+
+3. DATEIFORMATE UND DATENVERARBEITUNG (Aufgabe 3 - 24 Punkte)
+   - PLY-Dateiformat (3D-Dateien)
+   - Dateiformatkonvertierung
+   - ASCII vs. Binärdateien
+   - Datencodierung und Speichereffizienz
+   - RGB-Farbmodell
+   - CAD-Datenverarbeitung
+   - Stromkostenberechnung für IT-Systeme
+
+4. IT-SICHERHEIT UND COMPLIANCE (Aufgabe 4 - 26 Punkte)
+   - Malware-Arten und Schutzmaßnahmen
+   - Datenschutz und Geheimhaltung
+   - VPN-Technologie
+   - Backup-Strategien
+   - Datensicherheitsaspekte
+
+====================================================================
+DETAILLIERTE AUFGABENANALYSE:
+====================================================================
+
+AUFGABE 1: IT-ARBEITSPLATZ EINRICHTEN (26 Punkte)
+---------------------------------------------------
+
+KONTEXT:
+- Unternehmen: KustoFlex GmbH (Kunststoffteile-Hersteller)
+- Projekt: 5 CAD-Arbeitsplätze einrichten
+- Bewertungskriterien: Grafikkarte, RAM, Monitor, Preis
+
+Teilaufgaben:
+a) Fehlende Werte ermitteln und Reihenfolge nach Punktzahl (4 Punkte)
+   - Gewichtete Punktebewertung verschiedener Anbieter
+   - Mathematische Berechnung von Gesamtpunkten
+
+ab) Meeting-Entscheidung: On-Premise vs. Cloud (2 Punkte)
+   - Strategische IT-Entscheidungen
+   - Begründung für Lösungsansätze
+
+b) Kostenberechnung CAD-Arbeitsplätze (7 Punkte)
+   - Hardware-Kosten: Monitor (450€), PC (720€), Software (50€/Monat)
+   - Wartungskosten: 1200€/Jahr für alle Geräte
+   - Rabatt: 5% auf PC und Monitor
+   - Nutzungsdauer: Monitor 4 Jahre, PC 3 Jahre
+   - Monatliche Gesamtkosten berechnen
+
+c) Anschlusstechnik zuordnen (4 Punkte)
+   - HDMI, USB-C, DVI, DisplayPort (DP)
+   - Visuelle Zuordnung zu Symbolen
+
+d) Kaufvertrag und Timing (2 Punkte)
+   - Bestellung: 1. September 2023
+   - Lieferung: 7. Oktober 2023
+   - Rechnungserhalt: 9. Oktober 2023
+   - Frage: Wann entstand der Kaufvertrag?
+
+e) Kaufvertragsrecht (3 Punkte)
+   - Drei Inhalte eines Kaufvertrags nennen
+   - Abgrenzung von juristischen Bestandteilen
+
+f) Kaufvertragsstörungen (4 Punkte)
+   - Zwei Arten von Kaufvertragsstörungen
+   - Maßnahmen zur Vermeidung/Behebung
+
+AUFGABE 2: NETZWERKDIAGNOSE (24 Punkte)
+----------------------------------------
+
+KONTEXT:
+- Netzwerkkonfiguration prüfen
+- CAD-Arbeitsplätze in Betrieb nehmen
+- Verschiedene Diagnosebefehle ausführen
+
+Teilaufgaben:
+a) LED-Statusanalyse Netzwerkkarte (4 Punkte)
+   - Grüne LED durchgehend: Bedeutung
+   - LED blinkt unregelmäßig: Bedeutung
+   - Netzwerkfunktionalität interpretieren
+
+b) OSI-Schichtenmodell (4 Punkte)
+   - ipconfig /all Ausgabe analysieren
+   - Zuordnung zu OSI-Schichten:
+     * Physische Adresse (MAC)
+     * DHCP
+     * Verbindungslokale IPv6-Adresse
+     * Buchse mit LED
+   - Schicht 7, 4, 3, 2, 1 identifizieren
+
+c) IPv6-Adressanalyse (5 Punkte)
+   - Adresse: fe80::521a:c5ff:fef2:38b7
+   - Länge der IPv6-Adresse in Bits
+   - Ungekürzte Hexadezimalschreibweise
+   - Präfixlänge
+   - Interface-Identifier
+
+d) DHCP-Server Informationen (2 Punkte)
+   - Welche Informationen stellt DHCP-Server zur Verfügung?
+
+e) ARP-Protokoll (3 Punkte)
+   - arp -a Befehl analysieren
+   - Address Resolution Protocol erklären
+   - Aufgabe des ARP im LAN
+
+f) Erreichbarkeit testen (2 Punkte)
+   - Befehl zur Prüfung der Internetadresse
+
+g) IP-/MAC-Adressen zuordnen (4 Punkte)
+   - Eigener PC vs. Weiterer PC im Netzwerk
+   - ARP-Tabelle interpretieren
+
+AUFGABE 3: DATEIFORMATE UND CAD-DATEN (24 Punkte)
+--------------------------------------------------
+
+KONTEXT:
+- Kunde sendet 3D-Daten im PLY-Format
+- Unbekanntes Dateiformat für das Unternehmen
+- CAD-System arbeitet mit OBJ/STL-Format
+
+Teilaufgaben:
+a) Informationsbeschaffung unbekanntes Format (3 Punkte)
+   - Drei Möglichkeiten zur Formatrecherche
+
+b) PLY-Format und CAD-Integration (2 Punkte)
+   - Polygon File Format für 3D-Daten
+   - Verwendung in CAD-System trotz OBJ/STL-Präferenz
+
+c) ASCII vs. Binärdatei (4 Punkte)
+   - Unterschied zwischen ASCII- und Binärformat
+   - Vor-/Nachteile beider Formate
+
+d) Speicherberechnung PLY-Datei (8 Punkte)
+   - 3840 Punkte in PLY-Datei
+   - Jeder Punkt: x, y, z Koordinaten
+   - 32-Bit Float-Wert pro Koordinate
+   
+   da) Kilobyte für 3840 Punkte berechnen (3 Punkte)
+   
+   db) RGB-Farbcodierung (2 Punkte)
+   - 8 Bit pro Farbkanal
+   - Anzahl darstellbarer Farben
+   
+   dc) Zusätzlicher Speicher für Farbwerte (3 Punkte)
+   - Prozentuale Speicherzunahme
+
+e) Netzteil-Dimensionierung CAD-Rechner (4 Punkte)
+   - Komponenten: Mainboard (20W), Prozessor (172W), 
+     Prozessor-Lüfter (12W), Arbeitsspeicher (5W x4),
+     Grafikkarte (310W), M.2 SSD (5W x2), Gehäuselüfter (8W x2)
+   - 10% Puffer hinzurechnen
+   - Netzteil zwischen 400W-1200W in 50W-Schritten
+
+f) Stromkostenberechnung (3 Punkte)
+   - 200 Arbeitstage à 9 Stunden
+   - Wirkungsgrad 90%, Auslastung 50%
+   - Strompreis: 0,40 EUR/kWh
+   - Jährliche Stromkosten
+
+AUFGABE 4: IT-SICHERHEIT UND COMPLIANCE (26 Punkte)
+----------------------------------------------------
+
+KONTEXT:
+- Neuer Mitarbeiter Herr Müller
+- Mobiles Arbeiten und Datensicherheit
+- Compliance-Anforderungen
+
+Teilaufgaben:
+a) Geheimhaltungsmaßnahmen (6 Punkte)
+   - Tabelle: Maßnahmen/Verhaltensweisen vs. Folgen der Nichtbeachtung
+   - Beispiel: Blickschutzfolie → Bildschirminhalt von Unbefugten lesbar
+   - Drei weitere Maßnahmen und Konsequenzen
+
+b) VPN-Funktionalität (2 Punkte)
+   - Erklärung des Begriffs VPN
+   - Funktionsweise und Zweck
+
+c) Backup-Strategie externe Festplatten (3 Punkte)
+   - Drei Punkte bei externer Datensicherung beachten
+   - Datensicherheitsaspekte berücksichtigen
+
+ZUSÄTZLICHE AUFGABEN (aus anderen Bildern):
+-------------------------------------------
+
+MALWARE UND SCHUTZ:
+d) Malware-Arten (3 Punkte)
+   - Drei Arten von Malware nennen
+
+db) Malware-Merkmale (3 Punkte)
+   - Spezifische Merkmale der genannten Arten
+
+e) Antivirensoftware-Empfehlungen (3 Punkte)
+   - Drei organisatorische/technische Empfehlungen
+   - Schutz vor Malware
+
+f) Datenübertragung und Speedtest (6 Punkte)
+   - Download: 75,78 Mbps
+   - Upload: 50,02 Mbps
+   - Übertragungsdauer für 1 GB berechnen
+   - Ergebnis in Minuten und Sekunden
+
+====================================================================
+PRÜFUNGSSTRATEGISCHE ERKENNTNISSE:
+====================================================================
+
+PUNKTEVERTEILUNG:
+- Aufgabe 1: 26 Punkte (26%) - Hardware/Beschaffung
+- Aufgabe 2: 24 Punkte (24%) - Netzwerktechnik  
+- Aufgabe 3: 24 Punkte (24%) - Dateiformate/CAD
+- Aufgabe 4: 26 Punkte (26%) - IT-Sicherheit
+
+SCHWIERIGKEITSGRAD:
+- Mathematische Berechnungen: Hoch (Kosten, Speicher, Strom)
+- Technisches Verständnis: Mittel-Hoch (IPv6, OSI, PLY)
+- Praktische Anwendung: Hoch (Netzwerkdiagnose, CAD-Integration)
+- Rechtliche Aspekte: Mittel (Kaufvertragsrecht)
+
+BESONDERHEITEN:
+- Starker Fokus auf praktische IT-Administration
+- CAD/3D-Datenverarbeitung als Spezialthema
+- Detaillierte Netzwerkanalyse mit realen Tools
+- Integration von Hardware- und Softwareaspekten
+- Wirtschaftliche Betrachtungen (TCO, Stromkosten)
+
+LERNEMPFEHLUNGEN:
+1. IPv6-Adressierung und Analyse vertiefen
+2. OSI-Schichtenmodell praktisch anwenden
+3. Speicher- und Kostenberechnungen üben
+4. PLY/3D-Dateiformate verstehen
+5. Netzwerk-Diagnosebefehle beherrschen
+6. Kaufvertragsrecht wiederholen
+7. VPN-Technologie und IT-Sicherheit
+8. RGB-Farbmodell und Datencodierung
+
+====================================================================
+ENDE DER ANALYSE
+====================================================================

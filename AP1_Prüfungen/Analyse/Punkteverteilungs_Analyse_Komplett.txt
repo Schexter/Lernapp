@@ -1,0 +1,252 @@
+# PUNKTEVERTEILUNGS-ANALYSE ALLER FACHINFORMATIKER-PRÜFUNGEN
+# Erstellt am: 19.08.2025
+# Vergleich: Zwischenprüfung 2021, Abschlussprüfung Herbst 2021, Abschlussprüfung Frühjahr 2022
+
+================================================================================
+PUNKTEVERTEILUNG IM ÜBERBLICK
+================================================================================
+
+ZWISCHENPRÜFUNG (AP1) 2021:
+- Format: Multiple-Choice und Zuordnungsaufgaben
+- Bewertung: Nicht punktbasiert (richtig/falsch)
+- Aufgaben: 45+ Einzelfragen
+- Schwerpunkt: Grundlagenwissen
+
+ABSCHLUSSPRÜFUNG HERBST 2021:
+- Gesamtpunkte: 100 Punkte
+- Bearbeitungszeit: 90 Minuten
+- Aufgaben: 4 Hauptaufgaben mit Teilaufgaben
+
+ABSCHLUSSPRÜFUNG FRÜHJAHR 2022:
+- Gesamtpunkte: 100 Punkte  
+- Bearbeitungszeit: 90 Minuten
+- Aufgaben: 4 Hauptaufgaben mit Teilaufgaben
+- STRUKTUR: Identisch zu Herbst 2021
+
+================================================================================
+DETAILLIERTE PUNKTEVERTEILUNG ABSCHLUSSPRÜFUNGEN
+================================================================================
+
+AUFGABE 1: PROJEKTMANAGEMENT & NETZPLANTECHNIK
+Gesamtpunkte: 25 (beide Prüfungen identisch)
+
+Teilaufgaben                                    Punkte    Anteil
+1a) Projektmerkmale nennen                      4         16%
+1b) SMART-Kriterien definieren                 4         16%
+1c) Netzplan vervollständigen                  14         56%
+1d) Kritischen Pfad markieren                  1          4%
+1e) Projektverzögerung analysieren             2          8%
+
+SCHWERPUNKT: Netzplan-Berechnung (14 von 25 Punkten = 56%)
+
+AUFGABE 2: ENERGIEEFFIZIENZ & SYSTEMADMINISTRATION
+Gesamtpunkte: 25 (beide Prüfungen identisch)
+
+Teilaufgaben                                    Punkte    Anteil
+2a) Energiekosten-Berechnung                   6         24%
+2b) Amortisationsrechnung                      4         16%
+2c) Energieeinsparungsvorschläge               3         12%
+2d) Lastberechnung Mehrfachsteckdose           4         16%
+2e) PowerShell Script-Korrektur                8         32%
+
+SCHWERPUNKT: Script-Debugging (8 von 25 Punkten = 32%)
+
+AUFGABE 3: IT-SYSTEMBETREUUNG & SUPPORT
+Gesamtpunkte: 26 (beide Prüfungen identisch)
+
+Teilaufgaben                                    Punkte    Anteil
+3a) Lastenheft-Inhalte                         5         19%
+3ba) E-Mail-Migration: Gesamtkosten            2          8%
+3bb) E-Mail-Migration: Zeitplanung             2          8%
+3c) Remote Work: Vor- und Nachteile            4         15%
+3d) Software-Schulungskonzepte                 6         23%
+3e) RAID-Systeme erklären                      7         27%
+
+SCHWERPUNKT: RAID-Systeme und Schulungskonzepte (13 von 26 Punkten = 50%)
+
+AUFGABE 4: DATENSCHUTZ & INFORMATIONSSICHERHEIT
+Gesamtpunkte: 24 (beide Prüfungen identisch)
+
+Teilaufgaben                                    Punkte    Anteil
+4a) Sicherheitsmaßnahmen zuordnen              6         25%
+4b) BSI IT-Grundschutz Maßnahmen               2          8%
+4c) Schutzbedarfsanalyse                       6         25%
+4d) Datenschutz-Auskunft                       2          8%
+4e) Sichere Passwort-Kriterien                 4         17%
+
+ZUSÄTZLICHE AUFGABEN (Risikomanagement)        4         17%
+
+SCHWERPUNKT: Schutzbedarfsanalyse und CIA-Triad (12 von 24 Punkten = 50%)
+
+================================================================================
+PUNKTEVERTEILUNG NACH SCHWIERIGKEITSGRAD
+================================================================================
+
+EINFACHE AUFGABEN (1-4 Punkte):
+Anzahl Aufgaben: 16
+Gesamtpunkte: 62
+Prozentanteil: 62%
+
+Beispiele:
+- Projektmerkmale nennen (4 Punkte)
+- SMART-Kriterien (4 Punkte)  
+- Amortisationsrechnung (4 Punkte)
+- Remote Work Vor-/Nachteile (4 Punkte)
+- Passwort-Kriterien (4 Punkte)
+
+MITTLERE AUFGABEN (5-7 Punkte):
+Anzahl Aufgaben: 4
+Gesamtpunkte: 24
+Prozentanteil: 24%
+
+Beispiele:
+- Lastenheft-Inhalte (5 Punkte)
+- Energiekosten-Berechnung (6 Punkte)
+- Schulungskonzepte (6 Punkte)
+- RAID-Systeme (7 Punkte)
+
+SCHWERE AUFGABEN (8+ Punkte):
+Anzahl Aufgaben: 2
+Gesamtpunkte: 22
+Prozentanteil: 22%
+
+Beispiele:
+- Netzplan-Vervollständigung (14 Punkte)
+- PowerShell Script-Debugging (8 Punkte)
+
+================================================================================
+PUNKTEVERTEILUNG NACH KOMPETENZBEREICHEN
+================================================================================
+
+TECHNISCHE KOMPETENZEN: 51 Punkte (51%)
+- Netzplantechnik (14 Punkte)
+- PowerShell-Scripting (8 Punkte)
+- Energieberechnung (10 Punkte)
+- Lastberechnung (4 Punkte)
+- RAID-Systeme (7 Punkte)
+- BSI IT-Grundschutz (2 Punkte)
+- Sicherheitsmaßnahmen (6 Punkte)
+
+BETRIEBSWIRTSCHAFTLICHE KOMPETENZEN: 21 Punkte (21%)
+- Projektmanagement (11 Punkte ohne Netzplan)
+- Amortisationsrechnung (4 Punkte)
+- Schulungskonzepte (6 Punkte)
+
+RECHTLICHE KOMPETENZEN: 14 Punkte (14%)
+- Schutzbedarfsanalyse (6 Punkte)
+- Datenschutz (2 Punkte)
+- Passwort-Sicherheit (4 Punkte)
+- Risikomanagement (2 Punkte)
+
+BERATUNGSKOMPETENZEN: 14 Punkte (14%)
+- Lastenheft (5 Punkte)
+- Remote Work (4 Punkte)
+- Verbesserungsvorschläge (3 Punkte)
+- Kundenberatung (2 Punkte)
+
+================================================================================
+ZEITVERTEILUNG UND PUNKTEDICHTE
+================================================================================
+
+BEARBEITUNGSZEIT: 90 Minuten
+GESAMTPUNKTE: 100 Punkte
+PUNKTEDICHTE: 1,11 Punkte pro Minute
+
+EMPFOHLENE ZEITVERTEILUNG:
+
+Aufgabe 1 (25 Punkte): 22-23 Minuten
+- Fokus: Netzplan-Berechnung (längste Einzelaufgabe)
+- Zeitkritisch: Mathematische Berechnungen
+
+Aufgabe 2 (25 Punkte): 22-23 Minuten  
+- Fokus: Berechnungen und Script-Analyse
+- Zeitkritisch: PowerShell-Debugging
+
+Aufgabe 3 (26 Punkte): 23-24 Minuten
+- Fokus: Anwendungswissen und Beratung
+- Zeitkritisch: Umfangreiche Textantworten
+
+Aufgabe 4 (24 Punkte): 21-22 Minuten
+- Fokus: Datenschutz und Sicherheit
+- Zeitkritisch: Analyse und Zuordnungen
+
+PUFFERZEIT: 1-2 Minuten für Überprüfung
+
+================================================================================
+ERFOLGSSTRATEGIEN BASIEREND AUF PUNKTEVERTEILUNG
+================================================================================
+
+HOCHWERTIGE AUFGABEN PRIORISIEREN:
+1. Netzplan-Vervollständigung (14 Punkte) - MUSS beherrscht werden
+2. PowerShell Script-Debugging (8 Punkte) - Hoher Punktewert
+3. RAID-Systeme (7 Punkte) - Technisches Kernwissen
+4. Energiekosten-Berechnung (6 Punkte) - Mathematische Kompetenz
+
+NIEDRIGHÄNGENDE FRÜCHTE:
+- Definitionen und Grundlagen (1-4 Punkte Aufgaben)
+- Insgesamt 62 Punkte verfügbar
+- Sicherer Grundstock für Bestehen
+
+RISIKOMANAGEMENT:
+- Bei Zeitnot: Einfache Aufgaben zuerst bearbeiten
+- Komplexe Berechnungen nicht zu lange verfolgen
+- Teilpunkte durch Lösungsansätze sichern
+
+VORBEREITUNG NACH PUNKTEVERTEILUNG:
+1. Intensiv: Netzplantechnik (14% der Gesamtpunkte)
+2. Intensiv: PowerShell-Grundlagen (8% der Gesamtpunkte)
+3. Mittel: Energieberechnungen und RAID (13% der Gesamtpunkte)
+4. Basis: Alle anderen Themenbereiche (65% der Gesamtpunkte)
+
+================================================================================
+VERGLEICH ZUR ZWISCHENPRÜFUNG
+================================================================================
+
+STRUKTURELLER WANDEL:
+- Von Multiple-Choice zu offenen Fragen
+- Von Faktenwissen zu Anwendungskompetenz
+- Von isolierten Themen zu vernetzten Problemstellungen
+
+PUNKTEGEWICHTUNG:
+- Keine Einzelpunkt-Aufgaben in der Zwischenprüfung
+- Abschlussprüfung: Starke Gewichtung komplexer Aufgaben
+- Höhere Anforderung an Tiefenwissen
+
+ZEITDRUCK:
+- Zwischenprüfung: Mehr Zeit pro Aufgabe
+- Abschlussprüfung: 0,9 Minuten pro Punkt
+- Effizienz wird entscheidend
+
+================================================================================
+FAZIT: OPTIMALE PRÜFUNGSSTRATEGIE
+================================================================================
+
+PHASE 1 (0-20 Minuten): Schnelle Punkte sammeln
+- Alle 1-4 Punkte Aufgaben bearbeiten
+- Definitionen und Grundlagen sichern
+- Ziel: 30-40 Punkte
+
+PHASE 2 (20-60 Minuten): Kernaufgaben bearbeiten  
+- Netzplan-Berechnung vollständig lösen
+- PowerShell-Script analysieren
+- RAID-Systeme erklären
+- Ziel: 60-70 Punkte
+
+PHASE 3 (60-85 Minuten): Vertiefung
+- Komplexe Berechnungen finalisieren
+- Umfangreiche Textantworten ausformulieren
+- Ziel: 80-90 Punkte
+
+PHASE 4 (85-90 Minuten): Kontrolle
+- Antworten überprüfen
+- Rechenweg kontrollieren
+- Fehlende Antworten ergänzen
+
+MINDESTPUNKTZAHL ZUM BESTEHEN: 50 Punkte
+SICHERE PUNKTZAHL: 70+ Punkte
+SEHR GUTE LEISTUNG: 85+ Punkte
+
+================================================================================
+Ende der Punkteverteilungs-Analyse
+Basis: Detaillierte Auswertung aller verfügbaren Prüfungsunterlagen 2021-2022
+================================================================================

@@ -1,42 +1,48 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.2.0' apply false
-    id 'io.spring.dependency-management' version '1.1.4' apply false
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
-group = 'com.fachinformatiker'
-version = '1.0.0-SNAPSHOT'
+group = 'de.lernapp'
+version = '0.0.1-SNAPSHOT'
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
+java {
+    sourceCompatibility = '17'
 }
 
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'io.spring.dependency-management'
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starters
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     
-    group = rootProject.group
-    version = rootProject.version
+    // Database
+    runtimeOnly 'com.h2database:h2'
     
-    java {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
+    // JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
     
-    dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
-        testImplementation 'org.mockito:mockito-core:5.7.0'
-        testImplementation 'org.assertj:assertj-core:3.24.2'
-    }
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     
-    test {
-        useJUnitPlatform()
-    }
+    // DevTools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     
-    tasks.withType(JavaCompile) {
-        options.encoding = 'UTF-8'
-        options.compilerArgs << '-parameters'
-    }
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }

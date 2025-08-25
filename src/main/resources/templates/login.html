@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fachinformatiker Lernapp</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <span>📚</span>
+                Fachinformatiker Lernapp
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="/" th:href="@{/}">Dashboard</a></li>
+                <li><a href="/lernen" th:href="@{/lernen}">Lernen</a></li>
+                <li><a href="/uebungen" th:href="@{/uebungen}">Übungen</a></li>
+                <li><a href="/pruefungen" th:href="@{/pruefungen}">Prüfungen</a></li>
+                <li><a href="/fortschritt" th:href="@{/fortschritt}">Fortschritt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-box">
+            <!-- User Icon -->
+            <div class="user-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="4" fill="currentColor"/>
+                    <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" fill="currentColor"/>
+                </svg>
+            </div>
+
+            <!-- Login Form -->
+            <h2 class="login-title">Melde dich an</h2>
+            <p class="login-subtitle">
+                Oder <a th:href="@{/register}">erstelle ein neues Konto</a>
+            </p>
+
+            <!-- Error Message -->
+            <div th:if="${param.error}" class="alert alert-error">
+                Ungültiger Benutzername oder Passwort.
+            </div>
+
+            <!-- Success Message -->
+            <div th:if="${param.logout}" class="alert alert-success">
+                Du wurdest erfolgreich abgemeldet.
+            </div>
+
+            <!-- Login Form -->
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username" class="form-label">Benutzername oder E-Mail</label>
+                    <input type="text" 
+                           id="username" 
+                           name="username" 
+                           class="form-input" 
+                           placeholder="Benutzername" 
+                           required 
+                           autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Passwort</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               class="form-input" 
+                               placeholder="Passwort" 
+                               required>
+                        <button type="button" class="password-toggle" onclick="togglePassword()">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-checkbox-group">
+                    <input type="checkbox" id="remember-me" name="remember-me" class="form-checkbox">
+                    <label for="remember-me" class="form-checkbox-label">
+                        Angemeldet bleiben
+                    </label>
+                </div>
+
+                <div class="form-checkbox-group" style="margin-bottom: 2rem;">
+                    <a th:href="@{/passwort-vergessen}" style="color: #667eea; text-decoration: none; font-size: 0.875rem;">
+                        Passwort vergessen?
+                    </a>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Anmelden</button>
+            </form>
+
+            <!-- Alternative Login Options -->
+            <div class="divider">
+                <span>Oder melde dich an mit</span>
+            </div>
+
+            <div class="login-options">
+                <button type="button" class="btn btn-secondary" onclick="loginDemo()">
+                    🎯 Demo
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="loginGast()">
+                    👤 Gast
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        function loginDemo() {
+            // Demo-Login mit Testdaten
+            document.getElementById('username').value = 'demo';
+            document.getElementById('password').value = 'demo123';
+            document.querySelector('form').submit();
+        }
+
+        function loginGast() {
+            // Gast-Login
+            document.getElementById('username').value = 'gast';
+            document.getElementById('password').value = 'gast123';
+            document.querySelector('form').submit();
+        }
+    </script>
+</body>
+</html>

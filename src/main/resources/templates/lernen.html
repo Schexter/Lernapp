@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lernen - Fachinformatiker Lernapp</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <span>📚</span>
+                Fachinformatiker Lernapp
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="/" th:href="@{/}">Dashboard</a></li>
+                <li><a href="/lernen" th:href="@{/lernen}" class="active">Lernen</a></li>
+                <li><a href="/uebungen" th:href="@{/uebungen}">Übungen</a></li>
+                <li><a href="/pruefungen" th:href="@{/pruefungen}">Prüfungen</a></li>
+                <li><a href="/fortschritt" th:href="@{/fortschritt}">Fortschritt</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post" style="display: inline;">
+                        <button type="submit" style="background: none; border: none; color: #666; cursor: pointer; font-weight: 500;">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Learning Container -->
+    <div class="dashboard-container">
+        <!-- Page Header -->
+        <div class="dashboard-header">
+            <h1>📖 Lernbereich</h1>
+            <p style="color: #64748b; margin-top: 0.5rem;">
+                Wähle ein Themengebiet aus und beginne deine Lernreise.
+            </p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div style="background: white; border-radius: 15px; padding: 1rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);">
+            <div style="display: flex; gap: 1rem; overflow-x: auto;">
+                <button class="btn btn-secondary" style="white-space: nowrap;">Alle Themen</button>
+                <button class="btn btn-secondary" style="white-space: nowrap;">Programmierung</button>
+                <button class="btn btn-secondary" style="white-space: nowrap;">Netzwerktechnik</button>
+                <button class="btn btn-secondary" style="white-space: nowrap;">Datenbanken</button>
+                <button class="btn btn-secondary" style="white-space: nowrap;">IT-Sicherheit</button>
+                <button class="btn btn-secondary" style="white-space: nowrap;">Betriebssysteme</button>
+            </div>
+        </div>
+
+        <!-- Learning Modules Grid -->
+        <div class="dashboard-grid">
+            <!-- Java Grundlagen -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #f97316, #ea580c);">
+                    <span style="color: white; font-size: 24px;">☕</span>
+                </div>
+                <h3 class="card-title">Java Grundlagen</h3>
+                <p class="card-description">
+                    Lerne die Grundlagen der Java-Programmierung: Variablen, Datentypen, Kontrollstrukturen und OOP.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <div style="background: #f1f5f9; border-radius: 8px; padding: 0.5rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.875rem; color: #64748b;">Fortschritt</span>
+                            <span style="font-size: 0.875rem; font-weight: 600;">45%</span>
+                        </div>
+                        <div style="background: #e2e8f0; border-radius: 4px; height: 8px; margin-top: 0.5rem;">
+                            <div style="background: linear-gradient(135deg, #f97316, #ea580c); width: 45%; height: 100%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <a th:href="@{/lernen/java-grundlagen}" class="btn btn-primary" style="width: 100%;">
+                        Weiterlerne →
+                    </a>
+                </div>
+            </div>
+
+            <!-- SQL & Datenbanken -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">
+                    <span style="color: white; font-size: 24px;">🗄️</span>
+                </div>
+                <h3 class="card-title">SQL & Datenbanken</h3>
+                <p class="card-description">
+                    Meistere SQL-Abfragen, Datenbankdesign und Normalisierung für relationale Datenbanken.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <div style="background: #f1f5f9; border-radius: 8px; padding: 0.5rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.875rem; color: #64748b;">Fortschritt</span>
+                            <span style="font-size: 0.875rem; font-weight: 600;">72%</span>
+                        </div>
+                        <div style="background: #e2e8f0; border-radius: 4px; height: 8px; margin-top: 0.5rem;">
+                            <div style="background: linear-gradient(135deg, #0ea5e9, #0284c7); width: 72%; height: 100%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <a th:href="@{/lernen/sql-datenbanken}" class="btn btn-primary" style="width: 100%;">
+                        Weiterlerne →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Netzwerktechnik -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <span style="color: white; font-size: 24px;">🌐</span>
+                </div>
+                <h3 class="card-title">Netzwerktechnik</h3>
+                <p class="card-description">
+                    TCP/IP, OSI-Modell, Routing, Switching und Netzwerksicherheit verstehen.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <div style="background: #f1f5f9; border-radius: 8px; padding: 0.5rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.875rem; color: #64748b;">Fortschritt</span>
+                            <span style="font-size: 0.875rem; font-weight: 600;">28%</span>
+                        </div>
+                        <div style="background: #e2e8f0; border-radius: 4px; height: 8px; margin-top: 0.5rem;">
+                            <div style="background: linear-gradient(135deg, #10b981, #059669); width: 28%; height: 100%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <a th:href="@{/lernen/netzwerktechnik}" class="btn btn-primary" style="width: 100%;">
+                        Starte Modul →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Web Development -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                    <span style="color: white; font-size: 24px;">🌍</span>
+                </div>
+                <h3 class="card-title">Web Development</h3>
+                <p class="card-description">
+                    HTML, CSS, JavaScript und moderne Frameworks für Full-Stack-Entwicklung.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <div style="background: #f1f5f9; border-radius: 8px; padding: 0.5rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.875rem; color: #64748b;">Fortschritt</span>
+                            <span style="font-size: 0.875rem; font-weight: 600;">60%</span>
+                        </div>
+                        <div style="background: #e2e8f0; border-radius: 4px; height: 8px; margin-top: 0.5rem;">
+                            <div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); width: 60%; height: 100%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <a th:href="@{/lernen/web-development}" class="btn btn-primary" style="width: 100%;">
+                        Weiterlerne →
+                    </a>
+                </div>
+            </div>
+
+            <!-- IT-Sicherheit -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                    <span style="color: white; font-size: 24px;">🔒</span>
+                </div>
+                <h3 class="card-title">IT-Sicherheit</h3>
+                <p class="card-description">
+                    Kryptographie, Authentifizierung, Firewall-Konzepte und Security Best Practices.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <div style="background: #f1f5f9; border-radius: 8px; padding: 0.5rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.875rem; color: #64748b;">Fortschritt</span>
+                            <span style="font-size: 0.875rem; font-weight: 600;">15%</span>
+                        </div>
+                        <div style="background: #e2e8f0; border-radius: 4px; height: 8px; margin-top: 0.5rem;">
+                            <div style="background: linear-gradient(135deg, #ef4444, #dc2626); width: 15%; height: 100%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <a th:href="@{/lernen/it-sicherheit}" class="btn btn-primary" style="width: 100%;">
+                        Starte Modul →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Linux/Unix -->
+            <div class="dashboard-card">
+                <div class="card-icon" style="background: linear-gradient(135deg, #64748b, #475569);">
+                    <span style="color: white; font-size: 24px;">🐧</span>
+                </div>
+                <h3 class="card-title">Linux/Unix</h3>
+                <p class="card-description">
+                    Shell-Scripting, Systemadministration und Linux-Befehle für den Alltag.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <div style="background: #f1f5f9; border-radius: 8px; padding: 0.5rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.875rem; color: #64748b;">Fortschritt</span>
+                            <span style="font-size: 0.875rem; font-weight: 600;">90%</span>
+                        </div>
+                        <div style="background: #e2e8f0; border-radius: 4px; height: 8px; margin-top: 0.5rem;">
+                            <div style="background: linear-gradient(135deg, #64748b, #475569); width: 90%; height: 100%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    <a th:href="@{/lernen/linux-unix}" class="btn btn-primary" style="width: 100%;">
+                        Weiterlerne →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

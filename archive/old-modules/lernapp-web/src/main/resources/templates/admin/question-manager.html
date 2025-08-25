@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fragen Manager - Fachinformatiker Lernapp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 { color: #333; }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover { background: #45a049; }
+        button.danger { background: #f44336; }
+        button.danger:hover { background: #da190b; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        #output {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .question-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        .question-item {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 4px solid #2196F3;
+        }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        .warning { color: orange; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>📚 Fragen Manager</h1>
+    
+    <!-- Statistics Card -->
+    <div class="card">
+        <h2>📊 Statistiken</h2>
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number" id="total-questions">-</div>
+                <div>Gesamte Fragen</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="total-topics">-</div>
+                <div>Themen</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="total-subtopics">-</div>
+                <div>Unterthemen</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="db-status">-</div>
+                <div>DB Status</div>
+            </div>
+        </div>
+        <button onclick="loadStatistics()">🔄 Statistiken laden</button>
+        <button onclick="checkDatabase()">🔍 Datenbank prüfen</button>
+    </div>
+    
+    <!-- Import Card -->
+    <div class="card">
+        <h2>📥 Fragen importieren</h2>
+        <p>CSV-Dateien gefunden im Projekt:</p>
+        <ul>
+            <li><strong>ALLE_AP1_FRAGEN_IMPORT.csv</strong> - Hauptfragen für AP1</li>
+            <li><strong>sample_questions.csv</strong> - Beispielfragen</li>
+        </ul>
+        
+        <div style="margin: 20px 0;">
+            <input type="file" id="csvFile" accept=".csv">
+            <button onclick="importCSV()">📤 CSV importieren</button>
+            <button onclick="autoImport()">🚀 Auto-Import (ALLE_AP1_FRAGEN)</button>
+        </div>
+        
+        <div id="import-output" class="output"></div>
+    </div>
+    
+    <!-- Questions Display Card -->
+    <div class="card">
+        <h2>❓ Aktuelle Fragen</h2>
+        <button onclick="loadQuestions()">Fragen laden</button>
+        <button onclick="loadRandomQuestion()">Zufällige Frage</button>
+        <button class="danger" onclick="clearAllQuestions()">⚠️ Alle Fragen löschen</button>
+        
+        <div id="questions-list" class="question-list">
+            <p>Klicke "Fragen laden" um die Fragen anzuzeigen...</p>
+        </div>
+    </div>
+    
+    <!-- Output Console -->
+    <div class="card">
+        <h2>📟 Console Output</h2>
+        <button onclick="clearOutput()">Clear</button>
+        <div id="output"></div>
+    </div>
+    
+    <script>
+        function log(message, type = 'info') {
+            const output = document.getElementById('output');
+            const timestamp = new Date().toLocaleTimeString();
+            const typeClass = type === 'error' ? 'error' : type === 'success' ? 'success' : '';
+            output.innerHTML += `[${timestamp}] <span class="${typeClass}">${message}</span>\n`;
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        async function loadStatistics() {
+            log('Loading statistics...');
+            try {
+                // Get questions count
+                const questionsResponse = await fetch('/api/questions');
+                if (questionsResponse.ok) {
+                    const questions = await questionsResponse.json();
+                    document.getElementById('total-questions').textContent = questions.length || '0';
+                    log(`Found ${questions.length} questions`, 'success');
+                } else {
+                    document.getElementById('total-questions').textContent = '0';
+                    log('No questions found or API error', 'warning');
+                }
+                
+                // Get topics
+                const topicsResponse = await fetch('/api/topics');
+                if (topicsResponse.ok) {
+                    const topics = await topicsResponse.json();
+                    document.getElementById('total-topics').textContent = topics.length || '0';
+                } else {
+                    document.getElementById('total-topics').textContent = '0';
+                }
+                
+                // Set DB status
+                document.getElementById('db-status').textContent = '✅';
+                
+            } catch (error) {
+                log('Error loading statistics: ' + error.message, 'error');
+                document.getElementById('db-status').textContent = '❌';
+            }
+        }
+        
+        async function checkDatabase() {
+            log('Checking database connection...');
+            try {
+                // Try H2 console
+                const response = await fetch('/h2-console', { method: 'HEAD' });
+                if (response.ok || response.status === 302) {
+                    log('H2 Database is accessible at /h2-console', 'success');
+                    log('URL: jdbc:h2:mem:lernappdb');
+                    log('Username: sa');
+                    log('Password: (empty)');
+                    window.open('/h2-console', '_blank');
+                } else {
+                    log('H2 console not accessible', 'warning');
+                }
+            } catch (error) {
+                log('Database check failed: ' + error.message, 'error');
+            }
+        }
+        
+        async function loadQuestions() {
+            log('Loading questions...');
+            try {
+                const response = await fetch('/api/questions');
+                const questions = await response.json();
+                
+                const listDiv = document.getElementById('questions-list');
+                if (questions.length === 0) {
+                    listDiv.innerHTML = '<p class="warning">Keine Fragen in der Datenbank! Bitte importieren Sie zuerst Fragen.</p>';
+                    log('No questions found!', 'warning');
+                } else {
+                    listDiv.innerHTML = questions.slice(0, 10).map((q, i) => `
+                        <div class="question-item">
+                            <strong>Frage ${i + 1}:</strong> ${q.question || q.text || 'N/A'}<br>
+                            <small>Thema: ${q.topic || 'N/A'} | Schwierigkeit: ${q.difficulty || 'N/A'}</small>
+                        </div>
+                    `).join('');
+                    listDiv.innerHTML += `<p><em>Zeige ${Math.min(10, questions.length)} von ${questions.length} Fragen</em></p>`;
+                    log(`Loaded ${questions.length} questions`, 'success');
+                }
+            } catch (error) {
+                log('Error loading questions: ' + error.message, 'error');
+                document.getElementById('questions-list').innerHTML = '<p class="error">Fehler beim Laden der Fragen!</p>';
+            }
+        }
+        
+        async function loadRandomQuestion() {
+            log('Loading random question...');
+            try {
+                const response = await fetch('/api/questions/random');
+                if (response.ok) {
+                    const question = await response.json();
+                    const listDiv = document.getElementById('questions-list');
+                    listDiv.innerHTML = `
+                        <div class="question-item">
+                            <h3>Zufällige Frage:</h3>
+                            <p><strong>${question.question || question.text}</strong></p>
+                            <p>A) ${question.answerA || 'N/A'}</p>
+                            <p>B) ${question.answerB || 'N/A'}</p>
+                            <p>C) ${question.answerC || 'N/A'}</p>
+                            <p>D) ${question.answerD || 'N/A'}</p>
+                            <p><strong>Richtige Antwort:</strong> ${question.correctAnswer || 'N/A'}</p>
+                            <p><small>Thema: ${question.topic || 'N/A'} | Schwierigkeit: ${question.difficulty || 'N/A'}</small></p>
+                        </div>
+                    `;
+                    log('Random question loaded', 'success');
+                } else {
+                    log('No questions available', 'warning');
+                }
+            } catch (error) {
+                log('Error loading random question: ' + error.message, 'error');
+            }
+        }
+        
+        async function importCSV() {
+            const fileInput = document.getElementById('csvFile');
+            if (!fileInput.files[0]) {
+                log('Please select a CSV file', 'warning');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            
+            log(`Importing ${fileInput.files[0].name}...`);
+            
+            try {
+                const response = await fetch('/api/admin/import/csv', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    log(`✅ Import successful! ${result.imported} questions imported`, 'success');
+                    loadStatistics();
+                } else {
+                    log(`❌ Import failed: ${result.message}`, 'error');
+                    if (result.errors) {
+                        result.errors.forEach(err => log(`  - ${err}`, 'error'));
+                    }
+                }
+            } catch (error) {
+                log('Import error: ' + error.message, 'error');
+            }
+        }
+        
+        async function autoImport() {
+            log('Attempting auto-import of ALLE_AP1_FRAGEN_IMPORT.csv...');
+            log('Note: This requires the file to be accessible to the server.');
+            
+            // Since we can't directly access the file from browser, we need a special endpoint
+            // For now, show instructions
+            log('To import the questions:', 'warning');
+            log('1. The CSV file must be in: C:\\SoftwareEntwicklung\\Fachinformatiker_Lernapp_Java\\data\\');
+            log('2. Use the file upload above to select ALLE_AP1_FRAGEN_IMPORT.csv');
+            log('3. Click "CSV importieren"');
+            
+            // Alternative: Create sample data
+            if (confirm('Sollen stattdessen Beispiel-Fragen erstellt werden?')) {
+                createSampleQuestions();
+            }
+        }
+        
+        async function createSampleQuestions() {
+            log('Creating sample questions...');
+            
+            const sampleQuestions = [
+                {
+                    topic: "Java Grundlagen",
+                    subtopic: "Datentypen",
+                    question: "Was ist der Unterschied zwischen int und Integer?",
+                    answerA: "int ist primitiv, Integer ist Wrapper-Klasse",
+                    answerB: "Kein Unterschied",
+                    answerC: "Integer ist schneller",
+                    answerD: "int kann null sein",
+                    correctAnswer: "A",
+                    difficulty: "MEDIUM",
+                    explanation: "int ist ein primitiver Datentyp, Integer ist die Wrapper-Klasse"
+                },
+                {
+                    topic: "Datenbanken",
+                    subtopic: "SQL",
+                    question: "Welcher SQL-Befehl fügt Daten ein?",
+                    answerA: "INSERT",
+                    answerB: "SELECT",
+                    answerC: "UPDATE",
+                    answerD: "DELETE",
+                    correctAnswer: "A",
+                    difficulty: "EASY",
+                    explanation: "INSERT fügt neue Datensätze in eine Tabelle ein"
+                },
+                {
+                    topic: "Netzwerke",
+                    subtopic: "TCP/IP",
+                    question: "Auf welcher OSI-Schicht arbeitet TCP?",
+                    answerA: "Schicht 4 (Transport)",
+                    answerB: "Schicht 3 (Network)",
+                    answerC: "Schicht 2 (Data Link)",
+                    answerD: "Schicht 7 (Application)",
+                    correctAnswer: "A",
+                    difficulty: "MEDIUM",
+                    explanation: "TCP arbeitet auf der Transportschicht (Layer 4)"
+                }
+            ];
+            
+            for (const q of sampleQuestions) {
+                try {
+                    const response = await fetch('/api/questions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(q)
+                    });
+                    
+                    if (response.ok) {
+                        log(`✅ Created: ${q.question}`, 'success');
+                    } else {
+                        log(`❌ Failed to create: ${q.question}`, 'error');
+                    }
+                } catch (error) {
+                    log(`Error creating question: ${error.message}`, 'error');
+                }
+            }
+            
+            loadStatistics();
+        }
+        
+        async function clearAllQuestions() {
+            if (!confirm('⚠️ WARNUNG: Alle Fragen werden gelöscht! Sind Sie sicher?')) {
+                return;
+            }
+            
+            log('Clearing all questions...');
+            try {
+                const response = await fetch('/api/questions', {
+                    method: 'DELETE'
+                });
+                
+                if (response.ok) {
+                    log('All questions deleted', 'success');
+                    loadStatistics();
+                } else {
+                    log('Failed to delete questions', 'error');
+                }
+            } catch (error) {
+                log('Error: ' + error.message, 'error');
+            }
+        }
+        
+        function clearOutput() {
+            document.getElementById('output').innerHTML = '';
+        }
+        
+        // Load statistics on page load
+        window.onload = () => {
+            log('Question Manager initialized');
+            loadStatistics();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+package de.lernapp.controller;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+/**
+ * Controller für die Hauptseiten der Lernapp
+ */
+@Controller
+public class MainController {
+
+    /**
+     * Zeigt das Dashboard / die Startseite
+     */
+    @GetMapping("/")
+    public String home(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        if (userDetails != null) {
+            model.addAttribute("username", userDetails.getUsername());
+        }
+        return "home";
+    }
+
+    /**
+     * Zeigt die Lernbereich-Übersicht
+     */
+    @GetMapping("/lernen")
+    public String lernen(Model model) {
+        // Später: Lade Lernmodule aus der Datenbank
+        return "lernen";
+    }
+
+    /**
+     * Zeigt die Übungen-Übersicht
+     */
+    @GetMapping("/uebungen")
+    public String uebungen(Model model) {
+        // Später: Lade verfügbare Übungen aus der Datenbank
+        return "uebungen";
+    }
+
+    /**
+     * Zeigt die Prüfungen-Übersicht
+     */
+    @GetMapping("/pruefungen")
+    public String pruefungen(Model model) {
+        // Später: Lade Prüfungstypen und Historie aus der Datenbank
+        return "pruefungen";
+    }
+
+    /**
+     * Zeigt den Fortschrittsbereich
+     */
+    @GetMapping("/fortschritt")
+    public String fortschritt(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        if (userDetails != null) {
+            model.addAttribute("username", userDetails.getUsername());
+            // Später: Lade Fortschrittsdaten aus der Datenbank
+            // model.addAttribute("progress", progressService.getProgressForUser(userDetails.getUsername()));
+        }
+        return "fortschritt";
+    }
+
+    /**
+     * Zeigt die Login-Seite
+     */
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    /**
+     * Zeigt die Registrierungsseite
+     */
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    /**
+     * Zeigt die Passwort-Vergessen-Seite
+     */
+    @GetMapping("/passwort-vergessen")
+    public String passwortVergessen() {
+        return "passwort-vergessen";
+    }
+}

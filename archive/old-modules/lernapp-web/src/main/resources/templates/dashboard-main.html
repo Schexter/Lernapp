@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Fachinformatiker Lernapp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .logo-section {
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-info {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .user-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .user-level {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        .nav-menu {
+            padding: 1.5rem 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: #f7fafc;
+            color: #667eea;
+        }
+
+        .nav-item.active {
+            background: #f7fafc;
+            color: #667eea;
+            border-left: 3px solid #667eea;
+        }
+
+        .nav-icon {
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: #2d3748;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .stat-icon.blue {
+            background: #e6f2ff;
+            color: #2563eb;
+        }
+
+        .stat-icon.green {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .stat-icon.purple {
+            background: #ede9fe;
+            color: #7c3aed;
+        }
+
+        .stat-icon.orange {
+            background: #fed7aa;
+            color: #ea580c;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-top: 0.25rem;
+        }
+
+        .stat-change {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .stat-change.positive {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .stat-change.negative {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .chart-tabs {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chart-tab {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: white;
+            color: #718096;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .chart-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .progress-chart {
+            height: 300px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 1rem 0;
+        }
+
+        .progress-bar {
+            width: 40px;
+            background: linear-gradient(to top, #667eea, #764ba2);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .progress-bar:hover {
+            opacity: 0.8;
+        }
+
+        .progress-bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: #718096;
+        }
+
+        .progress-bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .activity-feed {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .activity-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            margin-top: 0.25rem;
+        }
+
+        .activity-score {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .action-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .action-description {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        .leaderboard {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .leaderboard-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+        }
+
+        .leaderboard-rank {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .rank-1 {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #7c2d12;
+        }
+
+        .rank-2 {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+            color: #374151;
+        }
+
+        .rank-3 {
+            background: linear-gradient(135deg, #cd7f32, #e4a853);
+            color: #7c2d12;
+        }
+
+        .rank-other {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .leaderboard-user {
+            flex: 1;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .leaderboard-score {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 200;
+                padding: 0.5rem;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <div class="logo">
+                <span>📚</span>
+                <span>Fachinformatiker</span>
+            </div>
+            <div class="user-info">
+                <div class="user-name" id="userName">Max Mustermann</div>
+                <div class="user-level">Level <span id="userLevel">5</span> • <span id="userPoints">2,450</span> XP</div>
+            </div>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="/dashboard" class="nav-item active">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="/practice" class="nav-item">
+                <span class="nav-icon">📝</span>
+                <span>Übungsmodus</span>
+            </a>
+            <a href="/exam" class="nav-item">
+                <span class="nav-icon">🎓</span>
+                <span>Prüfungssimulation</span>
+            </a>
+            <a href="/topics" class="nav-item">
+                <span class="nav-icon">📚</span>
+                <span>Themenbereiche</span>
+            </a>
+            <a href="/progress" class="nav-item">
+                <span class="nav-icon">📈</span>
+                <span>Fortschritt</span>
+            </a>
+            <a href="/achievements" class="nav-item">
+                <span class="nav-icon">🏆</span>
+                <span>Erfolge</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Einstellungen</span>
+            </a>
+            <a href="#" onclick="logout()" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span>Abmelden</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="page-title">Dashboard</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="startQuickPractice()">
+                    Schnellübung starten
+                </button>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="/practice" class="action-card">
+                <div class="action-icon">📝</div>
+                <div class="action-title">Übung fortsetzen</div>
+                <div class="action-description">15 Fragen verfügbar</div>
+            </a>
+            <a href="/exam" class="action-card">
+                <div class="action-icon">🎯</div>
+                <div class="action-title">Schnelltest</div>
+                <div class="action-description">10 Minuten</div>
+            </a>
+            <a href="/review" class="action-card">
+                <div class="action-icon">🔄</div>
+                <div class="action-title">Wiederholung</div>
+                <div class="action-description">25 fällige Fragen</div>
+            </a>
+            <a href="/weak-areas" class="action-card">
+                <div class="action-icon">💪</div>
+                <div class="action-title">Schwächen</div>
+                <div class="action-description">3 Themen</div>
+            </a>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="streakCount">7</div>
+                        <div class="stat-label">Tage Lernstreak</div>
+                    </div>
+                    <div class="stat-icon orange">🔥</div>
+                </div>
+                <span class="stat-change positive">+2 seit gestern</span>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="questionsAnswered">342</div>
+                        <div class="stat-label">Fragen beantwortet</div>
+                    </div>
+                    <div class="stat-icon blue">📊</div>
+                </div>
+                <span class="stat-change positive">+45 diese Woche</span>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="successRate">78%</div>
+                        <div class="stat-label">Erfolgsquote</div>
+                    </div>
+                    <div class="stat-icon green">✅</div>
+                </div>
+                <span class="stat-change positive">+5% Verbesserung</span>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="studyTime">4.5h</div>
+                        <div class="stat-label">Lernzeit diese Woche</div>
+                    </div>
+                    <div class="stat-icon purple">⏱️</div>
+                </div>
+                <span class="stat-change negative">-30min vs. letzte Woche</span>
+            </div>
+        </div>
+
+        <!-- Progress Chart -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">Lernfortschritt</h2>
+                <div class="chart-tabs">
+                    <button class="chart-tab active" onclick="switchChart('week')">Woche</button>
+                    <button class="chart-tab" onclick="switchChart('month')">Monat</button>
+                    <button class="chart-tab" onclick="switchChart('year')">Jahr</button>
+                </div>
+            </div>
+            <div class="progress-chart" id="progressChart">
+                <div class="progress-bar" style="height: 60%">
+                    <span class="progress-bar-value">45</span>
+                    <span class="progress-bar-label">Mo</span>
+                </div>
+                <div class="progress-bar" style="height: 75%">
+                    <span class="progress-bar-value">56</span>
+                    <span class="progress-bar-label">Di</span>
+                </div>
+                <div class="progress-bar" style="height: 85%">
+                    <span class="progress-bar-value">64</span>
+                    <span class="progress-bar-label">Mi</span>
+                </div>
+                <div class="progress-bar" style="height: 70%">
+                    <span class="progress-bar-value">52</span>
+                    <span class="progress-bar-label">Do</span>
+                </div>
+                <div class="progress-bar" style="height: 90%">
+                    <span class="progress-bar-value">68</span>
+                    <span class="progress-bar-label">Fr</span>
+                </div>
+                <div class="progress-bar" style="height: 65%">
+                    <span class="progress-bar-value">49</span>
+                    <span class="progress-bar-label">Sa</span>
+                </div>
+                <div class="progress-bar" style="height: 80%">
+                    <span class="progress-bar-value">60</span>
+                    <span class="progress-bar-label">So</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <!-- Recent Activity -->
+            <div class="activity-feed">
+                <h2 class="activity-header">Letzte Aktivitäten</h2>
+                <div id="activityList">
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: #e6f2ff;">📝</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Übungssession abgeschlossen</div>
+                            <div class="activity-time">vor 2 Stunden</div>
+                        </div>
+                        <div class="activity-score">85%</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: #d1fae5;">🎯</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Schnelltest bestanden</div>
+                            <div class="activity-time">vor 5 Stunden</div>
+                        </div>
+                        <div class="activity-score">92%</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: #ede9fe;">🏆</div>
+                        <div class="activity-content">
+                            <div class="activity-title">Erfolg freigeschaltet: "Fleißig"</div>
+                            <div class="activity-time">gestern</div>
+                        </div>
+                        <div class="activity-score">+50 XP</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="leaderboard">
+                <h2 class="leaderboard-header">Bestenliste diese Woche</h2>
+                <div id="leaderboardList">
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank rank-1">1</div>
+                        <div class="leaderboard-user">Sarah M.</div>
+                        <div class="leaderboard-score">3,250 XP</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank rank-2">2</div>
+                        <div class="leaderboard-user">Tom K.</div>
+                        <div class="leaderboard-score">2,890 XP</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank rank-3">3</div>
+                        <div class="leaderboard-user">Lisa B.</div>
+                        <div class="leaderboard-score">2,675 XP</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank rank-other">4</div>
+                        <div class="leaderboard-user">Du</div>
+                        <div class="leaderboard-score">2,450 XP</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank rank-other">5</div>
+                        <div class="leaderboard-user">Max P.</div>
+                        <div class="leaderboard-score">2,320 XP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load user data and statistics
+        window.addEventListener('load', function() {
+            loadUserData();
+            loadStatistics();
+            loadRecentActivity();
+            loadLeaderboard();
+        });
+
+        function loadUserData() {
+            // Check if user is logged in
+            const token = localStorage.getItem('jwtToken');
+            if (!token) {
+                window.location.href = '/simple-login';
+                return;
+            }
+
+            // Get user info from token or API
+            const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+            document.getElementById('userName').textContent = userInfo.name || 'Lernender';
+            document.getElementById('userLevel').textContent = userInfo.level || 1;
+            document.getElementById('userPoints').textContent = (userInfo.points || 0).toLocaleString();
+        }
+
+        function loadStatistics() {
+            // Load statistics from API
+            fetch('/api/learning-engine/statistics/1', {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('questionsAnswered').textContent = data.totalQuestionsAttempted || 0;
+                document.getElementById('successRate').textContent = Math.round(data.overallSuccessRate || 0) + '%';
+                
+                // Update study time
+                const hours = Math.floor((data.totalStudyTimeMinutes || 0) / 60);
+                const minutes = (data.totalStudyTimeMinutes || 0) % 60;
+                document.getElementById('studyTime').textContent = hours + 'h ' + minutes + 'min';
+            })
+            .catch(error => {
+                console.error('Error loading statistics:', error);
+            });
+
+            // Load streak
+            fetch('/api/learning-engine/streak/1', {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('streakCount').textContent = data.currentStreak || 0;
+            })
+            .catch(error => {
+                console.error('Error loading streak:', error);
+            });
+        }
+
+        function loadRecentActivity() {
+            // This would normally load from an API
+            // For now, using static data
+        }
+
+        function loadLeaderboard() {
+            // This would normally load from an API
+            // For now, using static data
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        function switchChart(period) {
+            // Update chart tabs
+            document.querySelectorAll('.chart-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Load chart data for the selected period
+            loadChartData(period);
+        }
+
+        function loadChartData(period) {
+            // This would load data from API based on period
+            // For demo, just animating the bars
+            const bars = document.querySelectorAll('.progress-bar');
+            bars.forEach(bar => {
+                const randomHeight = Math.floor(Math.random() * 40) + 50;
+                bar.style.height = randomHeight + '%';
+                bar.querySelector('.progress-bar-value').textContent = Math.floor(randomHeight * 0.8);
+            });
+        }
+
+        function startQuickPractice() {
+            window.location.href = '/practice';
+        }
+
+        function logout() {
+            localStorage.removeItem('jwtToken');
+            localStorage.removeItem('userInfo');
+            window.location.href = '/simple-login';
+        }
+    </script>
+</body>
+</html>

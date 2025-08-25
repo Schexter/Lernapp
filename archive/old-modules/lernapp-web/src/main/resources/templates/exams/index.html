@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+    <title>Prüfungen</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container mx-auto px-4 py-8">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Prüfungssimulation</h1>
+                <p class="text-gray-600 dark:text-gray-400">Bereite dich optimal auf die IHK-Prüfung vor mit realistischen Simulationen</p>
+            </div>
+
+            <!-- Exam Types -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Zwischenprüfung -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Zwischenprüfung</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Simulation der IHK Zwischenprüfung</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                60 Fragen
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                90 Minuten Zeit
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Originalformat
+                            </li>
+                        </ul>
+                        <button onclick="startExam('intermediate')" 
+                                class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                            Prüfung starten
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Abschlussprüfung Teil 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Abschlussprüfung Teil 1</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Ganzheitliche Aufgabe I & II</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                90 Fragen
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                180 Minuten Zeit
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                40% Gewichtung
+                            </li>
+                        </ul>
+                        <button onclick="startExam('final1')" 
+                                class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold">
+                            Prüfung starten
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Abschlussprüfung Teil 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-xl transition">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Abschlussprüfung Teil 2</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Fachqualifikation & WiSo</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                120 Fragen
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                240 Minuten Zeit
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                60% Gewichtung
+                            </li>
+                        </ul>
+                        <button onclick="startExam('final2')" 
+                                class="w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-semibold">
+                            Prüfung starten
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Exam Results -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Bisherige Prüfungsergebnisse</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <th class="text-left py-3 px-4 text-sm font-medium text-gray-700 dark:text-gray-300">Datum</th>
+                                <th class="text-left py-3 px-4 text-sm font-medium text-gray-700 dark:text-gray-300">Prüfungstyp</th>
+                                <th class="text-center py-3 px-4 text-sm font-medium text-gray-700 dark:text-gray-300">Ergebnis</th>
+                                <th class="text-center py-3 px-4 text-sm font-medium text-gray-700 dark:text-gray-300">Note</th>
+                                <th class="text-center py-3 px-4 text-sm font-medium text-gray-700 dark:text-gray-300">Zeit</th>
+                                <th class="text-center py-3 px-4 text-sm font-medium text-gray-700 dark:text-gray-300">Aktion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100 dark:border-gray-700">
+                                <td class="py-3 px-4 text-sm text-gray-900 dark:text-white">14.08.2025</td>
+                                <td class="py-3 px-4 text-sm text-gray-900 dark:text-white">Zwischenprüfung</td>
+                                <td class="py-3 px-4 text-center">
+                                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-xs font-medium">
+                                        85%
+                                    </span>
+                                </td>
+                                <td class="py-3 px-4 text-center text-sm text-gray-900 dark:text-white">2</td>
+                                <td class="py-3 px-4 text-center text-sm text-gray-900 dark:text-white">78 Min</td>
+                                <td class="py-3 px-4 text-center">
+                                    <button class="text-blue-600 dark:text-blue-400 hover:underline text-sm">
+                                        Details
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-700">
+                                <td class="py-3 px-4 text-sm text-gray-900 dark:text-white">10.08.2025</td>
+                                <td class="py-3 px-4 text-sm text-gray-900 dark:text-white">Abschlussprüfung Teil 1</td>
+                                <td class="py-3 px-4 text-center">
+                                    <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 rounded-full text-xs font-medium">
+                                        72%
+                                    </span>
+                                </td>
+                                <td class="py-3 px-4 text-center text-sm text-gray-900 dark:text-white">3</td>
+                                <td class="py-3 px-4 text-center text-sm text-gray-900 dark:text-white">165 Min</td>
+                                <td class="py-3 px-4 text-center">
+                                    <button class="text-blue-600 dark:text-blue-400 hover:underline text-sm">
+                                        Details
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-700">
+                                <td class="py-3 px-4 text-sm text-gray-900 dark:text-white">05.08.2025</td>
+                                <td class="py-3 px-4 text-sm text-gray-900 dark:text-white">Zwischenprüfung</td>
+                                <td class="py-3 px-4 text-center">
+                                    <span class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-full text-xs font-medium">
+                                        48%
+                                    </span>
+                                </td>
+                                <td class="py-3 px-4 text-center text-sm text-gray-900 dark:text-white">5</td>
+                                <td class="py-3 px-4 text-center text-sm text-gray-900 dark:text-white">90 Min</td>
+                                <td class="py-3 px-4 text-center">
+                                    <button class="text-blue-600 dark:text-blue-400 hover:underline text-sm">
+                                        Details
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Exam Tips -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Prüfungstipps</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Beginne mit den einfachen Fragen
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Teile dir die Zeit gut ein
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Markiere unsichere Fragen zur späteren Überprüfung
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Lies alle Antwortmöglichkeiten sorgfältig
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Deine Stärken</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-700 dark:text-gray-300">Programmierung</span>
+                                <span class="font-medium text-green-600 dark:text-green-400">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-700 dark:text-gray-300">IT-Systeme</span>
+                                <span class="font-medium text-green-600 dark:text-green-400">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-700 dark:text-gray-300">Datenbanken</span>
+                                <span class="font-medium text-yellow-600 dark:text-yellow-400">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block layout:fragment="scripts">
+        <script>
+            function startExam(type) {
+                if (confirm('Möchtest du die Prüfungssimulation wirklich starten? Die Zeit läuft ab dem Start.')) {
+                    window.location.href = '/exams/start/' + type;
+                }
+            }
+        </script>
+    </th:block>
+</body>
+</html>

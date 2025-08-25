@@ -1,0 +1,365 @@
+# FACHINFORMATIKER ABSCHLUSSPRÜFUNG FRÜHJAHR 2022 - THEMATISCHE ANALYSE
+# Erstellt am: 19.08.2025
+# Quelle: IHK Abschlussprüfung - Fachinformatiker Anwendungsentwicklung (AO 2020)
+
+================================================================================
+GESAMTÜBERSICHT DER ABSCHLUSSPRÜFUNG FRÜHJAHR 2022
+================================================================================
+
+Prüfungstyp: Abschlussprüfung Fachinformatiker/in Anwendungsentwicklung
+Prüfungsordnung: AO 2020
+Datum: Frühjahr 2022 (exakter Termin nicht sichtbar)
+Prüfungscode: Identisch mit Herbst 2021 (1201)
+Bearbeitungszeit: 90 Minuten
+Maximalpunktzahl: 100 Punkte
+Aufgabenanzahl: 4 Hauptaufgaben
+
+BESONDERHEIT: Nahezu identische Struktur zu Herbst 2021, aber eigenständige Prüfung
+
+================================================================================
+DETAILLIERTE PUNKTEVERTEILUNG FRÜHJAHR 2022
+================================================================================
+
+AUFGABE 1: PROJEKTMANAGEMENT & NETZPLANTECHNIK
+Gesamtpunkte: 25 Punkte (25% der Gesamtpunktzahl)
+
+1a) Projektmerkmale nennen                               4 Punkte
+1b) SMART-Kriterien definieren                          4 Punkte  
+1c) Netzplan vervollständigen (FAZ, FEZ, SAZ, SEZ, GP, FP)  14 Punkte
+1d) Kritischen Pfad markieren                           1 Punkt
+1e) Projektverzögerung analysieren                      2 Punkte
+
+AUFGABE 2: ENERGIEEFFIZIENZ & SYSTEMADMINISTRATION
+Gesamtpunkte: 25 Punkte (25% der Gesamtpunktzahl)
+
+2a) Energiekosten-Berechnung                            6 Punkte
+2b) Amortisationsrechnung                               4 Punkte
+2c) Energieeinsparungsvorschläge                       3 Punkte
+2d) Lastberechnung Mehrfachsteckdose                   4 Punkte
+2e) PowerShell Script-Korrektur                        8 Punkte
+
+AUFGABE 3: IT-SYSTEMBETREUUNG & SUPPORT
+Gesamtpunkte: 26 Punkte (26% der Gesamtpunktzahl)
+
+3a) Lastenheft-Inhalte                                  5 Punkte
+3ba) E-Mail-Migration: Gesamtkosten                    2 Punkte
+3bb) E-Mail-Migration: Zeitplanung                     2 Punkte
+3c) Remote Work: Vor- und Nachteile                    4 Punkte
+3d) Software-Schulungskonzepte                         6 Punkte
+3e) RAID-Systeme erklären und empfehlen               7 Punkte
+
+AUFGABE 4: DATENSCHUTZ & INFORMATIONSSICHERHEIT
+Gesamtpunkte: 24 Punkte (24% der Gesamtpunktzahl)
+
+4a) Sicherheitsmaßnahmen zuordnen (CIA-Triad)         6 Punkte
+4b) BSI IT-Grundschutz Maßnahmen                      2 Punkte
+4c) Schutzbedarfsanalyse                               6 Punkte
+4d) Datenschutz-Auskunft                              2 Punkte
+4e) Sichere Passwort-Kriterien                        4 Punkte
+
+ZUSÄTZLICHE AUFGABEN (aus Bildern ersichtlich):
+- Risikomanagement (Praxismanagement)                  2 Punkte
+- Verbesserungsvorschlag                               2 Punkte
+
+================================================================================
+AUFGABE 1: PROJEKTMANAGEMENT & NETZPLANTECHNIK (25 Punkte)
+================================================================================
+
+AUFGABE 1a - Projektmerkmale (4 Punkte)
+Fragestellung: "Ihr Kollege sagt zu Ihnen, bei dem Umzug der Arztpraxis handelt es sich um ein Projekt. Nennen Sie vier Merkmale eines Projekts."
+
+Erwartete Antworten:
+- Einmaligkeit/Neuartigkeit des Vorhabens
+- Zeitliche Befristung (definierter Anfang und Ende)
+- Komplexität und fachübergreifende Zusammenarbeit
+- Begrenzte Ressourcen (Personal, Budget, Zeit)
+- Klar definierte Ziele und Ergebnisse
+- Projektspezifische Organisation
+
+AUFGABE 1b - SMART-Kriterien (4 Punkte)
+Fragestellung: "Die Ziele in einem Projekt sollen den SMART-Kriterien entsprechen. Nennen Sie die vier weiteren SMART-Kriterien auf Deutsch oder Englisch."
+
+Gegeben: S = Specific (spezifisch)
+Zu nennen:
+- M = Measurable (messbar)
+- A = Achievable/Attainable (erreichbar)  
+- R = Realistic/Relevant (realistisch/relevant)
+- T = Time-bound (terminiert/zeitgebunden)
+
+AUFGABE 1c - Netzplan-Vervollständigung (14 Punkte)
+Fragestellung: "Tragen Sie die fehlenden FAZ, FEZ, SAZ, SEZ, GP und FP in den nebenstehenden Plan ein."
+
+Netzplan-Vorgänge (aus Abbildung analysiert):
+- A: Ist-Konzept (2 Tage)
+- B: Soll-Konzept (4 Tage)  
+- C: Beschaffung neuer Server (3 Tage)
+- D: Installation strukturierter Netzverkabelung (8 Tage)
+- E: Dokumentation (2 Tage)
+- F: Inbetriebnahme (5 Tage)
+- G: Installation neuen Netzwerkes (4 Tage)
+- H: Abbau der Infrastruktur (1 Tag)
+- I: Einrichtung Clients (3 Tage)
+- J: Fachbereich (1 Tag)
+- K: Überprüfung und Einweisung der Mitarbeiter (2 Tage)
+
+Berechnungsgrundlagen:
+- FAZ = Frühester Anfangszeitpunkt
+- FEZ = Frühester Endzeitpunkt
+- SAZ = Spätester Anfangszeitpunkt  
+- SEZ = Spätester Endzeitpunkt
+- GP = Gesamtpuffer (SAZ - FAZ = SEZ - FEZ)
+- FP = Freier Puffer (FAZ Nachfolger - FEZ aktueller Vorgang)
+
+AUFGABE 1d - Kritischer Pfad (1 Punkt)
+Fragestellung: "Markieren Sie den kritischen Pfad im Netzplan."
+
+Der kritische Pfad besteht aus allen Vorgängen mit Gesamtpuffer = 0.
+
+AUFGABE 1e - Projektverzögerung (2 Punkte)
+Fragestellung: "Der Vorgang H, der Abbau der alten Infrastruktur, verzögert sich um vier Stunden. Beschreiben Sie die Auswirkung auf das Projektende."
+
+Analyse: Auswirkung abhängig von verfügbaren Pufferzeiten des Vorgangs H.
+
+================================================================================
+AUFGABE 2: ENERGIEEFFIZIENZ & SYSTEMADMINISTRATION (25 Punkte)
+================================================================================
+
+AUFGABE 2a - Energiekosten-Berechnung (6 Punkte)
+Fragestellung: "Errechnen Sie die Leistung und die Energiekosten pro Monat, wenn eine kWh 30 Cent kostet."
+
+Berechnungsparameter:
+- Betriebszeit: 9h/Tag, 20 Arbeitstage/Monat
+- PC-A: 43% Wirkungsgrad, 60W Ausgangsleistung, ohne Zertifikat
+- PC-B: 76% Wirkungsgrad, 60W Ausgangsleistung, 80Plus Gold Standard
+- Netzteil-Aufnahme aus Stromnetz: 139,53W (für Effizienz-Berechnung)
+- Strompreis: 0,30 EUR/kWh
+
+Efficiency-Formel: Useful power output / Total power input
+
+AUFGABE 2b - Amortisationsrechnung (4 Punkte)
+Fragestellung: "Berechnen Sie die Dauer in Monaten, ab der sich die Anschaffung amortisiert hat."
+
+Berechnungshinweis: "Falls Sie Aufgabe a) nicht lösen konnten, rechnen Sie bei PC-A mit 6,83 EUR und bei PC-B mit 4,78 EUR."
+
+Parameter:
+- Mehrkosten 80Plus Gold Standard: 100 EUR
+- Monatliche Energiekostendifferenz berechnen
+- Amortisationszeit = Mehrkosten / monatliche Einsparung
+
+AUFGABE 2c - Energieeinsparungsvorschläge (3 Punkte)
+Fragestellung: "Machen Sie drei weitere Vorschläge zur Senkung der Energiekosten des IT-Arbeitsplatzes."
+
+Mögliche Maßnahmen:
+- Energiemanagement-Software aktivieren
+- Effiziente LED-Monitore einsetzen
+- Standby-Modi und automatische Abschaltung konfigurieren
+- Zentrale Server-Lösungen implementieren
+- Energieeffiziente Peripheriegeräte beschaffen
+
+AUFGABE 2d - Lastberechnung (4 Punkte)
+Fragestellung: "Weisen Sie durch eine Rechnung nach, dass diese Geräte nicht gleichzeitig betrieben werden können."
+
+Geräte-Konfiguration:
+- Mehrfachsteckdose: "maximal 16 A"
+- 3 PCs: je 180W
+- 1 Drucker: 400W
+- 1 Kaffeemaschine: 1.200W  
+- 1 Klimagerät: 2.000W
+
+Berechnung:
+Gesamtleistung = 3×180W + 400W + 1.200W + 2.000W = 4.140W
+Bei 230V: 4.140W ÷ 230V = 18A > 16A (Überlastung!)
+
+AUFGABE 2e - PowerShell Script-Korrektur (8 Punkte)
+Fragestellung: "Lesen Sie sich die folgende Anleitung (manual) durch und korrigieren Sie in der obigen Tabelle die zwei Fehler."
+
+Fehlerhaftes Script zur Speicherplatz-Überwachung:
+```powershell
+$Drive = Get-Volume -DriveLetter Z
+$Prozent=($Drive.SizeRemaining/$Drive.Size) * 1000
+if ($Prozent -gt 15)
+{
+Write-Host "Es sind weniger als 15% Speicherplatz frei."
+}
+else  
+{
+Write-Host "Es ist genügend Speicherplatz verfügbar."
+}
+```
+
+Fehleranalyse:
+1. Falsche Berechnung: * 1000 statt * 100 für Prozentberechnung
+2. Falsche Logik: -gt statt -lt für "weniger als 15%"
+
+================================================================================
+AUFGABE 3: IT-SYSTEMBETREUUNG & SUPPORT (26 Punkte)
+================================================================================
+
+AUFGABE 3a - Lastenheft-Inhalte (5 Punkte)
+Fragestellung: "Benennen Sie fünf inhaltliche Aspekte, die in solch einem Lastenheft üblicherweise enthalten sind."
+
+Erwartete Inhalte:
+- Ausgangssituation und Projektziele
+- Funktionale Anforderungen
+- Nicht-funktionale Anforderungen (Performance, Sicherheit)
+- Technische Rahmenbedingungen
+- Qualitätsanforderungen
+- Schnittstellen-Definitionen
+- Abnahmekriterien
+
+AUFGABE 3ba - E-Mail-Migration: Gesamtkosten (2 Punkte)
+Szenario: E-Mail-System-Ablösung außerhalb Öffnungszeiten (18:00-8:00 Uhr)
+Parameter:
+- Dienstleister: 130 EUR/h
+- Subunternehmer für umfangreiche manuelle Nacharbeiten
+- 20 Postfächer zu migrieren
+
+AUFGABE 3bb - E-Mail-Migration: Zeitplanung (2 Punkte)
+Fragestellung: "Ermitteln Sie, nach wie vielen Tagen die Migration frühestens abgeschlossen ist, wenn das Subunternehmen zwei Angestellte mit einer täglichen Arbeitszeit von 8h pro Tag einsetzt."
+
+AUFGABE 3c - Remote Work: Vor- und Nachteile (4 Punkte)
+Fragestellung: "Nennen Sie zwei Vorteile sowie zwei Nachteile von remote gegenüber einer Vor-Ort-Wartung."
+
+Vorteile:
+- Kostenersparnis (keine Anfahrtszeiten/Reisekosten)
+- Schnellere Reaktionszeiten bei Störungen
+
+Nachteile:
+- Eingeschränkte Hardware-Wartungsmöglichkeiten
+- Sicherheitsrisiken durch externe Zugriffe
+
+AUFGABE 3d - Software-Schulungskonzepte (6 Punkte)
+Fragestellung: "Beschreiben Sie drei von den vier vorgegebenen Möglichkeiten, wie die betreffenden Inhalte vermittelt werden können."
+
+Schulungsformate:
+(1) Schulung am Arbeitsplatz
+(2) Webinare  
+(3) Video-Tutorials
+(4) Multiplikatoren-Schulung
+
+AUFGABE 3e - RAID-Systeme (7 Punkte)
+Fragestellung: "Erklären Sie dem Praxisinhaber die Grundfunktionen der drei RAID-Level-Arten und begründen Sie, für welches RAID-Level sich der Praxisinhaber entscheiden sollte."
+
+RAID-Level: 0, 1 und 5
+Empfehlung für Arztpraxis: RAID 1 wegen kritischer Patientendaten
+
+================================================================================
+AUFGABE 4: DATENSCHUTZ & INFORMATIONSSICHERHEIT (24 Punkte)
+================================================================================
+
+AUFGABE 4a - Sicherheitsmaßnahmen-Zuordnung (6 Punkte)
+CIA-Triad: Vertraulichkeit, Integrität, Verfügbarkeit
+
+Zuordnungsaufgabe mit Begründungen:
+- Sichere Passwörter → Vertraulichkeit
+- Regelmäßige Datensicherung → Verfügbarkeit
+- Verschlüsselung der Festplatten → Vertraulichkeit
+- Zentrale Bearbeitung auf Server → Integrität
+- Hashwertüberprüfung bei Software → Integrität
+
+AUFGABE 4b - BSI IT-Grundschutz (2 Punkte)
+Fragestellung: "Nennen Sie je eine Maßnahme, mit denen die folgenden Anforderungen umgesetzt werden könnten."
+
+- Aktivieren von Autoupdate-Mechanismen
+- Differenzieren von Benutzerrollen (Rollentrennung)
+
+AUFGABE 4c - Schutzbedarfsanalyse (6 Punkte)
+Schutzbedarfskategorien:
+- Niedrig bis mittel: Begrenzte Schadensauswirkungen
+- Hoch: Beträchtliche Schadensauswirkungen
+- Sehr hoch: Existenziell bedrohliches Ausmaß
+
+IT-Anwendungen bewerten:
+- Prüfziffernverfahren Krankenversicherung: Integrität/hoch
+- Textverarbeitung: Verfügbarkeit/mittel  
+- Telemedizinische Beratung: Vertraulichkeit/hoch
+- Patientendatenverarbeitung: Integrität/sehr hoch
+
+AUFGABE 4d - Datenschutz-Auskunft (2 Punkte)
+Fragestellung: "Geben Sie der Arzthelferin Auskunft und benennen Sie hierzu eine rechtliche Grundlage."
+
+Antwort: Besondere Kategorien personenbezogener Daten nach Art. 9 DSGVO
+(Gesundheitsdaten, biometrische Daten, etc.)
+
+AUFGABE 4e - Sichere Passwort-Kriterien (4 Punkte)
+Fragestellung: "Führen Sie zwei Kriterien an, die ein sicheres Passwort erfüllen sollte. Beschreiben Sie auch, warum diese Kriterien für eine höhere Sicherheit sorgen."
+
+Kriterien:
+1. Ausreichende Länge (mind. 8-12 Zeichen)
+2. Komplexität (Groß-/Kleinbuchstaben, Zahlen, Sonderzeichen)
+
+ZUSÄTZLICHE AUFGABEN:
+- Risikomanagement-Aufgabe (2 Punkte)
+- Verbesserungsvorschlag unterbreiten (2 Punkte)
+
+================================================================================
+PUNKTEVERTEILUNG NACH SCHWIERIGKEITSGRAD
+================================================================================
+
+EINFACHE AUFGABEN (1-4 Punkte): 62 Punkte (62%)
+- Definitionen und Grundlagen
+- Einfache Berechnungen  
+- Zuordnungsaufgaben
+
+MITTLERE AUFGABEN (5-7 Punkte): 24 Punkte (24%)
+- Komplexere Analysen
+- Mehrschrittige Berechnungen
+- Anwendungsaufgaben
+
+SCHWERE AUFGABEN (8+ Punkte): 14 Punkte (14%)
+- Netzplan-Berechnung (14 Punkte)
+- Script-Debugging (8 Punkte)
+
+================================================================================
+VERGLEICH ZU HERBST 2021 - STRUKTURELLE IDENTITÄT
+================================================================================
+
+IDENTISCHE AUFGABENSTELLUNG:
+Die Prüfung Frühjahr 2022 ist strukturell nahezu identisch zu Herbst 2021:
+- Gleiche Aufgabennummerierung
+- Identische Punkteverteilung  
+- Gleiche Themenverteilung
+- Identisches Unternehmensszenario (IT-SYS GmbH, Arztpraxis Care)
+
+GERINGFÜGIGE UNTERSCHIEDE:
+- Möglicherweise andere Zahlen in Berechnungsaufgaben
+- Eventuell andere Netzplan-Konfiguration
+- Identische Prüfungsstruktur und -logik
+
+BEWERTUNGSSCHEMA:
+- Aufgabe 1: 25 Punkte (25%)
+- Aufgabe 2: 25 Punkte (25%)  
+- Aufgabe 3: 26 Punkte (26%)
+- Aufgabe 4: 24 Punkte (24%)
+- GESAMT: 100 Punkte
+
+================================================================================
+LERNEMPFEHLUNGEN BASIEREND AUF PUNKTEVERTEILUNG
+================================================================================
+
+SCHWERPUNKT NETZPLANTECHNIK (14 Punkte):
+- Mathematische Berechnung von FAZ, FEZ, SAZ, SEZ
+- Pufferzeiten-Berechnung
+- Kritischer Pfad-Identifikation
+
+SCHWERPUNKT SCRIPTING (8 Punkte):
+- PowerShell-Grundlagen
+- Logische Operatoren
+- Fehleranalyse und Debugging
+
+SCHWERPUNKT BERECHNUNGEN (16 Punkte total):
+- Energiekosten- und Effizienzberechnungen
+- Amortisationsrechnungen
+- Elektrische Lastberechnungen
+
+SCHWERPUNKT DATENSCHUTZ (24 Punkte):
+- DSGVO-Grundlagen
+- CIA-Triad
+- BSI IT-Grundschutz
+- Schutzbedarfsanalyse
+
+================================================================================
+Ende der Analyse - Abschlussprüfung Frühjahr 2022
+Gesamtumfang: 4 Hauptaufgaben, 100 Punkte, 90 Minuten Bearbeitungszeit
+Schwerpunkt: Praktische Anwendung mit starkem Fokus auf Berechnungen
+================================================================================

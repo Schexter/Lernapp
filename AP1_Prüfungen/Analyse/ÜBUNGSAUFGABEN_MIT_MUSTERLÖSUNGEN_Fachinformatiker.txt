@@ -1,0 +1,379 @@
+====================================================================
+ÜBUNGSAUFGABEN MIT MUSTERLÖSUNGEN - FACHINFORMATIKER ABSCHLUSSPRÜFUNG
+====================================================================
+Erstellt von Hans Hahn - Alle Rechte vorbehalten
+Datum: 19.08.2025
+
+BASIERT AUF: 5 Jahren Prüfungsanalyse (2021-2025)
+SCHWERPUNKT: Post-RAID-Ära (IPv6, PLY, OSI-Modell)
+
+====================================================================
+KATEGORIE 1: NETZPLANTECHNIK (14 PUNKTE) - HÖCHSTE PRIORITÄT
+====================================================================
+
+ÜBUNG N1: BASIS-NETZPLAN (LEICHT)
+--------------------------------------------------------------------
+Projekt: Software-Update eines Krankenhauses
+Vorgänge:
+A: Systemanalyse (3 Tage) → B
+B: Update-Planung (2 Tage) → C, D
+C: Testumgebung (4 Tage) → E
+D: Schulungskonzept (1 Tag) → F
+E: Tests durchführen (3 Tage) → F
+F: Produktiv-Update (2 Tage) → Ende
+
+AUFGABE: Berechnen Sie FAZ, FEZ, SAZ, SEZ, GP für alle Vorgänge
+
+MUSTERLÖSUNG N1:
+--------------------------------------------------------------------
+VORWÄRTSRECHNUNG (FAZ → FEZ):
+A: FAZ=0, FEZ=0+3=3
+B: FAZ=3, FEZ=3+2=5
+C: FAZ=5, FEZ=5+4=9
+D: FAZ=5, FEZ=5+1=6
+E: FAZ=9, FEZ=9+3=12
+F: FAZ=max(6,12)=12, FEZ=12+2=14
+
+RÜCKWÄRTSRECHNUNG (SEZ → SAZ):
+F: SEZ=14, SAZ=14-2=12
+E: SEZ=12, SAZ=12-3=9
+D: SEZ=12, SAZ=12-1=11
+C: SEZ=9, SAZ=9-4=5
+B: SEZ=min(5,11)=5, SAZ=5-2=3
+A: SEZ=3, SAZ=3-3=0
+
+GESAMTPUFFER (GP = SAZ - FAZ):
+A: GP=0-0=0 (kritisch)
+B: GP=3-3=0 (kritisch)
+C: GP=5-5=0 (kritisch)
+D: GP=11-5=6
+E: GP=9-9=0 (kritisch)
+F: GP=12-12=0 (kritisch)
+
+KRITISCHER PFAD: A→B→C→E→F (alle mit GP=0)
+
+====================================================================
+PRÜFUNGSSIMULATION: VOLLPRÜFUNG (90 MINUTEN)
+====================================================================
+
+AUFGABE 1 - PROJEKTMANAGEMENT (25 PUNKTE)
+--------------------------------------------------------------------
+Sie sind Mitarbeiter der IT-SYS GmbH und betreuen das Projekt 
+"Digitalisierung Tierarztpraxis Müller".
+
+1a) Projektmerkmale (4 Punkte):
+Nennen Sie vier Merkmale eines Projekts.
+
+1b) SMART-Kriterien (4 Punkte):
+Die Ziele sollen SMART formuliert werden. S = Specific ist gegeben.
+Nennen Sie die vier weiteren SMART-Kriterien.
+
+1c) Netzplan (14 Punkte):
+Vervollständigen Sie den Netzplan mit FAZ, FEZ, SAZ, SEZ, GP, FP:
+
+A: Analyse (3 Tage)
+B: Konzeption (4 Tage) nach A
+C: Hardware-Beschaffung (5 Tage) nach A  
+D: Software-Installation (6 Tage) nach B und C
+E: Datenmigration (4 Tage) nach D
+F: Tests (3 Tage) nach E
+G: Schulung (2 Tage) nach F
+
+1d) Kritischer Pfad (1 Punkt):
+Markieren Sie den kritischen Pfad.
+
+1e) Verzögerung (2 Punkte):
+Vorgang C verzögert sich um 2 Tage. Beschreiben Sie die Auswirkung.
+
+AUFGABE 2 - ENERGIEEFFIZIENZ (25 PUNKTE)
+--------------------------------------------------------------------
+2a) Energiekosten (6 Punkte):
+Berechnen Sie die monatlichen Stromkosten:
+- Server: 250W Dauerbetrieb (24h/Tag, 30 Tage/Monat)
+- Strompreis: 0,28 EUR/kWh
+
+2b) Amortisation (4 Punkte):
+Ein energieeffizienterer Server kostet 800 EUR mehr, 
+spart aber 50 EUR/Monat Stromkosten. 
+Berechnen Sie die Amortisationszeit.
+
+2c) Energiesparmaßnahmen (3 Punkte):
+Nennen Sie drei Maßnahmen zur Energieeinsparung.
+
+2d) Lastberechnung (4 Punkte):
+16A-Sicherung, 230V. Angeschlossen:
+3 PCs (je 200W), 1 Drucker (400W), 1 Server (800W)
+Nachweis: Überlastung oder nicht?
+
+2e) PowerShell-Debugging (8 Punkte):
+```powershell
+$Memory = Get-Counter "\Memory\Available MBytes"
+$Verfügbar = $Memory.CounterSamples[0].CookedValue
+$Prozent = ($Verfügbar / 8192) * 1000
+if ($Prozent -gt 20) {
+    Write-Host "Warnung: Weniger als 20% RAM frei"
+} else {
+    Write-Host "RAM-Auslastung normal"
+}
+```
+Finden Sie die zwei Fehler im Script.
+
+AUFGABE 3 - IT-SYSTEMBETREUUNG (26 PUNKTE)
+--------------------------------------------------------------------
+3a) Lastenheft (5 Punkte):
+Nennen Sie fünf Inhalte eines Lastenhefts.
+
+3b) Migration (4 Punkte):
+E-Mail-Migration: 25 Postfächer, 3h pro Postfach außerhalb Geschäftszeit.
+Nur 12h/Nacht verfügbar. Wie viele Nächte dauert die Migration?
+
+3c) Remote Work (4 Punkte):
+Nennen Sie je zwei Vor- und Nachteile von Remote-Wartung.
+
+3d) Schulungskonzepte (6 Punkte):
+Beschreiben Sie drei Möglichkeiten der Wissensvermittlung:
+- Schulung am Arbeitsplatz
+- Webinare
+- Video-Tutorials
+
+3e) Backup-Strategien (7 Punkte):
+DA RAID RAUS IST: Erklären Sie drei Backup-Strategien
+und empfehlen Sie eine für die Tierarztpraxis.
+
+AUFGABE 4 - DATENSCHUTZ UND IPv6 (24 PUNKTE)
+--------------------------------------------------------------------
+4a) CIA-Triad (6 Punkte):
+Ordnen Sie zu: Vertraulichkeit, Integrität, Verfügbarkeit
+- Passwort-Richtlinien
+- Regelmäßige Backups
+- Digitale Signaturen
+- Zugriffskontrolle
+- Redundante Systeme
+- Verschlüsselung
+
+4b) BSI IT-Grundschutz (2 Punkte):
+Nennen Sie zwei Basis-Anforderungen für PC-Clients.
+
+4c) Schutzbedarfsanalyse (6 Punkte):
+Bewerten Sie für Tierarztpraxis (niedrig/mittel/hoch/sehr hoch):
+- Terminverwaltung
+- Patientenakte
+- Abrechnungssystem
+
+4d) DSGVO (2 Punkte):
+Welche Daten benötigen besonderen Schutz? Rechtsgrundlage?
+
+4e) Passwort-Sicherheit (4 Punkte):
+Zwei Kriterien für sichere Passwörter mit Begründung.
+
+4f) IPv6-Analyse (4 Punkte):
+Analysieren Sie: 2001:db8::1a2b:3c4d
+- Adresslänge in Bits
+- Adresstyp
+- Ungekürzte Schreibweise
+
+====================================================================
+MUSTERLÖSUNGEN ZUR VOLLSIMULATION
+====================================================================
+
+LÖSUNG AUFGABE 1 - PROJEKTMANAGEMENT:
+--------------------------------------------------------------------
+1a) PROJEKTMERKMALE:
+- Einmaligkeit
+- Zeitbegrenzung
+- Definierte Ziele
+- Begrenzte Ressourcen
+
+1b) SMART-KRITERIEN:
+M = Measurable (messbar)
+A = Achievable (erreichbar)
+R = Realistic (realistisch)
+T = Time-bound (terminiert)
+
+1c) NETZPLAN-LÖSUNG:
+A: FAZ=0, FEZ=3, SAZ=0, SEZ=3, GP=0
+B: FAZ=3, FEZ=7, SAZ=3, SEZ=7, GP=0
+C: FAZ=3, FEZ=8, SAZ=6, SEZ=11, GP=3
+D: FAZ=11, FEZ=17, SAZ=11, SEZ=17, GP=0
+E: FAZ=17, FEZ=21, SAZ=17, SEZ=21, GP=0
+F: FAZ=21, FEZ=24, SAZ=21, SEZ=24, GP=0
+G: FAZ=24, FEZ=26, SAZ=24, SEZ=26, GP=0
+
+1d) KRITISCHER PFAD: A→B→D→E→F→G
+
+1e) VERZÖGERUNG C: C hat GP=3, Verzögerung um 2 Tage
+bleibt innerhalb des Puffers → keine Auswirkung auf Projektende.
+
+LÖSUNG AUFGABE 2 - ENERGIEEFFIZIENZ:
+--------------------------------------------------------------------
+2a) STROMKOSTEN:
+250W × 24h × 30 Tage = 180 kWh/Monat
+180 kWh × 0,28 EUR = 50,40 EUR/Monat
+
+2b) AMORTISATION:
+800 EUR ÷ 50 EUR/Monat = 16 Monate
+
+2c) ENERGIESPARMASNAHMEN:
+- Automatische Standby-Modi
+- LED-Monitore verwenden
+- Virtualisierung einsetzen
+
+2d) LASTBERECHNUNG:
+Gesamtleistung: 3×200W + 400W + 800W = 1.800W
+Strom bei 230V: 1.800W ÷ 230V = 7,83A
+7,83A < 16A → KEINE Überlastung
+
+2e) POWERSHELL-FEHLER:
+FEHLER 1: * 1000 statt * 100 (Prozentberechnung)
+FEHLER 2: -gt statt -lt ("weniger als 20%" = kleiner als)
+
+LÖSUNG AUFGABE 3 - IT-SYSTEMBETREUUNG:
+--------------------------------------------------------------------
+3a) LASTENHEFT-INHALTE:
+- Ausgangssituation
+- Projektziele
+- Funktionale Anforderungen
+- Technische Rahmenbedingungen
+- Qualitätsanforderungen
+
+3b) MIGRATION:
+25 Postfächer × 3h = 75h Gesamtaufwand
+75h ÷ 12h/Nacht = 6,25 → 7 Nächte erforderlich
+
+3c) REMOTE WORK:
+Vorteile: Kostenersparnis, schnelle Reaktion
+Nachteile: Hardware-Limitationen, Sicherheitsrisiken
+
+3d) SCHULUNGSKONZEPTE:
+- Arbeitsplatz: Praxisnah, individuelle Anpassung
+- Webinare: Ortsflexibel, kosteneffizient
+- Videos: Selbstbestimmtes Lerntempo, 24/7 verfügbar
+
+3e) BACKUP-STRATEGIEN (RAID-Ersatz):
+- Inkrementelle Backups (platzsparend)
+- Vollbackups (vollständige Wiederherstellung)
+- Cloud-Backup (externe Sicherheit)
+Empfehlung: Kombination für Tierarztpraxis
+
+LÖSUNG AUFGABE 4 - DATENSCHUTZ:
+--------------------------------------------------------------------
+4a) CIA-TRIAD:
+- Passwort-Richtlinien → Vertraulichkeit
+- Regelmäßige Backups → Verfügbarkeit
+- Digitale Signaturen → Integrität
+- Zugriffskontrolle → Vertraulichkeit
+- Redundante Systeme → Verfügbarkeit
+- Verschlüsselung → Vertraulichkeit
+
+4b) BSI IT-GRUNDSCHUTZ:
+- Automatische Updates aktivieren
+- Benutzerrollen differenzieren
+
+4c) SCHUTZBEDARFSANALYSE:
+- Terminverwaltung: Verfügbarkeit mittel
+- Patientenakte: Vertraulichkeit sehr hoch, Integrität sehr hoch
+- Abrechnungssystem: Integrität hoch
+
+4d) DSGVO:
+Besondere Kategorien: Gesundheitsdaten
+Rechtsgrundlage: Art. 9 DSGVO
+
+4e) PASSWORT-SICHERHEIT:
+- Länge (min. 8 Zeichen): Erhöht Kombinationsmöglichkeiten
+- Komplexität: Erschwert Wörterbuchangriffe
+
+4f) IPv6-ANALYSE:
+- Länge: 128 Bit
+- Typ: Global Unicast (2001:db8:: ist Dokumentationsbereich)
+- Ungekürzt: 2001:0db8:0000:0000:0000:0000:1a2b:3c4d
+
+====================================================================
+BEWERTUNGSSCHEMA FÜR VOLLSIMULATION
+====================================================================
+
+PUNKTEVERTEILUNG:
+- Aufgabe 1: 25 Punkte (Projektmanagement)
+- Aufgabe 2: 25 Punkte (Energieeffizienz) 
+- Aufgabe 3: 26 Punkte (IT-Systembetreuung)
+- Aufgabe 4: 24 Punkte (Datenschutz)
+GESAMT: 100 Punkte
+
+ERFOLGSBEWERTUNG:
+- 92-100 Punkte: Note 1 (Sehr gut)
+- 81-91 Punkte: Note 2 (Gut)
+- 67-80 Punkte: Note 3 (Befriedigend)
+- 50-66 Punkte: Note 4 (Ausreichend) ← ZIEL ERREICHT!
+- Unter 50 Punkte: Nicht bestanden
+
+ZEITMANAGEMENT-CHECK:
+Haben Sie die 90 Minuten eingehalten?
+- 0-20 Min: Einfache Aufgaben (25+ Punkte)
+- 20-50 Min: Netzplan (10+ von 14 Punkte)
+- 50-70 Min: PowerShell + IPv6 (10+ Punkte)
+- 70-85 Min: Berechnungen (15+ Punkte)
+- 85-90 Min: Kontrolle (60+ Punkte total)
+
+====================================================================
+LETZTE TIPPS FÜR DEN PRÜFUNGSTAG
+====================================================================
+
+AM TAG VOR DER PRÜFUNG:
+□ Früh ins Bett (8+ Stunden Schlaf)
+□ Anfahrtsweg und Parkplätze checken
+□ Taschenrechner und Schreibzeug bereitlegen
+□ Entspannungsübungen machen
+□ NICHT mehr intensiv lernen (Vertrauen in Vorbereitung)
+
+AM PRÜFUNGSTAG:
+□ Ausreichend frühstücken
+□ 30 Min vor Prüfung am Ort sein
+□ Entspannt bleiben
+□ Toilette vor Prüfungsbeginn
+□ Mentales Selbstgespräch: "Ich bin gut vorbereitet!"
+
+WÄHREND DER PRÜFUNG:
+□ Erste 5 Min: Alle Aufgaben durchlesen (Überblick)
+□ Mit einfachsten Aufgaben beginnen (Selbstvertrauen)
+□ Zeitlimits strikt einhalten
+□ Bei Blockade: Nächste Aufgabe, später zurückkommen
+□ Letzten 5 Min: Kontrolle und Vervollständigung
+
+BEI NERVOSITÄT:
+□ Tief durchatmen (4 Sekunden ein, 6 Sekunden aus)
+□ Positive Selbstaffirmation: "Ich schaffe das!"
+□ An erfolgreiche Übungsrunden denken
+□ Fokus auf nächste kleine Aufgabe, nicht auf Gesamtprüfung
+
+====================================================================
+ERFOLGSAFFIRMATION FÜR DEN PRÜFUNGSTAG
+====================================================================
+
+"Ich habe 80 Stunden systematisch gelernt.
+Ich kenne die Struktur und die wichtigsten Aufgaben.
+Netzplan, PowerShell und IPv6 kann ich.
+Ich bin optimal vorbereitet auf das, was kommt.
+60 Punkte sind mein realistisches und erreichbares Ziel.
+Ich vertraue meiner Vorbereitung und meinen Fähigkeiten.
+Ich bin ruhig, konzentriert und erfolgreich."
+
+====================================================================
+SCHLUSSWORT: SIE SIND BEREIT!
+====================================================================
+
+Mit diesem kompletten Lernpaket haben Sie:
+✅ Systematische 80-Stunden-Vorbereitung
+✅ Vollständige Prüfungssimulation 
+✅ Alle Kernthemen mit Übungen abgedeckt
+✅ Optimale Zeitaufteilung trainiert
+✅ Selbstvertrauen durch Erfolgserlebnisse aufgebaut
+
+60% SIND NICHT NUR MÖGLICH - SIE SIND WAHRSCHEINLICH!
+
+VIEL ERFOLG BEI IHRER ABSCHLUSSPRÜFUNG! 🚀
+
+====================================================================
+ENDE DER ÜBUNGSSAMMLUNG
+Basis: 5 Jahre Prüfungsanalyse, Post-RAID-Anpassung
+Umfang: Vollständiger Lernplan + Prüfungssimulation
+Ziel: 60+ Punkte sicher erreichen
+====================================================================

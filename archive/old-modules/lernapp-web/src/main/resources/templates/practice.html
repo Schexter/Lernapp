@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übungsmodus - Fachinformatiker Lernapp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .session-info {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .session-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .session-stat-label {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .session-stat-value {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .practice-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-number {
+            font-size: 1.125rem;
+            color: #666;
+        }
+
+        .difficulty-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .difficulty-easy {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .difficulty-medium {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .difficulty-hard {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .difficulty-expert {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .answers-container {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .answer-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .answer-option:hover {
+            border-color: #667eea;
+            background: #f5f7ff;
+        }
+
+        .answer-option.selected {
+            border-color: #667eea;
+            background: #f5f7ff;
+        }
+
+        .answer-option.correct {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .answer-option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .answer-radio {
+            width: 20px;
+            height: 20px;
+            margin-right: 1rem;
+        }
+
+        .answer-label {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .answer-text {
+            flex: 1;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .feedback-container {
+            display: none;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .feedback-container.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .feedback-correct {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+        }
+
+        .feedback-incorrect {
+            background: #ffebee;
+            border: 1px solid #f44336;
+        }
+
+        .feedback-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-explanation {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .session-complete {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .complete-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .complete-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .timer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+        }
+
+        .timer-icon {
+            font-size: 1.25rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .topic-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .topic-chip {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: #e0e0e0;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .topic-chip.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .weak-areas-hint {
+            background: #fff3e0;
+            border: 1px solid #ffa726;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hint-icon {
+            font-size: 1.5rem;
+        }
+
+        .streak-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ff6b6b;
+        }
+
+        .streak-flame {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .session-info {
+                gap: 1rem;
+            }
+
+            .practice-card {
+                padding: 1.5rem;
+            }
+
+            .question-text {
+                font-size: 1.125rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">📚 Fachinformatiker Lernapp</div>
+        <div class="session-info">
+            <div class="session-stat">
+                <span class="session-stat-value" id="correctCount">0</span>
+                <span class="session-stat-label">Richtig</span>
+            </div>
+            <div class="session-stat">
+                <span class="session-stat-value" id="accuracyRate">0%</span>
+                <span class="session-stat-label">Genauigkeit</span>
+            </div>
+            <div class="timer">
+                <span class="timer-icon">⏱️</span>
+                <span id="sessionTimer">00:00</span>
+            </div>
+            <div class="streak-indicator" id="streakIndicator" style="display: none;">
+                <span class="streak-flame">🔥</span>
+                <span id="streakCount">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="practice-card">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Übungsmodus starten</h2>
+            
+            <div style="margin-bottom: 2rem;">
+                <label style="display: block; margin-bottom: 0.5rem; color: #666;">Thema wählen:</label>
+                <select id="topicSelect" class="form-control" style="width: 100%; padding: 0.75rem; border: 2px solid #e0e0e0; border-radius: 10px;">
+                    <option value="">Alle Themen</option>
+                    <option value="1">IT-Systeme</option>
+                    <option value="2">Anwendungsentwicklung</option>
+                    <option value="3">Wirtschaft und Soziales</option>
+                    <option value="4">Datenbanken</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <label style="display: block; margin-bottom: 0.5rem; color: #666;">Sitzungstyp:</label>
+                <div class="topic-selector">
+                    <div class="topic-chip active" data-type="PRACTICE">Übung</div>
+                    <div class="topic-chip" data-type="REVIEW">Wiederholung</div>
+                    <div class="topic-chip" data-type="QUICK_TEST">Schnelltest</div>
+                    <div class="topic-chip" data-type="WEAKNESS_TRAINING">Schwächen</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <label style="display: block; margin-bottom: 0.5rem; color: #666;">Anzahl Fragen:</label>
+                <input type="number" id="questionCount" value="10" min="5" max="50" style="width: 100%; padding: 0.75rem; border: 2px solid #e0e0e0; border-radius: 10px;">
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="startSession()">Session starten</button>
+            </div>
+        </div>
+
+        <!-- Practice Screen -->
+        <div id="practiceScreen" class="practice-card" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <div class="question-header">
+                <span class="question-number" id="questionNumber">Frage 1 von 10</span>
+                <span class="difficulty-badge" id="difficultyBadge">Mittel</span>
+            </div>
+
+            <div class="question-text" id="questionText">
+                Lädt...
+            </div>
+
+            <div class="answers-container" id="answersContainer">
+                <!-- Answers will be dynamically inserted here -->
+            </div>
+
+            <div class="feedback-container" id="feedbackContainer">
+                <div class="feedback-title" id="feedbackTitle"></div>
+                <div class="feedback-explanation" id="feedbackExplanation"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="endSession()">Session beenden</button>
+                <button class="btn btn-primary" id="submitBtn" onclick="submitAnswer()">Antwort prüfen</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">Nächste Frage</button>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="practice-card loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Lade nächste Frage...</p>
+        </div>
+
+        <!-- Complete Screen -->
+        <div id="completeScreen" class="practice-card session-complete" style="display: none;">
+            <div class="complete-icon">🎉</div>
+            <h2 class="complete-title">Session abgeschlossen!</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="finalScore">0%</div>
+                    <div class="stat-label">Endergebnis</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="finalCorrect">0</div>
+                    <div class="stat-label">Richtige Antworten</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="finalTime">00:00</div>
+                    <div class="stat-label">Gesamtzeit</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgTime">0s</div>
+                    <div class="stat-label">Ø Zeit pro Frage</div>
+                </div>
+            </div>
+
+            <div id="weakAreasSection" style="display: none; margin: 2rem 0;">
+                <h3 style="margin-bottom: 1rem;">Verbesserungsbereiche:</h3>
+                <div id="weakAreasList"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="location.href='/dashboard'">Zum Dashboard</button>
+                <button class="btn btn-primary" onclick="location.reload()">Neue Session</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let sessionId = null;
+        let currentQuestion = null;
+        let selectedAnswer = null;
+        let totalQuestions = 0;
+        let answeredQuestions = 0;
+        let correctAnswers = 0;
+        let sessionStartTime = null;
+        let questionStartTime = null;
+        let timerInterval = null;
+
+        // Initialize topic chips
+        document.querySelectorAll('.topic-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        function startSession() {
+            const topicId = document.getElementById('topicSelect').value || null;
+            const questionCount = parseInt(document.getElementById('questionCount').value);
+            const sessionType = document.querySelector('.topic-chip.active').dataset.type;
+
+            const requestData = {
+                userId: 1, // Default user for now
+                sessionType: sessionType,
+                topicId: topicId ? parseInt(topicId) : null,
+                questionCount: questionCount
+            };
+
+            fetch('/api/learning-engine/session/start', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.sessionId) {
+                    sessionId = data.sessionId;
+                    totalQuestions = data.totalQuestions;
+                    sessionStartTime = new Date();
+                    startTimer();
+                    
+                    document.getElementById('startScreen').style.display = 'none';
+                    document.getElementById('practiceScreen').style.display = 'block';
+                    
+                    loadNextQuestion();
+                } else {
+                    alert('Fehler beim Starten der Session: ' + (data.error || 'Unbekannter Fehler'));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Fehler beim Starten der Session');
+            });
+        }
+
+        function loadNextQuestion() {
+            document.getElementById('practiceScreen').style.display = 'none';
+            document.getElementById('loadingScreen').style.display = 'block';
+
+            fetch(`/api/learning-engine/session/${sessionId}/next`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                    
+                    if (data.completed) {
+                        endSession();
+                    } else {
+                        currentQuestion = data;
+                        questionStartTime = new Date();
+                        displayQuestion(data);
+                        document.getElementById('practiceScreen').style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('loadingScreen').style.display = 'none';
+                    document.getElementById('practiceScreen').style.display = 'block';
+                    alert('Fehler beim Laden der Frage');
+                });
+        }
+
+        function displayQuestion(question) {
+            // Update progress
+            answeredQuestions++;
+            document.getElementById('questionNumber').textContent = `Frage ${answeredQuestions} von ${totalQuestions}`;
+            document.getElementById('progressBar').style.width = `${(answeredQuestions - 1) / totalQuestions * 100}%`;
+            
+            // Update difficulty badge
+            const difficultyBadge = document.getElementById('difficultyBadge');
+            const difficulty = question.difficulty || 2;
+            const difficultyNames = ['', 'Leicht', 'Mittel', 'Schwer', 'Experte'];
+            const difficultyClasses = ['', 'difficulty-easy', 'difficulty-medium', 'difficulty-hard', 'difficulty-expert'];
+            
+            difficultyBadge.textContent = difficultyNames[difficulty] || 'Mittel';
+            difficultyBadge.className = 'difficulty-badge ' + (difficultyClasses[difficulty] || 'difficulty-medium');
+            
+            // Display question
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Display answers
+            const answersContainer = document.getElementById('answersContainer');
+            answersContainer.innerHTML = '';
+            
+            const answers = [
+                { label: 'A', text: question.answerA },
+                { label: 'B', text: question.answerB },
+                { label: 'C', text: question.answerC },
+                { label: 'D', text: question.answerD }
+            ];
+            
+            answers.forEach(answer => {
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'answer-option';
+                answerDiv.dataset.answer = answer.label;
+                answerDiv.innerHTML = `
+                    <input type="radio" name="answer" class="answer-radio" value="${answer.label}">
+                    <span class="answer-label">${answer.label})</span>
+                    <span class="answer-text">${answer.text}</span>
+                `;
+                
+                answerDiv.addEventListener('click', function() {
+                    document.querySelectorAll('.answer-option').forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    this.querySelector('.answer-radio').checked = true;
+                    selectedAnswer = answer.label;
+                });
+                
+                answersContainer.appendChild(answerDiv);
+            });
+            
+            // Reset UI
+            selectedAnswer = null;
+            document.getElementById('feedbackContainer').classList.remove('show');
+            document.getElementById('submitBtn').style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'none';
+        }
+
+        function submitAnswer() {
+            if (!selectedAnswer) {
+                alert('Bitte wähle eine Antwort aus!');
+                return;
+            }
+            
+            const responseTime = Math.floor((new Date() - questionStartTime) / 1000);
+            
+            fetch('/api/learning-engine/session/answer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    sessionId: sessionId,
+                    questionId: currentQuestion.questionId,
+                    answer: selectedAnswer,
+                    responseTime: responseTime
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                showFeedback(data);
+                updateStats(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Fehler beim Übermitteln der Antwort');
+            });
+        }
+
+        function showFeedback(result) {
+            const feedbackContainer = document.getElementById('feedbackContainer');
+            const feedbackTitle = document.getElementById('feedbackTitle');
+            const feedbackExplanation = document.getElementById('feedbackExplanation');
+            
+            if (result.correct) {
+                feedbackContainer.className = 'feedback-container feedback-correct show';
+                feedbackTitle.textContent = '✅ Richtig!';
+                correctAnswers++;
+            } else {
+                feedbackContainer.className = 'feedback-container feedback-incorrect show';
+                feedbackTitle.textContent = `❌ Falsch! Richtige Antwort: ${result.correctAnswer}`;
+            }
+            
+            if (result.explanation) {
+                feedbackExplanation.textContent = result.explanation;
+            } else {
+                feedbackExplanation.textContent = '';
+            }
+            
+            // Highlight correct/incorrect answers
+            document.querySelectorAll('.answer-option').forEach(opt => {
+                if (opt.dataset.answer === result.correctAnswer) {
+                    opt.classList.add('correct');
+                } else if (opt.dataset.answer === selectedAnswer && !result.correct) {
+                    opt.classList.add('incorrect');
+                }
+            });
+            
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'block';
+        }
+
+        function updateStats(result) {
+            document.getElementById('correctCount').textContent = correctAnswers;
+            document.getElementById('accuracyRate').textContent = result.accuracyRate ? 
+                Math.round(result.accuracyRate) + '%' : '0%';
+        }
+
+        function nextQuestion() {
+            if (answeredQuestions >= totalQuestions) {
+                endSession();
+            } else {
+                loadNextQuestion();
+            }
+        }
+
+        function endSession() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            
+            fetch(`/api/learning-engine/session/${sessionId}/end`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                showResults(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showResults({});
+            });
+        }
+
+        function showResults(result) {
+            document.getElementById('practiceScreen').style.display = 'none';
+            document.getElementById('loadingScreen').style.display = 'none';
+            document.getElementById('completeScreen').style.display = 'block';
+            
+            const score = result.score || 0;
+            const duration = result.durationMinutes || 0;
+            const avgTimePerQuestion = duration > 0 ? Math.round((duration * 60) / totalQuestions) : 0;
+            
+            document.getElementById('finalScore').textContent = Math.round(score) + '%';
+            document.getElementById('finalCorrect').textContent = `${correctAnswers}/${totalQuestions}`;
+            document.getElementById('finalTime').textContent = formatTime(duration * 60);
+            document.getElementById('avgTime').textContent = avgTimePerQuestion + 's';
+            
+            if (result.weakAreas && result.weakAreas.length > 0) {
+                document.getElementById('weakAreasSection').style.display = 'block';
+                const weakAreasList = document.getElementById('weakAreasList');
+                weakAreasList.innerHTML = result.weakAreas.map(area => 
+                    `<div style="padding: 0.5rem; background: #fff3e0; border-radius: 5px; margin-bottom: 0.5rem;">
+                        ${area}
+                    </div>`
+                ).join('');
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((new Date() - sessionStartTime) / 1000);
+                document.getElementById('sessionTimer').textContent = formatTime(elapsed);
+            }, 1000);
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Load user streak on page load
+        window.addEventListener('load', () => {
+            fetch('/api/learning-engine/streak/1')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.currentStreak > 0) {
+                        document.getElementById('streakIndicator').style.display = 'flex';
+                        document.getElementById('streakCount').textContent = data.currentStreak;
+                    }
+                })
+                .catch(error => console.error('Error loading streak:', error));
+        });
+    </script>
+</body>
+</html>

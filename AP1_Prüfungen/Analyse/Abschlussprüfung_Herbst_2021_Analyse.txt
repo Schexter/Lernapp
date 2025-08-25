@@ -1,0 +1,519 @@
+# FACHINFORMATIKER ABSCHLUSSPRÜFUNG HERBST 2021 - THEMATISCHE ANALYSE
+# Erstellt am: 19.08.2025
+# Quelle: IHK Abschlussprüfung - Fachinformatiker Anwendungsentwicklung (AO 2020)
+
+================================================================================
+GESAMTÜBERSICHT DER ABSCHLUSSPRÜFUNG HERBST 2021
+================================================================================
+
+Prüfungstyp: Abschlussprüfung Fachinformatiker/in Anwendungsentwicklung
+Prüfungsordnung: AO 2020
+Datum: Mittwoch, 29. September 2021
+Prüfungscode: 1201
+Bearbeitungszeit: 90 Minuten
+Maximalpunktzahl: 100 Punkte
+Aufgabenanzahl: 4 Hauptaufgaben
+
+WICHTIGER HINWEIS: Prüfung fand unter COVID-19-Pandemie-Bedingungen statt
+Besonderheit: Gewöhnlicher Prüfbetrieb war nicht durch Pandemie beeinträchtigt
+
+================================================================================
+AUFGABE 1: PROJEKTMANAGEMENT & NETZPLANTECHNIK (25 Punkte)
+================================================================================
+
+Unternehmensszenario: IT-SYS GmbH (Systemhaus für IT-Dienstleistungen)
+Projektkontext: Arztpraxis Care - Umzug und IT-System-Neugestaltung
+
+AUFGABE 1a - Projektmerkmale (4 Punkte)
+Fragestellung: "Ihr Kollege sagt zu Ihnen, bei dem Umzug der Arztpraxis handelt es sich um ein Projekt. Nennen Sie vier Merkmale eines Projekts."
+Themen:
+- Projektdefinition und -charakteristika
+- Projektmanagement-Grundlagen
+- Abgrenzung Projekt vs. Routinetätigkeit
+
+Typische Projektmerkmale:
+- Einmaligkeit und Neuartigkeit
+- Zeitliche Begrenzung (definierter Anfang und Ende)
+- Komplexität und Interdisziplinarität
+- Begrenzte Ressourcen (Budget, Personal, Zeit)
+- Definierte Ziele und Ergebnisse
+- Projektorganisation mit spezifischen Rollen
+
+AUFGABE 1b - SMART-Kriterien (4 Punkte)
+Fragestellung: "Die Ziele in einem Projekt sollen den SMART-Kriterien entsprechen. Nennen Sie die vier weiteren SMART-Kriterien auf Deutsch oder Englisch."
+Themen:
+- Zielformulierung in Projekten
+- SMART-Methodik
+- Projektplanung und -steuerung
+
+SMART-Kriterien:
+- S = Specific (spezifisch) - bereits gegeben
+- M = Measurable (messbar)
+- A = Achievable/Attainable (erreichbar)
+- R = Realistic/Relevant (realistisch/relevant)
+- T = Time-bound (terminiert/zeitgebunden)
+
+AUFGABE 1c - Netzplan-Vervollständigung (14 Punkte)
+Fragestellung: "Tragen Sie die fehlenden FAZ, FEZ, SAZ, SEZ, GP und FP in den nebenstehenden Plan ein."
+Themen:
+- Netzplantechnik und Terminplanung
+- Kritischer Pfad-Analyse
+- Pufferzeiten-Berechnung
+- Projektterminierung
+
+Netzplan-Begriffe:
+- FAZ = Frühester Anfangszeitpunkt
+- FEZ = Frühester Endzeitpunkt  
+- SAZ = Spätester Anfangszeitpunkt
+- SEZ = Spätester Endzeitpunkt
+- GP = Gesamtpuffer (= SAZ - FAZ oder SEZ - FEZ)
+- FP = Freier Puffer (= FAZ des Nachfolgers - FEZ des aktuellen Vorgangs)
+
+Vorgänge im Netzplan:
+A - Ist-Konzept (2 Tage)
+B - Soll-Konzept (4 Tage)
+C - Beschaffung neuer Server (3 Tage)
+D - Installation strukturierter Netzverkabelung (8 Tage)
+E - Dokumentation (2 Tage)
+F - Inbetriebnahme (5 Tage)
+G - Installation neuen Netzwerkes (4 Tage)
+H - Abbau der Infrastruktur (1 Tage)
+I - Einrichtung Clients (3 Tage)
+J - Fachbereich (1 Tage)
+K - Überprüfung und Einweisung der Mitarbeiter (2 Tage)
+
+AUFGABE 1d - Kritischer Pfad (1 Punkt)
+Fragestellung: "Markieren Sie den kritischen Pfad im Netzplan."
+Themen:
+- Kritischer Pfad-Identifikation
+- Projektrisiko-Management
+- Terminüberwachung
+
+AUFGABE 1e - Projektverzögerung und Auswirkungen (2 Punkte)
+Fragestellung: "Der Vorgang H, der Abbau der alten Infrastruktur, verzögert sich um vier Stunden. Beschreiben Sie die Auswirkung auf das Projektende."
+Themen:
+- Auswirkungsanalyse von Verzögerungen
+- Pufferzeit-Nutzung
+- Projektsteuerung und -kontrolle
+
+================================================================================
+AUFGABE 2: ENERGIEEFFIZIENZ & WIRTSCHAFTLICHKEIT (25 Punkte)  
+================================================================================
+
+Unternehmensszenario: PC-Beschaffung und Energiekosten-Optimierung
+
+AUFGABE 2a - Energiekosten-Berechnung (6 Punkte)
+Fragestellung: "Errechnen Sie die Leistung und die Energiekosten pro Monat, wenn eine kWh 30 Cent kostet."
+Themen:
+- Energieeffizienz-Berechnung
+- Total Cost of Ownership (TCO)
+- Wirtschaftlichkeitsanalyse
+- Umweltbewusstes IT-Management
+
+Berechnungsparameter:
+- Betriebsstunden: 9h/Tag, 20 Arbeitstage/Monat
+- PC-A: Wirkungsgrad 43% bei 60W, Netzteil ohne Zertifikat
+- PC-B: Wirkungsgrad 76% bei 60W, 80Plus Gold Standard
+- Stromkosten: 0,30 EUR/kWh
+
+Efficiency-Formel: Useful power output / Total power input
+
+AUFGABE 2b - Amortisationsrechnung (4 Punkte)
+Fragestellung: "Berechnen Sie die Dauer in Monaten, ab der sich die Anschaffung amortisiert hat."
+Themen:
+- Investitionsrechnung
+- Amortisationszeit-Berechnung
+- Beschaffungsentscheidungen
+- Kosteneinsparungen
+
+Berechnungsgrundlage:
+- PC mit 80Plus Gold Standard: 100 EUR Mehrkosten
+- Monatliche Energiekosteneinsparung durch höhere Effizienz
+- Break-Even-Point-Analyse
+
+AUFGABE 2c - Energieeinsparungsmaßnahmen (3 Punkte)
+Fragestellung: "Machen Sie drei weitere Vorschläge zur Senkung der Energiekosten des IT-Arbeitsplatzes."
+Themen:
+- Green IT und Nachhaltigkeit
+- Energiemanagement
+- Umweltschutz in der IT
+- Betriebskosten-Optimierung
+
+Mögliche Energiesparmaßnahmen:
+- Automatische Standby-Modi und Energieverwaltung
+- LED-Monitore statt herkömmlicher Displays
+- Zentrale Server-Lösungen statt dezentrale Einzelplatz-Systeme
+- Effiziente Klimatisierung und Belüftung
+- Virtualisierung zur besseren Hardware-Auslastung
+- Energieeffiziente Peripheriegeräte
+
+AUFGABE 2d - Lastmanagement und Mehrfachsteckdosen (4 Punkte)
+Fragestellung: "Weisen Sie durch eine Rechnung nach, dass diese Geräte nicht gleichzeitig betrieben werden können."
+Themen:
+- Elektrische Lastberechnung
+- Sicherheitsbestimmungen
+- Überlastungsschutz
+- Technische Installation
+
+Geräte-Konfiguration:
+- Mehrfachsteckdose: "maximal 16 A"
+- 3 PCs: je 180W maximale Leistungsaufnahme
+- 1 Drucker: 400W maximale Leistungsaufnahme  
+- 1 Kaffeemaschine: 1.200W maximale Leistungsaufnahme
+- 1 Klimagerät: 2.000W maximale Leistungsaufnahme
+
+Berechnung: Gesamtleistung vs. maximal zulässige Belastung
+
+================================================================================
+AUFGABE 2: SCRIPTING & SYSTEMADMINISTRATION (Fortsetzung)
+================================================================================
+
+AUFGABE 2e - PowerShell Script-Korrektur (8 Punkte)
+Fragestellung: "Lesen Sie sich die folgende Anleitung (manual) durch und korrigieren Sie in der obigen Tabelle die zwei Fehler."
+Themen:
+- PowerShell-Scripting
+- Systemadministration
+- Speicherplatz-Überwachung
+- Script-Debugging
+
+Fehlerhaftes Script:
+```powershell
+$Drive = Get-Volume -DriveLetter Z
+$Prozent=($Drive.SizeRemaining/$Drive.Size) * 1000
+if ($Prozent -gt 15)
+{
+Write-Host "Es sind weniger als 15% Speicherplatz frei."
+}
+else
+{
+Write-Host "Es ist genügend Speicherplatz verfügbar."
+}
+```
+
+Script-Analyse:
+- Funktion: Speicherplatz-Überwachung mit 15%-Schwellwert
+- Probleme: Falsche Berechnung und logische Operatoren
+- Manual-Referenz: PowerShell Vergleichsoperatoren (-eq, -ne, -gt, -ge, -lt, -le)
+
+================================================================================
+AUFGABE 3: IT-SYSTEMBETREUUNG & SUPPORT (26 Punkte)
+================================================================================
+
+Unternehmensszenario: Arztpraxis Care - IT-Support und Systembetreuung
+
+AUFGABE 3a - Lastenheft-Inhalte (5 Punkte)
+Fragestellung: "Grundlage für einen möglichen Auftrag an die IT-SYS GmbH ist ein Lastenheft der Arztpraxis Care, das die spezifischen Anforderungen des Auftraggebers an den potenziellen Auftragnehmer beschreibt."
+Themen:
+- Requirements Engineering
+- Lastenheft vs. Pflichtenheft
+- Projektdokumentation
+- Anforderungsmanagement
+
+Typische Lastenheft-Inhalte:
+- Ausgangssituation und Projektziele
+- Funktionale Anforderungen
+- Nicht-funktionale Anforderungen (Performance, Sicherheit, Usability)
+- Technische Rahmenbedingungen
+- Qualitätsanforderungen
+- Schnittstellen-Definitionen
+- Abnahmekriterien und Testverfahren
+
+AUFGABE 3b - E-Mail-Migration: Kostenberechnung und Zeitplanung
+AUFGABE 3ba - Gesamtkosten Migration (2 Punkte)
+Fragestellung: "Berechnen Sie die Gesamtkosten für die Migration, die die IT-SYS GmbH berücksichtigen müsste."
+Themen:
+- Projekt-Kostenplanung
+- Ressourcenplanung
+- Aufwandsschätzung
+
+Projektparameter:
+- E-Mail-System-Ablösung in der Arztpraxis
+- Migration nur außerhalb der Öffnungszeiten (18:00-8:00 Uhr)
+- Praxis: Montag-Freitag 18:00-8:00 Uhr geschlossen
+- Aufwand: 130 EUR/h für Dienstleister
+- Umfang: 20 Postfächer, komplexe manuelle Nacharbeit
+
+AUFGABE 3bb - Zeitplanung Migration (2 Punkte)
+Fragestellung: "Ermitteln Sie, nach wie vielen Tagen die Migration frühestens abgeschlossen ist, wenn das Subunternehmen zwei Angestellte mit einer täglichen Arbeitszeit von 8 h pro Tag einsetzt."
+Themen:
+- Zeitmanagement in Projekten
+- Ressourcenallokation
+- Parallelarbeit und Effizienz
+
+AUFGABE 3c - Remote Work: Vor- und Nachteile (4 Punkte)
+Fragestellung: "Nennen Sie zwei Vorteile sowie zwei Nachteile von remote gegenüber einer Vor-Ort-Wartung."
+Themen:
+- Remote-Administration
+- IT-Support-Strategien
+- Arbeitsmodelle in der IT
+- Service-Delivery-Methoden
+
+Remote Work Vorteile:
+- Kostenersparnis (Anfahrtszeiten, Reisekosten)
+- Schnellere Reaktionszeiten bei Störungen
+- Flexibilität bei Terminplanung
+- Dokumentierbarkeit der durchgeführten Arbeiten
+
+Remote Work Nachteile:
+- Eingeschränkte Möglichkeiten bei Hardware-Problemen
+- Sicherheitsrisiken durch externe Zugriffe
+- Abhängigkeit von funktionierender Netzwerkverbindung
+- Begrenzte Komplexität der durchführbaren Arbeiten
+
+AUFGABE 3d - Software-Schulungskonzepte (6 Punkte)
+Fragestellung: "Beschreiben Sie drei von den vier vorgegebenen Möglichkeiten, wie die betreffenden Inhalte vermittelt werden können."
+Themen:
+- Erwachsenenbildung und Schulungskonzepte
+- Change Management
+- Software-Einführung
+- Wissensvermittlung
+
+Schulungsformate:
+(1) Schulung am Arbeitsplatz:
+- Direkter Praxisbezug und reale Arbeitsumgebung
+- Individuelle Anpassung an Arbeitsabläufe
+- Sofortige Anwendung des Gelernten
+
+(2) Webinare:
+- Orts- und zeitunabhängige Teilnahme
+- Kosteneffiziente Lösung für mehrere Teilnehmer
+- Möglichkeit der Aufzeichnung für spätere Wiederholung
+
+(3) Video-Tutorials:
+- Selbstbestimmtes Lerntempo
+- Wiederholbare Lerneinheiten
+- Verfügbarkeit rund um die Uhr
+
+(4) Multiplikatoren-Schulung:
+- Ausbildung interner Schulungsverantwortlicher
+- Nachhaltige Wissensvermittlung im Unternehmen
+- Kostenersparnis bei langfristiger Betrachtung
+
+AUFGABE 3e - RAID-Systeme (7 Punkte)
+Fragestellung: "Erklären Sie dem Praxisinhaber die Grundfunktionen der drei RAID-Level-Arten und begründen Sie, für welches RAID-Level sich der Praxisinhaber entscheiden sollte."
+Themen:
+- Datensicherung und Redundanz
+- RAID-Technologien
+- Verfügbarkeit vs. Performance
+- Risikomanagement
+
+RAID-Level Erklärung:
+RAID 0 (Striping):
+- Daten werden auf mehrere Festplatten verteilt
+- Höhere Performance durch parallele Zugriffe
+- KEIN Ausfallschutz - bei Defekt einer Platte sind alle Daten verloren
+- Geeignet für: Performance-kritische Anwendungen ohne Verfügbarkeitsanforderungen
+
+RAID 1 (Mirroring):
+- Vollständige Spiegelung aller Daten auf zwei Festplatten
+- Hohe Ausfallsicherheit bei Defekt einer Festplatte
+- Reduzierte nutzbare Speicherkapazität (50%)
+- Geeignet für: Kritische Daten mit hohen Verfügbarkeitsanforderungen
+
+RAID 5 (Striping mit Parität):
+- Daten und Paritätsinformationen auf mindestens 3 Festplatten verteilt
+- Ausfallschutz bei Defekt einer Festplatte
+- Gute Balance zwischen Speichereffizienz und Sicherheit
+- Geeignet für: Anwendungen mit moderaten Performance- und Verfügbarkeitsanforderungen
+
+Empfehlung für Arztpraxis:
+RAID 1 aufgrund der kritischen Patientendaten und gesetzlichen Aufbewahrungspflichten
+
+================================================================================
+AUFGABE 4: DATENSCHUTZ & INFORMATIONSSICHERHEIT (24 Punkte)
+================================================================================
+
+Unternehmensszenario: IT-SYS GmbH - Datenschutz und Sicherheitskonzept
+
+AUFGABE 4a - Informationssicherheit: Schutzziele und Maßnahmen (6 Punkte)
+Fragestellung: "Informieren Sie sich über allgemeine Grundlagen der Informationssicherheit. Als wichtige Schutzziele werden hier u.a. Vertraulichkeit, Integrität und Verfügbarkeit genannt."
+Themen:
+- CIA-Triad (Confidentiality, Integrity, Availability)
+- Informationssicherheits-Management
+- Schutzbedarfsanalyse
+- Sicherheitsmaßnahmen-Kategorisierung
+
+Sicherheitsmaßnahmen-Zuordnung:
+- Sichere Passwörter wählen → Vertraulichkeit
+- Regelmäßige Datensicherung der Patientendaten → Verfügbarkeit
+- Verschlüsselung der Festplatten → Vertraulichkeit  
+- Zentrale Bearbeitung wichtiger Dokumente auf Server → Integrität
+- Hashwertüberprüfung bei Softwareinstallation → Integrität
+
+AUFGABE 4b - IT-Grundschutz-Kompendium (BSI) (2 Punkte)
+Fragestellung: "Nennen Sie je eine Maßnahme, mit denen die folgenden Anforderungen umgesetzt werden könnten."
+Themen:
+- BSI IT-Grundschutz
+- Sicherheitsstandards
+- Client-Härtung
+- Systemsicherheit
+
+BSI-Anforderungen:
+- Aktivieren von Autoupdate-Mechanismen:
+  Automatische Windows-Updates, Antivirus-Definitionen, Software-Patches
+
+- Differenzieren von Benutzerrollen (Rollentrennung):
+  Administratoren-Accounts vs. Standard-Benutzer, Gruppen-Policies, Least-Privilege-Prinzip
+
+AUFGABE 4c - Schutzbedarfskategorien (6 Punkte)
+Fragestellung: "Fügen Sie jeweils eine mögliche Begründung für den gewählten Schutzbedarf hinzu."
+Themen:
+- Schutzbedarfsanalyse
+- Risikobewertung
+- IT-Anwendungsklassifizierung
+- Compliance-Anforderungen
+
+Schutzbedarfskategorien:
+- Niedrig bis mittel: Begrenzte und überschaubare Schadensauswirkungen
+- Hoch: Beträchtliche Schadensauswirkungen möglich
+- Sehr hoch: Existenziell bedrohliches, katastrophales Ausmaß
+
+IT-Anwendungen Bewertung:
+- Prüfziffernverfahren Krankenversicherungsnummer: Integrität/hoch
+  (Verfälschte Daten führen zu fehlerhaften Abrechnungen)
+- Textverarbeitung: Verfügbarkeit/mittel
+  (Arbeitsunterbrechungen beeinträchtigen Produktivität)
+- Telemedizinische Beratung: Vertraulichkeit/hoch
+  (Sensible Patientendaten, ärztliche Schweigepflicht)
+- Patientendatenverarbeitung: Integrität/sehr hoch
+  (Falsche Patientendaten gefährden Menschenleben)
+
+AUFGABE 4d - Datenschutz-Auskunftsrecht (2 Punkte)
+Fragestellung: "Die Arzthelferin an der Rezeption möchte von Ihnen wissen, für welche Art von Daten ein besonderer Schutz gesetzlich vorgeschrieben ist."
+Themen:
+- DSGVO und Datenschutzrecht
+- Besondere Kategorien personenbezogener Daten (Art. 9 DSGVO)
+- Ärztliche Schweigepflicht
+- Patientendatenschutz
+
+Besonders schutzwürdige Daten:
+- Gesundheitsdaten und medizinische Informationen
+- Daten zur ethnischen Herkunft, politischen Meinungen
+- Religiöse oder weltanschauliche Überzeugungen
+- Gewerkschaftszugehörigkeit
+- Genetische und biometrische Daten
+- Daten zum Sexualleben oder zur sexuellen Orientierung
+
+AUFGABE 4e - Sichere Passwort-Kriterien (4 Punkte)  
+Fragestellung: "Führen Sie zwei Kriterien an, die ein sicheres Passwort erfüllen sollte. Beschreiben Sie auch, warum diese Kriterien für eine höhere Sicherheit sorgen."
+Themen:
+- Passwort-Sicherheit
+- Authentifizierung
+- Brute-Force-Schutz
+- Security Awareness
+
+Passwort-Kriterien:
+1. Ausreichende Länge (mindestens 8-12 Zeichen):
+   - Exponentiell erhöhter Aufwand für Brute-Force-Angriffe
+   - Größerer Suchraum für Angreifer
+
+2. Komplexität (Groß-/Kleinbuchstaben, Zahlen, Sonderzeichen):
+   - Verhinderung von Wörterbuchangriffen
+   - Erhöhung der möglichen Kombinationen
+
+3. Eindeutigkeit (keine Wiederverwendung):
+   - Begrenzung der Auswirkungen bei Kompromittierung
+   - Schutz vor Credential-Stuffing-Angriffen
+
+4. Regelmäßige Änderung:
+   - Begrenzung der Nutzungsdauer kompromittierter Passwörter
+   - Reduzierung des Zeitfensters für Angriffe
+
+================================================================================
+PRÜFUNGSZEIT-BEWERTUNG
+================================================================================
+
+Originale Bewertungsangabe:
+"Wie beurteilen Sie nach der Bearbeitung der Aufgaben die zur Verfügung stehende Prüfungszeit?"
+
+Antwortoptionen:
+1. Sie hätte kürzer sein können
+2. Sie war angemessen  
+3. Sie hätte länger sein müssen
+
+Diese Frage dient der Qualitätssicherung und Prüfungsoptimierung durch die IHK.
+
+================================================================================
+ZUSAMMENFASSUNG DER HAUPTTHEMEN - ABSCHLUSSPRÜFUNG HERBST 2021
+================================================================================
+
+1. PROJEKTMANAGEMENT & NETZPLANTECHNIK (25% der Punkte)
+   - Projektmerkmale und SMART-Kriterien
+   - Netzplantechnik mit vollständiger Terminberechnung
+   - Kritischer Pfad und Verzögerungsanalyse
+   - Praktische Anwendung der PM-Methoden
+
+2. ENERGIEEFFIZIENZ & SYSTEMADMINISTRATION (25% der Punkte)
+   - Energiekosten-Berechnung und TCO
+   - Amortisationsrechnung
+   - Green IT und Nachhaltigkeit
+   - PowerShell-Scripting und Debugging
+   - Elektrische Lastberechnung
+
+3. IT-SYSTEMBETREUUNG & SUPPORT (26% der Punkte)
+   - Requirements Engineering (Lastenheft)
+   - Projekt-Kostenplanung und Zeitmanagement
+   - Remote Work vs. Vor-Ort-Service
+   - Schulungskonzepte und Change Management
+   - RAID-Systeme und Datensicherheit
+
+4. DATENSCHUTZ & INFORMATIONSSICHERHEIT (24% der Punkte)
+   - CIA-Triad und Sicherheitsmaßnahmen
+   - BSI IT-Grundschutz
+   - Schutzbedarfsanalyse
+   - DSGVO und Patientendatenschutz
+   - Passwort-Sicherheit
+
+================================================================================
+BESONDERHEITEN DER ABSCHLUSSPRÜFUNG IM VERGLEICH ZUR ZWISCHENPRÜFUNG
+================================================================================
+
+HÖHERER KOMPLEXITÄTSGRAD:
+- Umfassende Netzplan-Berechnungen statt einfacher Zuordnungen
+- Praktische Script-Analyse und Fehlerkorrektur
+- Detaillierte Kostenrechnungen mit mehreren Variablen
+- Komplexe Sicherheitsanalysen
+
+PRAXISNAHES PROJEKTMANAGEMENT:
+- Vollständiges Projekt-Szenario mit realistischem Kontext
+- Integration verschiedener PM-Disziplinen
+- Ressourcenplanung und Kostenkalkulation
+
+AKTUELLE TECHNOLOGIE-TRENDS:
+- Green IT und Energieeffizienz
+- Remote Work und moderne Arbeitsformen
+- Cloud-Migration (E-Mail-Systeme)
+- Compliance und Datenschutz (DSGVO)
+
+INTERDISZIPLINÄRE VERKNÜPFUNG:
+- Technische, wirtschaftliche und rechtliche Aspekte
+- Kundenkommunikation und Beratung
+- Change Management und Schulungskonzepte
+
+================================================================================
+SCHWERPUNKTE FÜR ABSCHLUSSPRÜFUNGS-VORBEREITUNG
+================================================================================
+
+KRITISCHE KOMPETENZBEREICHE:
+1. Netzplantechnik mit vollständiger mathematischer Berechnung
+2. Wirtschaftlichkeitsanalyse und Kostenrechnung
+3. Scripting und Systemadministration (PowerShell)
+4. Datenschutz und Informationssicherheit (DSGVO/BSI)
+5. Projektmanagement in realen Geschäftsszenarien
+
+PRAKTISCHE FÄHIGKEITEN:
+- Komplexe Berechnungen unter Zeitdruck
+- Script-Analyse und Debugging
+- Kundenberatung und Anforderungsanalyse
+- Sicherheitskonzepte entwickeln und bewerten
+
+AKTUELLE RECHTSGRUNDLAGEN:
+- DSGVO-Compliance
+- BSI IT-Grundschutz
+- Arbeitsschutz und Energieeffizienz
+- IHK-Prüfungsordnung AO 2020
+
+================================================================================
+Ende der Analyse - Abschlussprüfung Herbst 2021
+Gesamtumfang: 4 Hauptaufgaben, 100 Punkte, 90 Minuten Bearbeitungszeit
+================================================================================

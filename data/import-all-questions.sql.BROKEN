@@ -1,0 +1,60 @@
+-- Mega Import Script für alle Fragen
+
+-- Haupttabelle sicherstellen
+CREATE TABLE IF NOT EXISTS QUESTIONS (
+    ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+    QUESTION_TEXT VARCHAR(2000) NOT NULL,
+    OPTION_A VARCHAR(1000),
+    OPTION_B VARCHAR(1000),
+    OPTION_C VARCHAR(1000),
+    OPTION_D VARCHAR(1000),
+    CORRECT_ANSWER VARCHAR(10),
+    CATEGORY VARCHAR(200),
+    DIFFICULTY VARCHAR(50),
+    POINTS INT DEFAULT 10,
+    EXAM_YEAR VARCHAR(10),
+    EXAM_SEASON VARCHAR(50),
+    MAIN_CATEGORY VARCHAR(200),
+    SUB_CATEGORY VARCHAR(200),
+    TOPIC_TAGS VARCHAR(500),
+    EXPLANATION VARCHAR(2000),
+    HINT VARCHAR(1000),
+    FREQUENCY INT
+);
+
+-- Die große AP1 Sammlung (171 Fragen)
+MERGE INTO QUESTIONS (QUESTION_TEXT, OPTION_A, OPTION_B, OPTION_C, OPTION_D, CORRECT_ANSWER, CATEGORY, DIFFICULTY, POINTS) 
+SELECT 
+    question_text,
+    answer_a,
+    answer_b,
+    answer_c,
+    answer_d,
+    correct_answer,
+    main_category,
+    difficulty,
+    points
+FROM CSVREAD('/opt/Lernapp/data/ap1_questions/ALL_AP1_QUESTIONS.csv', null, 'charset=UTF-8 fieldSeparator=,')
+WHERE question_text IS NOT NULL;
+
+-- MEGA Sets importieren
+MERGE INTO QUESTIONS (QUESTION_TEXT, OPTION_A, OPTION_B, OPTION_C, OPTION_D, CORRECT_ANSWER, CATEGORY, DIFFICULTY, POINTS) 
+SELECT * FROM CSVREAD('/opt/Lernapp/data/ap1_questions/MEGA_FRAGEN_SET_1.csv', null, 'charset=UTF-8');
+
+MERGE INTO QUESTIONS (QUESTION_TEXT, OPTION_A, OPTION_B, OPTION_C, OPTION_D, CORRECT_ANSWER, CATEGORY, DIFFICULTY, POINTS) 
+SELECT * FROM CSVREAD('/opt/Lernapp/data/ap1_questions/MEGA_FRAGEN_SET_2.csv', null, 'charset=UTF-8');
+
+MERGE INTO QUESTIONS (QUESTION_TEXT, OPTION_A, OPTION_B, OPTION_C, OPTION_D, CORRECT_ANSWER, CATEGORY, DIFFICULTY, POINTS) 
+SELECT * FROM CSVREAD('/opt/Lernapp/data/ap1_questions/MEGA_FRAGEN_SET_3.csv', null, 'charset=UTF-8');
+
+MERGE INTO QUESTIONS (QUESTION_TEXT, OPTION_A, OPTION_B, OPTION_C, OPTION_D, CORRECT_ANSWER, CATEGORY, DIFFICULTY, POINTS) 
+SELECT * FROM CSVREAD('/opt/Lernapp/data/ap1_questions/MEGA_FRAGEN_SET_4.csv', null, 'charset=UTF-8');
+
+-- Weitere spezifische Fragen
+MERGE INTO QUESTIONS SELECT * FROM CSVREAD('/opt/Lernapp/data/ap1_questions/netzwerktechnik.csv', null, 'charset=UTF-8');
+MERGE INTO QUESTIONS SELECT * FROM CSVREAD('/opt/Lernapp/data/ap1_questions/programmierung.csv', null, 'charset=UTF-8');
+MERGE INTO QUESTIONS SELECT * FROM CSVREAD('/opt/Lernapp/data/ap1_questions/geschaeftsprozesse.csv', null, 'charset=UTF-8');
+
+-- Anzahl prüfen
+SELECT COUNT(*) AS TOTAL_QUESTIONS FROM QUESTIONS;
+SELECT CATEGORY, COUNT(*) AS COUNT FROM QUESTIONS GROUP BY CATEGORY;
