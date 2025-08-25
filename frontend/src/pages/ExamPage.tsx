@@ -1,6 +1,7 @@
+import axios from 'axios';
 import { Layout } from '../components/layout/Layout';
 import { Clock, FileQuestion, Trophy, AlertCircle } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ExamRunner } from '../components/exam/ExamRunner';
 import { ExamResult } from '../components/exam/ExamResult';
 
@@ -14,6 +15,29 @@ interface ExamResultData {
 }
 
 export const ExamPage = () => {
+  // Exam Stats from Backend
+  const [examStats, setExamStats] = useState({
+    bestScore: 0,
+    averageTime: 0,
+    examsThisMonth: 0
+  });
+
+  useEffect(() => {
+    fetchExamStats();
+  }, []);
+
+  const fetchExamStats = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('/api/exam/stats', {
+        headers: token ? { 'Authorization': `Bearer ${token}` } : {}
+      });
+      setExamStats(response.data);
+    } catch (error) {
+      console.error('Failed to fetch exam stats:', error);
+    }
+  };
+
   const [selectedExam, setSelectedExam] = useState<string | null>(null);
   const [examStarted, setExamStarted] = useState(false);
   const [examResult, setExamResult] = useState<ExamResultData | null>(null);
@@ -60,6 +84,8 @@ export const ExamPage = () => {
   const handleExamComplete = (result: ExamResultData) => {
     setExamResult(result);
     setExamStarted(false);
+    // Stats nach Prüfung neu laden
+    fetchExamStats();
   };
 
   const handleExamCancel = () => {
@@ -99,7 +125,7 @@ export const ExamPage = () => {
   if (examStarted && selectedExam) {
     const exam = exams.find(e => e.id === selectedExam);
     if (!exam) return null;
-    
+
     return (
       <Layout>
         <div className="p-6">
@@ -127,7 +153,7 @@ export const ExamPage = () => {
             <p className="text-gray-600 mb-6">
               Du startest gleich eine {exam?.duration}-minütige Prüfung mit {exam?.questions} Fragen.
             </p>
-            
+
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
               <h3 className="font-semibold text-yellow-800 mb-2">Wichtige Hinweise:</h3>
               <ul className="text-sm text-yellow-700 text-left space-y-1">
@@ -139,13 +165,13 @@ export const ExamPage = () => {
             </div>
 
             <div className="flex justify-center space-x-4">
-              <button 
+              <button
                 onClick={() => setSelectedExam(null)}
                 className="btn-secondary"
               >
                 Zurück
               </button>
-              <button 
+              <button
                 onClick={() => setExamStarted(true)}
                 className="btn-primary"
               >
@@ -204,7 +230,7 @@ export const ExamPage = () => {
                 </div>
               </div>
 
-              <button 
+              <button
                 onClick={() => setSelectedExam(exam.id)}
                 className="btn-primary w-full"
               >
@@ -220,7 +246,7 @@ export const ExamPage = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Beste Leistung
             </h3>
-            <div className="text-3xl font-bold text-accent mb-1">92%</div>
+            <div className="text-3xl font-bold text-accent mb-1">{examStats.bestScore}%</div>
             <div className="text-sm text-gray-600">AP1 Probeklausur</div>
           </div>
 
@@ -229,7 +255,7 @@ export const ExamPage = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Durchschnittliche Zeit
             </h3>
-            <div className="text-3xl font-bold text-primary mb-1">68</div>
+            <div className="text-3xl font-bold text-primary mb-1">{examStats.averageTime}</div>
             <div className="text-sm text-gray-600">Minuten pro Prüfung</div>
           </div>
 
@@ -238,7 +264,7 @@ export const ExamPage = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Absolvierte Prüfungen
             </h3>
-            <div className="text-3xl font-bold text-warning mb-1">12</div>
+            <div className="text-3xl font-bold text-warning mb-1">{examStats.examsThisMonth}</div>
             <div className="text-sm text-gray-600">Diesen Monat</div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import axios from 'axios';
 const getBackendUrl = () => {
   const hostname = window.location.hostname;
   // Wenn localhost, nutze localhost, sonst nutze die IP-Adresse
-  return `http://${hostname}:8080/api`;
+  return `/api`;
 };
 
 const api = axios.create({
